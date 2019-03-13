@@ -1,0 +1,9 @@
+connexion == 1.1.15
+python_dateutil == 2.6.0
+typing == 3.5.2.2
+setuptools >= 21.0.0
+certifi >= 14.05.14
+six >= 1.10
+python_dateutil >= 2.5.3
+setuptools >= 21.0.0
+urllib3 >= 1.15.1
