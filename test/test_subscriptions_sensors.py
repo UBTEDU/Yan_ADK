@@ -13,17 +13,29 @@
 
 from __future__ import absolute_import
 
+import json
+import time
 import unittest
 
 import openadk
+from openadk import CommonResponse
 from openadk.models.subscriptions_sensors import SubscriptionsSensors  # noqa: E501
 from openadk.rest import ApiException
+from openadk.ubtrc.ubtrc import UBTReturnValue
 
 
 class TestSubscriptionsSensors(unittest.TestCase):
     """SubscriptionsSensors unit test stubs"""
 
     def setUp(self):
+        configuration = openadk.configuration.Configuration()
+        configuration.host = "http://127.0.0.1:8080/v1"
+        self.api = openadk.SubscriptionsApi(openadk.ApiClient(configuration))
+
+        self.subscriptions_sensors_environment = 'sensors'
+        self.subscriptions_sensors_environment = 'http://127.0.0.1:8080/v1/subscriptions/sensors/environment'
+        self.subscriptions_type2 = 'motions'
+        self.subscriptions_url2 = 'http://127.0.0.1:8080/v1/subscriptions/motions'
         pass
 
     def tearDown(self):
@@ -33,8 +45,67 @@ class TestSubscriptionsSensors(unittest.TestCase):
         """Test SubscriptionsSensors"""
         # FIXME: construct object with mandatory attributes with example values
         # model = openadk.models.subscriptions_sensors.SubscriptionsSensors()  # noqa: E501
+        self.test_add()
+        time.sleep(10)
+        self.test_remove()
         pass
 
+    def test_add(self):
+        """
+        Add new items to subscriptions
+        :return:
+        """
+
+        stub_client_subscription = [{'type':'gyro', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/gyro'''},
+                                    {'type':'infrared', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/infrared'''},
+                                    {'type':'ultrasonic', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/ultrasonic'''},
+                                    {'type':'environment', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/environment'''},
+                                    {'type':'touch', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/touch'''},
+                                    {'type':'pressure', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/pressure'''}]
+        for i in range(len(stub_client_subscription)):
+            client_info = SubscriptionsSensors()
+            client_info.url = stub_client_subscription[i]['url']
+            client_info.type = stub_client_subscription[i]['type']
+            client_info.id = 20
+
+            subscription_body_str = json.dumps(eval(client_info.to_str()))
+            subscription_body = json.loads(subscription_body_str)
+            response_body = self.api.post_sensors_subscription(subscription_body)
+
+            expected_response_code = UBTReturnValue.SUCCESS.value['code']
+            expected_response_msg = UBTReturnValue.SUCCESS.value['msg']
+            expected_response_body = CommonResponse(code=expected_response_code, data="""{}""", msg=expected_response_msg)
+            self.assertEqual(response_body, expected_response_body.to_dict())
+
+
+        pass
+
+    def test_remove(self):
+        """
+        Add items and remove it.
+        :return:
+        """
+        stub_client_subscription = [{'type':'gyro', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/gyro'''},
+                                    {'type':'infrared', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/infrared'''},
+                                    {'type':'ultrasonic', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/ultrasonic'''},
+                                    {'type':'environment', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/environment'''},
+                                    {'type':'touch', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/touch'''},
+                                    {'type':'pressure', 'url':'''http://127.0.0.1:10101/v1/subscriptions/sensors/pressure'''}]
+        for i in range(len(stub_client_subscription)):
+            client_info = SubscriptionsSensors()
+            client_info.url = stub_client_subscription[i]['url']
+            client_info.type = stub_client_subscription[i]['type']
+            client_info.id = 20
+
+            subscription_body_str = json.dumps(eval(client_info.to_str()))
+            subscription_body = json.loads(subscription_body_str)
+            response_body = self.api.delete_sensors_subscription(subscription_body)
+
+            expected_response_code = UBTReturnValue.SUCCESS.value['code']
+            expected_response_msg = UBTReturnValue.SUCCESS.value['msg']
+            expected_response_body = CommonResponse(code=expected_response_code, data="""{}""", msg=expected_response_msg)
+            self.assertEqual(response_body, expected_response_body.to_dict())
+        pass
 
 if __name__ == '__main__':
     unittest.main()
