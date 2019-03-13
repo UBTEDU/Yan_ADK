@@ -45,12 +45,12 @@ class TestSubscriptionsSensors(unittest.TestCase):
         """Test SubscriptionsSensors"""
         # FIXME: construct object with mandatory attributes with example values
         # model = openadk.models.subscriptions_sensors.SubscriptionsSensors()  # noqa: E501
-        self.test_add()
+        self.testSubscriptionsSensorsAdd()
         time.sleep(10)
-        self.test_remove()
+        self.testSubscriptionsSensorsRemove()
         pass
 
-    def test_add(self):
+    def testSubscriptionsSensorsAdd(self):
         """
         Add new items to subscriptions
         :return:
@@ -80,7 +80,7 @@ class TestSubscriptionsSensors(unittest.TestCase):
 
         pass
 
-    def test_remove(self):
+    def testSubscriptionsSensorsRemove(self):
         """
         Add items and remove it.
         :return:
