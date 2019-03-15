@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://virtserver.swaggerhub.com/cygnusnow/apollo/1.0.0"
+        self.host = "http://127.0.0.1/v1"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

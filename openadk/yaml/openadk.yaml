@@ -195,7 +195,7 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/VisionsResponse"
+          $ref: "#/definitions/VisionsGetResponse"
       responses:
         200:
           description: "发送成功"
@@ -328,7 +328,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "VoiceStatusResponse"
   TotalTime:
@@ -357,7 +357,7 @@ definitions:
         $ref: "#/definitions/TotalTime"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "RuntimeResponse"
   CommonResponse:
@@ -376,7 +376,7 @@ definitions:
         example: {}
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "CommonResponse"
 
@@ -420,10 +420,10 @@ definitions:
         $ref: "#/definitions/MotionsList"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "MotionsListResponse"
-  MotionsStatusResponse:
+  MotionsStatus:
     type: "object"
     required:
     - "status"
@@ -442,6 +442,24 @@ definitions:
       timestamp:
         type: "integer"
         format: "int32"
+    xml:
+      name: "MotionsStatus"
+  MotionsStatusResponse:
+    type: "object"
+    required:
+    - "code"
+    - "data"
+    - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常,其它都为错误"
+        format: "int32"
+      data:
+        $ref: "#/definitions/MotionsStatus"
+      msg:
+        type: "string"
+        example: "Success"
     xml:
       name: "MotionsStatusResponse"
   MotionsParameter:
@@ -492,7 +510,6 @@ definitions:
         - "start"
         - "pause"
         - "resume"
-        - "reset"
         - "stop"
         default: "start"
       motion:
@@ -512,9 +529,6 @@ definitions:
       servo:
         type: "string"
         example: "01"
-      sn:
-        type: "string"
-        example: "SN-10000"
     xml:
       name: "DevicesVersions"
   DevicesVersionsResponse:
@@ -533,7 +547,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesVersionsResponse"
   DevicesBattery:
@@ -571,7 +585,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesBatteryResponse"
   DevicesLanguage:
@@ -603,7 +617,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesLanguageResponse"
   DevicesFallManagement:
@@ -632,7 +646,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesFallManagementResponse"
   DevicesVolume:
@@ -663,7 +677,7 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesVolumeResponse"
   DevicesLED:
@@ -716,7 +730,7 @@ definitions:
       msg:
         type: "string"
         description: "错误码消息"
-        example: "success"
+        example: "Success"
     xml:
       name: "DevicesLEDResponse"
   ServosList:
@@ -904,7 +918,7 @@ definitions:
         $ref: "#/definitions/ServosMode"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "ServosModeResponse"
   ServosResult:
@@ -978,7 +992,7 @@ definitions:
         $ref: "#/definitions/ServosResult"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "ServosResultResponse"
   ServosAngles:
@@ -1092,7 +1106,6 @@ definitions:
     type: "object"
     required:
     - "angles"
-    - "runtime"
     properties:
       runtime:
         type: "integer"
@@ -1120,7 +1133,7 @@ definitions:
         $ref: "#/definitions/ServosAngles"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "ServosAnglesResponse"
 
@@ -1180,7 +1193,7 @@ definitions:
         $ref: "#/definitions/SensorsList"
       msg:
         type: "string"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsListResponse"
   SensorsGyroInfo:
@@ -1273,7 +1286,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsGyroValueResponse"
   SensorsEnvironmentInfo:
@@ -1330,7 +1343,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsEnvironmentValueResponse"
   SensorsCommonInfo:
@@ -1378,7 +1391,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsUltrasonicValueResponse"
   SensorsInfraredValue:
@@ -1408,7 +1421,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsInfraredValueResponse"
   SensorsTouchValue:
@@ -1438,7 +1451,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsTouchValueResponse"
   SensorsPressureValue:
@@ -1468,7 +1481,7 @@ definitions:
       msg:
         type: "string"
         description: "返回码的信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "SensorsPressureValueResponse"
   SensorsParameter:
@@ -1491,7 +1504,7 @@ definitions:
         format: "int32"
         minimum: 1
         maximum: 127
-        example: 21
+        example: 106
       value:
         type: "integer"
         description: "（1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器ID）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器ID不允许修改!"
@@ -1506,7 +1519,7 @@ definitions:
     properties:
       operation:
         type: "string"
-        description: "操作类型，取值说明：calibrate（校准）和calibrate（修改传感器ID），目前只支持gyro校准。"
+        description: "操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器ID）。"
         enum:
         - "calibrate"
         - "modify"
@@ -1539,10 +1552,10 @@ definitions:
       msg:
         type: "string"
         description: "返回附件信息"
-        example: "success"
+        example: "Success"
     xml:
       name: "MediaMusicListResponse"
-  MediaMusicStatusResponse:
+  MediaMusicStatus:
     type: "object"
     required:
     - "status"
@@ -1558,6 +1571,25 @@ definitions:
         type: "string"
         description: "动作名"
         default: "none"
+    xml:
+      name: "MediaMusicStatus"
+  MediaMusicStatusResponse:
+    type: "object"
+    required:
+    - "code"
+    - "data"
+    - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      data:
+        $ref: "#/definitions/MediaMusicStatus"
+      msg:
+        type: "string"
+        description: "返回附件信息"
+        example: "Success"
     xml:
       name: "MediaMusicStatusResponse"
   MediaMusicOperation:
@@ -1658,7 +1690,7 @@ definitions:
       msg:
         type: "string"
         description: "错误码消息"
-        example: "success"
+        example: "Success"
     xml:
       name: "VisionsPhotoListResponse"
 
@@ -1816,7 +1848,7 @@ definitions:
         $ref: "#/definitions/VisionsExpression"
     xml:
       name: "VisionsAnalysis"
-  VisionsResponseResponse:
+  VisionsResults:
     type: "object"
     properties:
       analysis:
@@ -1826,8 +1858,8 @@ definitions:
       quantity:
         $ref: "#/definitions/VisionsQuantity"
     xml:
-      name: "VisionsResponseResponse"
-  VisionsResponse:
+      name: "VisionsResults"
+  VisionsGetResponse:
     type: "object"
     required:
     - "code"
@@ -1847,15 +1879,15 @@ definitions:
         - "gender_analysis"
         - "expression_analysis"
         - "quantity"
-        description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle, recognition', 'tracking', 'analysis', 'quantity'"
+        description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'"
       data:
-         $ref: "#/definitions/VisionsResponseResponse"
+         $ref: "#/definitions/VisionsResults"
       msg:
         type: "string"
         description: "错误码消息"
-        example: "success"
+        example: "Success"
     xml:
-      name: "VisionsResponse"
+      name: "VisionsGetResponse"
   VisionsSampleDeleteRequest:
     type: "object"
     required:
@@ -1876,7 +1908,7 @@ definitions:
         description: "数据名称"
     xml:
       name: "VisionsSampleDeleteRequest"
-  VisionsTags:
+  VisionsPutTags:
     type: "object"
     required:
     - "tags"
@@ -1891,7 +1923,18 @@ definitions:
         items:
           $ref: "#/definitions/Name"
     xml:
-      name: "VisionsTags"
+      name: "VisionsPutTags"
+  VisionsDeleteTags:
+    type: "object"
+    required:
+    - "tags"
+    properties:
+      tags:
+        type: "string"
+        description: "标签名"
+        example: "bumblebee"
+    xml:
+      name: "VisionsDeleteTags"
   VisionsTagsResponse:
     type: "object"
     required:
@@ -1905,14 +1948,14 @@ definitions:
       data:
         type: "array"
         items:
-          $ref: "#/definitions/VisionsTags"
+          $ref: "#/definitions/VisionsPutTags"
       msg:
         type: "string"
         description: "错误码消息"
-        example: "success"
+        example: "Success"
     xml:
       name: "VisionsTagsResponse"
-  VisionsTimeStamp:
+  VisionsPut:
     type: "object"
     required:
     - "timestamp"
@@ -1922,8 +1965,8 @@ definitions:
         description: "视觉任务时间戳"
         example: 1551838515
     xml:
-      name: "VisionsTimeStamp"
-  VisionsTimeStepResponse:
+      name: "VisionsPut"
+  VisionsPutResponse:
     type: "object"
     required:
     - "code"
@@ -1934,13 +1977,13 @@ definitions:
         description: "错误码"
         example: 0
       data:
-        $ref: "#/definitions/VisionsTimeStamp"
+        $ref: "#/definitions/VisionsPut"
       msg:
         type: "string"
         description: "错误码消息"
-        example: "success"
+        example: "Success"
     xml:
-      name: "VisionsTimeStepResponse"
+      name: "VisionsPutResponse"
   SubscriptionsSensors:
     type: "object"
     required:
@@ -1975,6 +2018,13 @@ definitions:
         minimum: 1
         maximum: 60
         default: 10
+      timeval:
+        type: "integer"
+        description: "上报的最短时间间隔，单位ms（豪秒）"
+        format: "int32"
+        minimum: 100
+        maximum: 5000
+        default: 1000
     xml:
       name: "SubscriptionsSensors"
   SubscriptionsMotions:

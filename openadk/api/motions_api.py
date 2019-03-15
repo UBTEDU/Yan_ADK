@@ -33,13 +33,13 @@ class MotionsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete_motins_music(self, body, **kwargs):  # noqa: E501
+    def delete_motions_music(self, body, **kwargs):  # noqa: E501
         """删除动作文件（只能删除用户上传的文件）  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_motins_music(body, async_req=True)
+        >>> thread = api.delete_motions_music(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -50,18 +50,18 @@ class MotionsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_motins_music_with_http_info(body, **kwargs)  # noqa: E501
+            return self.delete_motions_music_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_motins_music_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.delete_motions_music_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def delete_motins_music_with_http_info(self, body, **kwargs):  # noqa: E501
+    def delete_motions_music_with_http_info(self, body, **kwargs):  # noqa: E501
         """删除动作文件（只能删除用户上传的文件）  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_motins_music_with_http_info(body, async_req=True)
+        >>> thread = api.delete_motions_music_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -82,14 +82,14 @@ class MotionsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_motins_music" % key
+                    " to method delete_motions_music" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `delete_motins_music`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_motions_music`")  # noqa: E501
 
         collection_formats = {}
 

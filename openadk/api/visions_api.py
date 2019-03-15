@@ -33,101 +33,6 @@ class VisionsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete_tags(self, **kwargs):  # noqa: E501
-        """删除指定样本标签  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_tags(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsTags body: 样本名称
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_tags_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_tags_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def delete_tags_with_http_info(self, **kwargs):  # noqa: E501
-        """删除指定样本标签  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_tags_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsTags body: 样本名称
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_tags" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/visions/tags', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CommonResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_vision_photo(self, body, **kwargs):  # noqa: E501
         """删除指定照片  # noqa: E501
 
@@ -322,6 +227,101 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_visions_tags(self, **kwargs):  # noqa: E501
+        """删除指定样本标签  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_visions_tags(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsDeleteTags body: 样本名称
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_visions_tags_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_visions_tags_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def delete_visions_tags_with_http_info(self, **kwargs):  # noqa: E501
+        """删除指定样本标签  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_visions_tags_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsDeleteTags body: 样本名称
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_visions_tags" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/visions/tags', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_photo_samples(self, type, **kwargs):  # noqa: E501
         """获取上传照片列表  # noqa: E501
 
@@ -413,136 +413,45 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_tags(self, **kwargs):  # noqa: E501
-        """获取已设置标签列表  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_tags(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :return: VisionsTagsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_tags_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.get_tags_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def get_tags_with_http_info(self, **kwargs):  # noqa: E501
-        """获取已设置标签列表  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_tags_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :return: VisionsTagsResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_tags" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/visions/tags', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='VisionsTagsResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_vision(self, type, **kwargs):  # noqa: E501
+    def get_vision(self, timestamp, **kwargs):  # noqa: E501
         """获取任务結果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vision(type, async_req=True)
+        >>> thread = api.get_vision(timestamp, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int type: 视觉任务时间戳 (required)
-        :return: VisionsResponse
+        :param int timestamp: 视觉任务时间戳 (required)
+        :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_vision_with_http_info(type, **kwargs)  # noqa: E501
+            return self.get_vision_with_http_info(timestamp, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_vision_with_http_info(type, **kwargs)  # noqa: E501
+            (data) = self.get_vision_with_http_info(timestamp, **kwargs)  # noqa: E501
             return data
 
-    def get_vision_with_http_info(self, type, **kwargs):  # noqa: E501
+    def get_vision_with_http_info(self, timestamp, **kwargs):  # noqa: E501
         """获取任务結果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vision_with_http_info(type, async_req=True)
+        >>> thread = api.get_vision_with_http_info(timestamp, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int type: 视觉任务时间戳 (required)
-        :return: VisionsResponse
+        :param int timestamp: 视觉任务时间戳 (required)
+        :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type']  # noqa: E501
+        all_params = ['timestamp']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -557,18 +466,18 @@ class VisionsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'type' is set
-        if ('type' not in params or
-                params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `get_vision`")  # noqa: E501
+        # verify the required parameter 'timestamp' is set
+        if ('timestamp' not in params or
+                params['timestamp'] is None):
+            raise ValueError("Missing the required parameter `timestamp` when calling `get_vision`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'type' in params:
-            query_params.append(('type', params['type']))  # noqa: E501
+        if 'timestamp' in params:
+            query_params.append(('timestamp', params['timestamp']))  # noqa: E501
 
         header_params = {}
 
@@ -591,7 +500,7 @@ class VisionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VisionsResponse',  # noqa: E501
+            response_type='VisionsGetResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -773,6 +682,97 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_visions_tags(self, **kwargs):  # noqa: E501
+        """获取已设置标签列表  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_visions_tags(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: VisionsTagsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_visions_tags_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_visions_tags_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_visions_tags_with_http_info(self, **kwargs):  # noqa: E501
+        """获取已设置标签列表  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_visions_tags_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: VisionsTagsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_visions_tags" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/visions/tags', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VisionsTagsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def post_vision_photo(self, **kwargs):  # noqa: E501
         """拍一张照片  # noqa: E501
 
@@ -868,40 +868,40 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def put_tags(self, **kwargs):  # noqa: E501
-        """设置样本标签  # noqa: E501
+    def put_visions(self, body, **kwargs):  # noqa: E501
+        """指定视觉任务停止或开始  # noqa: E501
 
-          # noqa: E501
+        机器人每次只能执行一种占用的视觉任务，如需执行不同的占用的视觉任务，必须先停止当前执行的占用视觉任务  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.put_tags(async_req=True)
+        >>> thread = api.put_visions(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsTags body: 样本名
-        :return: CommonResponse
+        :param VisionsTask body: (required)
+        :return: VisionsPutResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.put_tags_with_http_info(**kwargs)  # noqa: E501
+            return self.put_visions_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.put_tags_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.put_visions_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def put_tags_with_http_info(self, **kwargs):  # noqa: E501
-        """设置样本标签  # noqa: E501
+    def put_visions_with_http_info(self, body, **kwargs):  # noqa: E501
+        """指定视觉任务停止或开始  # noqa: E501
 
-          # noqa: E501
+        机器人每次只能执行一种占用的视觉任务，如需执行不同的占用的视觉任务，必须先停止当前执行的占用视觉任务  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.put_tags_with_http_info(async_req=True)
+        >>> thread = api.put_visions_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsTags body: 样本名
-        :return: CommonResponse
+        :param VisionsTask body: (required)
+        :return: VisionsPutResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -917,109 +917,14 @@ class VisionsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method put_tags" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/visions/tags', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CommonResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def put_vision(self, body, **kwargs):  # noqa: E501
-        """指定视觉任务停止或开始  # noqa: E501
-
-        机器人每次只能执行一种占用的视觉任务，如需执行不同的占用的视觉任务，必须先停止当前执行的占用视觉任务  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.put_vision(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsTask body: (required)
-        :return: VisionsTimeStepResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.put_vision_with_http_info(body, **kwargs)  # noqa: E501
-        else:
-            (data) = self.put_vision_with_http_info(body, **kwargs)  # noqa: E501
-            return data
-
-    def put_vision_with_http_info(self, body, **kwargs):  # noqa: E501
-        """指定视觉任务停止或开始  # noqa: E501
-
-        机器人每次只能执行一种占用的视觉任务，如需执行不同的占用的视觉任务，必须先停止当前执行的占用视觉任务  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.put_vision_with_http_info(body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsTask body: (required)
-        :return: VisionsTimeStepResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method put_vision" % key
+                    " to method put_visions" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `put_vision`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `put_visions`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1050,7 +955,7 @@ class VisionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VisionsTimeStepResponse',  # noqa: E501
+            response_type='VisionsPutResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1143,6 +1048,101 @@ class VisionsApi(object):
 
         return self.api_client.call_api(
             '/visions/photosamples', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def put_visions_tags(self, **kwargs):  # noqa: E501
+        """设置样本标签  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.put_visions_tags(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsPutTags body: 样本名
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.put_visions_tags_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.put_visions_tags_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def put_visions_tags_with_http_info(self, **kwargs):  # noqa: E501
+        """设置样本标签  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.put_visions_tags_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsPutTags body: 样本名
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method put_visions_tags" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/visions/tags', 'PUT',
             path_params,
             query_params,
             header_params,

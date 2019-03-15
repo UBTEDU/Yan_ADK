@@ -216,7 +216,7 @@ class MediaApi(object):
             collection_formats=collection_formats)
 
     def get_media_music_list(self, **kwargs):  # noqa: E501
-        """获取内音乐列表  # noqa: E501
+        """获取音乐列表  # noqa: E501
 
         可以获得所有内置和用户上传的音乐列表  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -237,7 +237,7 @@ class MediaApi(object):
             return data
 
     def get_media_music_list_with_http_info(self, **kwargs):  # noqa: E501
-        """获取内音乐列表  # noqa: E501
+        """获取音乐列表  # noqa: E501
 
         可以获得所有内置和用户上传的音乐列表  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

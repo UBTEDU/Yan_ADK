@@ -217,7 +217,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -239,7 +239,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -268,6 +268,7 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
+            collection_formats['id'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -395,7 +396,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -417,7 +418,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -446,6 +447,7 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
+            collection_formats['id'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -486,7 +488,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -508,7 +510,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -537,6 +539,7 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
+            collection_formats['id'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -577,7 +580,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -599,7 +602,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: 传感器ID，可不填
+        :param list[int] id: 传感器ID，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -628,6 +631,7 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
+            collection_formats['id'] = 'multi'  # noqa: E501
 
         header_params = {}
 
