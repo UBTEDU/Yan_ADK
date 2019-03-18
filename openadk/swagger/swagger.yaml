@@ -428,9 +428,9 @@ definitions:
         type: "string"
         description: "运行状态"
         enum:
-        - "idle"
-        - "running"
+        - "start"
         - "pause"
+        - "finish"
       name:
         type: "string"
         description: "动作名"
@@ -442,7 +442,7 @@ definitions:
       name: "MotionsStatusResponse"
     example:
       name: "none"
-      status: "idle"
+      status: "start"
       timestamp: 0
   MotionsParameter:
     type: "object"

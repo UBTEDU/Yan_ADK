@@ -432,8 +432,8 @@ definitions:
         type: "string"
         description: "运行状态"
         enum:
-        - "idle"
-        - "running"
+        - "start"
+        - "finish"
         - "pause"
       name:
         type: "string"
