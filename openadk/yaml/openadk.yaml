@@ -271,7 +271,6 @@ paths:
           schema:
             $ref: "#/definitions/CommonResponse"
 
-
 #securityDefinitions:
 #  robotinfostore_auth:
 #    type: "oauth2"
@@ -294,47 +293,9 @@ definitions:
         type: "string"
     xml:
       name: "Name"
-  RunStatus:
-    type: "object"
-    required:
-    - "status"
-    properties:
-      status:
-        type: "string"
-        enum:
-        - "idle"
-        - "running"
-        - "pause"
-      timestamp:
-        type: "integer"
-        format: "int32"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "RunStatus"
-  VoiceStatusResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/RunStatus"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "VoiceStatusResponse"
+
   TotalTime:
     type: "object"
-    required:
-    - "total_time"
     properties:
       total_time:
         type: "integer"
@@ -438,10 +399,12 @@ definitions:
       name:
         type: "string"
         description: "动作名"
-        default: "none"
+        default: "None"
       timestamp:
         type: "integer"
-        format: "int32"
+        format: "int64"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
     xml:
       name: "MotionsStatus"
   MotionsStatusResponse:
@@ -470,7 +433,7 @@ definitions:
       name:
         type: "string"
         description: "动作名称,除了内置动作还有:raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow"
-        example: "bow"
+        example: "raise"
       direction:
         type: "string"
         description: "部分动作有方向属性，取值说明：（1）left 只适用于name取值为raise, stretch, come on, wave, bend, turn around, walk, head；（2）right 只适用于name取值为：raise, stretch, come on, wave, bend, turn around, walk, head；（3）both  只适用于name取值为：raise, stretch, come on, wave；（4）front 只适用于name取值为：walk, head；（5）back 只适用name取值为： walk；"
@@ -488,14 +451,15 @@ definitions:
         maximum: 100
         default: 1
       speed:
-        type: "string"
         description: "部分动作(raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow)可设置运动速度"
+        type: "string"
         enum:
         - "very slow"
         - "slow"
         - "normal"
         - "fast"
         - "very fast"
+        default: "normal"
     xml:
       name: "MotionsParameter"
   MotionsOperation:
@@ -516,7 +480,9 @@ definitions:
         $ref: "#/definitions/MotionsParameter"
       timestamp:
         type: "integer"
-        format: "int32"
+        format: "int64"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
     xml:
       name: "MotionsOperation"
 
@@ -726,7 +692,9 @@ definitions:
         description: "错误码"
         example: 0
       data:
-        $ref: "#/definitions/DevicesLED"
+        type: "array"
+        items:
+          $ref: "#/definitions/DevicesLED"
       msg:
         type: "string"
         description: "错误码消息"
@@ -1113,7 +1081,7 @@ definitions:
         format: "int32"
         minimum: 200
         maximum: 4000
-        example: 1000
+        default: 1000
       angles:
         $ref: "#/definitions/ServosAngles"
     xml:
@@ -1570,7 +1538,7 @@ definitions:
       name:
         type: "string"
         description: "动作名"
-        default: "none"
+        default: "None"
     xml:
       name: "MediaMusicStatus"
   MediaMusicStatusResponse:
@@ -1607,6 +1575,7 @@ definitions:
       name:
         type: "string"
         description: "音乐名称"
+        default: "Sorry_sorry.mp3"
     xml:
       name: "MediaMusicOperation"
   VoiceTTSStr:
@@ -1631,13 +1600,63 @@ definitions:
       name: "VoiceTTSStr"
   VoiceAsrOption:
     type: "object"
+    required:
+    - continues
     properties:
       continues:
         description: "是否进行连续语意识别, 布尔值, true 需要， false不需要, 默认为false"
         type: "boolean"
         example: true
+      timestamp:
+        type: "integer"
+        format: "int32"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
     xml:
       name: "VoiceAsrOption"
+
+  VoiceGetResponse:
+    type: "object"
+    required:
+    - "code"
+    - "data"
+    - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      status:
+        type: "string"
+        enum:
+        - "idle"
+        - "running"
+        - "pause"
+      timestamp:
+        type: "integer"
+        format: "int32"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
+      data:
+        type: "object"
+        description: "语音返回数据"
+        example: {}
+      msg:
+        type: "string"
+        description: "返回附件信息"
+        example: "Success"
+    xml:
+      name: "VoiceGetResponse"
+  VoiceIatRequest:
+    type: "object"
+    properties:
+      timestamp:
+        type: "integer"
+        format: "int32"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
+    xml:
+      name: "VoiceIatRequest"
   VisionsTask:
     type: "object"
     required:
@@ -1655,6 +1674,13 @@ definitions:
         - "expression_analysis"
         - "quantity"
         example: "tracking"
+      operation:
+        type: "string"
+        enum:
+        - "start"
+        - "stop"
+        example: "start"
+        description: "执行命令。 operation 允许上传的值有 'start', 'stop' "
       option:
         type: "string"
         enum:
@@ -1663,15 +1689,13 @@ definitions:
         - "object"
         example: "face_tracking"
         description: "任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face"
-      operation:
-        type: "string"
-        enum:
-        - "start"
-        - "stop"
-        example: "start"
-        description: "执行命令。 operation 允许上传的值有 'start', 'stop' "
+      timestamp:
+        type: "integer"
+        description: "视觉任务时间戳"
+        example: 1551838515
     xml:
       name: "VisionsTask"
+
   VisionsPhotoListResponse:
     type: "object"
     required:
@@ -1881,7 +1905,7 @@ definitions:
         - "quantity"
         description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'"
       data:
-         $ref: "#/definitions/VisionsResults"
+        $ref: "#/definitions/VisionsResults"
       msg:
         type: "string"
         description: "错误码消息"
@@ -1976,8 +2000,13 @@ definitions:
         type: "integer"
         description: "错误码"
         example: 0
+      timestamp:
+        type: "integer"
+        description: "视觉任务时间戳"
+        example: 1551838515
       data:
-        $ref: "#/definitions/VisionsPut"
+        type: "object"
+        example: {}
       msg:
         type: "string"
         description: "错误码消息"
@@ -2118,7 +2147,7 @@ externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
 # Added by API Auto Mocking Plugin
-host: "127.0.0.1"
+host: "127.0.0.1:10101"
 basePath: "/v1"
 schemes:
 - http
