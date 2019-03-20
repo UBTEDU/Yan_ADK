@@ -41,7 +41,6 @@ from openadk.models.motions_parameter import MotionsParameter
 from openadk.models.motions_status import MotionsStatus
 from openadk.models.motions_status_response import MotionsStatusResponse
 from openadk.models.name import Name
-from openadk.models.run_status import RunStatus
 from openadk.models.runtime_response import RuntimeResponse
 from openadk.models.sensors_common_info import SensorsCommonInfo
 from openadk.models.sensors_environment_info import SensorsEnvironmentInfo
@@ -96,6 +95,7 @@ from openadk.models.visions_stream import VisionsStream
 from openadk.models.visions_tags_response import VisionsTagsResponse
 from openadk.models.visions_task import VisionsTask
 from openadk.models.voice_asr_option import VoiceAsrOption
+from openadk.models.voice_get_response import VoiceGetResponse
+from openadk.models.voice_iat_request import VoiceIatRequest
 from openadk.models.voice_response import VoiceResponse
-from openadk.models.voice_status_response import VoiceStatusResponse
 from openadk.models.voice_tts_str import VoiceTTSStr

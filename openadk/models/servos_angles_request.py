@@ -42,7 +42,7 @@ class ServosAnglesRequest(object):
         'angles': 'angles'
     }
 
-    def __init__(self, runtime=None, angles=None):  # noqa: E501
+    def __init__(self, runtime=1000, angles=None):  # noqa: E501
         """ServosAnglesRequest - a model defined in Swagger"""  # noqa: E501
 
         self._runtime = None

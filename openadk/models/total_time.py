@@ -44,7 +44,8 @@ class TotalTime(object):
         self._total_time = None
         self.discriminator = None
 
-        self.total_time = total_time
+        if total_time is not None:
+            self.total_time = total_time
 
     @property
     def total_time(self):
@@ -66,8 +67,6 @@ class TotalTime(object):
         :param total_time: The total_time of this TotalTime.  # noqa: E501
         :type: int
         """
-        if total_time is None:
-            raise ValueError("Invalid value for `total_time`, must not be `None`")  # noqa: E501
 
         self._total_time = total_time
 

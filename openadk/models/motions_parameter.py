@@ -44,7 +44,7 @@ class MotionsParameter(object):
         'speed': 'speed'
     }
 
-    def __init__(self, name=None, direction=None, repeat=1, speed=None):  # noqa: E501
+    def __init__(self, name=None, direction=None, repeat=1, speed='normal'):  # noqa: E501
         """MotionsParameter - a model defined in Swagger"""  # noqa: E501
 
         self._name = None

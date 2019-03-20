@@ -34,7 +34,7 @@ class DevicesLEDResponse(object):
     """
     swagger_types = {
         'code': 'int',
-        'data': 'DevicesLED',
+        'data': 'list[DevicesLED]',
         'msg': 'str'
     }
 
@@ -88,7 +88,7 @@ class DevicesLEDResponse(object):
 
 
         :return: The data of this DevicesLEDResponse.  # noqa: E501
-        :rtype: DevicesLED
+        :rtype: list[DevicesLED]
         """
         return self._data
 
@@ -98,7 +98,7 @@ class DevicesLEDResponse(object):
 
 
         :param data: The data of this DevicesLEDResponse.  # noqa: E501
-        :type: DevicesLED
+        :type: list[DevicesLED]
         """
 
         self._data = data

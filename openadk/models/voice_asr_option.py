@@ -31,21 +31,25 @@ class VoiceAsrOption(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'continues': 'bool'
+        'continues': 'bool',
+        'timestamp': 'int'
     }
 
     attribute_map = {
-        'continues': 'continues'
+        'continues': 'continues',
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, continues=None):  # noqa: E501
+    def __init__(self, continues=None, timestamp=None):  # noqa: E501
         """VoiceAsrOption - a model defined in Swagger"""  # noqa: E501
 
         self._continues = None
+        self._timestamp = None
         self.discriminator = None
 
-        if continues is not None:
-            self.continues = continues
+        self.continues = continues
+        if timestamp is not None:
+            self.timestamp = timestamp
 
     @property
     def continues(self):
@@ -67,8 +71,33 @@ class VoiceAsrOption(object):
         :param continues: The continues of this VoiceAsrOption.  # noqa: E501
         :type: bool
         """
+        if continues is None:
+            raise ValueError("Invalid value for `continues`, must not be `None`")  # noqa: E501
 
         self._continues = continues
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this VoiceAsrOption.  # noqa: E501
+
+        时间戳, Unix标准时间  # noqa: E501
+
+        :return: The timestamp of this VoiceAsrOption.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this VoiceAsrOption.
+
+        时间戳, Unix标准时间  # noqa: E501
+
+        :param timestamp: The timestamp of this VoiceAsrOption.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

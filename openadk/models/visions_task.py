@@ -32,28 +32,33 @@ class VisionsTask(object):
     """
     swagger_types = {
         'type': 'str',
+        'operation': 'str',
         'option': 'str',
-        'operation': 'str'
+        'timestamp': 'int'
     }
 
     attribute_map = {
         'type': 'type',
+        'operation': 'operation',
         'option': 'option',
-        'operation': 'operation'
+        'timestamp': 'timestamp'
     }
 
-    def __init__(self, type=None, option=None, operation=None):  # noqa: E501
+    def __init__(self, type=None, operation=None, option=None, timestamp=None):  # noqa: E501
         """VisionsTask - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
-        self._option = None
         self._operation = None
+        self._option = None
+        self._timestamp = None
         self.discriminator = None
 
         self.type = type
+        self.operation = operation
         if option is not None:
             self.option = option
-        self.operation = operation
+        if timestamp is not None:
+            self.timestamp = timestamp
 
     @property
     def type(self):
@@ -87,35 +92,6 @@ class VisionsTask(object):
         self._type = type
 
     @property
-    def option(self):
-        """Gets the option of this VisionsTask.  # noqa: E501
-
-        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
-
-        :return: The option of this VisionsTask.  # noqa: E501
-        :rtype: str
-        """
-        return self._option
-
-    @option.setter
-    def option(self, option):
-        """Sets the option of this VisionsTask.
-
-        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
-
-        :param option: The option of this VisionsTask.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["face", "hand", "object"]  # noqa: E501
-        if option not in allowed_values:
-            raise ValueError(
-                "Invalid value for `option` ({0}), must be one of {1}"  # noqa: E501
-                .format(option, allowed_values)
-            )
-
-        self._option = option
-
-    @property
     def operation(self):
         """Gets the operation of this VisionsTask.  # noqa: E501
 
@@ -145,6 +121,58 @@ class VisionsTask(object):
             )
 
         self._operation = operation
+
+    @property
+    def option(self):
+        """Gets the option of this VisionsTask.  # noqa: E501
+
+        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
+
+        :return: The option of this VisionsTask.  # noqa: E501
+        :rtype: str
+        """
+        return self._option
+
+    @option.setter
+    def option(self, option):
+        """Sets the option of this VisionsTask.
+
+        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
+
+        :param option: The option of this VisionsTask.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["face", "hand", "object"]  # noqa: E501
+        if option not in allowed_values:
+            raise ValueError(
+                "Invalid value for `option` ({0}), must be one of {1}"  # noqa: E501
+                .format(option, allowed_values)
+            )
+
+        self._option = option
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this VisionsTask.  # noqa: E501
+
+        视觉任务时间戳  # noqa: E501
+
+        :return: The timestamp of this VisionsTask.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this VisionsTask.
+
+        视觉任务时间戳  # noqa: E501
+
+        :param timestamp: The timestamp of this VisionsTask.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

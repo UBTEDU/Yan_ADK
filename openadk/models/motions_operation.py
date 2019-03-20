@@ -114,6 +114,7 @@ class MotionsOperation(object):
     def timestamp(self):
         """Gets the timestamp of this MotionsOperation.  # noqa: E501
 
+        时间戳, Unix标准时间  # noqa: E501
 
         :return: The timestamp of this MotionsOperation.  # noqa: E501
         :rtype: int
@@ -124,6 +125,7 @@ class MotionsOperation(object):
     def timestamp(self, timestamp):
         """Sets the timestamp of this MotionsOperation.
 
+        时间戳, Unix标准时间  # noqa: E501
 
         :param timestamp: The timestamp of this MotionsOperation.  # noqa: E501
         :type: int
