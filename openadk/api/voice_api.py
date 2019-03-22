@@ -121,9 +121,9 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def delete_voice_iat(self, **kwargs):  # noqa: E501
-        """停止语音识别  # noqa: E501
+        """停止语音听写  # noqa: E501
 
-        停止开启的语音识别.  # noqa: E501
+        停止开启的语音听写.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_voice_iat(async_req=True)
@@ -142,9 +142,9 @@ class VoiceApi(object):
             return data
 
     def delete_voice_iat_with_http_info(self, **kwargs):  # noqa: E501
-        """停止语音识别  # noqa: E501
+        """停止语音听写  # noqa: E501
 
-        停止开启的语音识别.  # noqa: E501
+        停止开启的语音听写.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_voice_iat_with_http_info(async_req=True)
@@ -208,7 +208,7 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def delete_voice_tts(self, **kwargs):  # noqa: E501
-        """停止当前播放的tts语音  # noqa: E501
+        """停止当前的语音合成  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -229,7 +229,7 @@ class VoiceApi(object):
             return data
 
     def delete_voice_tts_with_http_info(self, **kwargs):  # noqa: E501
-        """停止当前播放的tts语音  # noqa: E501
+        """停止当前的语音合成  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -304,7 +304,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -325,7 +325,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -373,7 +373,7 @@ class VoiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VoiceStatusResponse',  # noqa: E501
+            response_type='VoiceGetResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -382,7 +382,7 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def get_voice_iat(self, **kwargs):  # noqa: E501
-        """获取语音识别工作状态  # noqa: E501
+        """获取语音听写工作状态  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -391,7 +391,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -403,7 +403,7 @@ class VoiceApi(object):
             return data
 
     def get_voice_iat_with_http_info(self, **kwargs):  # noqa: E501
-        """获取语音识别工作状态  # noqa: E501
+        """获取语音听写工作状态  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -412,7 +412,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -460,7 +460,7 @@ class VoiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VoiceStatusResponse',  # noqa: E501
+            response_type='VoiceGetResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -469,7 +469,7 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def get_voice_tts(self, **kwargs):  # noqa: E501
-        """获取当前tts工作状态  # noqa: E501
+        """获取当前语音合成工作状态  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -478,7 +478,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -490,7 +490,7 @@ class VoiceApi(object):
             return data
 
     def get_voice_tts_with_http_info(self, **kwargs):  # noqa: E501
-        """获取当前tts工作状态  # noqa: E501
+        """获取当前语音合成工作状态  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -499,7 +499,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: VoiceStatusResponse
+        :return: VoiceGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -547,7 +547,7 @@ class VoiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VoiceStatusResponse',  # noqa: E501
+            response_type='VoiceGetResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -651,7 +651,7 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def put_voice_iat(self, **kwargs):  # noqa: E501
-        """开始语音识别  # noqa: E501
+        """开始语音听写  # noqa: E501
 
         当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -660,6 +660,7 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param VoiceIatRequest body: 
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -672,7 +673,7 @@ class VoiceApi(object):
             return data
 
     def put_voice_iat_with_http_info(self, **kwargs):  # noqa: E501
-        """开始语音识别  # noqa: E501
+        """开始语音听写  # noqa: E501
 
         当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -681,12 +682,13 @@ class VoiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param VoiceIatRequest body: 
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -714,6 +716,8 @@ class VoiceApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -738,9 +742,9 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def put_voice_tts(self, body, **kwargs):  # noqa: E501
-        """开始tts任务  # noqa: E501
+        """开始语音合成任务  # noqa: E501
 
-        合成指定的语句并播放。当tts处于工作状态时可以接受新的tts任务。  # noqa: E501
+        合成指定的语句并播放。当语音合成处于工作状态时可以接受新的语音合成任务。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_tts(body, async_req=True)
@@ -760,9 +764,9 @@ class VoiceApi(object):
             return data
 
     def put_voice_tts_with_http_info(self, body, **kwargs):  # noqa: E501
-        """开始tts任务  # noqa: E501
+        """开始语音合成任务  # noqa: E501
 
-        合成指定的语句并播放。当tts处于工作状态时可以接受新的tts任务。  # noqa: E501
+        合成指定的语句并播放。当语音合成处于工作状态时可以接受新的语音合成任务。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_tts_with_http_info(body, async_req=True)
