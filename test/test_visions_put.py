@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.run_status import RunStatus  # noqa: E501
+from openadk.models.visions_put import VisionsPut  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestRunStatus(unittest.TestCase):
-    """RunStatus unit test stubs"""
+class TestVisionsPut(unittest.TestCase):
+    """VisionsPut unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestRunStatus(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testRunStatus(self):
-        """Test RunStatus"""
+    def testVisionsPut(self):
+        """Test VisionsPut"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.run_status.RunStatus()  # noqa: E501
+        # model = openadk.models.visions_put.VisionsPut()  # noqa: E501
         pass
 
 

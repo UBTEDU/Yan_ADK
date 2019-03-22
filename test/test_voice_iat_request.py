@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.visions_response_response import VisionsResponseResponse  # noqa: E501
+from openadk.models.voice_iat_request import VoiceIatRequest  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestVisionsResponseResponse(unittest.TestCase):
-    """VisionsResponseResponse unit test stubs"""
+class TestVoiceIatRequest(unittest.TestCase):
+    """VoiceIatRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestVisionsResponseResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testVisionsResponseResponse(self):
-        """Test VisionsResponseResponse"""
+    def testVoiceIatRequest(self):
+        """Test VoiceIatRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.visions_response_response.VisionsResponseResponse()  # noqa: E501
+        # model = openadk.models.voice_iat_request.VoiceIatRequest()  # noqa: E501
         pass
 
 

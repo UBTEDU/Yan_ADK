@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.visions_time_stamp import VisionsTimeStamp  # noqa: E501
+from openadk.models.visions_put_tags import VisionsPutTags  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestVisionsTimeStamp(unittest.TestCase):
-    """VisionsTimeStamp unit test stubs"""
+class TestVisionsPutTags(unittest.TestCase):
+    """VisionsPutTags unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestVisionsTimeStamp(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testVisionsTimeStamp(self):
-        """Test VisionsTimeStamp"""
+    def testVisionsPutTags(self):
+        """Test VisionsPutTags"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.visions_time_stamp.VisionsTimeStamp()  # noqa: E501
+        # model = openadk.models.visions_put_tags.VisionsPutTags()  # noqa: E501
         pass
 
 

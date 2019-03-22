@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.voice_status_response import VoiceStatusResponse  # noqa: E501
+from openadk.models.media_music_status import MediaMusicStatus  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestVoiceStatusResponse(unittest.TestCase):
-    """VoiceStatusResponse unit test stubs"""
+class TestMediaMusicStatus(unittest.TestCase):
+    """MediaMusicStatus unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestVoiceStatusResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testVoiceStatusResponse(self):
-        """Test VoiceStatusResponse"""
+    def testMediaMusicStatus(self):
+        """Test MediaMusicStatus"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.voice_status_response.VoiceStatusResponse()  # noqa: E501
+        # model = openadk.models.media_music_status.MediaMusicStatus()  # noqa: E501
         pass
 
 
