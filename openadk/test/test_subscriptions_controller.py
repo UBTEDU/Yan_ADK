@@ -13,7 +13,7 @@ from openadk.models.sensors_infrared_value_response import SensorsInfraredValueR
 from openadk.models.sensors_pressure_value_response import SensorsPressureValueResponse  # noqa: E501
 from openadk.models.sensors_touch_value_response import SensorsTouchValueResponse  # noqa: E501
 from openadk.models.sensors_ultrasonic_value_response import SensorsUltrasonicValueResponse  # noqa: E501
-from openadk.models.visions_response import VisionsResponse  # noqa: E501
+from openadk.models.visions_get_response import VisionsGetResponse  # noqa: E501
 from openadk.models.voice_response import VoiceResponse  # noqa: E501
 from openadk.test import BaseTestCase
 
@@ -138,7 +138,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送指定视觉任务消息
         """
-        body = VisionsResponse()
+        body = VisionsGetResponse()
         response = self.client.open(
             '/v1/subscriptions/visions',
             method='PUT',

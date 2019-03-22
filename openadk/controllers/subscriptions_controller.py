@@ -4,7 +4,6 @@ import json
 import connexion
 import six
 
-from openadk.models import SensorsEnvironmentInfo, SensorsEnvironmentValue
 from openadk.models.common_response import CommonResponse  # noqa: E501
 from openadk.models.motions_status_response import MotionsStatusResponse  # noqa: E501
 from openadk.models.sensors_environment_value_response import SensorsEnvironmentValueResponse  # noqa: E501
@@ -166,7 +165,7 @@ def put_vision_subscription_visions(body):  # noqa: E501
     :rtype: CommonResponse
     """
     if connexion.request.is_json:
-        body = VisionsResponse.from_dict(connexion.request.get_json())  # noqa: E501
+        body = VisionsGetResponse.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
