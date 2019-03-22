@@ -413,45 +413,45 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_vision(self, timestamp, **kwargs):  # noqa: E501
+    def get_vision(self, **kwargs):  # noqa: E501
         """获取任务結果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vision(timestamp, async_req=True)
+        >>> thread = api.get_vision(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int timestamp: 视觉任务时间戳 (required)
+        :param VisionsTask body:
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_vision_with_http_info(timestamp, **kwargs)  # noqa: E501
+            return self.get_vision_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.get_vision_with_http_info(timestamp, **kwargs)  # noqa: E501
+            (data) = self.get_vision_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def get_vision_with_http_info(self, timestamp, **kwargs):  # noqa: E501
+    def get_vision_with_http_info(self, **kwargs):  # noqa: E501
         """获取任务結果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_vision_with_http_info(timestamp, async_req=True)
+        >>> thread = api.get_vision_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int timestamp: 视觉任务时间戳 (required)
+        :param VisionsTask body:
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['timestamp']  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -466,18 +466,12 @@ class VisionsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'timestamp' is set
-        if ('timestamp' not in params or
-                params['timestamp'] is None):
-            raise ValueError("Missing the required parameter `timestamp` when calling `get_vision`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'timestamp' in params:
-            query_params.append(('timestamp', params['timestamp']))  # noqa: E501
 
         header_params = {}
 
@@ -485,6 +479,8 @@ class VisionsApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
