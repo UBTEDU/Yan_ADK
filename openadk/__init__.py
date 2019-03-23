@@ -99,6 +99,7 @@ from openadk.models.visions_gender import VisionsGender
 from openadk.models.visions_get_response import VisionsGetResponse
 from openadk.models.visions_photo import VisionsPhoto
 from openadk.models.visions_photo_list_response import VisionsPhotoListResponse
+from openadk.models.visions_photo_response import VisionsPhotoResponse
 from openadk.models.visions_put import VisionsPut
 from openadk.models.visions_put_response import VisionsPutResponse
 from openadk.models.visions_put_tags import VisionsPutTags

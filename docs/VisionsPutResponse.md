@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **int** | 错误码 | 
-**timestamp** | **int** | 视觉任务时间戳 | [optional] 
 **data** | **object** |  | [optional] 
 **msg** | **str** | 错误码消息 | 
 

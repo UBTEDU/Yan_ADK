@@ -388,8 +388,8 @@ definitions:
         type: "string"
         description: "运行状态"
         enum:
-        - "start"
-        - "finish"
+        - "idle"
+        - "running"
         - "pause"
       name:
         type: "string"
@@ -404,7 +404,7 @@ definitions:
       name: "MotionsStatus"
     example:
       name: "None"
-      status: "start"
+      status: "idle"
       timestamp: 1551838515
   MotionsStatusResponse:
     type: "object"
@@ -429,7 +429,7 @@ definitions:
       code: 0
       data:
         name: "None"
-        status: "start"
+        status: "idle"
         timestamp: 1551838515
   MotionsParameter:
     type: "object"
@@ -1894,6 +1894,25 @@ definitions:
         description: "错误码消息"
     xml:
       name: "VisionsPhotoListResponse"
+  VisionsPhotoResponse:
+    type: "object"
+    required:
+    - "code"
+    - "msg"
+    properties:
+      code:
+        type: "integer"
+        example: 0
+        description: "错误码"
+      data:
+        description: "拍摄的照片名"
+        $ref: "#/definitions/Name"
+      msg:
+        type: "string"
+        example: "Success"
+        description: "错误码消息"
+    xml:
+      name: "VisionsPhotoResponse"
   VisionsPhoto:
     type: "object"
     properties:
@@ -2129,6 +2148,15 @@ definitions:
         - "quantity"
       data:
         $ref: "#/definitions/VisionsResults"
+      timestamp:
+        type: "integer"
+        format: "int64"
+        example: 1551838515
+        description: "任务时间戳"
+      status:
+        type: "string"
+        example: "idle"
+        description: "状态"
       msg:
         type: "string"
         example: "Success"
@@ -2156,6 +2184,8 @@ definitions:
           age:
             age: 5
       type: "recognition"
+      timestamp: 1551838515
+      status: "idle"
   VisionsSampleDeleteRequest:
     type: "object"
     required:
@@ -2244,10 +2274,6 @@ definitions:
         type: "integer"
         example: 0
         description: "错误码"
-      timestamp:
-        type: "integer"
-        example: 1551838515
-        description: "视觉任务时间戳"
       data:
         type: "object"
         example: {}
@@ -2349,12 +2375,8 @@ definitions:
   SubscriptionsVoice:
     type: "object"
     required:
-    - "type"
     - "url"
     properties:
-      type:
-        type: "string"
-        description: "订阅的语音服务类型"
       url:
         type: "string"
         example: "http://198.100.100.20:8080/subscriptions/voice/asr"

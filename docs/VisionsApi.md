@@ -5,16 +5,16 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_vision_photo**](VisionsApi.md#delete_vision_photo) | **DELETE** /visions/photos | 删除指定照片
-[**delete_vision_photo_samples**](VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的照片
+[**delete_vision_photo_samples**](VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的样本
 [**delete_visions_tags**](VisionsApi.md#delete_visions_tags) | **DELETE** /visions/tags | 删除指定样本标签
-[**get_photo_samples**](VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传照片列表
+[**get_photo_samples**](VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传样本列表
 [**get_vision**](VisionsApi.md#get_vision) | **GET** /visions | 获取任务結果
 [**get_visions_photos**](VisionsApi.md#get_visions_photos) | **GET** /visions/photos | 获取指定照片
-[**get_visions_photos_lists**](VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取机器人拍照列表
+[**get_visions_photos_lists**](VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
 [**get_visions_tags**](VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
 [**post_vision_photo**](VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
 [**put_visions**](VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
-[**put_visions_photo_samples**](VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本照片
+[**put_visions_photo_samples**](VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本
 [**put_visions_tags**](VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
 
 
@@ -69,7 +69,7 @@ No authorization required
 # **delete_vision_photo_samples**
 > CommonResponse delete_vision_photo_samples(body=body)
 
-删除上传的照片
+删除上传的样本
 
 
 
@@ -86,7 +86,7 @@ api_instance = openadk.VisionsApi()
 body = openadk.VisionsSampleDeleteRequest() # VisionsSampleDeleteRequest | 样本名称 (optional)
 
 try:
-    # 删除上传的照片
+    # 删除上传的样本
     api_response = api_instance.delete_vision_photo_samples(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -163,9 +163,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_photo_samples**
-> VisionsPhotoListResponse get_photo_samples(type)
+> VisionsPhotoListResponse get_photo_samples()
 
-获取上传照片列表
+获取上传样本列表
 
 
 
@@ -179,21 +179,17 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-type = 'type_example' # str | 照片名
 
 try:
-    # 获取上传照片列表
-    api_response = api_instance.get_photo_samples(type)
+    # 获取上传样本列表
+    api_response = api_instance.get_photo_samples()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VisionsApi->get_photo_samples: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **str**| 照片名 | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -308,7 +304,7 @@ No authorization required
 # **get_visions_photos_lists**
 > VisionsPhotoListResponse get_visions_photos_lists()
 
-获取机器人拍照列表
+获取拍照列表
 
 
 
@@ -324,7 +320,7 @@ from pprint import pprint
 api_instance = openadk.VisionsApi()
 
 try:
-    # 获取机器人拍照列表
+    # 获取拍照列表
     api_response = api_instance.get_visions_photos_lists()
     pprint(api_response)
 except ApiException as e:
@@ -394,7 +390,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vision_photo**
-> VisionsPhotoListResponse post_vision_photo(body=body)
+> VisionsPhotoResponse post_vision_photo(body=body)
 
 拍一张照片
 
@@ -428,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VisionsPhotoListResponse**](VisionsPhotoListResponse.md)
+[**VisionsPhotoResponse**](VisionsPhotoResponse.md)
 
 ### Authorization
 
@@ -492,7 +488,7 @@ No authorization required
 # **put_visions_photo_samples**
 > CommonResponse put_visions_photo_samples(file)
 
-上传样本照片
+上传样本
 
 
 
@@ -509,7 +505,7 @@ api_instance = openadk.VisionsApi()
 file = '/path/to/file.txt' # file | 上传文件
 
 try:
-    # 上传样本照片
+    # 上传样本
     api_response = api_instance.put_visions_photo_samples(file)
     pprint(api_response)
 except ApiException as e:

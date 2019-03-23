@@ -133,7 +133,7 @@ class VisionsApi(object):
             collection_formats=collection_formats)
 
     def delete_vision_photo_samples(self, **kwargs):  # noqa: E501
-        """删除上传的照片  # noqa: E501
+        """删除上传的样本  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -155,7 +155,7 @@ class VisionsApi(object):
             return data
 
     def delete_vision_photo_samples_with_http_info(self, **kwargs):  # noqa: E501
-        """删除上传的照片  # noqa: E501
+        """删除上传的样本  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -322,45 +322,43 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_photo_samples(self, type, **kwargs):  # noqa: E501
-        """获取上传照片列表  # noqa: E501
+    def get_photo_samples(self, **kwargs):  # noqa: E501
+        """获取上传样本列表  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_photo_samples(type, async_req=True)
+        >>> thread = api.get_photo_samples(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: 照片名 (required)
         :return: VisionsPhotoListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_photo_samples_with_http_info(type, **kwargs)  # noqa: E501
+            return self.get_photo_samples_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.get_photo_samples_with_http_info(type, **kwargs)  # noqa: E501
+            (data) = self.get_photo_samples_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def get_photo_samples_with_http_info(self, type, **kwargs):  # noqa: E501
-        """获取上传照片列表  # noqa: E501
+    def get_photo_samples_with_http_info(self, **kwargs):  # noqa: E501
+        """获取上传样本列表  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_photo_samples_with_http_info(type, async_req=True)
+        >>> thread = api.get_photo_samples_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: 照片名 (required)
         :return: VisionsPhotoListResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type']  # noqa: E501
+        all_params = []  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -375,18 +373,12 @@ class VisionsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'type' is set
-        if ('type' not in params or
-                params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `get_photo_samples`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'type' in params:
-            query_params.append(('type', params['type']))  # noqa: E501
 
         header_params = {}
 
@@ -596,7 +588,7 @@ class VisionsApi(object):
             collection_formats=collection_formats)
 
     def get_visions_photos_lists(self, **kwargs):  # noqa: E501
-        """获取机器人拍照列表  # noqa: E501
+        """获取拍照列表  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -617,7 +609,7 @@ class VisionsApi(object):
             return data
 
     def get_visions_photos_lists_with_http_info(self, **kwargs):  # noqa: E501
-        """获取机器人拍照列表  # noqa: E501
+        """获取拍照列表  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -780,7 +772,7 @@ class VisionsApi(object):
 
         :param async_req bool
         :param VisionsPhoto body: 照片分辨率
-        :return: VisionsPhotoListResponse
+        :return: VisionsPhotoResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -802,7 +794,7 @@ class VisionsApi(object):
 
         :param async_req bool
         :param VisionsPhoto body: 照片分辨率
-        :return: VisionsPhotoListResponse
+        :return: VisionsPhotoResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -856,7 +848,7 @@ class VisionsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='VisionsPhotoListResponse',  # noqa: E501
+            response_type='VisionsPhotoResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -960,7 +952,7 @@ class VisionsApi(object):
             collection_formats=collection_formats)
 
     def put_visions_photo_samples(self, file, **kwargs):  # noqa: E501
-        """上传样本照片  # noqa: E501
+        """上传样本  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -982,7 +974,7 @@ class VisionsApi(object):
             return data
 
     def put_visions_photo_samples_with_http_info(self, file, **kwargs):  # noqa: E501
-        """上传样本照片  # noqa: E501
+        """上传样本  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

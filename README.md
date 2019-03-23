@@ -52,8 +52,7 @@ from openadk.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = openadk.SubscriptionsApi(openadk.ApiClient(configuration))
-body = openadk.MotionsStatusResponse() # MotionsStatusResponse | 运动控制的参数
+api_instance = openadk.DevicesApi(openadk.ApiClient(configuration))
 
 try:
     # 获得机器人电量信息
@@ -106,33 +105,33 @@ Class | Method | HTTP request | Description
 *SubscriptionsApi* | [**delete_sensors_subscription**](docs/SubscriptionsApi.md#delete_sensors_subscription) | **DELETE** /subscriptions/sensors | 取消订阅传感器消息
 *SubscriptionsApi* | [**delete_vision_subscription**](docs/SubscriptionsApi.md#delete_vision_subscription) | **DELETE** /subscriptions/visions | 取消订阅指定视觉任务消息
 *SubscriptionsApi* | [**delete_visions_streams**](docs/SubscriptionsApi.md#delete_visions_streams) | **DELETE** /subscriptions/visions/streams | 取消订阅摄像头的视频流
-*SubscriptionsApi* | [**delete_voice_asr_subscription**](docs/SubscriptionsApi.md#delete_voice_asr_subscription) | **DELETE** /subscriptions/voice/asr | 取消订阅语义消息
-*SubscriptionsApi* | [**delete_voice_iat_subscription**](docs/SubscriptionsApi.md#delete_voice_iat_subscription) | **DELETE** /subscriptions/voice/iat | 取消订阅语音识别JSON消息
-*SubscriptionsApi* | [**delete_voice_tts_subscription**](docs/SubscriptionsApi.md#delete_voice_tts_subscription) | **DELETE** /subscriptions/voice/tts | 取消订阅语义消息
+*SubscriptionsApi* | [**delete_voice_asr_subscription**](docs/SubscriptionsApi.md#delete_voice_asr_subscription) | **DELETE** /subscriptions/voice/asr | 取消订阅语义理解消息
+*SubscriptionsApi* | [**delete_voice_iat_subscription**](docs/SubscriptionsApi.md#delete_voice_iat_subscription) | **DELETE** /subscriptions/voice/iat | 取消订阅语音听写推送消息
+*SubscriptionsApi* | [**delete_voice_tts_subscription**](docs/SubscriptionsApi.md#delete_voice_tts_subscription) | **DELETE** /subscriptions/voice/tts | 取消订阅语音合成状态消息
 *SubscriptionsApi* | [**post_motions_subscription**](docs/SubscriptionsApi.md#post_motions_subscription) | **POST** /subscriptions/motions | 订阅运动状态消息
 *SubscriptionsApi* | [**post_sensors_subscription**](docs/SubscriptionsApi.md#post_sensors_subscription) | **POST** /subscriptions/sensors | 订阅传感器消息
 *SubscriptionsApi* | [**post_vision_subscription**](docs/SubscriptionsApi.md#post_vision_subscription) | **POST** /subscriptions/visions | 订阅指定视觉任务消息
 *SubscriptionsApi* | [**post_visions_streams**](docs/SubscriptionsApi.md#post_visions_streams) | **POST** /subscriptions/visions/streams | 订阅摄像头的视频流
 *SubscriptionsApi* | [**post_voice_asr_subscriptions**](docs/SubscriptionsApi.md#post_voice_asr_subscriptions) | **POST** /subscriptions/voice/asr | 订阅语义理解消息
-*SubscriptionsApi* | [**post_voice_iat_subscription**](docs/SubscriptionsApi.md#post_voice_iat_subscription) | **POST** /subscriptions/voice/iat | 订阅语音识别原始JSON信息
-*SubscriptionsApi* | [**post_voice_tts_subscriptions**](docs/SubscriptionsApi.md#post_voice_tts_subscriptions) | **POST** /subscriptions/voice/tts | 订阅TTS状态消息
+*SubscriptionsApi* | [**post_voice_iat_subscription**](docs/SubscriptionsApi.md#post_voice_iat_subscription) | **POST** /subscriptions/voice/iat | 订阅语音听写推送消息
+*SubscriptionsApi* | [**post_voice_tts_subscriptions**](docs/SubscriptionsApi.md#post_voice_tts_subscriptions) | **POST** /subscriptions/voice/tts | 订阅语音合成状态消息
 *VisionsApi* | [**delete_vision_photo**](docs/VisionsApi.md#delete_vision_photo) | **DELETE** /visions/photos | 删除指定照片
-*VisionsApi* | [**delete_vision_photo_samples**](docs/VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的照片
+*VisionsApi* | [**delete_vision_photo_samples**](docs/VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的样本
 *VisionsApi* | [**delete_visions_tags**](docs/VisionsApi.md#delete_visions_tags) | **DELETE** /visions/tags | 删除指定样本标签
-*VisionsApi* | [**get_photo_samples**](docs/VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传照片列表
+*VisionsApi* | [**get_photo_samples**](docs/VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传样本列表
 *VisionsApi* | [**get_vision**](docs/VisionsApi.md#get_vision) | **GET** /visions | 获取任务結果
 *VisionsApi* | [**get_visions_photos**](docs/VisionsApi.md#get_visions_photos) | **GET** /visions/photos | 获取指定照片
-*VisionsApi* | [**get_visions_photos_lists**](docs/VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取机器人拍照列表
+*VisionsApi* | [**get_visions_photos_lists**](docs/VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
 *VisionsApi* | [**get_visions_tags**](docs/VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
 *VisionsApi* | [**post_vision_photo**](docs/VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
 *VisionsApi* | [**put_visions**](docs/VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
-*VisionsApi* | [**put_visions_photo_samples**](docs/VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本照片
+*VisionsApi* | [**put_visions_photo_samples**](docs/VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本
 *VisionsApi* | [**put_visions_tags**](docs/VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
 *VoiceApi* | [**delete_voice_asr**](docs/VoiceApi.md#delete_voice_asr) | **DELETE** /voice/asr | 停止语义理解
 *VoiceApi* | [**delete_voice_iat**](docs/VoiceApi.md#delete_voice_iat) | **DELETE** /voice/iat | 停止语音听写
 *VoiceApi* | [**delete_voice_tts**](docs/VoiceApi.md#delete_voice_tts) | **DELETE** /voice/tts | 停止当前的语音合成
 *VoiceApi* | [**get_voice_asr**](docs/VoiceApi.md#get_voice_asr) | **GET** /voice/asr | 获取语义理解工作状态
-*VoiceApi* | [**get_voice_iat**](docs/VoiceApi.md#get_voice_iat) | **GET** /voice/iat | 获取语音听写工作状态
+*VoiceApi* | [**get_voice_iat**](docs/VoiceApi.md#get_voice_iat) | **GET** /voice/iat | 获取语音听写结果
 *VoiceApi* | [**get_voice_tts**](docs/VoiceApi.md#get_voice_tts) | **GET** /voice/tts | 获取当前语音合成工作状态
 *VoiceApi* | [**put_voice_asr**](docs/VoiceApi.md#put_voice_asr) | **PUT** /voice/asr | 开始语义理解
 *VoiceApi* | [**put_voice_iat**](docs/VoiceApi.md#put_voice_iat) | **PUT** /voice/iat | 开始语音听写
@@ -211,6 +210,7 @@ Class | Method | HTTP request | Description
  - [VisionsGetResponse](docs/VisionsGetResponse.md)
  - [VisionsPhoto](docs/VisionsPhoto.md)
  - [VisionsPhotoListResponse](docs/VisionsPhotoListResponse.md)
+ - [VisionsPhotoResponse](docs/VisionsPhotoResponse.md)
  - [VisionsPut](docs/VisionsPut.md)
  - [VisionsPutResponse](docs/VisionsPutResponse.md)
  - [VisionsPutTags](docs/VisionsPutTags.md)

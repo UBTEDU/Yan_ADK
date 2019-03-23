@@ -410,7 +410,7 @@ class SubscriptionsApi(object):
             collection_formats=collection_formats)
 
     def delete_voice_asr_subscription(self, body, **kwargs):  # noqa: E501
-        """取消订阅语义消息  # noqa: E501
+        """取消订阅语义理解消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -432,7 +432,7 @@ class SubscriptionsApi(object):
             return data
 
     def delete_voice_asr_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
-        """取消订阅语义消息  # noqa: E501
+        """取消订阅语义理解消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -505,7 +505,7 @@ class SubscriptionsApi(object):
             collection_formats=collection_formats)
 
     def delete_voice_iat_subscription(self, body, **kwargs):  # noqa: E501
-        """取消订阅语音识别JSON消息  # noqa: E501
+        """取消订阅语音听写推送消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -527,7 +527,7 @@ class SubscriptionsApi(object):
             return data
 
     def delete_voice_iat_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
-        """取消订阅语音识别JSON消息  # noqa: E501
+        """取消订阅语音听写推送消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -600,7 +600,7 @@ class SubscriptionsApi(object):
             collection_formats=collection_formats)
 
     def delete_voice_tts_subscription(self, body, **kwargs):  # noqa: E501
-        """取消订阅语义消息  # noqa: E501
+        """取消订阅语音合成状态消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -622,7 +622,7 @@ class SubscriptionsApi(object):
             return data
 
     def delete_voice_tts_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
-        """取消订阅语义消息  # noqa: E501
+        """取消订阅语音合成状态消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1182,7 +1182,7 @@ class SubscriptionsApi(object):
             collection_formats=collection_formats)
 
     def post_voice_iat_subscription(self, body, **kwargs):  # noqa: E501
-        """订阅语音识别原始JSON信息  # noqa: E501
+        """订阅语音听写推送消息  # noqa: E501
 
         URL example: http://10.10.1.30:80/subscriptions/voice/iat  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1204,7 +1204,7 @@ class SubscriptionsApi(object):
             return data
 
     def post_voice_iat_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
-        """订阅语音识别原始JSON信息  # noqa: E501
+        """订阅语音听写推送消息  # noqa: E501
 
         URL example: http://10.10.1.30:80/subscriptions/voice/iat  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1281,9 +1281,9 @@ class SubscriptionsApi(object):
             collection_formats=collection_formats)
 
     def post_voice_tts_subscriptions(self, body, **kwargs):  # noqa: E501
-        """订阅TTS状态消息  # noqa: E501
+        """订阅语音合成状态消息  # noqa: E501
 
-        URL example: http://10.10.1.30:80/tts  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_voice_tts_subscriptions(body, async_req=True)
@@ -1303,9 +1303,9 @@ class SubscriptionsApi(object):
             return data
 
     def post_voice_tts_subscriptions_with_http_info(self, body, **kwargs):  # noqa: E501
-        """订阅TTS状态消息  # noqa: E501
+        """订阅语音合成状态消息  # noqa: E501
 
-        URL example: http://10.10.1.30:80/tts  # noqa: E501
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_voice_tts_subscriptions_with_http_info(body, async_req=True)

@@ -31,54 +31,25 @@ class SubscriptionsVoice(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str',
         'url': 'str',
         'timeout': 'int'
     }
 
     attribute_map = {
-        'type': 'type',
         'url': 'url',
         'timeout': 'timeout'
     }
 
-    def __init__(self, type=None, url=None, timeout=10):  # noqa: E501
+    def __init__(self, url=None, timeout=10):  # noqa: E501
         """SubscriptionsVoice - a model defined in Swagger"""  # noqa: E501
 
-        self._type = None
         self._url = None
         self._timeout = None
         self.discriminator = None
 
-        self.type = type
         self.url = url
         if timeout is not None:
             self.timeout = timeout
-
-    @property
-    def type(self):
-        """Gets the type of this SubscriptionsVoice.  # noqa: E501
-
-        订阅的语音服务类型  # noqa: E501
-
-        :return: The type of this SubscriptionsVoice.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this SubscriptionsVoice.
-
-        订阅的语音服务类型  # noqa: E501
-
-        :param type: The type of this SubscriptionsVoice.  # noqa: E501
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-
-        self._type = type
 
     @property
     def url(self):

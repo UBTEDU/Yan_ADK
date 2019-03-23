@@ -8,16 +8,16 @@ Method | HTTP request | Description
 [**delete_sensors_subscription**](SubscriptionsApi.md#delete_sensors_subscription) | **DELETE** /subscriptions/sensors | 取消订阅传感器消息
 [**delete_vision_subscription**](SubscriptionsApi.md#delete_vision_subscription) | **DELETE** /subscriptions/visions | 取消订阅指定视觉任务消息
 [**delete_visions_streams**](SubscriptionsApi.md#delete_visions_streams) | **DELETE** /subscriptions/visions/streams | 取消订阅摄像头的视频流
-[**delete_voice_asr_subscription**](SubscriptionsApi.md#delete_voice_asr_subscription) | **DELETE** /subscriptions/voice/asr | 取消订阅语义消息
-[**delete_voice_iat_subscription**](SubscriptionsApi.md#delete_voice_iat_subscription) | **DELETE** /subscriptions/voice/iat | 取消订阅语音识别JSON消息
-[**delete_voice_tts_subscription**](SubscriptionsApi.md#delete_voice_tts_subscription) | **DELETE** /subscriptions/voice/tts | 取消订阅语义消息
+[**delete_voice_asr_subscription**](SubscriptionsApi.md#delete_voice_asr_subscription) | **DELETE** /subscriptions/voice/asr | 取消订阅语义理解消息
+[**delete_voice_iat_subscription**](SubscriptionsApi.md#delete_voice_iat_subscription) | **DELETE** /subscriptions/voice/iat | 取消订阅语音听写推送消息
+[**delete_voice_tts_subscription**](SubscriptionsApi.md#delete_voice_tts_subscription) | **DELETE** /subscriptions/voice/tts | 取消订阅语音合成状态消息
 [**post_motions_subscription**](SubscriptionsApi.md#post_motions_subscription) | **POST** /subscriptions/motions | 订阅运动状态消息
 [**post_sensors_subscription**](SubscriptionsApi.md#post_sensors_subscription) | **POST** /subscriptions/sensors | 订阅传感器消息
 [**post_vision_subscription**](SubscriptionsApi.md#post_vision_subscription) | **POST** /subscriptions/visions | 订阅指定视觉任务消息
 [**post_visions_streams**](SubscriptionsApi.md#post_visions_streams) | **POST** /subscriptions/visions/streams | 订阅摄像头的视频流
 [**post_voice_asr_subscriptions**](SubscriptionsApi.md#post_voice_asr_subscriptions) | **POST** /subscriptions/voice/asr | 订阅语义理解消息
-[**post_voice_iat_subscription**](SubscriptionsApi.md#post_voice_iat_subscription) | **POST** /subscriptions/voice/iat | 订阅语音识别原始JSON信息
-[**post_voice_tts_subscriptions**](SubscriptionsApi.md#post_voice_tts_subscriptions) | **POST** /subscriptions/voice/tts | 订阅TTS状态消息
+[**post_voice_iat_subscription**](SubscriptionsApi.md#post_voice_iat_subscription) | **POST** /subscriptions/voice/iat | 订阅语音听写推送消息
+[**post_voice_tts_subscriptions**](SubscriptionsApi.md#post_voice_tts_subscriptions) | **POST** /subscriptions/voice/tts | 订阅语音合成状态消息
 
 
 # **delete_motions_subscription**
@@ -215,7 +215,7 @@ No authorization required
 # **delete_voice_asr_subscription**
 > CommonResponse delete_voice_asr_subscription(body)
 
-取消订阅语义消息
+取消订阅语义理解消息
 
 
 
@@ -232,7 +232,7 @@ api_instance = openadk.SubscriptionsApi()
 body = openadk.SubscriptionsVoice() # SubscriptionsVoice | 
 
 try:
-    # 取消订阅语义消息
+    # 取消订阅语义理解消息
     api_response = api_instance.delete_voice_asr_subscription(body)
     pprint(api_response)
 except ApiException as e:
@@ -263,7 +263,7 @@ No authorization required
 # **delete_voice_iat_subscription**
 > CommonResponse delete_voice_iat_subscription(body)
 
-取消订阅语音识别JSON消息
+取消订阅语音听写推送消息
 
 
 
@@ -280,7 +280,7 @@ api_instance = openadk.SubscriptionsApi()
 body = openadk.SubscriptionsVoice() # SubscriptionsVoice | 
 
 try:
-    # 取消订阅语音识别JSON消息
+    # 取消订阅语音听写推送消息
     api_response = api_instance.delete_voice_iat_subscription(body)
     pprint(api_response)
 except ApiException as e:
@@ -311,7 +311,7 @@ No authorization required
 # **delete_voice_tts_subscription**
 > CommonResponse delete_voice_tts_subscription(body)
 
-取消订阅语义消息
+取消订阅语音合成状态消息
 
 
 
@@ -328,7 +328,7 @@ api_instance = openadk.SubscriptionsApi()
 body = openadk.SubscriptionsVoice() # SubscriptionsVoice | 
 
 try:
-    # 取消订阅语义消息
+    # 取消订阅语音合成状态消息
     api_response = api_instance.delete_voice_tts_subscription(body)
     pprint(api_response)
 except ApiException as e:
@@ -599,7 +599,7 @@ No authorization required
 # **post_voice_iat_subscription**
 > CommonResponse post_voice_iat_subscription(body)
 
-订阅语音识别原始JSON信息
+订阅语音听写推送消息
 
 URL example: http://10.10.1.30:80/subscriptions/voice/iat
 
@@ -616,7 +616,7 @@ api_instance = openadk.SubscriptionsApi()
 body = openadk.SubscriptionsVoice() # SubscriptionsVoice | 
 
 try:
-    # 订阅语音识别原始JSON信息
+    # 订阅语音听写推送消息
     api_response = api_instance.post_voice_iat_subscription(body)
     pprint(api_response)
 except ApiException as e:
@@ -647,9 +647,9 @@ No authorization required
 # **post_voice_tts_subscriptions**
 > CommonResponse post_voice_tts_subscriptions(body)
 
-订阅TTS状态消息
+订阅语音合成状态消息
 
-URL example: http://10.10.1.30:80/tts
+
 
 ### Example
 ```python
@@ -664,7 +664,7 @@ api_instance = openadk.SubscriptionsApi()
 body = openadk.SubscriptionsVoice() # SubscriptionsVoice | 
 
 try:
-    # 订阅TTS状态消息
+    # 订阅语音合成状态消息
     api_response = api_instance.post_voice_tts_subscriptions(body)
     pprint(api_response)
 except ApiException as e:

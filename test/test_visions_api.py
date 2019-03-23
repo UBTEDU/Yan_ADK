@@ -39,7 +39,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_delete_vision_photo_samples(self):
         """Test case for delete_vision_photo_samples
 
-        删除上传的照片  # noqa: E501
+        删除上传的样本  # noqa: E501
         """
         pass
 
@@ -53,7 +53,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_photo_samples(self):
         """Test case for get_photo_samples
 
-        获取上传照片列表  # noqa: E501
+        获取上传样本列表  # noqa: E501
         """
         pass
 
@@ -74,7 +74,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_visions_photos_lists(self):
         """Test case for get_visions_photos_lists
 
-        获取机器人拍照列表  # noqa: E501
+        获取拍照列表  # noqa: E501
         """
         pass
 
@@ -102,7 +102,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_put_visions_photo_samples(self):
         """Test case for put_visions_photo_samples
 
-        上传样本照片  # noqa: E501
+        上传样本  # noqa: E501
         """
         pass
 

@@ -29,80 +29,101 @@ class TestSubscriptionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_put_motions(self):
-        """Test case for put_motions
+    def test_delete_motions_subscription(self):
+        """Test case for delete_motions_subscription
 
-        推送运动控制状态  # noqa: E501
+        取消订阅运动状态消息  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription(self):
-        """Test case for put_sensors_subscription
+    def test_delete_sensors_subscription(self):
+        """Test case for delete_sensors_subscription
 
-        推送传感器消息  # noqa: E501
+        取消订阅传感器消息  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription_sensors_environment(self):
-        """Test case for put_sensors_subscription_sensors_environment
+    def test_delete_vision_subscription(self):
+        """Test case for delete_vision_subscription
 
-        推送传感器消息  # noqa: E501
+        取消订阅指定视觉任务消息  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription_sensors_infrared(self):
-        """Test case for put_sensors_subscription_sensors_infrared
+    def test_delete_visions_streams(self):
+        """Test case for delete_visions_streams
 
-        推送传感器消息  # noqa: E501
+        取消订阅摄像头的视频流  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription_sensors_pressure(self):
-        """Test case for put_sensors_subscription_sensors_pressure
+    def test_delete_voice_asr_subscription(self):
+        """Test case for delete_voice_asr_subscription
 
-        推送传感器消息  # noqa: E501
+        取消订阅语义理解消息  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription_sensors_touch(self):
-        """Test case for put_sensors_subscription_sensors_touch
+    def test_delete_voice_iat_subscription(self):
+        """Test case for delete_voice_iat_subscription
 
-        推送传感器消息  # noqa: E501
+        取消订阅语音听写推送消息  # noqa: E501
         """
         pass
 
-    def test_put_sensors_subscription_sensors_ultrasonic(self):
-        """Test case for put_sensors_subscription_sensors_ultrasonic
+    def test_delete_voice_tts_subscription(self):
+        """Test case for delete_voice_tts_subscription
 
-        推送传感器消息  # noqa: E501
+        取消订阅语音合成状态消息  # noqa: E501
         """
         pass
 
-    def test_put_tts_subscriptions_voice_tts(self):
-        """Test case for put_tts_subscriptions_voice_tts
+    def test_post_motions_subscription(self):
+        """Test case for post_motions_subscription
 
-        推送TTS状态消息  # noqa: E501
+        订阅运动状态消息  # noqa: E501
         """
         pass
 
-    def test_put_vision_subscription_visions(self):
-        """Test case for put_vision_subscription_visions
+    def test_post_sensors_subscription(self):
+        """Test case for post_sensors_subscription
 
-        推送指定视觉任务消息  # noqa: E501
+        订阅传感器消息  # noqa: E501
         """
         pass
 
-    def test_put_voice_asr_subscriptions_voice_asr(self):
-        """Test case for put_voice_asr_subscriptions_voice_asr
+    def test_post_vision_subscription(self):
+        """Test case for post_vision_subscription
 
-        推送语义理解消息  # noqa: E501
+        订阅指定视觉任务消息  # noqa: E501
         """
         pass
 
-    def test_put_voice_iat_subscription_voice_iat(self):
-        """Test case for put_voice_iat_subscription_voice_iat
+    def test_post_visions_streams(self):
+        """Test case for post_visions_streams
 
-        推送语音识别原始JSON信息  # noqa: E501
+        订阅摄像头的视频流  # noqa: E501
+        """
+        pass
+
+    def test_post_voice_asr_subscriptions(self):
+        """Test case for post_voice_asr_subscriptions
+
+        订阅语义理解消息  # noqa: E501
+        """
+        pass
+
+    def test_post_voice_iat_subscription(self):
+        """Test case for post_voice_iat_subscription
+
+        订阅语音听写推送消息  # noqa: E501
+        """
+        pass
+
+    def test_post_voice_tts_subscriptions(self):
+        """Test case for post_voice_tts_subscriptions
+
+        订阅语音合成状态消息  # noqa: E501
         """
         pass
 

@@ -36,6 +36,8 @@ class VisionsGetResponse(object):
         'code': 'int',
         'type': 'str',
         'data': 'VisionsResults',
+        'timestamp': 'int',
+        'status': 'str',
         'msg': 'str'
     }
 
@@ -43,15 +45,19 @@ class VisionsGetResponse(object):
         'code': 'code',
         'type': 'type',
         'data': 'data',
+        'timestamp': 'timestamp',
+        'status': 'status',
         'msg': 'msg'
     }
 
-    def __init__(self, code=None, type=None, data=None, msg=None):  # noqa: E501
+    def __init__(self, code=None, type=None, data=None, timestamp=None, status=None, msg=None):  # noqa: E501
         """VisionsGetResponse - a model defined in Swagger"""  # noqa: E501
 
         self._code = None
         self._type = None
         self._data = None
+        self._timestamp = None
+        self._status = None
         self._msg = None
         self.discriminator = None
 
@@ -59,6 +65,10 @@ class VisionsGetResponse(object):
         self.type = type
         if data is not None:
             self.data = data
+        if timestamp is not None:
+            self.timestamp = timestamp
+        if status is not None:
+            self.status = status
         self.msg = msg
 
     @property
@@ -137,6 +147,52 @@ class VisionsGetResponse(object):
         """
 
         self._data = data
+
+    @property
+    def timestamp(self):
+        """Gets the timestamp of this VisionsGetResponse.  # noqa: E501
+
+        任务时间戳  # noqa: E501
+
+        :return: The timestamp of this VisionsGetResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this VisionsGetResponse.
+
+        任务时间戳  # noqa: E501
+
+        :param timestamp: The timestamp of this VisionsGetResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
+
+    @property
+    def status(self):
+        """Gets the status of this VisionsGetResponse.  # noqa: E501
+
+        状态  # noqa: E501
+
+        :return: The status of this VisionsGetResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this VisionsGetResponse.
+
+        状态  # noqa: E501
+
+        :param status: The status of this VisionsGetResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def msg(self):

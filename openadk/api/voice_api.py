@@ -382,7 +382,7 @@ class VoiceApi(object):
             collection_formats=collection_formats)
 
     def get_voice_iat(self, **kwargs):  # noqa: E501
-        """获取语音听写工作状态  # noqa: E501
+        """获取语音听写结果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -403,7 +403,7 @@ class VoiceApi(object):
             return data
 
     def get_voice_iat_with_http_info(self, **kwargs):  # noqa: E501
-        """获取语音听写工作状态  # noqa: E501
+        """获取语音听写结果  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

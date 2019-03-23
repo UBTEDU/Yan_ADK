@@ -393,8 +393,8 @@ definitions:
         type: "string"
         description: "运行状态"
         enum:
-        - "start"
-        - "finish"
+        - "idle"
+        - "running"
         - "pause"
       name:
         type: "string"
@@ -1718,6 +1718,27 @@ definitions:
     xml:
       name: "VisionsPhotoListResponse"
 
+  VisionsPhotoResponse:
+    type: "object"
+    required:
+    - "code"
+    - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "错误码"
+        example: 0
+      data:
+        type: "object"
+        description: "拍摄的照片名"
+        $ref: "#/definitions/Name"
+      msg:
+        type: "string"
+        description: "错误码消息"
+        example: "Success"
+    xml:
+      name: "VisionsPhotoResponse"
+
   VisionsPhoto:
     type: "object"
     properties:
@@ -1906,6 +1927,15 @@ definitions:
         description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'"
       data:
         $ref: "#/definitions/VisionsResults"
+      timestamp:
+        type: "integer"
+        format: "int64"
+        description: "任务时间戳"
+        example: 1551838515
+      status:
+        type: "string"
+        description: "状态"
+        example: "idle"
       msg:
         type: "string"
         description: "错误码消息"
@@ -2000,10 +2030,6 @@ definitions:
         type: "integer"
         description: "错误码"
         example: 0
-      timestamp:
-        type: "integer"
-        description: "视觉任务时间戳"
-        example: 1551838515
       data:
         type: "object"
         example: {}
@@ -2105,9 +2131,6 @@ definitions:
     - "type"
     - "url"
     properties:
-      type:
-        type: "string"
-        description: "订阅的语音服务类型"
       url:
         type: "string"
         description: "协议与地址"

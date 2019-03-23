@@ -1,10 +1,11 @@
-# SubscriptionsVoice
+# VisionsPhotoResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** | 协议与地址 | 
-**timeout** | **int** | 超时停止发送的时间 | [optional] [default to 10]
+**code** | **int** | 错误码 | 
+**data** | [**Name**](Name.md) | 拍摄的照片名 | [optional] 
+**msg** | **str** | 错误码消息 | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

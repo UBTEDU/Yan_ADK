@@ -60,7 +60,7 @@ class TestVoiceApi(unittest.TestCase):
     def test_get_voice_iat(self):
         """Test case for get_voice_iat
 
-        获取语音听写工作状态  # noqa: E501
+        获取语音听写结果  # noqa: E501
         """
         pass
 
