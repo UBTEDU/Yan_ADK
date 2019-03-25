@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.subscriptions_voice import SubscriptionsVoice  # noqa: E501
+from openadk.models.subscriptions_iat_voice import SubscriptionsIatVoice  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestSubscriptionsVoice(unittest.TestCase):
-    """SubscriptionsVoice unit test stubs"""
+class TestSubscriptionsIatVoice(unittest.TestCase):
+    """SubscriptionsIatVoice unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSubscriptionsVoice(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSubscriptionsVoice(self):
-        """Test SubscriptionsVoice"""
+    def testSubscriptionsIatVoice(self):
+        """Test SubscriptionsIatVoice"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.subscriptions_voice.SubscriptionsVoice()  # noqa: E501
+        # model = openadk.models.subscriptions_iat_voice.SubscriptionsIatVoice()  # noqa: E501
         pass
 
 

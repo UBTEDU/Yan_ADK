@@ -223,13 +223,13 @@ class SubscriptionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_vision_subscription(self, body, **kwargs):  # noqa: E501
+    def delete_visions_subscription(self, body, **kwargs):  # noqa: E501
         """取消订阅指定视觉任务消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_vision_subscription(body, async_req=True)
+        >>> thread = api.delete_visions_subscription(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -240,18 +240,18 @@ class SubscriptionsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_vision_subscription_with_http_info(body, **kwargs)  # noqa: E501
+            return self.delete_visions_subscription_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_vision_subscription_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.delete_visions_subscription_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def delete_vision_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
+    def delete_visions_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
         """取消订阅指定视觉任务消息  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_vision_subscription_with_http_info(body, async_req=True)
+        >>> thread = api.delete_visions_subscription_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -272,14 +272,14 @@ class SubscriptionsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_vision_subscription" % key
+                    " to method delete_visions_subscription" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `delete_vision_subscription`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `delete_visions_subscription`")  # noqa: E501
 
         collection_formats = {}
 
@@ -318,97 +318,6 @@ class SubscriptionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_visions_streams(self, **kwargs):  # noqa: E501
-        """取消订阅摄像头的视频流  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_visions_streams(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SubscriptionsStream body:
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_visions_streams_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_visions_streams_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def delete_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
-        """取消订阅摄像头的视频流  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_visions_streams_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param SubscriptionsStream body:
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_visions_streams" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/subscriptions/visions/streams', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CommonResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_voice_asr_subscription(self, body, **kwargs):  # noqa: E501
         """取消订阅语义理解消息  # noqa: E501
 
@@ -419,7 +328,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsAsrVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -441,7 +350,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsAsrVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -514,7 +423,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsIatVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -536,7 +445,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsIatVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -609,7 +518,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsTtsVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -631,7 +540,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsTtsVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -892,13 +801,13 @@ class SubscriptionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def post_vision_subscription(self, body, **kwargs):  # noqa: E501
+    def post_visions_subscription(self, body, **kwargs):  # noqa: E501
         """订阅指定视觉任务消息  # noqa: E501
 
         URL example: http://10.10.1.30:80/subscriptions/visions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_vision_subscription(body, async_req=True)
+        >>> thread = api.post_visions_subscription(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -909,18 +818,18 @@ class SubscriptionsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.post_vision_subscription_with_http_info(body, **kwargs)  # noqa: E501
+            return self.post_visions_subscription_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.post_vision_subscription_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.post_visions_subscription_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def post_vision_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
+    def post_visions_subscription_with_http_info(self, body, **kwargs):  # noqa: E501
         """订阅指定视觉任务消息  # noqa: E501
 
         URL example: http://10.10.1.30:80/subscriptions/visions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_vision_subscription_with_http_info(body, async_req=True)
+        >>> thread = api.post_visions_subscription_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -941,14 +850,14 @@ class SubscriptionsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method post_vision_subscription" % key
+                    " to method post_visions_subscription" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_vision_subscription`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `post_visions_subscription`")  # noqa: E501
 
         collection_formats = {}
 
@@ -991,97 +900,6 @@ class SubscriptionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def post_visions_streams(self, **kwargs):  # noqa: E501
-        """订阅摄像头的视频流  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_visions_streams(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsStream body:
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.post_visions_streams_with_http_info(**kwargs)  # noqa: E501
-        else:
-            (data) = self.post_visions_streams_with_http_info(**kwargs)  # noqa: E501
-            return data
-
-    def post_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
-        """订阅摄像头的视频流  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_visions_streams_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param VisionsStream body:
-        :return: CommonResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method post_visions_streams" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/subscriptions/visions/streams', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='CommonResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def post_voice_asr_subscriptions(self, body, **kwargs):  # noqa: E501
         """订阅语义理解消息  # noqa: E501
 
@@ -1092,7 +910,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsAsrVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1114,7 +932,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsAsrVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1191,7 +1009,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsIatVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1213,7 +1031,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsIatVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1290,7 +1108,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsTtsVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1312,7 +1130,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVoice body: (required)
+        :param SubscriptionsTtsVoice body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.

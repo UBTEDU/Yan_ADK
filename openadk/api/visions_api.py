@@ -227,6 +227,97 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_visions_streams(self, **kwargs):  # noqa: E501
+        """关闭摄像头的视频流  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_visions_streams(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsStream body:
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_visions_streams_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_visions_streams_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def delete_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
+        """关闭摄像头的视频流  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_visions_streams_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsStream body:
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_visions_streams" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/visions/streams', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_visions_tags(self, **kwargs):  # noqa: E501
         """删除指定样本标签  # noqa: E501
 
@@ -849,6 +940,97 @@ class VisionsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='VisionsPhotoResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_visions_streams(self, **kwargs):  # noqa: E501
+        """打开摄像头的视频流  # noqa: E501
+
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://<机器人ip地址>:8000/visions/streams.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_visions_streams(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsStream body:
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.post_visions_streams_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.post_visions_streams_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def post_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
+        """打开摄像头的视频流  # noqa: E501
+
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://<机器人ip地址>:8000/visions/streams.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_visions_streams_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VisionsStream body:
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_visions_streams" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/visions/streams', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

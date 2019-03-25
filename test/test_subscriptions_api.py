@@ -43,17 +43,10 @@ class TestSubscriptionsApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_vision_subscription(self):
-        """Test case for delete_vision_subscription
+    def test_delete_visions_subscription(self):
+        """Test case for delete_visions_subscription
 
         取消订阅指定视觉任务消息  # noqa: E501
-        """
-        pass
-
-    def test_delete_visions_streams(self):
-        """Test case for delete_visions_streams
-
-        取消订阅摄像头的视频流  # noqa: E501
         """
         pass
 
@@ -92,17 +85,10 @@ class TestSubscriptionsApi(unittest.TestCase):
         """
         pass
 
-    def test_post_vision_subscription(self):
-        """Test case for post_vision_subscription
+    def test_post_visions_subscription(self):
+        """Test case for post_visions_subscription
 
         订阅指定视觉任务消息  # noqa: E501
-        """
-        pass
-
-    def test_post_visions_streams(self):
-        """Test case for post_visions_streams
-
-        订阅摄像头的视频流  # noqa: E501
         """
         pass
 

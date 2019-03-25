@@ -69,7 +69,13 @@ class TestVoiceApi(unittest.TestCase):
 
         获取当前语音合成工作状态  # noqa: E501
         """
-        pass
+        api = VoiceApi()
+        try:
+            api_response = api.get_voice_tts()
+            print(api_response)
+        except ApiException as e:
+            print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
+
 
     def test_put_voice_asr(self):
         """Test case for put_voice_asr
@@ -95,3 +101,6 @@ class TestVoiceApi(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    test = TestVoiceApi()
+    test.test_get_voice_tts()
+

@@ -85,11 +85,13 @@ from openadk.models.servos_mode_request import ServosModeRequest
 from openadk.models.servos_mode_response import ServosModeResponse
 from openadk.models.servos_result import ServosResult
 from openadk.models.servos_result_response import ServosResultResponse
+from openadk.models.subscriptions_asr_voice import SubscriptionsAsrVoice
+from openadk.models.subscriptions_iat_voice import SubscriptionsIatVoice
 from openadk.models.subscriptions_motions import SubscriptionsMotions
 from openadk.models.subscriptions_sensors import SubscriptionsSensors
 from openadk.models.subscriptions_stream import SubscriptionsStream
+from openadk.models.subscriptions_tts_voice import SubscriptionsTtsVoice
 from openadk.models.subscriptions_visions import SubscriptionsVisions
-from openadk.models.subscriptions_voice import SubscriptionsVoice
 from openadk.models.total_time import TotalTime
 from openadk.models.visions_age import VisionsAge
 from openadk.models.visions_analysis import VisionsAnalysis
