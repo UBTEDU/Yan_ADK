@@ -24,7 +24,9 @@ class TestVoiceApi(unittest.TestCase):
     """VoiceApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.voice_api.VoiceApi()  # noqa: E501
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.64.182:9090/v1'
+        self.api = openadk.api.voice_api.VoiceApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -69,12 +71,13 @@ class TestVoiceApi(unittest.TestCase):
 
         获取当前语音合成工作状态  # noqa: E501
         """
-        api = VoiceApi()
         try:
-            api_response = api.get_voice_tts()
+            # 删除指定照片
+
+            api_response = self.api.get_voice_tts()
             print(api_response)
         except ApiException as e:
-            print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
+            print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
 
 
     def test_put_voice_asr(self):

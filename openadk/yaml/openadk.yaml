@@ -1687,7 +1687,7 @@ definitions:
         - "face"
         - "hand"
         - "object"
-        example: "face_tracking"
+        example: "face"
         description: "任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face"
       timestamp:
         type: "integer"
@@ -1755,12 +1755,8 @@ definitions:
     properties:
       resolution:
         type: "string"
-        example: "1920x1080"
-        description: "视频分辨率。默认视频分辨率为1024x768，最大视频分辨率为1920x1080"
-      url:
-        type: "string"
-        example: "webrtc://10.10.68.72:8080"
-        description: "推送地址。 url 合法形式 webrtc://(ip):(port) 或者 udp://(ip):(port)"
+        example: "640x480"
+        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080"
     xml:
       name: "VisionsStream"
   VoiceResponse:
@@ -1904,6 +1900,36 @@ definitions:
         $ref: "#/definitions/VisionsQuantity"
     xml:
       name: "VisionsResults"
+
+  VisionsGetRequest:
+    type: "object"
+    required:
+    - "type"
+    - "option"
+    properties:
+      option:
+        type: "string"
+        description: "模型类型。 可选值为 'face', 'hand', 'object'"
+        enum:
+        - "face"
+        - "hand"
+        - "object"
+        example: "face"
+      type:
+        type: "string"
+        description: "任务。当模型类型为'face' 时, 可选值为 'age_analysis', 'gender_analysis', 'expression_analysis', 'quantity', 'recognition', 'tracking'。当模型类型为 'hand' 时, 可选值为 'quantity'。 当模型类型为 'object'时, 可选值为'recognition'"
+        enum:
+        - "age_analysis"
+        - "gender_analysis"
+        - "expression_analysis"
+        - "quantity"
+        - "recognition"
+        - "tracking"
+        example: "age_analysis"
+    xml:
+      name: "VisionsGetRequest"
+
+
   VisionsGetResponse:
     type: "object"
     required:
@@ -2125,7 +2151,7 @@ definitions:
         example: "http://10.10.67.98:8080/subscriptions/visions"
     xml:
       name: "SubscriptionsVisions"
-  SubscriptionsVoice:
+  SubscriptionsAsrVoice:
     type: "object"
     required:
     - "type"
@@ -2138,25 +2164,66 @@ definitions:
       timeout:
         type: "integer"
         description: "超时停止发送的时间"
+        example: 10
         format: "int32"
         minimum: 1
         maximum: 60
         default: 10
     xml:
-      name: "SubscriptionsVoice"
-  SubscriptionsStream:
+      name: "SubscriptionsAsrVoice"
+  SubscriptionsIatVoice:
     type: "object"
     required:
     - "type"
     - "url"
     properties:
-      type:
+      url:
         type: "string"
-        description: "订阅的消息类型"
+        description: "协议与地址"
+        example: "http://198.100.100.20:8080/subscriptions/voice/iat"
+      timeout:
+        type: "integer"
+        description: "超时停止发送的时间"
+        example: 10
+        format: "int32"
+        minimum: 1
+        maximum: 60
+        default: 10
+    xml:
+      name: "SubscriptionsIatVoice"
+  SubscriptionsTtsVoice:
+    type: "object"
+    required:
+    - "type"
+    - "url"
+    properties:
+      url:
+        type: "string"
+        description: "协议与地址"
+        example: "http://198.100.100.20:8080/subscriptions/voice/tts"
+      timeout:
+        type: "integer"
+        description: "超时停止发送的时间"
+        example: 10
+        format: "int32"
+        minimum: 1
+        maximum: 60
+        default: 10
+    xml:
+      name: "SubscriptionsTtsVoice"
+  SubscriptionsStream:
+    type: "object"
+    required:
+    - "url"
+    properties:
       url:
         type: "string"
         description: "协议与地址"
         example: "http://198.100.100.20:8080/subscriptions/stream"
+      resolution:
+        type: "string"
+        example: "1920x1080"
+        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080"
       timeout:
         type: "integer"
         description: "超时停止发送的时间"

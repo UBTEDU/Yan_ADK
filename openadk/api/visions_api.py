@@ -142,7 +142,7 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsSampleDeleteRequest body: 样本名称
+        :param Name body: 样本名称
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -164,7 +164,7 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsSampleDeleteRequest body: 样本名称
+        :param Name body: 样本名称
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -506,7 +506,7 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsTask body:
+        :param VisionsGetRequest body:
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -528,7 +528,7 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsTask body:
+        :param VisionsGetRequest body:
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
