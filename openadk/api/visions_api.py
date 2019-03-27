@@ -587,45 +587,45 @@ class VisionsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_visions_photos(self, type, **kwargs):  # noqa: E501
+    def get_visions_photos(self, body, **kwargs):  # noqa: E501
         """获取指定照片  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_visions_photos(type, async_req=True)
+        >>> thread = api.get_visions_photos(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: 照片名 (required)
+        :param str body: 照片名 (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_visions_photos_with_http_info(type, **kwargs)  # noqa: E501
+            return self.get_visions_photos_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_visions_photos_with_http_info(type, **kwargs)  # noqa: E501
+            (data) = self.get_visions_photos_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def get_visions_photos_with_http_info(self, type, **kwargs):  # noqa: E501
+    def get_visions_photos_with_http_info(self, body, **kwargs):  # noqa: E501
         """获取指定照片  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_visions_photos_with_http_info(type, async_req=True)
+        >>> thread = api.get_visions_photos_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: 照片名 (required)
+        :param str body: 照片名 (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type']  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -640,18 +640,18 @@ class VisionsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'type' is set
-        if ('type' not in params or
-                params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `get_visions_photos`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `get_visions_photos`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'type' in params:
-            query_params.append(('type', params['type']))  # noqa: E501
+        if 'body' in params:
+            query_params.append(('body', params['body']))  # noqa: E501
 
         header_params = {}
 
@@ -950,7 +950,7 @@ class VisionsApi(object):
     def post_visions_streams(self, **kwargs):  # noqa: E501
         """打开摄像头的视频流  # noqa: E501
 
-        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://<机器人ip地址>:8000/visions/streams.   # noqa: E501
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_streams(async_req=True)
@@ -972,7 +972,7 @@ class VisionsApi(object):
     def post_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
         """打开摄像头的视频流  # noqa: E501
 
-        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://<机器人ip地址>:8000/visions/streams.   # noqa: E501
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_streams_with_http_info(async_req=True)
@@ -1136,7 +1136,7 @@ class VisionsApi(object):
     def put_visions_photo_samples(self, file, **kwargs):  # noqa: E501
         """上传样本  # noqa: E501
 
-          # noqa: E501
+        请先上传样本数据再设置样本标签  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions_photo_samples(file, async_req=True)
@@ -1158,7 +1158,7 @@ class VisionsApi(object):
     def put_visions_photo_samples_with_http_info(self, file, **kwargs):  # noqa: E501
         """上传样本  # noqa: E501
 
-          # noqa: E501
+        请先上传样本数据再设置样本标签  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions_photo_samples_with_http_info(file, async_req=True)
@@ -1235,7 +1235,7 @@ class VisionsApi(object):
     def put_visions_tags(self, **kwargs):  # noqa: E501
         """设置样本标签  # noqa: E501
 
-          # noqa: E501
+        请先上传样本数据再设置样本标签  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions_tags(async_req=True)
@@ -1257,7 +1257,7 @@ class VisionsApi(object):
     def put_visions_tags_with_http_info(self, **kwargs):  # noqa: E501
         """设置样本标签  # noqa: E501
 
-          # noqa: E501
+        请先上传样本数据再设置样本标签  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions_tags_with_http_info(async_req=True)

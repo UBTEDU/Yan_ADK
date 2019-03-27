@@ -51,7 +51,7 @@ class VisionsStream(object):
     def resolution(self):
         """Gets the resolution of this VisionsStream.  # noqa: E501
 
-        视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080  # noqa: E501
+        视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800  # noqa: E501
 
         :return: The resolution of this VisionsStream.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class VisionsStream(object):
     def resolution(self, resolution):
         """Sets the resolution of this VisionsStream.
 
-        视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080  # noqa: E501
+        视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800  # noqa: E501
 
         :param resolution: The resolution of this VisionsStream.  # noqa: E501
         :type: str

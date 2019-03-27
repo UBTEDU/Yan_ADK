@@ -665,6 +665,7 @@ definitions:
     properties:
       type:
         type: "string"
+        description: "LED灯的类型"
         default: "button"
         enum:
         - "button"
@@ -682,13 +683,13 @@ definitions:
         - "cyan"
       mode:
         type: "string"
+        description: "LED灯模式，当type为camera时不支持breath!"
         default: "on"
         enum:
         - "on"
         - "off"
         - "blink"
         - "breath"
-        - "colorful"
     xml:
       name: "DevicesLED"
   DevicesLEDResponse:
@@ -1918,8 +1919,8 @@ definitions:
     properties:
       resolution:
         type: "string"
-        example: "1920x1080"
-        description: "照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1920x1080"
+        example: "1280x800"
+        description: "照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1280x800"
     xml:
       name: "VisionsPhoto"
   VisionsStream:
@@ -1928,7 +1929,7 @@ definitions:
       resolution:
         type: "string"
         example: "640x480"
-        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080"
+        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800"
     xml:
       name: "VisionsStream"
   VoiceResponse:
@@ -2463,8 +2464,8 @@ definitions:
         description: "协议与地址"
       resolution:
         type: "string"
-        example: "1920x1080"
-        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1920x1080"
+        example: "1280x800"
+        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800"
       timeout:
         type: "integer"
         format: "int32"

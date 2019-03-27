@@ -104,6 +104,3 @@ class TestVoiceApi(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    test = TestVoiceApi()
-    test.test_get_voice_tts()
-

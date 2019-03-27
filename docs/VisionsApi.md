@@ -305,7 +305,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_visions_photos**
-> get_visions_photos(type)
+> get_visions_photos(body)
 
 获取指定照片
 
@@ -321,11 +321,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-type = 'type_example' # str | 照片名
+body = 'body_example' # str | 照片名
 
 try:
     # 获取指定照片
-    api_instance.get_visions_photos(type)
+    api_instance.get_visions_photos(body)
 except ApiException as e:
     print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
 ```
@@ -334,7 +334,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **str**| 照片名 | 
+ **body** | **str**| 照片名 | 
 
 ### Return type
 
@@ -492,7 +492,7 @@ No authorization required
 
 打开摄像头的视频流
 
-打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://<机器人ip地址>:8000/visions/streams. 
+打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 
 
 ### Example
 ```python
@@ -588,7 +588,7 @@ No authorization required
 
 上传样本
 
-
+请先上传样本数据再设置样本标签
 
 ### Example
 ```python
@@ -636,7 +636,7 @@ No authorization required
 
 设置样本标签
 
-
+请先上传样本数据再设置样本标签
 
 ### Example
 ```python

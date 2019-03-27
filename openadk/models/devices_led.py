@@ -58,6 +58,7 @@ class DevicesLED(object):
     def type(self):
         """Gets the type of this DevicesLED.  # noqa: E501
 
+        LED灯的类型  # noqa: E501
 
         :return: The type of this DevicesLED.  # noqa: E501
         :rtype: str
@@ -68,6 +69,7 @@ class DevicesLED(object):
     def type(self, type):
         """Sets the type of this DevicesLED.
 
+        LED灯的类型  # noqa: E501
 
         :param type: The type of this DevicesLED.  # noqa: E501
         :type: str
@@ -116,6 +118,7 @@ class DevicesLED(object):
     def mode(self):
         """Gets the mode of this DevicesLED.  # noqa: E501
 
+        LED灯模式，当type为camera时不支持breath!  # noqa: E501
 
         :return: The mode of this DevicesLED.  # noqa: E501
         :rtype: str
@@ -126,13 +129,14 @@ class DevicesLED(object):
     def mode(self, mode):
         """Sets the mode of this DevicesLED.
 
+        LED灯模式，当type为camera时不支持breath!  # noqa: E501
 
         :param mode: The mode of this DevicesLED.  # noqa: E501
         :type: str
         """
         if mode is None:
             raise ValueError("Invalid value for `mode`, must not be `None`")  # noqa: E501
-        allowed_values = ["on", "off", "blink", "breath", "colorful"]  # noqa: E501
+        allowed_values = ["on", "off", "blink", "breath"]  # noqa: E501
         if mode not in allowed_values:
             raise ValueError(
                 "Invalid value for `mode` ({0}), must be one of {1}"  # noqa: E501

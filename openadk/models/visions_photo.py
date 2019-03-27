@@ -51,7 +51,7 @@ class VisionsPhoto(object):
     def resolution(self):
         """Gets the resolution of this VisionsPhoto.  # noqa: E501
 
-        照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1920x1080  # noqa: E501
+        照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1280x800  # noqa: E501
 
         :return: The resolution of this VisionsPhoto.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class VisionsPhoto(object):
     def resolution(self, resolution):
         """Sets the resolution of this VisionsPhoto.
 
-        照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1920x1080  # noqa: E501
+        照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1280x800  # noqa: E501
 
         :param resolution: The resolution of this VisionsPhoto.  # noqa: E501
         :type: str

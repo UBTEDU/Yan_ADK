@@ -15,22 +15,24 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk import Name
+from openadk import Name, VisionsDeleteTags, VisionsGetRequest
 from openadk.api.visions_api import VisionsApi  # noqa: E501
 from openadk.rest import ApiException
+from pprint import pprint
 
 
 class TestVisionsApi(unittest.TestCase):
     """VisionsApi unit test stubs"""
+
     #
     # def __init__(self):
     #     super().__init__()
-    #     self._api = VisionsApi()
+    #     self.api_instance = VisionsApi()
 
     def setUp(self):
         self.configuration = openadk.Configuration()
         self.configuration.host = 'http://10.10.64.182:9090/v1'
-        self.api = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
+        self.api_instance = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -45,46 +47,59 @@ class TestVisionsApi(unittest.TestCase):
             test_file_list = ['ssss', 'hello', '123123', '@!@#!@#']
             for name in test_file_list:
                 body = Name(name=name)
-                api_response = self.api.delete_vision_photo(body)
-                print (api_response)
+                api_response = self.api_instance.delete_vision_photo(body)
+                print(api_response)
                 self.assertEqual(20002, api_response.code)
                 self.assertEqual('Resource not exist.', api_response.msg)
 
         except ApiException as e:
             print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
 
-    def test_delete_vision_photo_samples(self, name):
+    def test_delete_vision_photo_samples(self):
         """Test case for delete_vision_photo_samples
 
         删除上传的样本  # noqa: E501
         """
+        test_file_list = ['ssss', 'hello', '123123', '@!@#!@#']
+        for name in test_file_list:
+            body = openadk.Name(name=name)  # Name | 样本名称 (optional)
+
+            try:
+                # 删除上传的样本
+                api_response = self.api_instance.delete_vision_photo_samples(body=body)
+                pprint(api_response)
+            except ApiException as e:
+                print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
+
+    def test_delete_visions_streams(self):
+
+        """Test case for delete_visions_streams
+
+        关闭摄像头的视频流  # noqa: E501
+        """
+        body = openadk.VisionsStream()  # VisionsStream |  (optional)
         try:
-            # 删除上传的样本
-            # request =
-            api_response = self._api.delete_vision_photo_samples()
-            print(api_response)
+            # 关闭摄像头的视频流
+            api_response = self.api_instance.delete_visions_streams(body=body)
+            pprint(api_response)
         except ApiException as e:
-            print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
+            print("Exception when calling VisionsApi->delete_visions_streams: %s\n" % e)
 
-        def test_delete_visions_streams(self):
-
-            """Test case for delete_visions_streams
-
-            关闭摄像头的视频流  # noqa: E501
-            """
-        pass
-
-    def test_delete_visions_tags(self, name):
+    def test_delete_visions_tags(self):
         """Test case for delete_visions_tags
 
         删除指定样本标签  # noqa: E501
         """
-        try:
-            # 删除指定样本标签
-            api_response = self._api.delete_visions_tags(body=name)
-            print(api_response)
-        except ApiException as e:
-            print("Exception when calling VisionsApi->delete_visions_tags: %s\n" % e)
+        test_tags_name = ['sss', '#$@#', '//1923\?']
+        for tags in test_tags_name:
+            body = VisionsDeleteTags(tags=tags)  # VisionsDeleteTags | 样本名称 (optional)
+
+            try:
+                # 删除指定样本标签
+                api_response = self.api_instance.delete_visions_tags(body=body)
+                pprint(api_response)
+            except ApiException as e:
+                print("Exception when calling VisionsApi->delete_visions_tags: %s\n" % e)
 
     def test_get_photo_samples(self):
         """Test case for get_photo_samples
@@ -93,8 +108,8 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 获取上传样本列表
-            api_response = self._api.get_photo_samples()
-            print(api_response)
+            api_response = self.api_instance.get_photo_samples()
+            pprint(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->get_photo_samples: %s\n" % e)
 
@@ -105,7 +120,8 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 获取任务結果
-            api_response = self._api.get_vision()
+            body = VisionsGetRequest(option='face', type='age_analysis')
+            api_response = self.api_instance.get_vision(body)
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->get_vision: %s\n" % e)
@@ -117,7 +133,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 获取指定照片
-            api_response = self._api.get_visions_photos()
+            api_response = self.api_instance.get_visions_photos()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
@@ -129,7 +145,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             #  获取拍照列表
-            api_response = self._api.get_visions_photos_lists()
+            api_response = self.api_instance.get_visions_photos_lists()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->get_visions_photos_lists: %s\n" % e)
@@ -141,7 +157,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 获取已设置标签列表
-            api_response = self._api.get_visions_tags()
+            api_response = self.api_instance.get_visions_tags()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->get_visions_tags: %s\n" % e)
@@ -153,17 +169,16 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 拍一张照片
-            api_response = self._api.post_vision_photo()
+            api_response = self.api_instance.post_vision_photo()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->post_vision_photo: %s\n" % e)
 
-        def test_post_visions_streams(self):
+    def test_post_visions_streams(self):
+        """Test case for post_visions_streams
 
-            """Test case for post_visions_streams
-
-            打开摄像头的视频流  # noqa: E501
-            """
+        打开摄像头的视频流  # noqa: E501
+        """
         pass
 
     def test_put_visions(self):
@@ -173,7 +188,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 指定视觉任务停止或开始
-            api_response = self._api.put_visions()
+            api_response = self.api_instance.put_visions()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions: %s\n" % e)
@@ -185,7 +200,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 上传样本
-            api_response = self._api.put_visions_photo_samples()
+            api_response = self.api_instance.put_visions_photo_samples()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions_photo_samples: %s\n" % e)
@@ -197,7 +212,7 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 设置样本标签
-            api_response = self._api.put_visions_tags()
+            api_response = self.api_instance.put_visions_tags()
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions_tags: %s\n" % e)

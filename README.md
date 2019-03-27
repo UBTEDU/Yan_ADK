@@ -103,20 +103,19 @@ Class | Method | HTTP request | Description
 *ServosApi* | [**put_servos_mode**](docs/ServosApi.md#put_servos_mode) | **PUT** /servos/mode | 设置舵机工作模式
 *SubscriptionsApi* | [**delete_motions_subscription**](docs/SubscriptionsApi.md#delete_motions_subscription) | **DELETE** /subscriptions/motions | 取消订阅运动状态消息
 *SubscriptionsApi* | [**delete_sensors_subscription**](docs/SubscriptionsApi.md#delete_sensors_subscription) | **DELETE** /subscriptions/sensors | 取消订阅传感器消息
-*SubscriptionsApi* | [**delete_vision_subscription**](docs/SubscriptionsApi.md#delete_vision_subscription) | **DELETE** /subscriptions/visions | 取消订阅指定视觉任务消息
-*SubscriptionsApi* | [**delete_visions_streams**](docs/SubscriptionsApi.md#delete_visions_streams) | **DELETE** /subscriptions/visions/streams | 取消订阅摄像头的视频流
+*SubscriptionsApi* | [**delete_visions_subscription**](docs/SubscriptionsApi.md#delete_visions_subscription) | **DELETE** /subscriptions/visions | 取消订阅指定视觉任务消息
 *SubscriptionsApi* | [**delete_voice_asr_subscription**](docs/SubscriptionsApi.md#delete_voice_asr_subscription) | **DELETE** /subscriptions/voice/asr | 取消订阅语义理解消息
 *SubscriptionsApi* | [**delete_voice_iat_subscription**](docs/SubscriptionsApi.md#delete_voice_iat_subscription) | **DELETE** /subscriptions/voice/iat | 取消订阅语音听写推送消息
 *SubscriptionsApi* | [**delete_voice_tts_subscription**](docs/SubscriptionsApi.md#delete_voice_tts_subscription) | **DELETE** /subscriptions/voice/tts | 取消订阅语音合成状态消息
 *SubscriptionsApi* | [**post_motions_subscription**](docs/SubscriptionsApi.md#post_motions_subscription) | **POST** /subscriptions/motions | 订阅运动状态消息
 *SubscriptionsApi* | [**post_sensors_subscription**](docs/SubscriptionsApi.md#post_sensors_subscription) | **POST** /subscriptions/sensors | 订阅传感器消息
-*SubscriptionsApi* | [**post_vision_subscription**](docs/SubscriptionsApi.md#post_vision_subscription) | **POST** /subscriptions/visions | 订阅指定视觉任务消息
-*SubscriptionsApi* | [**post_visions_streams**](docs/SubscriptionsApi.md#post_visions_streams) | **POST** /subscriptions/visions/streams | 订阅摄像头的视频流
+*SubscriptionsApi* | [**post_visions_subscription**](docs/SubscriptionsApi.md#post_visions_subscription) | **POST** /subscriptions/visions | 订阅指定视觉任务消息
 *SubscriptionsApi* | [**post_voice_asr_subscriptions**](docs/SubscriptionsApi.md#post_voice_asr_subscriptions) | **POST** /subscriptions/voice/asr | 订阅语义理解消息
 *SubscriptionsApi* | [**post_voice_iat_subscription**](docs/SubscriptionsApi.md#post_voice_iat_subscription) | **POST** /subscriptions/voice/iat | 订阅语音听写推送消息
 *SubscriptionsApi* | [**post_voice_tts_subscriptions**](docs/SubscriptionsApi.md#post_voice_tts_subscriptions) | **POST** /subscriptions/voice/tts | 订阅语音合成状态消息
 *VisionsApi* | [**delete_vision_photo**](docs/VisionsApi.md#delete_vision_photo) | **DELETE** /visions/photos | 删除指定照片
 *VisionsApi* | [**delete_vision_photo_samples**](docs/VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的样本
+*VisionsApi* | [**delete_visions_streams**](docs/VisionsApi.md#delete_visions_streams) | **DELETE** /visions/streams | 关闭摄像头的视频流
 *VisionsApi* | [**delete_visions_tags**](docs/VisionsApi.md#delete_visions_tags) | **DELETE** /visions/tags | 删除指定样本标签
 *VisionsApi* | [**get_photo_samples**](docs/VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传样本列表
 *VisionsApi* | [**get_vision**](docs/VisionsApi.md#get_vision) | **GET** /visions | 获取任务結果
@@ -124,6 +123,7 @@ Class | Method | HTTP request | Description
 *VisionsApi* | [**get_visions_photos_lists**](docs/VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
 *VisionsApi* | [**get_visions_tags**](docs/VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
 *VisionsApi* | [**post_vision_photo**](docs/VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
+*VisionsApi* | [**post_visions_streams**](docs/VisionsApi.md#post_visions_streams) | **POST** /visions/streams | 打开摄像头的视频流
 *VisionsApi* | [**put_visions**](docs/VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
 *VisionsApi* | [**put_visions_photo_samples**](docs/VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本
 *VisionsApi* | [**put_visions_tags**](docs/VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
@@ -196,17 +196,20 @@ Class | Method | HTTP request | Description
  - [ServosModeResponse](docs/ServosModeResponse.md)
  - [ServosResult](docs/ServosResult.md)
  - [ServosResultResponse](docs/ServosResultResponse.md)
+ - [SubscriptionsAsrVoice](docs/SubscriptionsAsrVoice.md)
+ - [SubscriptionsIatVoice](docs/SubscriptionsIatVoice.md)
  - [SubscriptionsMotions](docs/SubscriptionsMotions.md)
  - [SubscriptionsSensors](docs/SubscriptionsSensors.md)
  - [SubscriptionsStream](docs/SubscriptionsStream.md)
+ - [SubscriptionsTtsVoice](docs/SubscriptionsTtsVoice.md)
  - [SubscriptionsVisions](docs/SubscriptionsVisions.md)
- - [SubscriptionsVoice](docs/SubscriptionsVoice.md)
  - [TotalTime](docs/TotalTime.md)
  - [VisionsAge](docs/VisionsAge.md)
  - [VisionsAnalysis](docs/VisionsAnalysis.md)
  - [VisionsDeleteTags](docs/VisionsDeleteTags.md)
  - [VisionsExpression](docs/VisionsExpression.md)
  - [VisionsGender](docs/VisionsGender.md)
+ - [VisionsGetRequest](docs/VisionsGetRequest.md)
  - [VisionsGetResponse](docs/VisionsGetResponse.md)
  - [VisionsPhoto](docs/VisionsPhoto.md)
  - [VisionsPhotoListResponse](docs/VisionsPhotoListResponse.md)
