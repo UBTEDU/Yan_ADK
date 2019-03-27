@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 import unittest
+from pprint import pprint
 
 import openadk
 from openadk.api.voice_api import VoiceApi  # noqa: E501
@@ -25,8 +26,8 @@ class TestVoiceApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.64.182:9090/v1'
-        self.api = openadk.api.voice_api.VoiceApi(openadk.ApiClient(self.configuration))  # noqa: E501
+        self.configuration.host = 'http://10.10.60.196:9090/v1'
+        self.api_instance = openadk.api.voice_api.VoiceApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -72,12 +73,11 @@ class TestVoiceApi(unittest.TestCase):
         获取当前语音合成工作状态  # noqa: E501
         """
         try:
-            # 删除指定照片
-
-            api_response = self.api.get_voice_tts()
-            print(api_response)
+            # 获取当前语音合成工作状态
+            api_response = self.api_instance.get_voice_tts()
+            pprint(api_response)
         except ApiException as e:
-            print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
+            print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
 
 
     def test_put_voice_asr(self):
@@ -99,7 +99,14 @@ class TestVoiceApi(unittest.TestCase):
 
         开始语音合成任务  # noqa: E501
         """
-        pass
+        body = openadk.VoiceTTSStr(tts='hello world', interrupt=True)  # VoiceTTSStr |
+
+        try:
+            # 开始语音合成任务
+            api_response = self.api_instance.put_voice_tts(body)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling VoiceApi->put_voice_tts: %s\n" % e)
 
 
 if __name__ == '__main__':
