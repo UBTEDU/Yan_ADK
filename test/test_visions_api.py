@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk import Name, VisionsDeleteTags, VisionsGetRequest
+from openadk import Name, VisionsDeleteTags, VisionsGetRequest, VisionsPhoto, VisionsPutTags, VisionsTask
 from openadk.api.visions_api import VisionsApi  # noqa: E501
 from openadk.rest import ApiException
 from pprint import pprint
@@ -27,7 +27,7 @@ class TestVisionsApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.64.182:9090/v1'
+        self.configuration.host = 'http://10.10.60.196:9090/v1'
         self.api_instance = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
@@ -45,8 +45,8 @@ class TestVisionsApi(unittest.TestCase):
                 body = Name(name=name)
                 api_response = self.api_instance.delete_vision_photo(body)
                 print(api_response)
-                self.assertEqual(20002, api_response.code)
-                self.assertEqual('Resource not exist.', api_response.msg)
+                self.assertEqual(0, api_response.code)
+                self.assertEqual('Success', api_response.msg)
 
         except ApiException as e:
             print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
@@ -114,25 +114,27 @@ class TestVisionsApi(unittest.TestCase):
 
         获取任务結果  # noqa: E501
         """
-        try:
-            # 获取任务結果
-            body = VisionsGetRequest(option='face', type='age_analysis')
-            api_response = self.api_instance.get_vision(body)
-            print(api_response)
-        except ApiException as e:
-            print("Exception when calling VisionsApi->get_vision: %s\n" % e)
+        # try:
+        #     # 获取任务結果
+        #     body = VisionsGetRequest(option='face', type='age_analysis')
+        #     api_response = self.api_instance.get_vision(body)
+        #     print(api_response)
+        # except ApiException as e:
+        #     print("Exception when calling VisionsApi->get_vision: %s\n" % e)
+        pass
 
     def test_get_visions_photos(self):
         """Test case for get_visions_photos
 
         获取指定照片  # noqa: E501
         """
-        try:
-            # 获取指定照片
-            api_response = self.api_instance.get_visions_photos()
-            print(api_response)
-        except ApiException as e:
-            print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
+        # try:
+        #     # 获取指定照片
+        #     api_response = self.api_instance.get_visions_photos()
+        #     print(api_response)
+        # except ApiException as e:
+        #     print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
+        pass
 
     def test_get_visions_photos_lists(self):
         """Test case for get_visions_photos_lists
@@ -163,10 +165,12 @@ class TestVisionsApi(unittest.TestCase):
 
         拍一张照片  # noqa: E501
         """
+        body = openadk.VisionsPhoto(resolution='640x480')  # VisionsPhoto | 照片分辨率 (optional)
+
         try:
             # 拍一张照片
-            api_response = self.api_instance.post_vision_photo()
-            print(api_response)
+            api_response = self.api_instance.post_vision_photo(body=body)
+            pprint(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->post_vision_photo: %s\n" % e)
 
@@ -175,7 +179,14 @@ class TestVisionsApi(unittest.TestCase):
 
         打开摄像头的视频流  # noqa: E501
         """
-        pass
+        body = openadk.VisionsStream(resolution='640x480')  # VisionsStream |  (optional)
+
+        try:
+            # 打开摄像头的视频流
+            api_response = self.api_instance.post_visions_streams(body=body)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling VisionsApi->post_visions_streams: %s\n" % e)
 
     def test_put_visions(self):
         """Test case for put_visions
@@ -184,7 +195,8 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # 指定视觉任务停止或开始
-            api_response = self.api_instance.put_visions()
+            body = VisionsTask(type='quantity', operation='start', option='face')
+            api_response = self.api_instance.put_visions(body)
             print(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions: %s\n" % e)
@@ -194,24 +206,29 @@ class TestVisionsApi(unittest.TestCase):
 
         上传样本  # noqa: E501
         """
+        file = '/path/to/file.txt'  # file | 上传文件
+
         try:
             # 上传样本
-            api_response = self.api_instance.put_visions_photo_samples()
-            print(api_response)
+            api_response = self.api_instance.put_visions_photo_samples(file)
+            pprint(api_response)
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions_photo_samples: %s\n" % e)
+        pass
 
     def test_put_visions_tags(self):
         """Test case for put_visions_tags
 
         设置样本标签  # noqa: E501
         """
-        try:
-            # 设置样本标签
-            api_response = self.api_instance.put_visions_tags()
-            print(api_response)
-        except ApiException as e:
-            print("Exception when calling VisionsApi->put_visions_tags: %s\n" % e)
+        # try:
+        #     # 设置样本标签
+        #     body = VisionsPutTags(tags='hello', name='file.jpg')
+        #     api_response = self.api_instance.put_visions_tags(body)
+        #     print(api_response)
+        # except ApiException as e:
+        #     print("Exception when calling VisionsApi->put_visions_tags: %s\n" % e)
+        pass
 
 
 if __name__ == '__main__':

@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 import unittest
+from pprint import pprint
 
 import openadk
 from openadk.models.visions_stream import VisionsStream  # noqa: E501
@@ -24,6 +25,9 @@ class TestVisionsStream(unittest.TestCase):
     """VisionsStream unit test stubs"""
 
     def setUp(self):
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.60.196:9090/v1'
+        self.api_instance = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
         pass
 
     def tearDown(self):
@@ -32,8 +36,22 @@ class TestVisionsStream(unittest.TestCase):
     def testVisionsStream(self):
         """Test VisionsStream"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.visions_stream.VisionsStream()  # noqa: E501
-        pass
+        body = openadk.VisionsStream(resolution='640x480')  # VisionsStream |  (optional)
+
+        for i in range(100):
+            try:
+                # 打开摄像头的视频流
+                api_response = self.api_instance.post_visions_streams(body=body)
+                pprint(api_response)
+            except ApiException as e:
+                print("Exception when calling VisionsApi->post_visions_streams: %s\n" % e)
+
+            try:
+                # 关闭摄像头的视频流
+                api_response = self.api_instance.delete_visions_streams()
+                pprint(api_response)
+            except ApiException as e:
+                print("Exception when calling VisionsApi->delete_visions_streams: %s\n" % e)
 
 
 if __name__ == '__main__':
