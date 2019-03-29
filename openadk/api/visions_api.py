@@ -506,7 +506,8 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsGetRequest body:
+        :param str option: 模型名
+        :param str type: 任务名称
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -528,13 +529,14 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsGetRequest body:
+        :param str option: 模型名
+        :param str type: 任务名称
         :return: VisionsGetResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
+        all_params = ['option', 'type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -555,6 +557,10 @@ class VisionsApi(object):
         path_params = {}
 
         query_params = []
+        if 'option' in params:
+            query_params.append(('option', params['option']))  # noqa: E501
+        if 'type' in params:
+            query_params.append(('type', params['type']))  # noqa: E501
 
         header_params = {}
 
@@ -562,8 +568,6 @@ class VisionsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

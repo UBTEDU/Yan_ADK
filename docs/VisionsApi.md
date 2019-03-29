@@ -257,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_vision**
-> VisionsGetResponse get_vision(body=body)
+> VisionsGetResponse get_vision(option=option, type=type)
 
 获取任务結果
 
@@ -273,11 +273,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsGetRequest() # VisionsGetRequest |  (optional)
+option = 'option_example' # str | 模型名 (optional)
+type = 'type_example' # str | 任务名称 (optional)
 
 try:
     # 获取任务結果
-    api_response = api_instance.get_vision(body=body)
+    api_response = api_instance.get_vision(option=option, type=type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VisionsApi->get_vision: %s\n" % e)
@@ -287,7 +288,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VisionsGetRequest**](VisionsGetRequest.md)|  | [optional] 
+ **option** | **str**| 模型名 | [optional] 
+ **type** | **str**| 任务名称 | [optional] 
 
 ### Return type
 

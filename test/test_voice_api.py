@@ -19,6 +19,7 @@ from pprint import pprint
 import openadk
 from openadk.api.voice_api import VoiceApi  # noqa: E501
 from openadk.rest import ApiException
+import time
 
 
 class TestVoiceApi(unittest.TestCase):
@@ -58,14 +59,23 @@ class TestVoiceApi(unittest.TestCase):
 
         获取语义理解工作状态  # noqa: E501
         """
-        pass
+        try:
+            api_response = self.api_instance.get_voice_asr()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling VoiceApi->get_voice_asr: %s\n" % e)
+        #pass
 
     def test_get_voice_iat(self):
         """Test case for get_voice_iat
 
         获取语音听写结果  # noqa: E501
         """
-        pass
+        try:
+            api_response = self.api_instance.get_voice_iat()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling VoiceApi->get_voice_iat: %s\n" % e)
 
     def test_get_voice_tts(self):
         """Test case for get_voice_tts
@@ -78,6 +88,7 @@ class TestVoiceApi(unittest.TestCase):
         #    pprint(api_response)
         #except ApiException as e:
         #    print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
+        pass
 
 
     def test_put_voice_asr(self):
@@ -99,7 +110,7 @@ class TestVoiceApi(unittest.TestCase):
 
         开始语音合成任务  # noqa: E501
         """
-        body = openadk.VoiceTTSStr(tts='hello world', interrupt=True)  # VoiceTTSStr |
+        #body = openadk.VoiceTTSStr(tts='hello world', interrupt=True)  # VoiceTTSStr
 
         #try:
         #    # 开始语音合成任务
@@ -110,23 +121,26 @@ class TestVoiceApi(unittest.TestCase):
         pass
 
     def test_program(self):
-        body = openadk.VoiceTTSStr(tts='hello world,ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', interrupt=True)  # VoiceTTSStr |
+        #test_tts = "这是一个测试"
+        #test_tts = test_tts * 10
+        #body = openadk.VoiceTTSStr(tts=test_tts, interrupt=False)  # VoiceTTSStr |
 
-        try:
+        #try:
             # 开始语音合成任务
-            api_response = self.api_instance.put_voice_tts(body)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling VoiceApi->put_voice_tts: %s\n" % e)
+        #    api_response = self.api_instance.put_voice_tts(body)
+        #    pprint(api_response)
+        #except ApiException as e:
+        #    print("Exception when calling VoiceApi->put_voice_tts: %s\n" % e)
 
+        #time.sleep(2)
 
-        try:
-        # 获取当前语音合成工作状态
-            api_response = self.api_instance.get_voice_tts()
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
-
+        #try:
+            # 停止语音合成
+        #    api_response = self.api_instance.delete_voice_tts()
+        #    pprint(api_response)
+        #except ApiException as e:
+        #    print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
+        pass
 
 
 

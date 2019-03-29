@@ -50,7 +50,7 @@ class VisionsGender(object):
     def gender(self):
         """Gets the gender of this VisionsGender.  # noqa: E501
 
-        性别。此处的值只有 'male', 'female'  # noqa: E501
+        性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在  # noqa: E501
 
         :return: The gender of this VisionsGender.  # noqa: E501
         :rtype: str
@@ -61,14 +61,14 @@ class VisionsGender(object):
     def gender(self, gender):
         """Sets the gender of this VisionsGender.
 
-        性别。此处的值只有 'male', 'female'  # noqa: E501
+        性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在  # noqa: E501
 
         :param gender: The gender of this VisionsGender.  # noqa: E501
         :type: str
         """
         if gender is None:
             raise ValueError("Invalid value for `gender`, must not be `None`")  # noqa: E501
-        allowed_values = ["male", "female"]  # noqa: E501
+        allowed_values = ["male", "female", "none"]  # noqa: E501
         if gender not in allowed_values:
             raise ValueError(
                 "Invalid value for `gender` ({0}), must be one of {1}"  # noqa: E501
