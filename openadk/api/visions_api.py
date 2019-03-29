@@ -237,7 +237,6 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsStream body:
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -259,13 +258,12 @@ class VisionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param VisionsStream body:
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
+        all_params = []  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -293,8 +291,6 @@ class VisionsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -954,7 +950,7 @@ class VisionsApi(object):
     def post_visions_streams(self, **kwargs):  # noqa: E501
         """打开摄像头的视频流  # noqa: E501
 
-        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000   # noqa: E501
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_streams(async_req=True)
@@ -976,7 +972,7 @@ class VisionsApi(object):
     def post_visions_streams_with_http_info(self, **kwargs):  # noqa: E501
         """打开摄像头的视频流  # noqa: E501
 
-        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000   # noqa: E501
+        打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_streams_with_http_info(async_req=True)

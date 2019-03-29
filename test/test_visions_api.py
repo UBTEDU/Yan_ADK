@@ -3,7 +3,7 @@
 """
     Yanshee RESTful API
 
-    Yanshee RESTful APIs????????????????????????http/https?????????????????????????????????????????????????????????????  # noqa: E501
+    Yanshee RESTful APIs是一套专门为编程爱好者提供二次开发的接口．它通过http/https的方式向外界提供机器人控制，传感器读取，机器人视觉等功能．用户还可以通过编程的方式训练自己的模型，学习一些机器学习的内容．  # noqa: E501
 
     OpenAPI spec version: 1.0.0
     Contact: swenggroup@ubtrobot.com
@@ -36,7 +36,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_delete_vision_photo(self):
         """Test case for delete_vision_photo
 
-        ??????  # noqa: E501
+        删除指定照片  # noqa: E501
         """
         try:
             # ??????
@@ -54,7 +54,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_delete_vision_photo_samples(self):
         """Test case for delete_vision_photo_samples
 
-        ???????  # noqa: E501
+        删除上传的样本  # noqa: E501
         """
         test_file_list = ['ssss', 'hello', '123123', '@!@#!@#']
         for name in test_file_list:
@@ -67,10 +67,9 @@ class TestVisionsApi(unittest.TestCase):
                 print("Exception when calling VisionsApi->delete_vision_photo_samples: %s\n" % e)
 
     def test_delete_visions_streams(self):
-
         """Test case for delete_visions_streams
 
-        ?????????  # noqa: E501
+        关闭摄像头的视频流  # noqa: E501
         """
         body = openadk.VisionsStream()  # VisionsStream |  (optional)
         try:
@@ -83,7 +82,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_delete_visions_tags(self):
         """Test case for delete_visions_tags
 
-        ????????  # noqa: E501
+        删除指定样本标签  # noqa: E501
         """
         test_tags_name = ['sss', '#$@#', '//1923\?']
         for tags in test_tags_name:
@@ -99,7 +98,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_photo_samples(self):
         """Test case for get_photo_samples
 
-        ????????  # noqa: E501
+        获取上传样本列表  # noqa: E501
         """
         try:
             # ????????
@@ -111,7 +110,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_vision(self):
         """Test case for get_vision
 
-        ??????  # noqa: E501
+        获取任务結果  # noqa: E501
         """
         option_list = ['face', 'hand', 'object']
         face_option_list = ['age_analysis', 'gender_analysis', 'expression_analysis', 'quantity', 'tracking', 'recognition']
@@ -143,7 +142,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_visions_photos(self):
         """Test case for get_visions_photos
 
-        ??????  # noqa: E501
+        获取指定照片  # noqa: E501
         """
         try:
             # ??????
@@ -155,7 +154,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_visions_photos_lists(self):
         """Test case for get_visions_photos_lists
 
-        ??????  # noqa: E501
+        获取拍照列表  # noqa: E501
         """
         try:
             #  ??????
@@ -167,7 +166,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_get_visions_tags(self):
         """Test case for get_visions_tags
 
-        ?????????  # noqa: E501
+        获取已设置标签列表  # noqa: E501
         """
         try:
             # ?????????
@@ -179,7 +178,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_post_vision_photo(self):
         """Test case for post_vision_photo
 
-        ?????  # noqa: E501
+        拍一张照片  # noqa: E501
         """
         try:
             # ?????
@@ -191,7 +190,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_post_visions_streams(self):
         """Test case for post_visions_streams
 
-        ?????????  # noqa: E501
+        打开摄像头的视频流  # noqa: E501
         """
         pass
 
@@ -210,7 +209,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_put_visions_photo_samples(self):
         """Test case for put_visions_photo_samples
 
-        ????  # noqa: E501
+        上传样本  # noqa: E501
         """
         try:
             # ????
@@ -222,7 +221,7 @@ class TestVisionsApi(unittest.TestCase):
     def test_put_visions_tags(self):
         """Test case for put_visions_tags
 
-        ??????  # noqa: E501
+        设置样本标签  # noqa: E501
         """
         try:
             # ??????

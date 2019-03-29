@@ -117,7 +117,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_visions_streams**
-> CommonResponse delete_visions_streams(body=body)
+> CommonResponse delete_visions_streams()
 
 关闭摄像头的视频流
 
@@ -133,21 +133,17 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsStream() # VisionsStream |  (optional)
 
 try:
     # 关闭摄像头的视频流
-    api_response = api_instance.delete_visions_streams(body=body)
+    api_response = api_instance.delete_visions_streams()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VisionsApi->delete_visions_streams: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**VisionsStream**](VisionsStream.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -494,7 +490,7 @@ No authorization required
 
 打开摄像头的视频流
 
-打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 
+打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝
 
 ### Example
 ```python

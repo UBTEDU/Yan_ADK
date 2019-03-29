@@ -1631,8 +1631,8 @@ definitions:
         type: "string"
         enum:
         - "idle"
-        - "running"
-        - "pause"
+        - "build"
+        - "run"
       timestamp:
         type: "integer"
         format: "int32"
@@ -1809,7 +1809,8 @@ definitions:
         enum:
         - "male"
         - "female"
-        description: "性别。此处的值只有 'male', 'female'"
+        - "none"
+        description: "性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在"
     xml:
       name: "VisionsGender"
 
@@ -1822,7 +1823,7 @@ definitions:
         type: "integer"
         description: "年龄"
         example: 5
-        minimum: 1
+        minimum: 0
     xml:
       name: "VisionsAge"
   VisionsExpression:

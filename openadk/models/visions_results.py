@@ -18,7 +18,6 @@ import six
 
 from openadk.models.name import Name  # noqa: F401,E501
 from openadk.models.visions_analysis import VisionsAnalysis  # noqa: F401,E501
-from openadk.models.visions_quantity import VisionsQuantity  # noqa: F401,E501
 
 
 class VisionsResults(object):
@@ -37,7 +36,7 @@ class VisionsResults(object):
     swagger_types = {
         'analysis': 'VisionsAnalysis',
         'recognition': 'Name',
-        'quantity': 'VisionsQuantity'
+        'quantity': 'int'
     }
 
     attribute_map = {
@@ -107,9 +106,10 @@ class VisionsResults(object):
     def quantity(self):
         """Gets the quantity of this VisionsResults.  # noqa: E501
 
+        数量, 0 ~ ??? (整数)  # noqa: E501
 
         :return: The quantity of this VisionsResults.  # noqa: E501
-        :rtype: VisionsQuantity
+        :rtype: int
         """
         return self._quantity
 
@@ -117,10 +117,13 @@ class VisionsResults(object):
     def quantity(self, quantity):
         """Sets the quantity of this VisionsResults.
 
+        数量, 0 ~ ??? (整数)  # noqa: E501
 
         :param quantity: The quantity of this VisionsResults.  # noqa: E501
-        :type: VisionsQuantity
+        :type: int
         """
+        if quantity is not None and quantity < 0:  # noqa: E501
+            raise ValueError("Invalid value for `quantity`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._quantity = quantity
 
