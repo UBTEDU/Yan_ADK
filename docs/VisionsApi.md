@@ -14,9 +14,9 @@ Method | HTTP request | Description
 [**get_visions_photos_lists**](VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
 [**get_visions_tags**](VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
 [**post_vision_photo**](VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
+[**post_visions_photo_samples**](VisionsApi.md#post_visions_photo_samples) | **POST** /visions/photosamples | 上传样本
 [**post_visions_streams**](VisionsApi.md#post_visions_streams) | **POST** /visions/streams | 打开摄像头的视频流
 [**put_visions**](VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
-[**put_visions_photo_samples**](VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本
 [**put_visions_tags**](VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
 
 
@@ -117,7 +117,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_visions_streams**
-> CommonResponse delete_visions_streams(body=body)
+> CommonResponse delete_visions_streams()
 
 关闭摄像头的视频流
 
@@ -133,21 +133,17 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsStream() # VisionsStream |  (optional)
 
 try:
     # 关闭摄像头的视频流
-    api_response = api_instance.delete_visions_streams(body=body)
+    api_response = api_instance.delete_visions_streams()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VisionsApi->delete_visions_streams: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**VisionsStream**](VisionsStream.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -257,7 +253,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_vision**
-> VisionsGetResponse get_vision(body=body)
+> VisionsGetResponse get_vision(option=option, type=type)
 
 获取任务結果
 
@@ -273,11 +269,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsGetRequest() # VisionsGetRequest |  (optional)
+option = 'option_example' # str | 模型名 (optional)
+type = 'type_example' # str | 任务名称 (optional)
 
 try:
     # 获取任务結果
-    api_response = api_instance.get_vision(body=body)
+    api_response = api_instance.get_vision(option=option, type=type)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VisionsApi->get_vision: %s\n" % e)
@@ -287,7 +284,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VisionsGetRequest**](VisionsGetRequest.md)|  | [optional] 
+ **option** | **str**| 模型名 | [optional] 
+ **type** | **str**| 任务名称 | [optional] 
 
 ### Return type
 
@@ -487,12 +485,64 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **post_visions_photo_samples**
+> CommonResponse post_visions_photo_samples(file)
+
+上传样本
+
+<<<<<<< HEAD
+打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝
+=======
+请先上传样本数据再设置样本标签, 只支持样本格式为jpg与png
+>>>>>>> 更新上传样本说明, 修改上传样本为post
+
+### Example
+```python
+from __future__ import print_function
+import time
+import openadk
+from openadk.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = openadk.VisionsApi()
+file = '/path/to/file.txt' # file | 上传文件
+
+try:
+    # 上传样本
+    api_response = api_instance.post_visions_photo_samples(file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling VisionsApi->post_visions_photo_samples: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **file**| 上传文件 | 
+
+### Return type
+
+[**CommonResponse**](CommonResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **post_visions_streams**
 > CommonResponse post_visions_streams(body=body)
 
 打开摄像头的视频流
 
-打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 
+打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝
 
 ### Example
 ```python
@@ -583,54 +633,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **put_visions_photo_samples**
-> CommonResponse put_visions_photo_samples(file)
-
-上传样本
-
-请先上传样本数据再设置样本标签
-
-### Example
-```python
-from __future__ import print_function
-import time
-import openadk
-from openadk.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = openadk.VisionsApi()
-file = '/path/to/file.txt' # file | 上传文件
-
-try:
-    # 上传样本
-    api_response = api_instance.put_visions_photo_samples(file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VisionsApi->put_visions_photo_samples: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **file**| 上传文件 | 
-
-### Return type
-
-[**CommonResponse**](CommonResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **put_visions_tags**
 > CommonResponse put_visions_tags(body=body)
 
@@ -678,4 +680,5 @@ No authorization required
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 

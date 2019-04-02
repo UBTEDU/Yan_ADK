@@ -68,8 +68,8 @@ class VisionsAge(object):
         """
         if age is None:
             raise ValueError("Invalid value for `age`, must not be `None`")  # noqa: E501
-        if age is not None and age < 1:  # noqa: E501
-            raise ValueError("Invalid value for `age`, must be a value greater than or equal to `1`")  # noqa: E501
+        if age is not None and age < 0:  # noqa: E501
+            raise ValueError("Invalid value for `age`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._age = age
 
