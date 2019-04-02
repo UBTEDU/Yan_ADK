@@ -123,9 +123,9 @@ Class | Method | HTTP request | Description
 *VisionsApi* | [**get_visions_photos_lists**](docs/VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
 *VisionsApi* | [**get_visions_tags**](docs/VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
 *VisionsApi* | [**post_vision_photo**](docs/VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
+*VisionsApi* | [**post_visions_photo_samples**](docs/VisionsApi.md#post_visions_photo_samples) | **POST** /visions/photosamples | 上传样本
 *VisionsApi* | [**post_visions_streams**](docs/VisionsApi.md#post_visions_streams) | **POST** /visions/streams | 打开摄像头的视频流
 *VisionsApi* | [**put_visions**](docs/VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
-*VisionsApi* | [**put_visions_photo_samples**](docs/VisionsApi.md#put_visions_photo_samples) | **PUT** /visions/photosamples | 上传样本
 *VisionsApi* | [**put_visions_tags**](docs/VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
 *VoiceApi* | [**delete_voice_asr**](docs/VoiceApi.md#delete_voice_asr) | **DELETE** /voice/asr | 停止语义理解
 *VoiceApi* | [**delete_voice_iat**](docs/VoiceApi.md#delete_voice_iat) | **DELETE** /voice/iat | 停止语音听写

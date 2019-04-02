@@ -186,6 +186,20 @@ class TestVisionsApi(unittest.TestCase):
 
         except ApiException as e:
             print("Exception when calling VisionsApi->post_vision_photo: %s\n" % e)
+			
+    def test_post_visions_photo_samples(self):
+        """Test case for post_visions_photo_samples
+
+        上传样本  # noqa: E501
+        """
+        file = '/home/cygnus/timg.jpg'  # file | 上传文件
+
+        try:
+            # 上传样本
+            api_response = self.api_instance.post_visions_photo_samples(file)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling VisionsApi->post_visions_photo_samples: %s\n" % e)
 
     def test_post_visions_streams(self):
         """Test case for post_visions_streams
@@ -205,16 +219,6 @@ class TestVisionsApi(unittest.TestCase):
         except ApiException as e:
             print("Exception when calling VisionsApi->put_visions: %s\n" % e)
 
-    def test_put_visions_photo_samples(self):
-        """Test case for put_visions_photo_samples
-
-        上传样本  # noqa: E501
-        """
-        try:
-            api_response = self.api_instance.put_visions_photo_samples()
-            print(api_response)
-        except ApiException as e:
-            print("Exception when calling VisionsApi->put_visions_photo_samples: %s\n" % e)
 
     def test_put_visions_tags(self):
         """Test case for put_visions_tags
