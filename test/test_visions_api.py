@@ -16,10 +16,11 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk import Name, VisionsDeleteTags, VisionsGetRequest
+from openadk import Name, VisionsDeleteTags, VisionsGetRequest, VisionsPhoto
 from openadk.api.visions_api import VisionsApi  # noqa: E501
 from openadk.rest import ApiException
 from pprint import pprint
+import time
 
 
 class TestVisionsApi(unittest.TestCase):
@@ -27,7 +28,7 @@ class TestVisionsApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.64.182:9090/v1'
+        self.configuration.host = 'http://10.10.64.209:9090/v1'
         self.api_instance = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
@@ -163,10 +164,14 @@ class TestVisionsApi(unittest.TestCase):
 
         拍一张照片  # noqa: E501
         """
+        body = openadk.VisionsPhoto(resolution='800X600')  # VisionsPhoto | 照片分辨率 (optional)
+
         try:
             # 拍一张照片
-            api_response = self.api_instance.post_vision_photo()
-            print(api_response)
+            for i in range(1):
+                api_response = self.api_instance.post_vision_photo(body=body)
+                pprint(api_response)
+                # time.sleep(1)
         except ApiException as e:
             print("Exception when calling VisionsApi->post_vision_photo: %s\n" % e)
 
