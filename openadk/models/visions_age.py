@@ -31,20 +31,24 @@ class VisionsAge(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'age': 'int'
+        'age': 'int',
+        'group': 'str'
     }
 
     attribute_map = {
-        'age': 'age'
+        'age': 'age',
+        'group': 'group'
     }
 
-    def __init__(self, age=None):  # noqa: E501
+    def __init__(self, age=None, group=None):  # noqa: E501
         """VisionsAge - a model defined in Swagger"""  # noqa: E501
 
         self._age = None
+        self._group = None
         self.discriminator = None
 
         self.age = age
+        self.group = group
 
     @property
     def age(self):
@@ -72,6 +76,31 @@ class VisionsAge(object):
             raise ValueError("Invalid value for `age`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._age = age
+
+    @property
+    def group(self):
+        """Gets the group of this VisionsAge.  # noqa: E501
+
+        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'None'   # noqa: E501
+
+        :return: The group of this VisionsAge.  # noqa: E501
+        :rtype: str
+        """
+        return self._group
+
+    @group.setter
+    def group(self, group):
+        """Sets the group of this VisionsAge.
+
+        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'None'   # noqa: E501
+
+        :param group: The group of this VisionsAge.  # noqa: E501
+        :type: str
+        """
+        if group is None:
+            raise ValueError("Invalid value for `group`, must not be `None`")  # noqa: E501
+
+        self._group = group
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -951,7 +951,6 @@ class VisionsApi(object):
         """上传样本  # noqa: E501
 
         请先上传样本数据再设置样本标签, 只支持样本格式为jpg与png  # noqa: E501
-
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_photo_samples(file, async_req=True)
@@ -973,9 +972,7 @@ class VisionsApi(object):
     def post_visions_photo_samples_with_http_info(self, file, **kwargs):  # noqa: E501
         """上传样本  # noqa: E501
 
-
         请先上传样本数据再设置样本标签, 只支持样本格式为jpg与png  # noqa: E501
-
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_visions_photo_samples_with_http_info(file, async_req=True)

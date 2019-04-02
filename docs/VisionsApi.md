@@ -490,11 +490,7 @@ No authorization required
 
 上传样本
 
-<<<<<<< HEAD
-打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝
-=======
 请先上传样本数据再设置样本标签, 只支持样本格式为jpg与png
->>>>>>> 更新上传样本说明, 修改上传样本为post
 
 ### Example
 ```python
@@ -680,5 +676,4 @@ No authorization required
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 
