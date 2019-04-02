@@ -38,7 +38,7 @@ class TestVisionsStream(unittest.TestCase):
         # FIXME: construct object with mandatory attributes with example values
         body = openadk.VisionsStream(resolution='640x480')  # VisionsStream |  (optional)
 
-        for i in range(100):
+        for i in range(1):
             try:
                 # 打开摄像头的视频流
                 api_response = self.api_instance.post_visions_streams(body=body)

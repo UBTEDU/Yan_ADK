@@ -39,7 +39,6 @@ class TestVisionsApi(unittest.TestCase):
         删除指定照片  # noqa: E501
         """
         try:
-            # ??????
             test_file_list = ['ssss', 'hello', '123123', '@!@#!@#']
             for name in test_file_list:
                 body = Name(name=name)
@@ -60,7 +59,6 @@ class TestVisionsApi(unittest.TestCase):
         for name in test_file_list:
             body = openadk.Name(name=name)  # Name | ???? (optional)
             try:
-                # ???????
                 api_response = self.api_instance.delete_vision_photo_samples(body=body)
                 pprint(api_response)
             except ApiException as e:
@@ -73,7 +71,6 @@ class TestVisionsApi(unittest.TestCase):
         """
         body = openadk.VisionsStream()  # VisionsStream |  (optional)
         try:
-            # ?????????
             api_response = self.api_instance.delete_visions_streams(body=body)
             pprint(api_response)
         except ApiException as e:
@@ -89,7 +86,6 @@ class TestVisionsApi(unittest.TestCase):
             body = VisionsDeleteTags(tags=tags)  # VisionsDeleteTags | ???? (optional)
 
             try:
-                # ????????
                 api_response = self.api_instance.delete_visions_tags(body=body)
                 pprint(api_response)
             except ApiException as e:
@@ -101,7 +97,6 @@ class TestVisionsApi(unittest.TestCase):
         获取上传样本列表  # noqa: E501
         """
         try:
-            # ????????
             api_response = self.api_instance.get_photo_samples()
             pprint(api_response)
         except ApiException as e:
@@ -117,7 +112,6 @@ class TestVisionsApi(unittest.TestCase):
         hand_option_list = ['quantity']
         object_option_list = ['recognition']
 
-            # ??????
         for face_option in face_option_list:
             try:
                 api_response = self.api_instance.get_vision(option=option_list[0], type=face_option)
@@ -197,10 +191,9 @@ class TestVisionsApi(unittest.TestCase):
     def test_put_visions(self):
         """Test case for put_visions
 
-        ???????????  # noqa: E501
+        指定视觉任务停止或开始  # noqa: E501
         """
         try:
-            # ???????????
             api_response = self.api_instance.put_visions()
             print(api_response)
         except ApiException as e:
@@ -212,7 +205,6 @@ class TestVisionsApi(unittest.TestCase):
         上传样本  # noqa: E501
         """
         try:
-            # ????
             api_response = self.api_instance.put_visions_photo_samples()
             print(api_response)
         except ApiException as e:
@@ -224,7 +216,6 @@ class TestVisionsApi(unittest.TestCase):
         设置样本标签  # noqa: E501
         """
         try:
-            # ??????
             api_response = self.api_instance.put_visions_tags()
             print(api_response)
         except ApiException as e:
