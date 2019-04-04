@@ -18,14 +18,16 @@ import unittest
 import openadk
 from openadk.api.motions_api import MotionsApi  # noqa: E501
 from openadk.rest import ApiException
-
+from openadk.models.motions_parameter import MotionsParameter  # noqa: F401,E501
+import time
 
 class TestMotionsApi(unittest.TestCase):
     """MotionsApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.motions_api.MotionsApi()  # noqa: E501
-
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.69.146:9090/v1'
+        self.api_instance = openadk.api.motions_api.MotionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
     def tearDown(self):
         pass
 
@@ -34,35 +36,76 @@ class TestMotionsApi(unittest.TestCase):
 
         删除动作文件（只能删除用户上传的文件）  # noqa: E501
         """
-        pass
+        body = openadk.Name('test_motion')  # Name | 动作文件名
+        try:
+            # 删除动作文件（只能删除用户上传的文件）
+            api_response = self.api_instance.delete_motions_music(body)
+            print(api_response)
+            self.assertIn(api_response.code, (0,103))
+        except ApiException as e:
+            print("Exception when calling MotionsApi->delete_motions_music: %s\n" % e)
 
     def test_get_motions(self):
         """Test case for get_motions
 
         获取当前的运动状态  # noqa: E501
         """
-        pass
+        try:
+            # 获取当前的运动状态
+            api_response = self.api_instance.get_motions()
+            print(api_response)
+            self.assertEqual(0, api_response.code)
+        except ApiException as e:
+            print("Exception when calling MotionsApi->get_motions: %s\n" % e)
 
     def test_get_motions_list(self):
         """Test case for get_motions_list
 
         获取动作列表  # noqa: E501
         """
-        pass
+        try:
+            # 获取动作列表
+            api_response = self.api_instance.get_motions_list()
+            print(api_response)
+            self.assertEqual(0, api_response.code)
+            self.assertNotEqual(None, api_response.data)
+        except ApiException as e:
+            print("Exception when calling MotionsApi->get_motions_list: %s\n" % e)
 
     def test_post_motions(self):
         """Test case for post_motions
 
         上传动作文件  # noqa: E501
         """
-        pass
+        for name in ['test_motion.hts', 'test_motion.mp3', 'test_motion.zip']:
+            file = 'res_motions/'+name  # file | 上传文件
+            try:
+                # 上传动作文件
+                api_response = self.api_instance.post_motions(file)
+                print(api_response)
+                if file.endswith('hts') or file.endswith('zip'):
+                    self.assertEqual(0, api_response.code)
+                else:
+                    self.assertEqual(104, api_response.code)
+            except ApiException as e:
+                print("Exception when calling MotionsApi->post_motions: %s\n" % e)
 
     def test_put_motions(self):
         """Test case for put_motions
 
         运动控制  # noqa: E501
         """
-        pass
+        motion = MotionsParameter(name='wave', direction='both', speed='fast', repeat=2)
+        for operation in ['start', 'pause', 'resume', 'stop']:
+            body = openadk.MotionsOperation(motion=motion, operation=operation, timestamp=int(time.time()))  # MotionsOperation | 运动控制的参数
+            try:
+                # 运动控制
+                api_response = self.api_instance.put_motions(body)
+                print(api_response)
+                self.assertEqual(0, api_response.code)
+                self.assertNotEqual(None, api_response.data)
+            except ApiException as e:
+                print("Exception when calling MotionsApi->put_motions: %s\n" % e)
 
 
 if __name__ == '__main__':
