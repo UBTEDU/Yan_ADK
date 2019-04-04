@@ -13,7 +13,7 @@
 
 from __future__ import absolute_import
 
-import unittest
+import unittest,time
 
 import openadk
 from openadk.api.media_api import MediaApi  # noqa: E501
@@ -24,8 +24,9 @@ class TestMediaApi(unittest.TestCase):
     """MediaApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.media_api.MediaApi()  # noqa: E501
-
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.69.146:9090/v1'
+        self.api_instance = openadk.api.media_api.MediaApi(openadk.ApiClient(self.configuration))  # noqa: E501
     def tearDown(self):
         pass
 
@@ -34,35 +35,78 @@ class TestMediaApi(unittest.TestCase):
 
         删除音乐文件（只能删除用户上传的文件）  # noqa: E501
         """
-        pass
+        body = openadk.Name('test_motion')  # Name | 音乐文件名
+
+        try:
+            # 删除音乐文件（只能删除用户上传的文件）
+            api_response = self.api_instance.delete_media_music(body)
+            print(api_response)
+            self.assertIn(api_response.code, (0, 120))
+        except ApiException as e:
+            print("Exception when calling MediaApi->delete_media_music: %s\n" % e)
 
     def test_get_media_music(self):
         """Test case for get_media_music
 
         获取音乐播放状态  # noqa: E501
         """
-        pass
+        try:
+            # 获取音乐播放状态
+            api_response = self.api_instance.get_media_music()
+            print(api_response)
+            self.assertEqual(0, api_response.code)
+        except ApiException as e:
+            print("Exception when calling MediaApi->get_media_music: %s\n" % e)
 
     def test_get_media_music_list(self):
         """Test case for get_media_music_list
 
         获取音乐列表  # noqa: E501
         """
-        pass
+        try:
+            # 获取音乐列表
+            api_response = self.api_instance.get_media_music_list()
+            print(api_response)
+            self.assertEqual(0, api_response.code)
+            self.assertNotEqual(None, api_response.data)
+        except ApiException as e:
+            print("Exception when calling MediaApi->get_media_music_list: %s\n" % e)
 
     def test_post_media_music(self):
         """Test case for post_media_music
 
         上传音乐文件  # noqa: E501
         """
-        pass
+        for name in ['test_motion.hts', 'test_motion.mp3', 'test_motion.zip']:
+            file = 'res_motions/'+name  # file | 上传文件
+            try:
+                # 上传音乐文件
+                api_response = self.api_instance.post_media_music(file)
+                print(api_response)
+                if file.endswith('mp3') or file.endswith('wav'):
+                    self.assertEqual(0, api_response.code)
+                else:
+                    self.assertEqual(121, api_response.code)
+            except ApiException as e:
+                print("Exception when calling MediaApi->post_media_music: %s\n" % e)
 
     def test_put_media_music(self):
         """Test case for put_media_music
 
         播放/停止音乐  # noqa: E501
         """
-        pass
+        for operation in ['start', 'stop']:
+            body = openadk.MediaMusicOperation(operation=operation)  # MediaMusicOperation | 音乐播放控制
+            try:
+                # 播放/停止音乐
+                api_response = self.api_instance.put_media_music(body)
+                print(api_response)
+                self.assertEqual(0, api_response.code)
+                self.assertNotEqual(None, api_response.data)
+                if operation == 'start':
+                    time.sleep(3)
+            except ApiException as e:
+                print("Exception when calling MediaApi->put_media_music: %s\n" % e)
 
 
 if __name__ == '__main__':

@@ -41,7 +41,7 @@ class TestMotionsApi(unittest.TestCase):
             # 删除动作文件（只能删除用户上传的文件）
             api_response = self.api_instance.delete_motions_music(body)
             print(api_response)
-            self.assertIn(api_response.code, (0,103))
+            self.assertIn(api_response.code, (0, 103))
         except ApiException as e:
             print("Exception when calling MotionsApi->delete_motions_music: %s\n" % e)
 
