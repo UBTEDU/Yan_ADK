@@ -36,21 +36,24 @@ class VisionsResults(object):
     swagger_types = {
         'analysis': 'VisionsAnalysis',
         'recognition': 'Name',
-        'quantity': 'int'
+        'quantity': 'int',
+        'color': 'list[Name]'
     }
 
     attribute_map = {
         'analysis': 'analysis',
         'recognition': 'recognition',
-        'quantity': 'quantity'
+        'quantity': 'quantity',
+        'color': 'color'
     }
 
-    def __init__(self, analysis=None, recognition=None, quantity=None):  # noqa: E501
+    def __init__(self, analysis=None, recognition=None, quantity=None, color=None):  # noqa: E501
         """VisionsResults - a model defined in Swagger"""  # noqa: E501
 
         self._analysis = None
         self._recognition = None
         self._quantity = None
+        self._color = None
         self.discriminator = None
 
         if analysis is not None:
@@ -59,6 +62,8 @@ class VisionsResults(object):
             self.recognition = recognition
         if quantity is not None:
             self.quantity = quantity
+        if color is not None:
+            self.color = color
 
     @property
     def analysis(self):
@@ -126,6 +131,29 @@ class VisionsResults(object):
             raise ValueError("Invalid value for `quantity`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._quantity = quantity
+
+    @property
+    def color(self):
+        """Gets the color of this VisionsResults.  # noqa: E501
+
+        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+
+        :return: The color of this VisionsResults.  # noqa: E501
+        :rtype: list[Name]
+        """
+        return self._color
+
+    @color.setter
+    def color(self, color):
+        """Sets the color of this VisionsResults.
+
+        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+
+        :param color: The color of this VisionsResults.  # noqa: E501
+        :type: list[Name]
+        """
+
+        self._color = color
 
     def to_dict(self):
         """Returns the model properties as a dict"""

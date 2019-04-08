@@ -100,7 +100,7 @@ class VisionsGetResponse(object):
     def type(self):
         """Gets the type of this VisionsGetResponse.  # noqa: E501
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'  # noqa: E501
+        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity', 'color_detect'  # noqa: E501
 
         :return: The type of this VisionsGetResponse.  # noqa: E501
         :rtype: str
@@ -111,14 +111,14 @@ class VisionsGetResponse(object):
     def type(self, type):
         """Sets the type of this VisionsGetResponse.
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'  # noqa: E501
+        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity', 'color_detect'  # noqa: E501
 
         :param type: The type of this VisionsGetResponse.  # noqa: E501
         :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["recognition", "tracking", "age_analysis", "gender_analysis", "expression_analysis", "quantity"]  # noqa: E501
+        allowed_values = ["recognition", "tracking", "age_analysis", "gender_analysis", "group_analysis", "expression_analysis", "quantity", "color_detect"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

@@ -64,7 +64,7 @@ class VisionsTask(object):
     def type(self):
         """Gets the type of this VisionsTask.  # noqa: E501
 
-        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender_analysis', 'age_analysis', 'expression_analysis', 'quantity'   # noqa: E501
+        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender_analysis', 'age_analysis', 'expression_analysis', 'group_analysis' 'quantity'   # noqa: E501
 
         :return: The type of this VisionsTask.  # noqa: E501
         :rtype: str
@@ -75,14 +75,14 @@ class VisionsTask(object):
     def type(self, type):
         """Sets the type of this VisionsTask.
 
-        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender_analysis', 'age_analysis', 'expression_analysis', 'quantity'   # noqa: E501
+        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender_analysis', 'age_analysis', 'expression_analysis', 'group_analysis' 'quantity'   # noqa: E501
 
         :param type: The type of this VisionsTask.  # noqa: E501
         :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["tracking", "recognition", "age_analysis", "gender_analysis", "expression_analysis", "quantity"]  # noqa: E501
+        allowed_values = ["tracking", "recognition", "age_analysis", "gender_analysis", "group_analysis", "expression_analysis", "quantity", "color_detect"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -126,7 +126,7 @@ class VisionsTask(object):
     def option(self):
         """Gets the option of this VisionsTask.  # noqa: E501
 
-        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
+        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face。 color只支持color_detect。  # noqa: E501
 
         :return: The option of this VisionsTask.  # noqa: E501
         :rtype: str
@@ -137,12 +137,12 @@ class VisionsTask(object):
     def option(self, option):
         """Sets the option of this VisionsTask.
 
-        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face  # noqa: E501
+        任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face。 color只支持color_detect。  # noqa: E501
 
         :param option: The option of this VisionsTask.  # noqa: E501
         :type: str
         """
-        allowed_values = ["face", "hand", "object"]  # noqa: E501
+        allowed_values = ["face", "hand", "object", "color"]  # noqa: E501
         if option not in allowed_values:
             raise ValueError(
                 "Invalid value for `option` ({0}), must be one of {1}"  # noqa: E501

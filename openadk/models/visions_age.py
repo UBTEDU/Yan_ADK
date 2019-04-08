@@ -47,8 +47,10 @@ class VisionsAge(object):
         self._group = None
         self.discriminator = None
 
-        self.age = age
-        self.group = group
+        if age is not None:
+            self.age = age
+        if group is not None:
+            self.group = group
 
     @property
     def age(self):
@@ -70,8 +72,6 @@ class VisionsAge(object):
         :param age: The age of this VisionsAge.  # noqa: E501
         :type: int
         """
-        if age is None:
-            raise ValueError("Invalid value for `age`, must not be `None`")  # noqa: E501
         if age is not None and age < 0:  # noqa: E501
             raise ValueError("Invalid value for `age`, must be a value greater than or equal to `0`")  # noqa: E501
 
@@ -81,7 +81,7 @@ class VisionsAge(object):
     def group(self):
         """Gets the group of this VisionsAge.  # noqa: E501
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'None'   # noqa: E501
+        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
 
         :return: The group of this VisionsAge.  # noqa: E501
         :rtype: str
@@ -92,13 +92,11 @@ class VisionsAge(object):
     def group(self, group):
         """Sets the group of this VisionsAge.
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'None'   # noqa: E501
+        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
 
         :param group: The group of this VisionsAge.  # noqa: E501
         :type: str
         """
-        if group is None:
-            raise ValueError("Invalid value for `group`, must not be `None`")  # noqa: E501
 
         self._group = group
 
