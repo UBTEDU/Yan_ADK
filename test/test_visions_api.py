@@ -20,6 +20,8 @@ from openadk import Name, VisionsDeleteTags, VisionsGetRequest, VisionsPhoto
 from openadk.api.visions_api import VisionsApi  # noqa: E501
 from openadk.rest import ApiException
 from pprint import pprint
+from PIL import Image
+from io import BytesIO
 import time
 
 
@@ -28,7 +30,7 @@ class TestVisionsApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.64.209:9090/v1'
+        self.configuration.host = 'http://192.168.1.104:9090/v1'
         self.api_instance = openadk.api.visions_api.VisionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
@@ -141,8 +143,12 @@ class TestVisionsApi(unittest.TestCase):
         """
         try:
             # ??????
-            api_response = self.api_instance.get_visions_photos()
-            print(api_response)
+            body = 'img_20190410_062331_9896.jpg'
+            api_response = self.api_instance.get_visions_photos(body=body, _preload_content=False)
+            print(api_response.data)
+            file = BytesIO(api_response.data)
+            im = Image.open(file)
+            im.save('C:\\Users\\ubt\\Pictures\\Screenshots\\test.jpg')
         except ApiException as e:
             print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
 
