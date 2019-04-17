@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from openadk.models.sensors_common_info import SensorsCommonInfo  # noqa: F401,E501
+from openadk.models.sensors_touch_info import SensorsTouchInfo  # noqa: F401,E501
 
 
 class SensorsTouchValue(object):
@@ -33,7 +33,7 @@ class SensorsTouchValue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'touch': 'list[SensorsCommonInfo]'
+        'touch': 'list[SensorsTouchInfo]'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class SensorsTouchValue(object):
 
 
         :return: The touch of this SensorsTouchValue.  # noqa: E501
-        :rtype: list[SensorsCommonInfo]
+        :rtype: list[SensorsTouchInfo]
         """
         return self._touch
 
@@ -64,7 +64,7 @@ class SensorsTouchValue(object):
 
 
         :param touch: The touch of this SensorsTouchValue.  # noqa: E501
-        :type: list[SensorsCommonInfo]
+        :type: list[SensorsTouchInfo]
         """
         if touch is None:
             raise ValueError("Invalid value for `touch`, must not be `None`")  # noqa: E501

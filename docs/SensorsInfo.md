@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | 传感器ID值 | 
+**id** | **int** | 传感器地址 | 
 **type** | **str** | 传感器名称 | 
 **version** | **int** | 传感器版本号 | 
 

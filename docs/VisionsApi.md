@@ -528,7 +528,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data, application/octet-stream
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -586,7 +586,7 @@ No authorization required
 
 指定视觉任务停止或开始
 
-机器人每次只能执行一种占用的视觉任务，如需执行不同的占用的视觉任务，必须先停止当前执行的占用视觉任务
+某一类视觉任务，机器人只能成功发起一次。 如果当前有正在执行的某一类任务，必须先停止当前的某一类任务, 再发起新的某一类任务。 例如，当前正在执行人脸数量分析， 下一次人脸数量分析必须要等待当前人脸数量分析任务停止或者手动停止。 但是，再发起年龄段分析任务则不受影响。
 
 ### Example
 ```python

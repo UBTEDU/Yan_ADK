@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from openadk.models.sensors_common_info import SensorsCommonInfo  # noqa: F401,E501
+from openadk.models.sensors_pressure_info import SensorsPressureInfo  # noqa: F401,E501
 
 
 class SensorsPressureValue(object):
@@ -33,7 +33,7 @@ class SensorsPressureValue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'pressure': 'list[SensorsCommonInfo]'
+        'pressure': 'list[SensorsPressureInfo]'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class SensorsPressureValue(object):
 
 
         :return: The pressure of this SensorsPressureValue.  # noqa: E501
-        :rtype: list[SensorsCommonInfo]
+        :rtype: list[SensorsPressureInfo]
         """
         return self._pressure
 
@@ -64,7 +64,7 @@ class SensorsPressureValue(object):
 
 
         :param pressure: The pressure of this SensorsPressureValue.  # noqa: E501
-        :type: list[SensorsCommonInfo]
+        :type: list[SensorsPressureInfo]
         """
         if pressure is None:
             raise ValueError("Invalid value for `pressure`, must not be `None`")  # noqa: E501

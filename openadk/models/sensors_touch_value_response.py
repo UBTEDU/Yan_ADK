@@ -60,7 +60,7 @@ class SensorsTouchValueResponse(object):
     def code(self):
         """Gets the code of this SensorsTouchValueResponse.  # noqa: E501
 
-        返回码，0表示正常，其它值均为错误  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :return: The code of this SensorsTouchValueResponse.  # noqa: E501
         :rtype: int
@@ -71,7 +71,7 @@ class SensorsTouchValueResponse(object):
     def code(self, code):
         """Sets the code of this SensorsTouchValueResponse.
 
-        返回码，0表示正常，其它值均为错误  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :param code: The code of this SensorsTouchValueResponse.  # noqa: E501
         :type: int
@@ -108,7 +108,7 @@ class SensorsTouchValueResponse(object):
     def msg(self):
         """Gets the msg of this SensorsTouchValueResponse.  # noqa: E501
 
-        返回码的信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :return: The msg of this SensorsTouchValueResponse.  # noqa: E501
         :rtype: str
@@ -119,7 +119,7 @@ class SensorsTouchValueResponse(object):
     def msg(self, msg):
         """Sets the msg of this SensorsTouchValueResponse.
 
-        返回码的信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :param msg: The msg of this SensorsTouchValueResponse.  # noqa: E501
         :type: str

@@ -92,11 +92,11 @@ Class | Method | HTTP request | Description
 *SensorsApi* | [**get_sensors_environment**](docs/SensorsApi.md#get_sensors_environment) | **GET** /sensors/environment | 获取环境传感器值
 *SensorsApi* | [**get_sensors_gyro**](docs/SensorsApi.md#get_sensors_gyro) | **GET** /sensors/gyro | 获取运动传感器值
 *SensorsApi* | [**get_sensors_infrared**](docs/SensorsApi.md#get_sensors_infrared) | **GET** /sensors/infrared | 获取红外传感器值
-*SensorsApi* | [**get_sensors_list**](docs/SensorsApi.md#get_sensors_list) | **GET** /sensors/list | 获取所有传感器的列表
+*SensorsApi* | [**get_sensors_list**](docs/SensorsApi.md#get_sensors_list) | **GET** /sensors/list | 获取所有传感器的列表。
 *SensorsApi* | [**get_sensors_pressure**](docs/SensorsApi.md#get_sensors_pressure) | **GET** /sensors/pressure | 获取压力传感器值
 *SensorsApi* | [**get_sensors_touch**](docs/SensorsApi.md#get_sensors_touch) | **GET** /sensors/touch | 获取触摸传感器值
 *SensorsApi* | [**get_sensors_ultrasonic**](docs/SensorsApi.md#get_sensors_ultrasonic) | **GET** /sensors/ultrasonic | 获取超声传感器值
-*SensorsApi* | [**put_sensors**](docs/SensorsApi.md#put_sensors) | **PUT** /sensors | 传感器设置（校准或修改ID）
+*SensorsApi* | [**put_sensors**](docs/SensorsApi.md#put_sensors) | **PUT** /sensors | 传感器设置（校准或修改地址）
 *ServosApi* | [**get_servos_angles**](docs/ServosApi.md#get_servos_angles) | **GET** /servos/angles | 查询舵机角度值
 *ServosApi* | [**get_servos_mode**](docs/ServosApi.md#get_servos_mode) | **GET** /servos/mode | 查询舵机工作模式
 *ServosApi* | [**put_servos_angles**](docs/ServosApi.md#put_servos_angles) | **PUT** /servos/angles | 设置舵机角度值
@@ -167,7 +167,6 @@ Class | Method | HTTP request | Description
  - [MotionsStatusResponse](docs/MotionsStatusResponse.md)
  - [Name](docs/Name.md)
  - [RuntimeResponse](docs/RuntimeResponse.md)
- - [SensorsCommonInfo](docs/SensorsCommonInfo.md)
  - [SensorsEnvironmentInfo](docs/SensorsEnvironmentInfo.md)
  - [SensorsEnvironmentValue](docs/SensorsEnvironmentValue.md)
  - [SensorsEnvironmentValueResponse](docs/SensorsEnvironmentValueResponse.md)
@@ -175,16 +174,20 @@ Class | Method | HTTP request | Description
  - [SensorsGyroValue](docs/SensorsGyroValue.md)
  - [SensorsGyroValueResponse](docs/SensorsGyroValueResponse.md)
  - [SensorsInfo](docs/SensorsInfo.md)
+ - [SensorsInfraredInfo](docs/SensorsInfraredInfo.md)
  - [SensorsInfraredValue](docs/SensorsInfraredValue.md)
  - [SensorsInfraredValueResponse](docs/SensorsInfraredValueResponse.md)
  - [SensorsList](docs/SensorsList.md)
  - [SensorsListResponse](docs/SensorsListResponse.md)
  - [SensorsOperationRequest](docs/SensorsOperationRequest.md)
  - [SensorsParameter](docs/SensorsParameter.md)
+ - [SensorsPressureInfo](docs/SensorsPressureInfo.md)
  - [SensorsPressureValue](docs/SensorsPressureValue.md)
  - [SensorsPressureValueResponse](docs/SensorsPressureValueResponse.md)
+ - [SensorsTouchInfo](docs/SensorsTouchInfo.md)
  - [SensorsTouchValue](docs/SensorsTouchValue.md)
  - [SensorsTouchValueResponse](docs/SensorsTouchValueResponse.md)
+ - [SensorsUltrasonicInfo](docs/SensorsUltrasonicInfo.md)
  - [SensorsUltrasonicValue](docs/SensorsUltrasonicValue.md)
  - [SensorsUltrasonicValueResponse](docs/SensorsUltrasonicValueResponse.md)
  - [ServosAngles](docs/ServosAngles.md)

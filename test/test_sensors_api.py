@@ -53,7 +53,7 @@ class TestSensorsApi(unittest.TestCase):
     def test_get_sensors_list(self):
         """Test case for get_sensors_list
 
-        获取所有传感器的列表  # noqa: E501
+        获取所有传感器的列表。  # noqa: E501
         """
         pass
 
@@ -81,7 +81,7 @@ class TestSensorsApi(unittest.TestCase):
     def test_put_sensors(self):
         """Test case for put_sensors
 
-        传感器设置（校准或修改ID）  # noqa: E501
+        传感器设置（校准或修改地址）  # noqa: E501
         """
         pass
 

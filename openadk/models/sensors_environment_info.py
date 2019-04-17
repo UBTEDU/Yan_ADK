@@ -90,6 +90,7 @@ class SensorsEnvironmentInfo(object):
     def temperature(self):
         """Gets the temperature of this SensorsEnvironmentInfo.  # noqa: E501
 
+        温度值  # noqa: E501
 
         :return: The temperature of this SensorsEnvironmentInfo.  # noqa: E501
         :rtype: int
@@ -100,6 +101,7 @@ class SensorsEnvironmentInfo(object):
     def temperature(self, temperature):
         """Sets the temperature of this SensorsEnvironmentInfo.
 
+        温度值  # noqa: E501
 
         :param temperature: The temperature of this SensorsEnvironmentInfo.  # noqa: E501
         :type: int
@@ -113,6 +115,7 @@ class SensorsEnvironmentInfo(object):
     def humidity(self):
         """Gets the humidity of this SensorsEnvironmentInfo.  # noqa: E501
 
+        湿度值  # noqa: E501
 
         :return: The humidity of this SensorsEnvironmentInfo.  # noqa: E501
         :rtype: int
@@ -123,6 +126,7 @@ class SensorsEnvironmentInfo(object):
     def humidity(self, humidity):
         """Sets the humidity of this SensorsEnvironmentInfo.
 
+        湿度值  # noqa: E501
 
         :param humidity: The humidity of this SensorsEnvironmentInfo.  # noqa: E501
         :type: int
@@ -136,6 +140,7 @@ class SensorsEnvironmentInfo(object):
     def pressure(self):
         """Gets the pressure of this SensorsEnvironmentInfo.  # noqa: E501
 
+        大气压力  # noqa: E501
 
         :return: The pressure of this SensorsEnvironmentInfo.  # noqa: E501
         :rtype: int
@@ -146,6 +151,7 @@ class SensorsEnvironmentInfo(object):
     def pressure(self, pressure):
         """Sets the pressure of this SensorsEnvironmentInfo.
 
+        大气压力  # noqa: E501
 
         :param pressure: The pressure of this SensorsEnvironmentInfo.  # noqa: E501
         :type: int

@@ -59,7 +59,7 @@ class VisionsPutResponse(object):
     def code(self):
         """Gets the code of this VisionsPutResponse.  # noqa: E501
 
-        错误码  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :return: The code of this VisionsPutResponse.  # noqa: E501
         :rtype: int
@@ -70,7 +70,7 @@ class VisionsPutResponse(object):
     def code(self, code):
         """Sets the code of this VisionsPutResponse.
 
-        错误码  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :param code: The code of this VisionsPutResponse.  # noqa: E501
         :type: int
@@ -105,7 +105,7 @@ class VisionsPutResponse(object):
     def msg(self):
         """Gets the msg of this VisionsPutResponse.  # noqa: E501
 
-        错误码消息  # noqa: E501
+        提示信息  # noqa: E501
 
         :return: The msg of this VisionsPutResponse.  # noqa: E501
         :rtype: str
@@ -116,7 +116,7 @@ class VisionsPutResponse(object):
     def msg(self, msg):
         """Sets the msg of this VisionsPutResponse.
 
-        错误码消息  # noqa: E501
+        提示信息  # noqa: E501
 
         :param msg: The msg of this VisionsPutResponse.  # noqa: E501
         :type: str

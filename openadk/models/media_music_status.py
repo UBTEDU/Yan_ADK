@@ -55,7 +55,7 @@ class MediaMusicStatus(object):
     def status(self):
         """Gets the status of this MediaMusicStatus.  # noqa: E501
 
-        动作运行状态  # noqa: E501
+        音乐播放状态  # noqa: E501
 
         :return: The status of this MediaMusicStatus.  # noqa: E501
         :rtype: str
@@ -66,14 +66,14 @@ class MediaMusicStatus(object):
     def status(self, status):
         """Sets the status of this MediaMusicStatus.
 
-        动作运行状态  # noqa: E501
+        音乐播放状态  # noqa: E501
 
         :param status: The status of this MediaMusicStatus.  # noqa: E501
         :type: str
         """
         if status is None:
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        allowed_values = ["idle", "running", "pause"]  # noqa: E501
+        allowed_values = ["idle", "run", "pause"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
@@ -86,7 +86,7 @@ class MediaMusicStatus(object):
     def name(self):
         """Gets the name of this MediaMusicStatus.  # noqa: E501
 
-        动作名  # noqa: E501
+        音乐名称  # noqa: E501
 
         :return: The name of this MediaMusicStatus.  # noqa: E501
         :rtype: str
@@ -97,7 +97,7 @@ class MediaMusicStatus(object):
     def name(self, name):
         """Sets the name of this MediaMusicStatus.
 
-        动作名  # noqa: E501
+        音乐名称  # noqa: E501
 
         :param name: The name of this MediaMusicStatus.  # noqa: E501
         :type: str

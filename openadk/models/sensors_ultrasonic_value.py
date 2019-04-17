@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from openadk.models.sensors_common_info import SensorsCommonInfo  # noqa: F401,E501
+from openadk.models.sensors_ultrasonic_info import SensorsUltrasonicInfo  # noqa: F401,E501
 
 
 class SensorsUltrasonicValue(object):
@@ -33,7 +33,7 @@ class SensorsUltrasonicValue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'ultrasonic': 'list[SensorsCommonInfo]'
+        'ultrasonic': 'list[SensorsUltrasonicInfo]'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class SensorsUltrasonicValue(object):
 
 
         :return: The ultrasonic of this SensorsUltrasonicValue.  # noqa: E501
-        :rtype: list[SensorsCommonInfo]
+        :rtype: list[SensorsUltrasonicInfo]
         """
         return self._ultrasonic
 
@@ -64,7 +64,7 @@ class SensorsUltrasonicValue(object):
 
 
         :param ultrasonic: The ultrasonic of this SensorsUltrasonicValue.  # noqa: E501
-        :type: list[SensorsCommonInfo]
+        :type: list[SensorsUltrasonicInfo]
         """
         if ultrasonic is None:
             raise ValueError("Invalid value for `ultrasonic`, must not be `None`")  # noqa: E501

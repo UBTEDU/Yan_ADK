@@ -46,7 +46,7 @@ class SubscriptionsSensors(object):
         'timeval': 'timeval'
     }
 
-    def __init__(self, type=None, id=None, url=None, timeout=10, timeval=1000):  # noqa: E501
+    def __init__(self, type=None, id=None, url=None, timeout=10, timeval=None):  # noqa: E501
         """SubscriptionsSensors - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
@@ -100,7 +100,7 @@ class SubscriptionsSensors(object):
     def id(self):
         """Gets the id of this SubscriptionsSensors.  # noqa: E501
 
-        传感器ID，可不填  # noqa: E501
+        传感器地址，可不填  # noqa: E501
 
         :return: The id of this SubscriptionsSensors.  # noqa: E501
         :rtype: int
@@ -111,7 +111,7 @@ class SubscriptionsSensors(object):
     def id(self, id):
         """Sets the id of this SubscriptionsSensors.
 
-        传感器ID，可不填  # noqa: E501
+        传感器地址，可不填  # noqa: E501
 
         :param id: The id of this SubscriptionsSensors.  # noqa: E501
         :type: int
@@ -152,7 +152,7 @@ class SubscriptionsSensors(object):
     def timeout(self):
         """Gets the timeout of this SubscriptionsSensors.  # noqa: E501
 
-        超时停止发送的时间  # noqa: E501
+        订阅超时的时间，单位：秒  # noqa: E501
 
         :return: The timeout of this SubscriptionsSensors.  # noqa: E501
         :rtype: int
@@ -163,7 +163,7 @@ class SubscriptionsSensors(object):
     def timeout(self, timeout):
         """Sets the timeout of this SubscriptionsSensors.
 
-        超时停止发送的时间  # noqa: E501
+        订阅超时的时间，单位：秒  # noqa: E501
 
         :param timeout: The timeout of this SubscriptionsSensors.  # noqa: E501
         :type: int

@@ -32,29 +32,34 @@ class SubscriptionsVisions(object):
     """
     swagger_types = {
         'type': 'str',
-        'url': 'str'
+        'url': 'str',
+        'timeout': 'int'
     }
 
     attribute_map = {
         'type': 'type',
-        'url': 'url'
+        'url': 'url',
+        'timeout': 'timeout'
     }
 
-    def __init__(self, type=None, url=None):  # noqa: E501
+    def __init__(self, type=None, url=None, timeout=10):  # noqa: E501
         """SubscriptionsVisions - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
         self._url = None
+        self._timeout = None
         self.discriminator = None
 
         self.type = type
         self.url = url
+        if timeout is not None:
+            self.timeout = timeout
 
     @property
     def type(self):
         """Gets the type of this SubscriptionsVisions.  # noqa: E501
 
-        消息类型。type 允许上传的值有 'face_recognition', 'gesture_recognition', 'object_recognition', 'face_analysis_gender', 'face_analysis_age', 'face_analysis_expression', 'face_quantity', 'hand_quantity'   # noqa: E501
+        消息类型。type 允许上传的值有 'face_recognition',  'gender', 'age_group', 'face_quantity', 'color_detect'   # noqa: E501
 
         :return: The type of this SubscriptionsVisions.  # noqa: E501
         :rtype: str
@@ -65,14 +70,14 @@ class SubscriptionsVisions(object):
     def type(self, type):
         """Sets the type of this SubscriptionsVisions.
 
-        消息类型。type 允许上传的值有 'face_recognition', 'gesture_recognition', 'object_recognition', 'face_analysis_gender', 'face_analysis_age', 'face_analysis_expression', 'face_quantity', 'hand_quantity'   # noqa: E501
+        消息类型。type 允许上传的值有 'face_recognition',  'gender', 'age_group', 'face_quantity', 'color_detect'   # noqa: E501
 
         :param type: The type of this SubscriptionsVisions.  # noqa: E501
         :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["face_recognition", "gesture_recognition", "object_recognition", "face_analysis_gender", "face_analysis_age", "face_analysis_expression", "face_quantity", "hand_quantity"]  # noqa: E501
+        allowed_values = ["face_recognition", "gender", "age_group", "face_quantity", "color_detect"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -105,6 +110,33 @@ class SubscriptionsVisions(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def timeout(self):
+        """Gets the timeout of this SubscriptionsVisions.  # noqa: E501
+
+        订阅超时的时间，单位：秒  # noqa: E501
+
+        :return: The timeout of this SubscriptionsVisions.  # noqa: E501
+        :rtype: int
+        """
+        return self._timeout
+
+    @timeout.setter
+    def timeout(self, timeout):
+        """Sets the timeout of this SubscriptionsVisions.
+
+        订阅超时的时间，单位：秒  # noqa: E501
+
+        :param timeout: The timeout of this SubscriptionsVisions.  # noqa: E501
+        :type: int
+        """
+        if timeout is not None and timeout > 60:  # noqa: E501
+            raise ValueError("Invalid value for `timeout`, must be a value less than or equal to `60`")  # noqa: E501
+        if timeout is not None and timeout < 1:  # noqa: E501
+            raise ValueError("Invalid value for `timeout`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._timeout = timeout
 
     def to_dict(self):
         """Returns the model properties as a dict"""

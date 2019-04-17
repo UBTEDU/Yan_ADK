@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from openadk.models.sensors_common_info import SensorsCommonInfo  # noqa: F401,E501
+from openadk.models.sensors_infrared_info import SensorsInfraredInfo  # noqa: F401,E501
 
 
 class SensorsInfraredValue(object):
@@ -33,7 +33,7 @@ class SensorsInfraredValue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'infrared': 'list[SensorsCommonInfo]'
+        'infrared': 'list[SensorsInfraredInfo]'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class SensorsInfraredValue(object):
 
 
         :return: The infrared of this SensorsInfraredValue.  # noqa: E501
-        :rtype: list[SensorsCommonInfo]
+        :rtype: list[SensorsInfraredInfo]
         """
         return self._infrared
 
@@ -64,7 +64,7 @@ class SensorsInfraredValue(object):
 
 
         :param infrared: The infrared of this SensorsInfraredValue.  # noqa: E501
-        :type: list[SensorsCommonInfo]
+        :type: list[SensorsInfraredInfo]
         """
         if infrared is None:
             raise ValueError("Invalid value for `infrared`, must not be `None`")  # noqa: E501

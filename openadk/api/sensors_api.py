@@ -36,7 +36,7 @@ class SensorsApi(object):
     def get_sensors_environment(self, **kwargs):  # noqa: E501
         """获取环境传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_environment(async_req=True)
@@ -57,7 +57,7 @@ class SensorsApi(object):
     def get_sensors_environment_with_http_info(self, **kwargs):  # noqa: E501
         """获取环境传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_environment_with_http_info(async_req=True)
@@ -210,14 +210,14 @@ class SensorsApi(object):
     def get_sensors_infrared(self, **kwargs):  # noqa: E501
         """获取红外传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_infrared(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -232,14 +232,14 @@ class SensorsApi(object):
     def get_sensors_infrared_with_http_info(self, **kwargs):  # noqa: E501
         """获取红外传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_infrared_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -300,9 +300,9 @@ class SensorsApi(object):
             collection_formats=collection_formats)
 
     def get_sensors_list(self, **kwargs):  # noqa: E501
-        """获取所有传感器的列表  # noqa: E501
+        """获取所有传感器的列表。  # noqa: E501
 
-          # noqa: E501
+        当外接传感器发生变化时，需要首先调用此接口。备注：在V1.0版本上，此接口还具有刷新传感器列表的功能。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_list(async_req=True)
@@ -321,9 +321,9 @@ class SensorsApi(object):
             return data
 
     def get_sensors_list_with_http_info(self, **kwargs):  # noqa: E501
-        """获取所有传感器的列表  # noqa: E501
+        """获取所有传感器的列表。  # noqa: E501
 
-          # noqa: E501
+        当外接传感器发生变化时，需要首先调用此接口。备注：在V1.0版本上，此接口还具有刷新传感器列表的功能。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_list_with_http_info(async_req=True)
@@ -389,14 +389,14 @@ class SensorsApi(object):
     def get_sensors_pressure(self, **kwargs):  # noqa: E501
         """获取压力传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_pressure(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -411,14 +411,14 @@ class SensorsApi(object):
     def get_sensors_pressure_with_http_info(self, **kwargs):  # noqa: E501
         """获取压力传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_pressure_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -481,14 +481,14 @@ class SensorsApi(object):
     def get_sensors_touch(self, **kwargs):  # noqa: E501
         """获取触摸传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_touch(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -503,14 +503,14 @@ class SensorsApi(object):
     def get_sensors_touch_with_http_info(self, **kwargs):  # noqa: E501
         """获取触摸传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_touch_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -573,14 +573,14 @@ class SensorsApi(object):
     def get_sensors_ultrasonic(self, **kwargs):  # noqa: E501
         """获取超声传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_ultrasonic(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -595,14 +595,14 @@ class SensorsApi(object):
     def get_sensors_ultrasonic_with_http_info(self, **kwargs):  # noqa: E501
         """获取超声传感器值  # noqa: E501
 
-          # noqa: E501
+        使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_sensors_ultrasonic_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[int] id: 传感器ID，可不填
+        :param list[int] id: 传感器地址，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -663,9 +663,9 @@ class SensorsApi(object):
             collection_formats=collection_formats)
 
     def put_sensors(self, body, **kwargs):  # noqa: E501
-        """传感器设置（校准或修改ID）  # noqa: E501
+        """传感器设置（校准或修改地址）  # noqa: E501
 
-        目前只支持运动传感器（gyro）校准，以及部分传感器修改ID  # noqa: E501
+        目前只支持运动传感器（gyro）校准，以及修改部分传感器的地址  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_sensors(body, async_req=True)
@@ -685,9 +685,9 @@ class SensorsApi(object):
             return data
 
     def put_sensors_with_http_info(self, body, **kwargs):  # noqa: E501
-        """传感器设置（校准或修改ID）  # noqa: E501
+        """传感器设置（校准或修改地址）  # noqa: E501
 
-        目前只支持运动传感器（gyro）校准，以及部分传感器修改ID  # noqa: E501
+        目前只支持运动传感器（gyro）校准，以及修改部分传感器的地址  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_sensors_with_http_info(body, async_req=True)

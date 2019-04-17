@@ -200,7 +200,7 @@ No authorization required
 
 运动控制
 
-可以控制执行指定动作、暂停、继续、停止和复位
+可以执行指定动作、暂停、继续和停止运动
 
 ### Example
 ```python

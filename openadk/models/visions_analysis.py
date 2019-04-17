@@ -17,7 +17,6 @@ import re  # noqa: F401
 import six
 
 from openadk.models.visions_age import VisionsAge  # noqa: F401,E501
-from openadk.models.visions_expression import VisionsExpression  # noqa: F401,E501
 from openadk.models.visions_gender import VisionsGender  # noqa: F401,E501
 
 
@@ -36,30 +35,25 @@ class VisionsAnalysis(object):
     """
     swagger_types = {
         'age': 'VisionsAge',
-        'gender': 'VisionsGender',
-        'expression': 'VisionsExpression'
+        'gender': 'VisionsGender'
     }
 
     attribute_map = {
         'age': 'age',
-        'gender': 'gender',
-        'expression': 'expression'
+        'gender': 'gender'
     }
 
-    def __init__(self, age=None, gender=None, expression=None):  # noqa: E501
+    def __init__(self, age=None, gender=None):  # noqa: E501
         """VisionsAnalysis - a model defined in Swagger"""  # noqa: E501
 
         self._age = None
         self._gender = None
-        self._expression = None
         self.discriminator = None
 
         if age is not None:
             self.age = age
         if gender is not None:
             self.gender = gender
-        if expression is not None:
-            self.expression = expression
 
     @property
     def age(self):
@@ -102,27 +96,6 @@ class VisionsAnalysis(object):
         """
 
         self._gender = gender
-
-    @property
-    def expression(self):
-        """Gets the expression of this VisionsAnalysis.  # noqa: E501
-
-
-        :return: The expression of this VisionsAnalysis.  # noqa: E501
-        :rtype: VisionsExpression
-        """
-        return self._expression
-
-    @expression.setter
-    def expression(self, expression):
-        """Sets the expression of this VisionsAnalysis.
-
-
-        :param expression: The expression of this VisionsAnalysis.  # noqa: E501
-        :type: VisionsExpression
-        """
-
-        self._expression = expression
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk.models.sensors_common_info import SensorsCommonInfo  # noqa: E501
+from openadk.models.sensors_touch_info import SensorsTouchInfo  # noqa: E501
 from openadk.rest import ApiException
 
 
-class TestSensorsCommonInfo(unittest.TestCase):
-    """SensorsCommonInfo unit test stubs"""
+class TestSensorsTouchInfo(unittest.TestCase):
+    """SensorsTouchInfo unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSensorsCommonInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSensorsCommonInfo(self):
-        """Test SensorsCommonInfo"""
+    def testSensorsTouchInfo(self):
+        """Test SensorsTouchInfo"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openadk.models.sensors_common_info.SensorsCommonInfo()  # noqa: E501
+        # model = openadk.models.sensors_touch_info.SensorsTouchInfo()  # noqa: E501
         pass
 
 

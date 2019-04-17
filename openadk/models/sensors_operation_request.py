@@ -56,7 +56,7 @@ class SensorsOperationRequest(object):
     def operation(self):
         """Gets the operation of this SensorsOperationRequest.  # noqa: E501
 
-        操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器ID）。  # noqa: E501
+        操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器地址）。  # noqa: E501
 
         :return: The operation of this SensorsOperationRequest.  # noqa: E501
         :rtype: str
@@ -67,7 +67,7 @@ class SensorsOperationRequest(object):
     def operation(self, operation):
         """Sets the operation of this SensorsOperationRequest.
 
-        操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器ID）。  # noqa: E501
+        操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器地址）。  # noqa: E501
 
         :param operation: The operation of this SensorsOperationRequest.  # noqa: E501
         :type: str

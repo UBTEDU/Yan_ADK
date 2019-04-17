@@ -33,7 +33,8 @@ class VoiceResponse(object):
     swagger_types = {
         'code': 'int',
         'type': 'str',
-        'data': 'str',
+        'data': 'object',
+        'timestamp': 'int',
         'msg': 'str'
     }
 
@@ -41,15 +42,17 @@ class VoiceResponse(object):
         'code': 'code',
         'type': 'type',
         'data': 'data',
+        'timestamp': 'timestamp',
         'msg': 'msg'
     }
 
-    def __init__(self, code=None, type=None, data=None, msg=None):  # noqa: E501
+    def __init__(self, code=None, type=None, data=None, timestamp=None, msg=None):  # noqa: E501
         """VoiceResponse - a model defined in Swagger"""  # noqa: E501
 
         self._code = None
         self._type = None
         self._data = None
+        self._timestamp = None
         self._msg = None
         self.discriminator = None
 
@@ -57,13 +60,15 @@ class VoiceResponse(object):
         self.type = type
         if data is not None:
             self.data = data
+        if timestamp is not None:
+            self.timestamp = timestamp
         self.msg = msg
 
     @property
     def code(self):
         """Gets the code of this VoiceResponse.  # noqa: E501
 
-        错误码  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :return: The code of this VoiceResponse.  # noqa: E501
         :rtype: int
@@ -74,7 +79,7 @@ class VoiceResponse(object):
     def code(self, code):
         """Sets the code of this VoiceResponse.
 
-        错误码  # noqa: E501
+        返回码，0表示正常  # noqa: E501
 
         :param code: The code of this VoiceResponse.  # noqa: E501
         :type: int
@@ -122,7 +127,7 @@ class VoiceResponse(object):
         数据  # noqa: E501
 
         :return: The data of this VoiceResponse.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._data
 
@@ -133,16 +138,39 @@ class VoiceResponse(object):
         数据  # noqa: E501
 
         :param data: The data of this VoiceResponse.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._data = data
 
     @property
+    def timestamp(self):
+        """Gets the timestamp of this VoiceResponse.  # noqa: E501
+
+        时间戳  # noqa: E501
+
+        :return: The timestamp of this VoiceResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, timestamp):
+        """Sets the timestamp of this VoiceResponse.
+
+        时间戳  # noqa: E501
+
+        :param timestamp: The timestamp of this VoiceResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._timestamp = timestamp
+
+    @property
     def msg(self):
         """Gets the msg of this VoiceResponse.  # noqa: E501
 
-        错误码消息  # noqa: E501
+        提示信息  # noqa: E501
 
         :return: The msg of this VoiceResponse.  # noqa: E501
         :rtype: str
@@ -153,7 +181,7 @@ class VoiceResponse(object):
     def msg(self, msg):
         """Sets the msg of this VoiceResponse.
 
-        错误码消息  # noqa: E501
+        提示信息  # noqa: E501
 
         :param msg: The msg of this VoiceResponse.  # noqa: E501
         :type: str

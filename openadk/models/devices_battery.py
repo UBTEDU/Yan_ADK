@@ -58,6 +58,7 @@ class DevicesBattery(object):
     def voltage(self):
         """Gets the voltage of this DevicesBattery.  # noqa: E501
 
+        电池电压(单位mv)  # noqa: E501
 
         :return: The voltage of this DevicesBattery.  # noqa: E501
         :rtype: int
@@ -68,6 +69,7 @@ class DevicesBattery(object):
     def voltage(self, voltage):
         """Sets the voltage of this DevicesBattery.
 
+        电池电压(单位mv)  # noqa: E501
 
         :param voltage: The voltage of this DevicesBattery.  # noqa: E501
         :type: int
@@ -81,7 +83,7 @@ class DevicesBattery(object):
     def charging(self):
         """Gets the charging of this DevicesBattery.  # noqa: E501
 
-        充电状态  # noqa: E501
+        充电状态(1 表示正在充电，0未充电)  # noqa: E501
 
         :return: The charging of this DevicesBattery.  # noqa: E501
         :rtype: int
@@ -92,7 +94,7 @@ class DevicesBattery(object):
     def charging(self, charging):
         """Sets the charging of this DevicesBattery.
 
-        充电状态  # noqa: E501
+        充电状态(1 表示正在充电，0未充电)  # noqa: E501
 
         :param charging: The charging of this DevicesBattery.  # noqa: E501
         :type: int
@@ -106,6 +108,7 @@ class DevicesBattery(object):
     def percent(self):
         """Gets the percent of this DevicesBattery.  # noqa: E501
 
+        电量百分比  # noqa: E501
 
         :return: The percent of this DevicesBattery.  # noqa: E501
         :rtype: int
@@ -116,6 +119,7 @@ class DevicesBattery(object):
     def percent(self, percent):
         """Sets the percent of this DevicesBattery.
 
+        电量百分比  # noqa: E501
 
         :param percent: The percent of this DevicesBattery.  # noqa: E501
         :type: int

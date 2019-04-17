@@ -108,7 +108,7 @@ class DevicesVersionsResponse(object):
     def msg(self):
         """Gets the msg of this DevicesVersionsResponse.  # noqa: E501
 
-        返回附件信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :return: The msg of this DevicesVersionsResponse.  # noqa: E501
         :rtype: str
@@ -119,7 +119,7 @@ class DevicesVersionsResponse(object):
     def msg(self, msg):
         """Sets the msg of this DevicesVersionsResponse.
 
-        返回附件信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :param msg: The msg of this DevicesVersionsResponse.  # noqa: E501
         :type: str

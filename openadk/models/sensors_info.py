@@ -58,7 +58,7 @@ class SensorsInfo(object):
     def id(self):
         """Gets the id of this SensorsInfo.  # noqa: E501
 
-        传感器ID值  # noqa: E501
+        传感器地址  # noqa: E501
 
         :return: The id of this SensorsInfo.  # noqa: E501
         :rtype: int
@@ -69,7 +69,7 @@ class SensorsInfo(object):
     def id(self, id):
         """Sets the id of this SensorsInfo.
 
-        传感器ID值  # noqa: E501
+        传感器地址  # noqa: E501
 
         :param id: The id of this SensorsInfo.  # noqa: E501
         :type: int

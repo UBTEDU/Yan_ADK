@@ -115,7 +115,7 @@ class SensorsParameter(object):
     def value(self):
         """Gets the value of this SensorsParameter.  # noqa: E501
 
-        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器ID）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器ID不允许修改!  # noqa: E501
+        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器地址）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器地址不允许修改!  # noqa: E501
 
         :return: The value of this SensorsParameter.  # noqa: E501
         :rtype: int
@@ -126,7 +126,7 @@ class SensorsParameter(object):
     def value(self, value):
         """Sets the value of this SensorsParameter.
 
-        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器ID）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器ID不允许修改!  # noqa: E501
+        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器地址）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器地址不允许修改!  # noqa: E501
 
         :param value: The value of this SensorsParameter.  # noqa: E501
         :type: int

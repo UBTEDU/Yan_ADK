@@ -93,6 +93,7 @@ class VoiceGetResponse(object):
     def status(self):
         """Gets the status of this VoiceGetResponse.  # noqa: E501
 
+        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build'。   # noqa: E501
 
         :return: The status of this VoiceGetResponse.  # noqa: E501
         :rtype: str
@@ -103,6 +104,7 @@ class VoiceGetResponse(object):
     def status(self, status):
         """Sets the status of this VoiceGetResponse.
 
+        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build'。   # noqa: E501
 
         :param status: The status of this VoiceGetResponse.  # noqa: E501
         :type: str
@@ -168,7 +170,7 @@ class VoiceGetResponse(object):
     def msg(self):
         """Gets the msg of this VoiceGetResponse.  # noqa: E501
 
-        返回附件信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :return: The msg of this VoiceGetResponse.  # noqa: E501
         :rtype: str
@@ -179,7 +181,7 @@ class VoiceGetResponse(object):
     def msg(self, msg):
         """Sets the msg of this VoiceGetResponse.
 
-        返回附件信息  # noqa: E501
+        提示信息  # noqa: E501
 
         :param msg: The msg of this VoiceGetResponse.  # noqa: E501
         :type: str

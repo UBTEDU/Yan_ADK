@@ -108,6 +108,7 @@ class ServosModeResponse(object):
     def msg(self):
         """Gets the msg of this ServosModeResponse.  # noqa: E501
 
+        提示信息  # noqa: E501
 
         :return: The msg of this ServosModeResponse.  # noqa: E501
         :rtype: str
@@ -118,6 +119,7 @@ class ServosModeResponse(object):
     def msg(self, msg):
         """Sets the msg of this ServosModeResponse.
 
+        提示信息  # noqa: E501
 
         :param msg: The msg of this ServosModeResponse.  # noqa: E501
         :type: str

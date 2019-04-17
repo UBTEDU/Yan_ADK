@@ -131,7 +131,7 @@ class ServosResult(object):
     def right_shoulder_roll(self):
         """Gets the right_shoulder_roll of this ServosResult.  # noqa: E501
 
-        1号舵机  # noqa: E501
+        1号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_shoulder_roll of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -142,7 +142,7 @@ class ServosResult(object):
     def right_shoulder_roll(self, right_shoulder_roll):
         """Sets the right_shoulder_roll of this ServosResult.
 
-        1号舵机  # noqa: E501
+        1号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_shoulder_roll: The right_shoulder_roll of this ServosResult.  # noqa: E501
         :type: bool
@@ -154,7 +154,7 @@ class ServosResult(object):
     def right_shoulder_flex(self):
         """Gets the right_shoulder_flex of this ServosResult.  # noqa: E501
 
-        2号舵机  # noqa: E501
+        2号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_shoulder_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -165,7 +165,7 @@ class ServosResult(object):
     def right_shoulder_flex(self, right_shoulder_flex):
         """Sets the right_shoulder_flex of this ServosResult.
 
-        2号舵机  # noqa: E501
+        2号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_shoulder_flex: The right_shoulder_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -177,7 +177,7 @@ class ServosResult(object):
     def right_elbow_flex(self):
         """Gets the right_elbow_flex of this ServosResult.  # noqa: E501
 
-        3号舵机  # noqa: E501
+        3号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_elbow_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -188,7 +188,7 @@ class ServosResult(object):
     def right_elbow_flex(self, right_elbow_flex):
         """Sets the right_elbow_flex of this ServosResult.
 
-        3号舵机  # noqa: E501
+        3号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_elbow_flex: The right_elbow_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -200,7 +200,7 @@ class ServosResult(object):
     def left_shoulder_roll(self):
         """Gets the left_shoulder_roll of this ServosResult.  # noqa: E501
 
-        4号舵机  # noqa: E501
+        4号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_shoulder_roll of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -211,7 +211,7 @@ class ServosResult(object):
     def left_shoulder_roll(self, left_shoulder_roll):
         """Sets the left_shoulder_roll of this ServosResult.
 
-        4号舵机  # noqa: E501
+        4号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_shoulder_roll: The left_shoulder_roll of this ServosResult.  # noqa: E501
         :type: bool
@@ -223,7 +223,7 @@ class ServosResult(object):
     def left_shoulder_flex(self):
         """Gets the left_shoulder_flex of this ServosResult.  # noqa: E501
 
-        5号舵机  # noqa: E501
+        5号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_shoulder_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -234,7 +234,7 @@ class ServosResult(object):
     def left_shoulder_flex(self, left_shoulder_flex):
         """Sets the left_shoulder_flex of this ServosResult.
 
-        5号舵机  # noqa: E501
+        5号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_shoulder_flex: The left_shoulder_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -246,7 +246,7 @@ class ServosResult(object):
     def left_elbow_flex(self):
         """Gets the left_elbow_flex of this ServosResult.  # noqa: E501
 
-        6号舵机  # noqa: E501
+        6号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_elbow_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -257,7 +257,7 @@ class ServosResult(object):
     def left_elbow_flex(self, left_elbow_flex):
         """Sets the left_elbow_flex of this ServosResult.
 
-        6号舵机  # noqa: E501
+        6号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_elbow_flex: The left_elbow_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -269,7 +269,7 @@ class ServosResult(object):
     def right_hip_lr(self):
         """Gets the right_hip_lr of this ServosResult.  # noqa: E501
 
-        7号舵机  # noqa: E501
+        7号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_hip_lr of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -280,7 +280,7 @@ class ServosResult(object):
     def right_hip_lr(self, right_hip_lr):
         """Sets the right_hip_lr of this ServosResult.
 
-        7号舵机  # noqa: E501
+        7号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_hip_lr: The right_hip_lr of this ServosResult.  # noqa: E501
         :type: bool
@@ -292,7 +292,7 @@ class ServosResult(object):
     def right_hip_fb(self):
         """Gets the right_hip_fb of this ServosResult.  # noqa: E501
 
-        8号舵机  # noqa: E501
+        8号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_hip_fb of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -303,7 +303,7 @@ class ServosResult(object):
     def right_hip_fb(self, right_hip_fb):
         """Sets the right_hip_fb of this ServosResult.
 
-        8号舵机  # noqa: E501
+        8号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_hip_fb: The right_hip_fb of this ServosResult.  # noqa: E501
         :type: bool
@@ -315,7 +315,7 @@ class ServosResult(object):
     def right_knee_flex(self):
         """Gets the right_knee_flex of this ServosResult.  # noqa: E501
 
-        9号舵机  # noqa: E501
+        9号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_knee_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -326,7 +326,7 @@ class ServosResult(object):
     def right_knee_flex(self, right_knee_flex):
         """Sets the right_knee_flex of this ServosResult.
 
-        9号舵机  # noqa: E501
+        9号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_knee_flex: The right_knee_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -338,7 +338,7 @@ class ServosResult(object):
     def right_ankle_fb(self):
         """Gets the right_ankle_fb of this ServosResult.  # noqa: E501
 
-        10号舵机  # noqa: E501
+        10号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_ankle_fb of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -349,7 +349,7 @@ class ServosResult(object):
     def right_ankle_fb(self, right_ankle_fb):
         """Sets the right_ankle_fb of this ServosResult.
 
-        10号舵机  # noqa: E501
+        10号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_ankle_fb: The right_ankle_fb of this ServosResult.  # noqa: E501
         :type: bool
@@ -361,7 +361,7 @@ class ServosResult(object):
     def right_ankle_ud(self):
         """Gets the right_ankle_ud of this ServosResult.  # noqa: E501
 
-        11号舵机  # noqa: E501
+        11号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The right_ankle_ud of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -372,7 +372,7 @@ class ServosResult(object):
     def right_ankle_ud(self, right_ankle_ud):
         """Sets the right_ankle_ud of this ServosResult.
 
-        11号舵机  # noqa: E501
+        11号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param right_ankle_ud: The right_ankle_ud of this ServosResult.  # noqa: E501
         :type: bool
@@ -384,7 +384,7 @@ class ServosResult(object):
     def left_hip_lr(self):
         """Gets the left_hip_lr of this ServosResult.  # noqa: E501
 
-        12号舵机  # noqa: E501
+        12号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_hip_lr of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -395,7 +395,7 @@ class ServosResult(object):
     def left_hip_lr(self, left_hip_lr):
         """Sets the left_hip_lr of this ServosResult.
 
-        12号舵机  # noqa: E501
+        12号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_hip_lr: The left_hip_lr of this ServosResult.  # noqa: E501
         :type: bool
@@ -407,7 +407,7 @@ class ServosResult(object):
     def left_hip_fb(self):
         """Gets the left_hip_fb of this ServosResult.  # noqa: E501
 
-        13号舵机  # noqa: E501
+        13号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_hip_fb of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -418,7 +418,7 @@ class ServosResult(object):
     def left_hip_fb(self, left_hip_fb):
         """Sets the left_hip_fb of this ServosResult.
 
-        13号舵机  # noqa: E501
+        13号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_hip_fb: The left_hip_fb of this ServosResult.  # noqa: E501
         :type: bool
@@ -430,7 +430,7 @@ class ServosResult(object):
     def left_knee_flex(self):
         """Gets the left_knee_flex of this ServosResult.  # noqa: E501
 
-        14号舵机  # noqa: E501
+        14号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_knee_flex of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -441,7 +441,7 @@ class ServosResult(object):
     def left_knee_flex(self, left_knee_flex):
         """Sets the left_knee_flex of this ServosResult.
 
-        14号舵机  # noqa: E501
+        14号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_knee_flex: The left_knee_flex of this ServosResult.  # noqa: E501
         :type: bool
@@ -453,7 +453,7 @@ class ServosResult(object):
     def left_ankle_fb(self):
         """Gets the left_ankle_fb of this ServosResult.  # noqa: E501
 
-        15号舵机  # noqa: E501
+        15号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_ankle_fb of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -464,7 +464,7 @@ class ServosResult(object):
     def left_ankle_fb(self, left_ankle_fb):
         """Sets the left_ankle_fb of this ServosResult.
 
-        15号舵机  # noqa: E501
+        15号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_ankle_fb: The left_ankle_fb of this ServosResult.  # noqa: E501
         :type: bool
@@ -476,7 +476,7 @@ class ServosResult(object):
     def left_ankle_ud(self):
         """Gets the left_ankle_ud of this ServosResult.  # noqa: E501
 
-        16号舵机  # noqa: E501
+        16号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The left_ankle_ud of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -487,7 +487,7 @@ class ServosResult(object):
     def left_ankle_ud(self, left_ankle_ud):
         """Sets the left_ankle_ud of this ServosResult.
 
-        16号舵机  # noqa: E501
+        16号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param left_ankle_ud: The left_ankle_ud of this ServosResult.  # noqa: E501
         :type: bool
@@ -499,7 +499,7 @@ class ServosResult(object):
     def neck_lr(self):
         """Gets the neck_lr of this ServosResult.  # noqa: E501
 
-        17号舵机  # noqa: E501
+        17号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :return: The neck_lr of this ServosResult.  # noqa: E501
         :rtype: bool
@@ -510,7 +510,7 @@ class ServosResult(object):
     def neck_lr(self, neck_lr):
         """Sets the neck_lr of this ServosResult.
 
-        17号舵机  # noqa: E501
+        17号舵机，true表示设置成功，false表示失败  # noqa: E501
 
         :param neck_lr: The neck_lr of this ServosResult.  # noqa: E501
         :type: bool

@@ -54,7 +54,7 @@ class VisionsGetRequest(object):
     def option(self):
         """Gets the option of this VisionsGetRequest.  # noqa: E501
 
-        模型类型。 可选值为 'face', 'hand', 'object', 'color'  # noqa: E501
+        模型类型。 可选值为 'face', 'color'  # noqa: E501
 
         :return: The option of this VisionsGetRequest.  # noqa: E501
         :rtype: str
@@ -65,14 +65,14 @@ class VisionsGetRequest(object):
     def option(self, option):
         """Sets the option of this VisionsGetRequest.
 
-        模型类型。 可选值为 'face', 'hand', 'object', 'color'  # noqa: E501
+        模型类型。 可选值为 'face', 'color'  # noqa: E501
 
         :param option: The option of this VisionsGetRequest.  # noqa: E501
         :type: str
         """
         if option is None:
             raise ValueError("Invalid value for `option`, must not be `None`")  # noqa: E501
-        allowed_values = ["face", "hand", "object", "color"]  # noqa: E501
+        allowed_values = ["face", "color"]  # noqa: E501
         if option not in allowed_values:
             raise ValueError(
                 "Invalid value for `option` ({0}), must be one of {1}"  # noqa: E501
@@ -85,7 +85,7 @@ class VisionsGetRequest(object):
     def type(self):
         """Gets the type of this VisionsGetRequest.  # noqa: E501
 
-        任务。当模型类型为'face' 时, 可选值为 'age_analysis', 'gender_analysis', 'expression_analysis', 'quantity', 'recognition', 'tracking'。当模型类型为 'hand' 时, 可选值为 'quantity'。 当模型类型为 'object'时, 可选值为'recognition'。当模型为 'color'时，可选值为 'color_detect'   # noqa: E501
+        任务。当模型类型为'face' 时, 可选值为 'gender', 'age_group', 'quantity', 'recognition', 'tracking'。当模型为 'color'时，可选值为 'color_detect'   # noqa: E501
 
         :return: The type of this VisionsGetRequest.  # noqa: E501
         :rtype: str
@@ -96,14 +96,14 @@ class VisionsGetRequest(object):
     def type(self, type):
         """Sets the type of this VisionsGetRequest.
 
-        任务。当模型类型为'face' 时, 可选值为 'age_analysis', 'gender_analysis', 'expression_analysis', 'quantity', 'recognition', 'tracking'。当模型类型为 'hand' 时, 可选值为 'quantity'。 当模型类型为 'object'时, 可选值为'recognition'。当模型为 'color'时，可选值为 'color_detect'   # noqa: E501
+        任务。当模型类型为'face' 时, 可选值为 'gender', 'age_group', 'quantity', 'recognition', 'tracking'。当模型为 'color'时，可选值为 'color_detect'   # noqa: E501
 
         :param type: The type of this VisionsGetRequest.  # noqa: E501
         :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["age_analysis", "gender_analysis", "expression_analysis", "quantity", "recognition", "tracking", "color_detect"]  # noqa: E501
+        allowed_values = ["gender", "age_group", "quantity", "recognition", "tracking", "color_detect"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

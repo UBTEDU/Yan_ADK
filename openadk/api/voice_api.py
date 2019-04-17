@@ -558,7 +558,7 @@ class VoiceApi(object):
     def put_voice_asr(self, body, **kwargs):  # noqa: E501
         """开始语义理解  # noqa: E501
 
-        当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
+        当语义理解(单次/多次)或者语音听写处于工作状态时，需要先停止当前的语义理解或者语音听写。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_asr(body, async_req=True)
@@ -580,7 +580,7 @@ class VoiceApi(object):
     def put_voice_asr_with_http_info(self, body, **kwargs):  # noqa: E501
         """开始语义理解  # noqa: E501
 
-        当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
+        当语义理解(单次/多次)或者语音听写处于工作状态时，需要先停止当前的语义理解或者语音听写。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_asr_with_http_info(body, async_req=True)
@@ -653,7 +653,7 @@ class VoiceApi(object):
     def put_voice_iat(self, **kwargs):  # noqa: E501
         """开始语音听写  # noqa: E501
 
-        当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
+        当语义理解(单次/多次)或者语音听写处于工作状态时，需要先停止当前的语义理解或者语音听写。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_iat(async_req=True)
@@ -675,7 +675,7 @@ class VoiceApi(object):
     def put_voice_iat_with_http_info(self, **kwargs):  # noqa: E501
         """开始语音听写  # noqa: E501
 
-        当语义理解(单次/多次)或者语音识别处于工作状态时，需要先停止当前的语义理解或者语音识别。  # noqa: E501
+        当语义理解(单次/多次)或者语音听写处于工作状态时，需要先停止当前的语义理解或者语音听写。  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_voice_iat_with_http_info(async_req=True)

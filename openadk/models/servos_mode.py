@@ -147,7 +147,7 @@ class ServosMode(object):
         :param right_shoulder_roll: The right_shoulder_roll of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_shoulder_roll not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_shoulder_roll` ({0}), must be one of {1}"  # noqa: E501
@@ -176,7 +176,7 @@ class ServosMode(object):
         :param right_shoulder_flex: The right_shoulder_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_shoulder_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_shoulder_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -205,7 +205,7 @@ class ServosMode(object):
         :param right_elbow_flex: The right_elbow_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_elbow_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_elbow_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -234,7 +234,7 @@ class ServosMode(object):
         :param left_shoulder_roll: The left_shoulder_roll of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_shoulder_roll not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_shoulder_roll` ({0}), must be one of {1}"  # noqa: E501
@@ -263,7 +263,7 @@ class ServosMode(object):
         :param left_shoulder_flex: The left_shoulder_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_shoulder_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_shoulder_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -292,7 +292,7 @@ class ServosMode(object):
         :param left_elbow_flex: The left_elbow_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_elbow_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_elbow_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -321,7 +321,7 @@ class ServosMode(object):
         :param right_hip_lr: The right_hip_lr of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_hip_lr not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_hip_lr` ({0}), must be one of {1}"  # noqa: E501
@@ -350,7 +350,7 @@ class ServosMode(object):
         :param right_hip_fb: The right_hip_fb of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_hip_fb not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_hip_fb` ({0}), must be one of {1}"  # noqa: E501
@@ -379,7 +379,7 @@ class ServosMode(object):
         :param right_knee_flex: The right_knee_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_knee_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_knee_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -408,7 +408,7 @@ class ServosMode(object):
         :param right_ankle_fb: The right_ankle_fb of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_ankle_fb not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_ankle_fb` ({0}), must be one of {1}"  # noqa: E501
@@ -437,7 +437,7 @@ class ServosMode(object):
         :param right_ankle_ud: The right_ankle_ud of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if right_ankle_ud not in allowed_values:
             raise ValueError(
                 "Invalid value for `right_ankle_ud` ({0}), must be one of {1}"  # noqa: E501
@@ -466,7 +466,7 @@ class ServosMode(object):
         :param left_hip_lr: The left_hip_lr of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_hip_lr not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_hip_lr` ({0}), must be one of {1}"  # noqa: E501
@@ -495,7 +495,7 @@ class ServosMode(object):
         :param left_hip_fb: The left_hip_fb of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_hip_fb not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_hip_fb` ({0}), must be one of {1}"  # noqa: E501
@@ -524,7 +524,7 @@ class ServosMode(object):
         :param left_knee_flex: The left_knee_flex of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_knee_flex not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_knee_flex` ({0}), must be one of {1}"  # noqa: E501
@@ -553,7 +553,7 @@ class ServosMode(object):
         :param left_ankle_fb: The left_ankle_fb of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_ankle_fb not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_ankle_fb` ({0}), must be one of {1}"  # noqa: E501
@@ -582,7 +582,7 @@ class ServosMode(object):
         :param left_ankle_ud: The left_ankle_ud of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if left_ankle_ud not in allowed_values:
             raise ValueError(
                 "Invalid value for `left_ankle_ud` ({0}), must be one of {1}"  # noqa: E501
@@ -611,7 +611,7 @@ class ServosMode(object):
         :param neck_lr: The neck_lr of this ServosMode.  # noqa: E501
         :type: str
         """
-        allowed_values = ["work", "program", "unknown"]  # noqa: E501
+        allowed_values = ["work", "program", "unknown", "nonsupport"]  # noqa: E501
         if neck_lr not in allowed_values:
             raise ValueError(
                 "Invalid value for `neck_lr` ({0}), must be one of {1}"  # noqa: E501
