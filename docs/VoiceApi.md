@@ -236,7 +236,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_voice_tts**
-> VoiceGetResponse get_voice_tts()
+> VoiceGetResponse get_voice_tts(timestamp=timestamp)
 
 获取当前语音合成工作状态
 
@@ -252,17 +252,21 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VoiceApi()
+timestamp = 789 # int | 时间戳 (optional)
 
 try:
     # 获取当前语音合成工作状态
-    api_response = api_instance.get_voice_tts()
+    api_response = api_instance.get_voice_tts(timestamp=timestamp)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling VoiceApi->get_voice_tts: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int**| 时间戳 | [optional] 
 
 ### Return type
 

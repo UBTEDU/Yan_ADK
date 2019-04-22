@@ -93,7 +93,7 @@ class VoiceGetResponse(object):
     def status(self):
         """Gets the status of this VoiceGetResponse.  # noqa: E501
 
-        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build'。   # noqa: E501
+        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build', 'wait'。 在语音合成中 'idle' 为该tts任务不存在, build为正在合成该段语音, run为播放该段语音, wait为处于等待执行状态。在语义理解或是语音听写中，'idle为非执行状态', 'run'为正在运行。   # noqa: E501
 
         :return: The status of this VoiceGetResponse.  # noqa: E501
         :rtype: str
@@ -104,12 +104,12 @@ class VoiceGetResponse(object):
     def status(self, status):
         """Sets the status of this VoiceGetResponse.
 
-        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build'。   # noqa: E501
+        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build', 'wait'。 在语音合成中 'idle' 为该tts任务不存在, build为正在合成该段语音, run为播放该段语音, wait为处于等待执行状态。在语义理解或是语音听写中，'idle为非执行状态', 'run'为正在运行。   # noqa: E501
 
         :param status: The status of this VoiceGetResponse.  # noqa: E501
         :type: str
         """
-        allowed_values = ["idle", "build", "run"]  # noqa: E501
+        allowed_values = ["idle", "build", "run", "wait"]  # noqa: E501
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
