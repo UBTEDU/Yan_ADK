@@ -5,16 +5,16 @@ from __future__ import absolute_import
 from flask import json
 from six import BytesIO
 
-from openadk.models.common_response import CommonResponse  # noqa: E501
-from openadk.models.motions_status_response import MotionsStatusResponse  # noqa: E501
-from openadk.models.sensors_environment_value_response import SensorsEnvironmentValueResponse  # noqa: E501
-from openadk.models.sensors_gyro_value_response import SensorsGyroValueResponse  # noqa: E501
-from openadk.models.sensors_infrared_value_response import SensorsInfraredValueResponse  # noqa: E501
-from openadk.models.sensors_pressure_value_response import SensorsPressureValueResponse  # noqa: E501
-from openadk.models.sensors_touch_value_response import SensorsTouchValueResponse  # noqa: E501
-from openadk.models.sensors_ultrasonic_value_response import SensorsUltrasonicValueResponse  # noqa: E501
-from openadk.models.visions_get_response import VisionsGetResponse  # noqa: E501
-from openadk.models.voice_response import VoiceResponse  # noqa: E501
+from openadk.models.subscription_common_response import SubscriptionCommonResponse  # noqa: E501
+from openadk.models.subscription_motions_status_response import SubscriptionMotionsStatusResponse  # noqa: E501
+from openadk.models.subscription_sensors_environment_value_response import SubscriptionSensorsEnvironmentValueResponse  # noqa: E501
+from openadk.models.subscription_sensors_gyro_value_response import SubscriptionSensorsGyroValueResponse  # noqa: E501
+from openadk.models.subscription_sensors_infrared_value_response import SubscriptionSensorsInfraredValueResponse  # noqa: E501
+from openadk.models.subscription_sensors_pressure_value_response import SubscriptionSensorsPressureValueResponse  # noqa: E501
+from openadk.models.subscription_sensors_touch_value_response import SubscriptionSensorsTouchValueResponse  # noqa: E501
+from openadk.models.subscription_sensors_ultrasonic_value_response import SubscriptionSensorsUltrasonicValueResponse  # noqa: E501
+from openadk.models.subscription_visions_get_response import SubscriptionVisionsGetResponse  # noqa: E501
+from openadk.models.subscription_voice_response import SubscriptionVoiceResponse  # noqa: E501
 from openadk.test import BaseTestCase
 
 
@@ -26,7 +26,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送运动控制状态
         """
-        body = MotionsStatusResponse()
+        body = SubscriptionMotionsStatusResponse()
         response = self.client.open(
             '/v1/subscriptions/motions',
             method='PUT',
@@ -40,7 +40,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsGyroValueResponse()
+        body = SubscriptionSensorsGyroValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/gyro',
             method='PUT',
@@ -54,7 +54,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsEnvironmentValueResponse()
+        body = SubscriptionSensorsEnvironmentValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/environment',
             method='PUT',
@@ -68,7 +68,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsInfraredValueResponse()
+        body = SubscriptionSensorsInfraredValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/infrared',
             method='PUT',
@@ -82,7 +82,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsPressureValueResponse()
+        body = SubscriptionSensorsPressureValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/pressure',
             method='PUT',
@@ -96,7 +96,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsTouchValueResponse()
+        body = SubscriptionSensorsTouchValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/touch',
             method='PUT',
@@ -110,7 +110,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送传感器消息
         """
-        body = SensorsUltrasonicValueResponse()
+        body = SubscriptionSensorsUltrasonicValueResponse()
         response = self.client.open(
             '/v1/subscriptions/sensors/ultrasonic',
             method='PUT',
@@ -124,7 +124,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送TTS状态消息
         """
-        body = CommonResponse()
+        body = SubscriptionCommonResponse()
         response = self.client.open(
             '/v1/subscriptions/voice/tts',
             method='PUT',
@@ -138,7 +138,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送指定视觉任务消息
         """
-        body = VisionsGetResponse()
+        body = SubscriptionVisionsGetResponse()
         response = self.client.open(
             '/v1/subscriptions/visions',
             method='PUT',
@@ -152,7 +152,12 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送语义理解消息
         """
-        body = VoiceResponse()
+        code = 0
+        type = 'asr'
+        data = '{}'
+        timestamp = 123123
+        msg = 'hello'
+        body = SubscriptionVoiceResponse(code, type, json.loads(data), timestamp, msg)
         response = self.client.open(
             '/v1/subscriptions/voice/asr',
             method='PUT',
@@ -166,7 +171,7 @@ class TestSubscriptionsController(BaseTestCase):
 
         推送语音识别原始JSON信息
         """
-        body = VoiceResponse()
+        body = SubscriptionVoiceResponse()
         response = self.client.open(
             '/v1/subscriptions/voice/iat',
             method='PUT',

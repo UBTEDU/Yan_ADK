@@ -2,6 +2,7 @@ import datetime
 
 import six
 import typing
+import chardet
 
 
 def _deserialize(data, klass):
@@ -41,6 +42,11 @@ def _deserialize_primitive(data, klass):
     :return: int, long, float, str, bool.
     :rtype: int | long | float | str | bool
     """
+    # Added by cygnus.yang, for chinese character
+    if (six.PY2 == True):
+        if (klass == str):
+            data = data.encode('utf-8')
+
     try:
         value = klass(data)
     except UnicodeEncodeError:

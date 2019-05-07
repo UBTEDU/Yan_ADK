@@ -14,8 +14,6 @@ tags:
 - name: "subscriptions"
   description: "机器人数据推送"
 
-# schemes:
-# - "http"
 paths:
   /subscriptions/motions:
     put:
@@ -34,12 +32,12 @@ paths:
         description: "运动控制的参数"
         required: true
         schema:
-          $ref: "#/definitions/MotionsStatusResponse"
+          $ref: "#/definitions/SubscriptionMotionsStatusResponse"
       responses:
         200:
           description: "成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/gyro:
     put:
@@ -57,12 +55,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsGyroValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsGyroValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/ultrasonic:
     put:
@@ -80,12 +78,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsUltrasonicValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsUltrasonicValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/infrared:
     put:
@@ -103,12 +101,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsInfraredValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsInfraredValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/environment:
     put:
@@ -126,12 +124,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsEnvironmentValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsEnvironmentValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/touch:
     put:
@@ -149,12 +147,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsTouchValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsTouchValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/sensors/pressure:
     put:
@@ -172,12 +170,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SensorsPressureValueResponse"
+          $ref: "#/definitions/SubscriptionSensorsPressureValueResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/visions:
     put:
@@ -195,12 +193,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/VisionsGetResponse"
+          $ref: "#/definitions/SubscriptionVisionsGetResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/voice/iat:
     put:
@@ -218,12 +216,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/VoiceResponse"
+          $ref: "#/definitions/SubscriptionVoiceResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/voice/asr:
     put:
@@ -241,12 +239,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/VoiceResponse"
+          $ref: "#/definitions/SubscriptionVoiceResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
   /subscriptions/voice/tts:
     put:
@@ -264,12 +262,12 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/CommonResponse"
+          $ref: "#/definitions/SubscriptionCommonResponse"
       responses:
         200:
           description: "发送成功"
           schema:
-            $ref: "#/definitions/CommonResponse"
+            $ref: "#/definitions/SubscriptionCommonResponse"
 
 #securityDefinitions:
 #  robotinfostore_auth:
@@ -284,894 +282,446 @@ paths:
 #    name: "api_key"
 #    in: "header"
 definitions:
-  Name:
+  SubscriptionName:
     type: "object"
     required:
-    - "name"
+      - "name"
     properties:
       name:
         type: "string"
     xml:
-      name: "Name"
+      name: "SubscriptionName"
 
-  TotalTime:
+  SubscriptionVisionsResults:
     type: "object"
     properties:
-      total_time:
+      analysis:
+        $ref: "#/definitions/SubscriptionVisionsAnalysis"
+      recognition:
+        $ref: "#/definitions/SubscriptionName"
+      quantity:
         type: "integer"
-        format: "int32"
-        description: "运行完成需要的时间（单位ms）"
+        description: "数量, 0 ~ ??? (整数)"
+        minimum: 0
+        example: 1
+      color:
+        type: "array"
+        description: "所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'"
+        items:
+          $ref: "#/definitions/SubscriptionName"
+        example: ['name':'black', {'name':'gray'}, {'name':'red'}, {'name':'blue'}]
     xml:
-      name: "TotalTime"
-  RuntimeResponse:
+      name: "SubscriptionVisionsResults"
+
+  SubscriptionVisionsGetResponse:
     type: "object"
     required:
-    - "code"
-    - "data"
-    - "msg"
+      - "code"
+      - "type"
+      - "msg"
     properties:
       code:
         type: "integer"
-        description: "返回码，0表示正常,其它都为错误"
-        format: "int32"
+        description: "返回码，0表示正常"
+        example: 0
+      type:
+        type: "string"
+        enum:
+          - "recognition"
+          - "tracking"
+          - "gender"
+          - "age_group"
+          - "quantity"
+          - "color_detect"
+        description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'recognition', 'tracking','gender', 'age_group', 'quantity', 'color_detect'"
       data:
-        $ref: "#/definitions/TotalTime"
+        $ref: "#/definitions/SubscriptionVisionsResults"
+      timestamp:
+        type: "integer"
+        format: "int64"
+        description: "任务时间戳"
+        example: 1551838515
+      status:
+        type: "string"
+        description: "状态"
+        example: "idle"
       msg:
         type: "string"
+        description: "提示信息"
         example: "Success"
     xml:
-      name: "RuntimeResponse"
-  CommonResponse:
+      name: "SubscriptionVisionsGetResponse"
+
+  SubscriptionVoiceResponse:
     type: "object"
+    description: "asr与iat推送JSON"
     required:
-    - "code"
-    - "data"
-    - "msg"
+      - "code"
+      - "type"
+      - "msg"
     properties:
       code:
         type: "integer"
-        description: "返回码，0表示正常,其它都为错误"
+        description: "返回码，0表示正常"
+        example: 0
+      type:
+        type: "string"
+        enum:
+          - "asr"
+          - "iat"
+        description: "消息类型。此处的参数有 'asr', 'iat' "
+        example: "asr"
+      data:
+        description: "数据"
+        type: "object"
+        example: {}
+      timestamp:
+        description: "时间戳"
+        type: "integer"
+        format: "int64"
+        example: 1000789666
+      msg:
+        description: "提示信息"
+        type: "string"
+    xml:
+      name: "SubscriptionVoiceResponse"
+
+  SubscriptionCommonResponse:
+    type: "object"
+    required:
+      - "code"
+      - "data"
+      - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
         format: "int32"
       data:
         type: "object"
         example: {}
       msg:
+        description: "提示信息"
         type: "string"
         example: "Success"
     xml:
-      name: "CommonResponse"
+      name: "SubscriptionCommonResponse"
 
-  MotionsInfo:
+  SubscriptionSensorsEnvironmentInfo:
     type: "object"
     required:
-    - "name"
-    - "music"
-    properties:
-      name:
-        type: "string"
-        description: "动作名称"
-      music:
-        type: "boolean"
-        description: "是否带有音乐"
-    xml:
-      name: "MotionsInfo"
-  MotionsList:
-    type: "object"
-    required:
-    - "motions"
-    properties:
-      motions:
-        type: "array"
-        items:
-          $ref: "#/definitions/MotionsInfo"
-    xml:
-      name: "MotionsList"
-  MotionsListResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常,其它都为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/MotionsList"
-      msg:
-        type: "string"
-        example: "Success"
-    xml:
-      name: "MotionsListResponse"
-  MotionsStatus:
-    type: "object"
-    required:
-    - "status"
-    properties:
-      status:
-        type: "string"
-        description: "运行状态"
-        enum:
-        - "idle"
-        - "running"
-        - "pause"
-      name:
-        type: "string"
-        description: "动作名"
-        default: "None"
-      timestamp:
-        type: "integer"
-        format: "int64"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "MotionsStatus"
-  MotionsStatusResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常,其它都为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/MotionsStatus"
-      msg:
-        type: "string"
-        example: "Success"
-    xml:
-      name: "MotionsStatusResponse"
-  MotionsParameter:
-    type: "object"
-    required:
-    - "name"
-    properties:
-      name:
-        type: "string"
-        description: "动作名称,除了内置动作还有:raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow"
-        example: "raise"
-      direction:
-        type: "string"
-        description: "部分动作有方向属性，取值说明：（1）left 只适用于name取值为raise, stretch, come on, wave, bend, turn around, walk, head；（2）right 只适用于name取值为：raise, stretch, come on, wave, bend, turn around, walk, head；（3）both  只适用于name取值为：raise, stretch, come on, wave；（4）front 只适用于name取值为：walk, head；（5）back 只适用name取值为： walk；"
-        enum:
-        - "left"
-        - "right"
-        - "both"
-        - "front"
-        - "back"
-      repeat:
-        type: "integer"
-        description: "动作重复执行的次数"
-        format: "int32"
-        minimum: 1
-        maximum: 100
-        default: 1
-      speed:
-        description: "部分动作(raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow)可设置运动速度"
-        type: "string"
-        enum:
-        - "very slow"
-        - "slow"
-        - "normal"
-        - "fast"
-        - "very fast"
-        default: "normal"
-    xml:
-      name: "MotionsParameter"
-  MotionsOperation:
-    type: "object"
-    required:
-    - "operation"
-    properties:
-      operation:
-        type: "string"
-        description: "运动控制"
-        enum:
-        - "start"
-        - "pause"
-        - "resume"
-        - "stop"
-        default: "start"
-      motion:
-        $ref: "#/definitions/MotionsParameter"
-      timestamp:
-        type: "integer"
-        format: "int64"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "MotionsOperation"
-
-  DevicesVersions:
-    type: "object"
-    properties:
-      core:
-        type: "string"
-        example: "1.4.0-1-1.2.0"
-      servo:
-        type: "string"
-        example: "01"
-    xml:
-      name: "DevicesVersions"
-  DevicesVersionsResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/DevicesVersions"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "DevicesVersionsResponse"
-  DevicesBattery:
-    type: "object"
-    required:
-    - "voltage"
-    - "charging"
-    - "percent"
-    properties:
-      voltage:
-        type: "integer"
-        example: 4096
-      charging:
-        type: "integer"
-        example: 1
-        description: "充电状态"
-      percent:
-        type: "integer"
-        example: 96
-    xml:
-      name: "DevicesBattery"
-  DevicesBatteryResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/DevicesBattery"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "DevicesBatteryResponse"
-  DevicesLanguage:
-    type: "object"
-    required:
-    - "language"
-    properties:
-      language:
-        type: "string"
-        enum:
-        - "zh"
-        - "en"
-        default: "zh"
-    xml:
-      name: "DevicesLanguage"
-  DevicesLanguageResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/DevicesLanguage"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "DevicesLanguageResponse"
-  DevicesFallManagement:
-    type: "object"
-    required:
-    - "enable"
-    properties:
-      enable:
-        type: "boolean"
-        example: false
-    xml:
-      name: "DevicesFallManagement"
-  DevicesFallManagementResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/DevicesFallManagement"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "DevicesFallManagementResponse"
-  DevicesVolume:
-    type: "object"
-    required:
-    - "volume"
-    properties:
-      volume:
-        type: "integer"
-        minimum: 0
-        maximum: 100
-        example: 35
-    xml:
-      name: "DevicesVolume"
-  DevicesVolumeResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/DevicesVolume"
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "DevicesVolumeResponse"
-  DevicesLED:
-    type: "object"
-    required:
-    - "type"
-    - "color"
-    - "mode"
-    properties:
-      type:
-        type: "string"
-        description: "LED灯的类型"
-        enum:
-        - "button"
-        - "camera"
-        default: "button"
-      color:
-        type: "string"
-        enum:
-        - "white"
-        - "red"
-        - "green"
-        - "blue"
-        - "yellow"
-        - "purple"
-        - "cyan"
-        default: "white"
-      mode:
-        type: "string"
-        description: "LED灯模式，当type为camera时不支持breath!"
-        enum:
-        - "on"
-        - "off"
-        - "blink"
-        - "breath"
-        default: "on"
-    xml:
-      name: "DevicesLED"
-  DevicesLEDResponse:
-    type: "object"
-    required:
-    - "code"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      data:
-        type: "array"
-        items:
-          $ref: "#/definitions/DevicesLED"
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "DevicesLEDResponse"
-  ServosList:
-    type: "object"
-    required:
-    - "name"
-    properties:
-      name:
-        type: "string"
-        enum:
-        - "RightShoulderRoll"
-        - "RightShoulderFlex"
-        - "RightElbowFlex"
-        - "LeftShoulderRoll"
-        - "LeftShoulderFlex"
-        - "LeftElbowFlex"
-        - "RightHipLR"
-        - "RightHipFB"
-        - "RightKneeFlex"
-        - "RightAnkleFB"
-        - "RightAnkleUD"
-        - "LeftHipLR"
-        - "LeftHipFB"
-        - "LeftKneeFlex"
-        - "LeftAnkleFB"
-        - "LeftAnkleUD"
-        - "NeckLR"
-        default: "NeckLR"
-    xml:
-      name: "ServosList"
-  ServosMode:
-    type: "object"
-    properties:
-      RightShoulderRoll:
-        description: "1号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightShoulderFlex:
-        description: "2号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightElbowFlex:
-        description: "3号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftShoulderRoll:
-        description: "4号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftShoulderFlex:
-        description: "5号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftElbowFlex:
-        description: "6号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightHipLR:
-        description: "7号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightHipFB:
-        description: "8号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightKneeFlex:
-        description: "9号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightAnkleFB:
-        description: "10号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      RightAnkleUD:
-        description: "11号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftHipLR:
-        description: "12号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftHipFB:
-        description: "13号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftKneeFlex:
-        description: "14号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftAnkleFB:
-        description: "15号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      LeftAnkleUD:
-        description: "16号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-      NeckLR:
-        description: "17号舵机"
-        type: "string"
-        enum:
-        - "work"
-        - "program"
-        - "unknown"
-    xml:
-      name: "ServosMode"
-  ServosModeRequest:
-    type: "object"
-    required:
-    - "mode"
-    - "servos"
-    properties:
-      mode:
-        type: "string"
-        description: "模式取值：work（工作模式）和program（编程模式）"
-        enum:
-        - "work"
-        - "program"
-      servos:
-        type: "array"
-        items:
-          $ref: "#/definitions/ServosList"
-    xml:
-      name: "ServosModeRequest"
-  ServosModeResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/ServosMode"
-      msg:
-        type: "string"
-        example: "Success"
-    xml:
-      name: "ServosModeResponse"
-  ServosResult:
-    type: "object"
-    properties:
-      RightShoulderRoll:
-        description: "1号舵机"
-        type: "boolean"
-      RightShoulderFlex:
-        description: "2号舵机"
-        type: "boolean"
-      RightElbowFlex:
-        description: "3号舵机"
-        type: "boolean"
-      LeftShoulderRoll:
-        description: "4号舵机"
-        type: "boolean"
-      LeftShoulderFlex:
-        description: "5号舵机"
-        type: "boolean"
-      LeftElbowFlex:
-        description: "6号舵机"
-        type: "boolean"
-      RightHipLR:
-        description: "7号舵机"
-        type: "boolean"
-      RightHipFB:
-        description: "8号舵机"
-        type: "boolean"
-      RightKneeFlex:
-        description: "9号舵机"
-        type: "boolean"
-      RightAnkleFB:
-        description: "10号舵机"
-        type: "boolean"
-      RightAnkleUD:
-        description: "11号舵机"
-        type: "boolean"
-      LeftHipLR:
-        description: "12号舵机"
-        type: "boolean"
-      LeftHipFB:
-        description: "13号舵机"
-        type: "boolean"
-      LeftKneeFlex:
-        description: "14号舵机"
-        type: "boolean"
-      LeftAnkleFB:
-        description: "15号舵机"
-        type: "boolean"
-      LeftAnkleUD:
-        description: "16号舵机"
-        type: "boolean"
-      NeckLR:
-        description: "17号舵机"
-        type: "boolean"
-    xml:
-      name: "ServosResult"
-  ServosResultResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/ServosResult"
-      msg:
-        type: "string"
-        example: "Success"
-    xml:
-      name: "ServosResultResponse"
-  ServosAngles:
-    type: "object"
-    properties:
-      RightShoulderRoll:
-        description: "1号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      RightShoulderFlex:
-        description: "2号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      RightElbowFlex:
-        description: "3号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      LeftShoulderRoll:
-        description: "4号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      LeftShoulderFlex:
-        description: "5号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      LeftElbowFlex:
-        description: "6号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      RightHipLR:
-        description: "7号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      RightHipFB:
-        description: "8号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 60
-      RightKneeFlex:
-        description: "9号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 76
-      RightAnkleFB:
-        description: "10号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 110
-      RightAnkleUD:
-        description: "11号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      LeftHipLR:
-        description: "12号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      LeftHipFB:
-        description: "13号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 120
-      LeftKneeFlex:
-        description: "14号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 104
-      LeftAnkleFB:
-        description: "15号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 70
-      LeftAnkleUD:
-        description: "16号舵机"
-        type: "integer"
-        minimum: 0
-        maximum: 180
-        example: 90
-      NeckLR:
-        description: "17号舵机"
-        type: "integer"
-        minimum: 45
-        maximum: 135
-        example: 90
-    xml:
-      name: "ServosAngles"
-  ServosAnglesRequest:
-    type: "object"
-    required:
-    - "angles"
-    properties:
-      runtime:
-        type: "integer"
-        description: "运行时间，单位ms"
-        format: "int32"
-        minimum: 200
-        maximum: 4000
-        default: 1000
-      angles:
-        $ref: "#/definitions/ServosAngles"
-    xml:
-      name: "ServosAnglesRequest"
-  ServosAnglesResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      data:
-        $ref: "#/definitions/ServosAngles"
-      msg:
-        type: "string"
-        example: "Success"
-    xml:
-      name: "ServosAnglesResponse"
-
-  SensorsInfo:
-    type: "object"
-    required:
-    - "id"
-    - "type"
-    - "version"
+      - "id"
+      - "temperature"
+      - "humidity"
     properties:
       id:
         type: "integer"
-        description: "传感器ID值"
         format: "int32"
         minimum: 1
         maximum: 127
-        example: 16
-      type:
-        type: "string"
-        description: "传感器名称"
-        enum:
-        - "gyro"
-        - "infrared"
-        - "ultrasonic"
-        - "environment"
-        - "touch"
-        - "pressure"
-      version:
+        example: 54
+      slot:
         type: "integer"
-        description: "传感器版本号"
+        description: "传感器槽位号"
         format: "int32"
+        minimum: 1
+        maximum: 6
+        example: 1
+      temperature:
+        description: "温度值"
+        type: "integer"
+        format: "int32"
+        example: 25
+      humidity:
+        description: "湿度值"
+        type: "integer"
+        format: "int32"
+        example: 75
+      pressure:
+        description: "大气压力"
+        type: "integer"
+        format: "int32"
+        example: 1003
     xml:
-      name: "SensorsInfo"
-  SensorsList:
+      name: "SubscriptionSensorsEnvironmentInfo"
+
+  SubscriptionSensorsEnvironmentValue:
     type: "object"
     required:
-    - "sensors"
+      - "environment"
     properties:
-      sensors:
+      environment:
         type: "array"
         items:
-          $ref: "#/definitions/SensorsInfo"
+          $ref: "#/definitions/SubscriptionSensorsEnvironmentInfo"
     xml:
-      name: "SensorsList"
-  SensorsListResponse:
+      name: "SubscriptionSensorsEnvironmentValue"
+
+  SubscriptionSensorsEnvironmentValueResponse:
     type: "object"
     required:
-    - "code"
-    - "data"
-    - "msg"
+      - "code"
+      - "data"
+      - "msg"
     properties:
       code:
         type: "integer"
-        description: "返回码，0表示正常,其它都为错误"
+        description: "返回码，0表示正常"
         format: "int32"
       data:
-        $ref: "#/definitions/SensorsList"
+        $ref: "#/definitions/SubscriptionSensorsEnvironmentValue"
       msg:
         type: "string"
+        description: "提示信息"
         example: "Success"
     xml:
-      name: "SensorsListResponse"
-  SensorsGyroInfo:
+      name: "SubscriptionSensorsEnvironmentValueResponse"
+
+  SubscriptionSensorsInfraredInfo:
     type: "object"
     required:
-    - "id"
-    - "euler-x"
-    - "euler-y"
-    - "euler-z"
+      - "id"
+      - "value"
+    properties:
+      id:
+        description: "传感器地址"
+        type: "integer"
+        format: "int32"
+        minimum: 1
+        maximum: 127
+        example: 23
+      slot:
+        type: "integer"
+        description: "传感器槽位号"
+        format: "int32"
+        minimum: 1
+        maximum: 6
+        example: 1
+      value:
+        description: "距离值，单位毫米"
+        type: "integer"
+        format: "int32"
+        example: 25
+    xml:
+      name: "SubscriptionSensorsInfraredInfo"
+
+  SubscriptionSensorsInfraredValue:
+    type: "object"
+    required:
+      - "infrared"
+    properties:
+      infrared:
+        type: "array"
+        items:
+          $ref: "#/definitions/SubscriptionSensorsInfraredInfo"
+    xml:
+      name: "SubscriptionSensorsInfraredValue"
+
+  SubscriptionSensorsInfraredValueResponse:
+    type: "object"
+    required:
+      - "code"
+      - "data"
+      - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      data:
+        $ref: "#/definitions/SubscriptionSensorsInfraredValue"
+      msg:
+        type: "string"
+        description: "提示信息"
+        example: "Success"
+    xml:
+      name: "SubscriptionSensorsInfraredValueResponse"
+
+  SubscriptionSensorsPressureInfo:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+    properties:
+      id:
+        description: "传感器地址"
+        type: "integer"
+        format: "int32"
+        minimum: 1
+        maximum: 127
+        example: 35
+      slot:
+        type: "integer"
+        description: "传感器槽位号"
+        format: "int32"
+        minimum: 1
+        maximum: 6
+        example: 1
+      value:
+        description: "压力值，单位：牛"
+        type: "integer"
+        format: "int32"
+        example: 25
+    xml:
+      name: "SubscriptionSensorsPressureInfo"
+
+  SubscriptionSensorsPressureValue:
+    type: "object"
+    required:
+      - "pressure"
+    properties:
+      pressure:
+        type: "array"
+        items:
+          $ref: "#/definitions/SubscriptionSensorsPressureInfo"
+    xml:
+      name: "SubscriptionSensorsUltrasonicValue"
+
+  SubscriptionSensorsPressureValueResponse:
+    type: "object"
+    required:
+      - "code"
+      - "data"
+      - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      data:
+        $ref: "#/definitions/SubscriptionSensorsPressureValue"
+      msg:
+        type: "string"
+        description: "提示信息"
+        example: "Success"
+    xml:
+      name: "SubscriptionSensorsPressureValueResponse"
+
+  SubscriptionSensorsTouchInfo:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+    properties:
+      id:
+        description: "传感器地址"
+        type: "integer"
+        format: "int32"
+        minimum: 1
+        maximum: 127
+        example: 29
+      slot:
+        type: "integer"
+        description: "传感器槽位号"
+        format: "int32"
+        minimum: 1
+        maximum: 6
+        example: 1
+      value:
+        description: "值说明：0未触摸，1触摸btn1，2触摸btn2，3触摸两边"
+        type: "integer"
+        format: "int32"
+        example: 25
+    xml:
+      name: "SubscriptionSensorsTouchInfo"
+  SubscriptionSensorsTouchValue:
+    type: "object"
+    required:
+      - "touch"
+    properties:
+      touch:
+        type: "array"
+        items:
+          $ref: "#/definitions/SubscriptionSensorsTouchInfo"
+    xml:
+      name: "SubscriptionSensorsTouchValue"
+
+  SubscriptionSensorsTouchValueResponse:
+    type: "object"
+    required:
+      - "code"
+      - "data"
+      - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      data:
+        $ref: "#/definitions/SubscriptionSensorsTouchValue"
+      msg:
+        type: "string"
+        description: "提示信息"
+        example: "Success"
+    xml:
+      name: "SubscriptionSensorsTouchValueResponse"
+
+  SubscriptionSensorsUltrasonicInfo:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+    properties:
+      id:
+        description: "传感器地址"
+        type: "integer"
+        format: "int32"
+        minimum: 1
+        maximum: 127
+        example: 17
+      slot:
+        type: "integer"
+        description: "传感器槽位号"
+        format: "int32"
+        minimum: 1
+        maximum: 6
+        example: 1
+      value:
+        description: "距离值，单位毫米"
+        type: "integer"
+        format: "int32"
+        example: 25
+    xml:
+      name: "SubscriptionSensorsUltrasonicInfo"
+  SubscriptionSensorsUltrasonicValue:
+    type: "object"
+    required:
+      - "ultrasonic"
+    properties:
+      ultrasonic:
+        type: "array"
+        items:
+          $ref: "#/definitions/SubscriptionSensorsUltrasonicInfo"
+    xml:
+      name: "SubscriptionSensorsUltrasonicValue"
+
+  SubscriptionSensorsUltrasonicValueResponse:
+    type: "object"
+    required:
+      - "code"
+      - "data"
+      - "msg"
+    properties:
+      code:
+        type: "integer"
+        description: "返回码，0表示正常"
+        format: "int32"
+      data:
+        $ref: "#/definitions/SubscriptionSensorsUltrasonicValue"
+      msg:
+        type: "string"
+        description: "提示信息"
+        example: "Success"
+    xml:
+      name: "SubscriptionSensorsUltrasonicValueResponse"
+
+  SubscriptionSensorsGyroInfo:
+    type: "object"
+    required:
+      - "id"
+      - "euler-x"
+      - "euler-y"
+      - "euler-z"
     properties:
       id:
         type: "integer"
@@ -1227,1014 +777,121 @@ definitions:
         format: "float"
         example: 0.72052
     xml:
-      name: "SensorsGyroInfo"
-  SensorsGyroValue:
+      name: "SubscriptionSensorsGyroInfo"
+  SubscriptionSensorsGyroValue:
     type: "object"
     required:
-    - "gyro"
+      - "gyro"
     properties:
       gyro:
         type: "array"
         items:
-          $ref: "#/definitions/SensorsGyroInfo"
+          $ref: "#/definitions/SubscriptionSensorsGyroInfo"
     xml:
-      name: "SensorsGyroValue"
-  SensorsGyroValueResponse:
+      name: "SubscriptionSensorsGyroValue"
+
+  SubscriptionSensorsGyroValueResponse:
     type: "object"
     required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsGyroValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsGyroValueResponse"
-  SensorsEnvironmentInfo:
-    type: "object"
-    required:
-    - "id"
-    - "temperature"
-    - "humidity"
-    properties:
-      id:
-        type: "integer"
-        format: "int32"
-        minimum: 1
-        maximum: 127
-        example: 54
-      temperature:
-        type: "integer"
-        format: "int32"
-        example: 25
-      humidity:
-        type: "integer"
-        format: "int32"
-        example: 75
-      pressure:
-        type: "integer"
-        format: "int32"
-        example: 1003
-    xml:
-      name: "SensorsEnvironmentInfo"
-  SensorsEnvironmentValue:
-    type: "object"
-    required:
-    - "environment"
-    properties:
-      environment:
-        type: "array"
-        items:
-          $ref: "#/definitions/SensorsEnvironmentInfo"
-    xml:
-      name: "SensorsEnvironmentValue"
-  SensorsEnvironmentValueResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsEnvironmentValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsEnvironmentValueResponse"
-  SensorsCommonInfo:
-    type: "object"
-    required:
-    - "id"
-    - "value"
-    properties:
-      id:
-        type: "integer"
-        format: "int32"
-        minimum: 1
-        maximum: 127
-        example: 16
-      value:
-        type: "integer"
-        format: "int32"
-        example: 25
-    xml:
-      name: "SensorsCommonInfo"
-  SensorsUltrasonicValue:
-    type: "object"
-    required:
-    - "ultrasonic"
-    properties:
-      ultrasonic:
-        type: "array"
-        items:
-          $ref: "#/definitions/SensorsCommonInfo"
-    xml:
-      name: "SensorsUltrasonicValue"
-  SensorsUltrasonicValueResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsUltrasonicValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsUltrasonicValueResponse"
-  SensorsInfraredValue:
-    type: "object"
-    required:
-    - "infrared"
-    properties:
-      infrared:
-        type: "array"
-        items:
-          $ref: "#/definitions/SensorsCommonInfo"
-    xml:
-      name: "SensorsInfraredValue"
-  SensorsInfraredValueResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsInfraredValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsInfraredValueResponse"
-  SensorsTouchValue:
-    type: "object"
-    required:
-    - "touch"
-    properties:
-      touch:
-        type: "array"
-        items:
-          $ref: "#/definitions/SensorsCommonInfo"
-    xml:
-      name: "SensorsTouchValue"
-  SensorsTouchValueResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsTouchValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsTouchValueResponse"
-  SensorsPressureValue:
-    type: "object"
-    required:
-    - "pressure"
-    properties:
-      pressure:
-        type: "array"
-        items:
-          $ref: "#/definitions/SensorsCommonInfo"
-    xml:
-      name: "SensorsUltrasonicValue"
-  SensorsPressureValueResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常，其它值均为错误"
-        format: "int32"
-      data:
-        $ref: "#/definitions/SensorsPressureValue"
-      msg:
-        type: "string"
-        description: "返回码的信息"
-        example: "Success"
-    xml:
-      name: "SensorsPressureValueResponse"
-  SensorsParameter:
-    type: "object"
-    required:
-    - "type"
-    - "id"
-    properties:
-      type:
-        type: "string"
-        enum:
-        - "gyro"
-        - "infrared"
-        - "ultrasonic"
-        - "touch"
-        - "pressure"
-        default: "gyro"
-      id:
-        type: "integer"
-        format: "int32"
-        minimum: 1
-        maximum: 127
-        example: 106
-      value:
-        type: "integer"
-        description: "（1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器ID）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器ID不允许修改!"
-        format: "int32"
-    xml:
-      name: "SensorsParameter"
-  SensorsOperationRequest:
-    type: "object"
-    required:
-    - "operation"
-    - "sensor"
-    properties:
-      operation:
-        type: "string"
-        description: "操作类型，取值说明：calibrate（校准,只支持gyro校准）和modify（修改传感器ID）。"
-        enum:
-        - "calibrate"
-        - "modify"
-      sensor:
-        $ref: "#/definitions/SensorsParameter"
-    xml:
-      name: "SensorsOperationRequest"
-  MediaMusicList:
-    type: "object"
-    properties:
-      music:
-        type: "array"
-        items:
-          $ref: "#/definitions/Name"
-    xml:
-      name: "MediaMusicList"
-  MediaMusicListResponse:
-    type: "object"
-    required:
-    - "code"
-    - "data"
-    - "msg"
+      - "code"
+      - "data"
+      - "msg"
     properties:
       code:
         type: "integer"
         description: "返回码，0表示正常"
         format: "int32"
       data:
-        $ref: "#/definitions/MediaMusicList"
+        $ref: "#/definitions/SubscriptionSensorsGyroValue"
       msg:
         type: "string"
-        description: "返回附件信息"
+        description: "提示信息"
         example: "Success"
     xml:
-      name: "MediaMusicListResponse"
-  MediaMusicStatus:
+      name: "SubscriptionSensorsGyroValueResponse"
+
+  SubscriptionMotionsStatus:
     type: "object"
     required:
-    - "status"
+      - "status"
     properties:
       status:
         type: "string"
-        description: "动作运行状态"
+        description: "运行状态"
         enum:
-        - "idle"
-        - "running"
-        - "pause"
+          - "idle"
+          - "run"
+          - "pause"
       name:
         type: "string"
         description: "动作名"
         default: "None"
-    xml:
-      name: "MediaMusicStatus"
-  MediaMusicStatusResponse:
+      timestamp:
+        type: "integer"
+        format: "int64"
+        description: "时间戳, Unix标准时间"
+        example: 1551838515
+
+  SubscriptionMotionsStatusResponse:
     type: "object"
     required:
-    - "code"
-    - "data"
-    - "msg"
+      - "code"
+      - "data"
+      - "msg"
     properties:
       code:
         type: "integer"
         description: "返回码，0表示正常"
         format: "int32"
       data:
-        $ref: "#/definitions/MediaMusicStatus"
+        $ref: "#/definitions/SubscriptionMotionsStatus"
       msg:
+        description: "提示信息"
         type: "string"
-        description: "返回附件信息"
         example: "Success"
     xml:
-      name: "MediaMusicStatusResponse"
-  MediaMusicOperation:
-    type: "object"
-    required:
-    - "operation"
-    properties:
-      operation:
-        type: "string"
-        description: "播放控制"
-        enum:
-        - "start"
-        - "stop"
-        default: "start"
-      name:
-        type: "string"
-        description: "音乐名称"
-        default: "Sorry_sorry.mp3"
-    xml:
-      name: "MediaMusicOperation"
-  VoiceTTSStr:
-    type: "object"
-    required:
-    - "tts"
-    properties:
-      tts:
-        type: "string"
-        description: "待合成的文字"
-        example: "你好，我是Yanshee"
-      interrupt:
-        type: 'boolean'
-        description: "是否可以被打断，默认为True"
-        default: True
-      timestamp:
-        type: "integer"
-        format: "int32"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "VoiceTTSStr"
-  VoiceAsrOption:
-    type: "object"
-    required:
-    - continues
-    properties:
-      continues:
-        description: "是否进行连续语意识别, 布尔值, true 需要， false不需要, 默认为false"
-        type: "boolean"
-        example: true
-      timestamp:
-        type: "integer"
-        format: "int32"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "VoiceAsrOption"
+      name: "SubscriptionMotionsStatusResponse"
 
-  VoiceGetResponse:
+  SubscriptionVisionsGender:
     type: "object"
     required:
-    - "code"
-    - "data"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "返回码，0表示正常"
-        format: "int32"
-      status:
-        type: "string"
-        enum:
-        - "idle"
-        - "build"
-        - "run"
-      timestamp:
-        type: "integer"
-        format: "int32"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-      data:
-        type: "object"
-        description: "语音返回数据"
-        example: {}
-      msg:
-        type: "string"
-        description: "返回附件信息"
-        example: "Success"
-    xml:
-      name: "VoiceGetResponse"
-  VoiceIatRequest:
-    type: "object"
-    properties:
-      timestamp:
-        type: "integer"
-        format: "int32"
-        description: "时间戳, Unix标准时间"
-        example: 1551838515
-    xml:
-      name: "VoiceIatRequest"
-  VisionsTask:
-    type: "object"
-    required:
-    - "type"
-    - "operation"
-    properties:
-      type:
-        type: "string"
-        description: "任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender_analysis', 'age_analysis', 'expression_analysis', 'quantity' "
-        enum:
-        - "tracking"
-        - "recognition"
-        - "age_analysis"
-        - "gender_analysis"
-        - "expression_analysis"
-        - "quantity"
-        example: "tracking"
-      operation:
-        type: "string"
-        enum:
-        - "start"
-        - "stop"
-        example: "start"
-        description: "执行命令。 operation 允许上传的值有 'start', 'stop' "
-      option:
-        type: "string"
-        enum:
-        - "face"
-        - "hand"
-        - "object"
-        example: "face"
-        description: "任务名称。 option 允许上传的值有 'face', 'hand', 'object'。 组合限制：tracking任务支持face, recognition任务支持face, hand 与 object。quantity任务支持face与hand。 age_analysis, gender_analysis, age_analysis 与 expression_analysis只支持face"
-      timestamp:
-        type: "integer"
-        description: "视觉任务时间戳"
-        example: 1551838515
-    xml:
-      name: "VisionsTask"
-
-  VisionsPhotoListResponse:
-    type: "object"
-    required:
-    - "code"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      data:
-        description: "数据。 不定字符串数组"
-        type: "array"
-        items:
-          $ref: "#/definitions/Name"
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "VisionsPhotoListResponse"
-
-  VisionsPhotoResponse:
-    type: "object"
-    required:
-    - "code"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      data:
-        type: "object"
-        description: "拍摄的照片名"
-        $ref: "#/definitions/Name"
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "VisionsPhotoResponse"
-
-  VisionsPhoto:
-    type: "object"
-    properties:
-      resolution:
-        type: "string"
-        example: "1280x800"
-        description: "照片分辨率。 默认拍照分辨率为1024x768，最大拍照分辨率为1280x800"
-    xml:
-      name: "VisionsPhoto"
-  VisionsStream:
-    type: "object"
-    required:
-    - "url"
-    properties:
-      resolution:
-        type: "string"
-        example: "640x480"
-        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800"
-    xml:
-      name: "VisionsStream"
-  VoiceResponse:
-    type: "object"
-    description: "asr与iat推送JSON"
-    required:
-    - "code"
-    - "type"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      type:
-        type: "string"
-        enum:
-        - "asr"
-        - "iat"
-        description: "消息类型。此处的参数有 'asr', 'iat' "
-        example: "asr"
-      data:
-        description: "数据"
-        type: "string"
-      msg:
-        description: "错误码消息"
-        type: "string"
-    xml:
-      name: "VoiceResponse"
-  VisionsQuantity:
-    type: "object"
-    required:
-    - "quantity"
-    properties:
-      quantity:
-        type: "integer"
-        description: "数量, 0 ~ ??? (整数)"
-        minimum: 0
-        example: 1
-    xml:
-      name: "VisionsQuantity"
-  VisionsGender:
-    type: "object"
-    required:
-    - "gender"
+      - "gender"
     properties:
       gender:
         type: "string"
         enum:
-        - "male"
-        - "female"
-        - "none"
+          - "male"
+          - "female"
+          - "none"
         description: "性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在"
     xml:
-      name: "VisionsGender"
+      name: "SubscriptionVisionsGender"
 
-  VisionsAge:
+  SubscriptionVisionsAge:
     type: "object"
-    required:
-    - "age"
     properties:
       age:
         type: "integer"
         description: "年龄"
         example: 5
         minimum: 0
+      group:
+        type: "string"
+        description: "年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none' "
+        example: "baby"
     xml:
-      name: "VisionsAge"
-  VisionsExpression:
-    type: "object"
-    required:
-    - "happiness"
-    - "surprise"
-    - "anger"
-    - "sadness"
-    - "neutral"
-    - "fear"
-    properties:
-      happiness:
-        type: "number"
-        format: "float"
-        description: "快乐值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 86.5
-      surprise:
-        type: "number"
-        format: "float"
-        description: "吃惊值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 40.7
-      anger:
-        type: "number"
-        format: "float"
-        description: "生气值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 60.7
-      sadness:
-        type: "number"
-        format: "float"
-        description: "伤心值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 54.2
-      neutral:
-        type: "number"
-        format: "float"
-        description: "平静值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 53.6
-      fear:
-        type: "number"
-        format: "float"
-        description: "害怕值, 0 ~ 100 (浮点数)"
-        minimum: 0
-        maximum: 100
-        example: 42.8
-    xml:
-      name: "VisionsExpression"
-  VisionsAnalysis:
+      name: "SubscriptionVisionsAge"
+
+  SubscriptionVisionsAnalysis:
     type: "object"
     properties:
       age:
-        $ref: "#/definitions/VisionsAge"
+        $ref: "#/definitions/SubscriptionVisionsAge"
       gender:
-        $ref: "#/definitions/VisionsGender"
-      expression:
-        $ref: "#/definitions/VisionsExpression"
+        $ref: "#/definitions/SubscriptionVisionsGender"
     xml:
-      name: "VisionsAnalysis"
-  VisionsResults:
-    type: "object"
-    properties:
-      analysis:
-        $ref: "#/definitions/VisionsAnalysis"
-      recognition:
-        $ref: "#/definitions/Name"
-      quantity:
-        $ref: "#/definitions/VisionsQuantity"
-    xml:
-      name: "VisionsResults"
+      name: "SubscriptionVisionsAnalysis"
 
-  VisionsGetRequest:
-    type: "object"
-    required:
-    - "type"
-    - "option"
-    properties:
-      option:
-        type: "string"
-        description: "模型类型。 可选值为 'face', 'hand', 'object'"
-        enum:
-        - "face"
-        - "hand"
-        - "object"
-        example: "face"
-      type:
-        type: "string"
-        description: "任务。当模型类型为'face' 时, 可选值为 'age_analysis', 'gender_analysis', 'expression_analysis', 'quantity', 'recognition', 'tracking'。当模型类型为 'hand' 时, 可选值为 'quantity'。 当模型类型为 'object'时, 可选值为'recognition'"
-        enum:
-        - "age_analysis"
-        - "gender_analysis"
-        - "expression_analysis"
-        - "quantity"
-        - "recognition"
-        - "tracking"
-        example: "age_analysis"
-    xml:
-      name: "VisionsGetRequest"
-
-
-  VisionsGetResponse:
-    type: "object"
-    required:
-    - "code"
-    - "type"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      type:
-        type: "string"
-        enum:
-        - "recognition"
-        - "tracking"
-        - "age_analysis"
-        - "gender_analysis"
-        - "expression_analysis"
-        - "quantity"
-        description: "消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'idle', 'recognition', 'tracking', 'analysis', 'quantity'"
-      data:
-        $ref: "#/definitions/VisionsResults"
-      timestamp:
-        type: "integer"
-        format: "int64"
-        description: "任务时间戳"
-        example: 1551838515
-      status:
-        type: "string"
-        description: "状态"
-        example: "idle"
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "VisionsGetResponse"
-  VisionsSampleDeleteRequest:
-    type: "object"
-    required:
-    - "option"
-    - "tag"
-    properties:
-      option:
-        type: "string"
-        description: "删除单个样本数据还是整个样本。可选值: 'file'(单个数据), 'sample'(整个样本)"
-        enum:
-        - "file"
-        - "sample"
-      tag:
-        type: "string"
-        description: "样本名称"
-      name:
-        type: "string"
-        description: "数据名称"
-    xml:
-      name: "VisionsSampleDeleteRequest"
-  VisionsPutTags:
-    type: "object"
-    required:
-    - "tags"
-    - "name"
-    properties:
-      tags:
-        type: "string"
-        description: "标签名"
-        example: "bumblebee"
-      name:
-        type: "array"
-        items:
-          $ref: "#/definitions/Name"
-    xml:
-      name: "VisionsPutTags"
-  VisionsDeleteTags:
-    type: "object"
-    required:
-    - "tags"
-    properties:
-      tags:
-        type: "string"
-        description: "标签名"
-        example: "bumblebee"
-    xml:
-      name: "VisionsDeleteTags"
-  VisionsTagsResponse:
-    type: "object"
-    required:
-    - "code"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      data:
-        type: "array"
-        items:
-          $ref: "#/definitions/VisionsPutTags"
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "VisionsTagsResponse"
-  VisionsPut:
-    type: "object"
-    required:
-    - "timestamp"
-    properties:
-      timestamp:
-        type: "integer"
-        description: "视觉任务时间戳"
-        example: 1551838515
-    xml:
-      name: "VisionsPut"
-  VisionsPutResponse:
-    type: "object"
-    required:
-    - "code"
-    - "msg"
-    properties:
-      code:
-        type: "integer"
-        description: "错误码"
-        example: 0
-      data:
-        type: "object"
-        example: {}
-      msg:
-        type: "string"
-        description: "错误码消息"
-        example: "Success"
-    xml:
-      name: "VisionsPutResponse"
-  SubscriptionsSensors:
-    type: "object"
-    required:
-    - "type"
-    - "url"
-    properties:
-      type:
-        type: "string"
-        description: "传感器类型"
-        enum:
-        - "gyro"
-        - "ultrasonic"
-        - "environment"
-        - "infrared"
-        - "touch"
-        - "pressure"
-        example: "touch"
-      id:
-        type: "integer"
-        description: "传感器ID，可不填"
-        format: "int32"
-        minimum: 1
-        maximum: 126
-      url:
-        type: "string"
-        description: "接口信息"
-        example: "http://10.10.67.98:8080/subscriptions/sensors"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-      timeval:
-        type: "integer"
-        description: "上报的最短时间间隔，单位ms（豪秒）"
-        format: "int32"
-        minimum: 100
-        maximum: 5000
-        default: 1000
-    xml:
-      name: "SubscriptionsSensors"
-  SubscriptionsMotions:
-    type: "object"
-    required:
-    - "url"
-    properties:
-      url:
-        type: "string"
-        description: "接口"
-        example: "http://10.10.67.98:8080/subscriptions/motions"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-    xml:
-      name: "SubscriptionsSensors"
-  SubscriptionsVisions:
-    type: "object"
-    required:
-    - "type"
-    - "url"
-    properties:
-      type:
-        type: "string"
-        enum:
-        - "face_recognition"
-        - "gesture_recognition"
-        - "object_recognition"
-        - "face_analysis_gender"
-        - "face_analysis_age"
-        - "face_analysis_expression"
-        - "face_quantity"
-        - "hand_quantity"
-        example: "face_quantity"
-        description: "消息类型。type 允许上传的值有 'face_recognition', 'gesture_recognition', 'object_recognition', 'face_analysis_gender', 'face_analysis_age', 'face_analysis_expression', 'face_quantity', 'hand_quantity' "
-      url:
-        type: "string"
-        description: "视觉消息推送地址"
-        example: "http://10.10.67.98:8080/subscriptions/visions"
-    xml:
-      name: "SubscriptionsVisions"
-  SubscriptionsAsrVoice:
-    type: "object"
-    required:
-    - "type"
-    - "url"
-    properties:
-      url:
-        type: "string"
-        description: "协议与地址"
-        example: "http://198.100.100.20:8080/subscriptions/voice/asr"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        example: 10
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-    xml:
-      name: "SubscriptionsAsrVoice"
-  SubscriptionsIatVoice:
-    type: "object"
-    required:
-    - "type"
-    - "url"
-    properties:
-      url:
-        type: "string"
-        description: "协议与地址"
-        example: "http://198.100.100.20:8080/subscriptions/voice/iat"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        example: 10
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-    xml:
-      name: "SubscriptionsIatVoice"
-  SubscriptionsTtsVoice:
-    type: "object"
-    required:
-    - "type"
-    - "url"
-    properties:
-      url:
-        type: "string"
-        description: "协议与地址"
-        example: "http://198.100.100.20:8080/subscriptions/voice/tts"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        example: 10
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-    xml:
-      name: "SubscriptionsTtsVoice"
-  SubscriptionsStream:
-    type: "object"
-    required:
-    - "url"
-    properties:
-      url:
-        type: "string"
-        description: "协议与地址"
-        example: "http://198.100.100.20:8080/subscriptions/stream"
-      resolution:
-        type: "string"
-        example: "1280x800"
-        description: "视频分辨率。默认视频分辨率为640x480，最大视频分辨率为1280x800"
-      timeout:
-        type: "integer"
-        description: "超时停止发送的时间"
-        format: "int32"
-        minimum: 1
-        maximum: 60
-        default: 10
-    xml:
-      name: "SubscriptionsStream"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
