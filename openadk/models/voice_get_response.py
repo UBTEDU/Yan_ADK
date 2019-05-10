@@ -93,7 +93,7 @@ class VoiceGetResponse(object):
     def status(self):
         """Gets the status of this VoiceGetResponse.  # noqa: E501
 
-        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build', 'wait'。 在语音合成中 'idle' 为该tts任务不存在, build为正在合成该段语音, run为播放该段语音, wait为处于等待执行状态。在语义理解或是语音听写中，'idle为非执行状态', 'run'为正在运行。   # noqa: E501
+         下面列出了所有的组合 当任务为语音听写的时候，状态如下： - idle 非执行状态 - run 正在运行  当任务为语义理解的时候，状态如下： - idle 非执行状态 - run 正在运行  当任务为语语音合成的时候，状态如下： - idle 任务不存在 - run 播放该段语音 - build 正在合成该段语音 - wait 处于等待执行状态   # noqa: E501
 
         :return: The status of this VoiceGetResponse.  # noqa: E501
         :rtype: str
@@ -104,7 +104,7 @@ class VoiceGetResponse(object):
     def status(self, status):
         """Sets the status of this VoiceGetResponse.
 
-        当获取语义理解或是语音听写状态时，状态有 'idle', 'run'。 当为语音合成时, 状态有 'idle', 'run', 'build', 'wait'。 在语音合成中 'idle' 为该tts任务不存在, build为正在合成该段语音, run为播放该段语音, wait为处于等待执行状态。在语义理解或是语音听写中，'idle为非执行状态', 'run'为正在运行。   # noqa: E501
+         下面列出了所有的组合 当任务为语音听写的时候，状态如下： - idle 非执行状态 - run 正在运行  当任务为语义理解的时候，状态如下： - idle 非执行状态 - run 正在运行  当任务为语语音合成的时候，状态如下： - idle 任务不存在 - run 播放该段语音 - build 正在合成该段语音 - wait 处于等待执行状态   # noqa: E501
 
         :param status: The status of this VoiceGetResponse.  # noqa: E501
         :type: str

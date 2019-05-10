@@ -55,7 +55,7 @@ class SubscriptionsMotions(object):
     def url(self):
         """Gets the url of this SubscriptionsMotions.  # noqa: E501
 
-        接口  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :return: The url of this SubscriptionsMotions.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class SubscriptionsMotions(object):
     def url(self, url):
         """Sets the url of this SubscriptionsMotions.
 
-        接口  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :param url: The url of this SubscriptionsMotions.  # noqa: E501
         :type: str

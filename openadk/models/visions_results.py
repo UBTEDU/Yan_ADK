@@ -136,7 +136,7 @@ class VisionsResults(object):
     def color(self):
         """Gets the color of this VisionsResults.  # noqa: E501
 
-        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+         所有可返回的颜色列表, 列表值有 - none - black - gray - white - red - orange - yellow - green - cyan - blue - purple   # noqa: E501
 
         :return: The color of this VisionsResults.  # noqa: E501
         :rtype: list[Name]
@@ -147,7 +147,7 @@ class VisionsResults(object):
     def color(self, color):
         """Sets the color of this VisionsResults.
 
-        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+         所有可返回的颜色列表, 列表值有 - none - black - gray - white - red - orange - yellow - green - cyan - blue - purple   # noqa: E501
 
         :param color: The color of this VisionsResults.  # noqa: E501
         :type: list[Name]

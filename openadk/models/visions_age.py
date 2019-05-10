@@ -81,7 +81,7 @@ class VisionsAge(object):
     def group(self):
         """Gets the group of this VisionsAge.  # noqa: E501
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
+         年龄段。 返回值有: - baby - children - juvenile - youth - middle_age - old_age - none   # noqa: E501
 
         :return: The group of this VisionsAge.  # noqa: E501
         :rtype: str
@@ -92,7 +92,7 @@ class VisionsAge(object):
     def group(self, group):
         """Sets the group of this VisionsAge.
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
+         年龄段。 返回值有: - baby - children - juvenile - youth - middle_age - old_age - none   # noqa: E501
 
         :param group: The group of this VisionsAge.  # noqa: E501
         :type: str

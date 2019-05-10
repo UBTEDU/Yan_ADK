@@ -64,7 +64,7 @@ class VisionsTask(object):
     def type(self):
         """Gets the type of this VisionsTask.  # noqa: E501
 
-        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender', 'age_group', 'quantity', 'color_detect'   # noqa: E501
+         任务类型。 type 允许上传的值有 - tracking - recognition - gender - age_group - quantity - color_detect   # noqa: E501
 
         :return: The type of this VisionsTask.  # noqa: E501
         :rtype: str
@@ -75,7 +75,7 @@ class VisionsTask(object):
     def type(self, type):
         """Sets the type of this VisionsTask.
 
-        任务类型。 type 允许上传的值有 'tracking', 'recognition', 'gender', 'age_group', 'quantity', 'color_detect'   # noqa: E501
+         任务类型。 type 允许上传的值有 - tracking - recognition - gender - age_group - quantity - color_detect   # noqa: E501
 
         :param type: The type of this VisionsTask.  # noqa: E501
         :type: str
@@ -95,7 +95,7 @@ class VisionsTask(object):
     def operation(self):
         """Gets the operation of this VisionsTask.  # noqa: E501
 
-        执行命令。 operation 允许上传的值有 'start', 'stop'   # noqa: E501
+         执行命令。 operation 允许上传的值有 - start - stop   # noqa: E501
 
         :return: The operation of this VisionsTask.  # noqa: E501
         :rtype: str
@@ -106,7 +106,7 @@ class VisionsTask(object):
     def operation(self, operation):
         """Sets the operation of this VisionsTask.
 
-        执行命令。 operation 允许上传的值有 'start', 'stop'   # noqa: E501
+         执行命令。 operation 允许上传的值有 - start - stop   # noqa: E501
 
         :param operation: The operation of this VisionsTask.  # noqa: E501
         :type: str
@@ -126,7 +126,7 @@ class VisionsTask(object):
     def option(self):
         """Gets the option of this VisionsTask.  # noqa: E501
 
-        任务名称。 option 允许上传的值有 'face', 'color'。 组合限制：tracking任务支持face, recognition任务支持face。quantity任务支持face。 age_group, gender支持face。color_detect任务支持color。  # noqa: E501
+         任务名称 option 允许上传的值有 - face - color  组合限制 当option的值为face的时候，type的值如下： - tracking - recognition - quantity - age_group - gender  当option的值为color的时候，type的值如下： - color_detect   # noqa: E501
 
         :return: The option of this VisionsTask.  # noqa: E501
         :rtype: str
@@ -137,7 +137,7 @@ class VisionsTask(object):
     def option(self, option):
         """Sets the option of this VisionsTask.
 
-        任务名称。 option 允许上传的值有 'face', 'color'。 组合限制：tracking任务支持face, recognition任务支持face。quantity任务支持face。 age_group, gender支持face。color_detect任务支持color。  # noqa: E501
+         任务名称 option 允许上传的值有 - face - color  组合限制 当option的值为face的时候，type的值如下： - tracking - recognition - quantity - age_group - gender  当option的值为color的时候，type的值如下： - color_detect   # noqa: E501
 
         :param option: The option of this VisionsTask.  # noqa: E501
         :type: str

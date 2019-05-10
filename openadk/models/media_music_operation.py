@@ -40,7 +40,7 @@ class MediaMusicOperation(object):
         'name': 'name'
     }
 
-    def __init__(self, operation='start', name='Sorry_sorry.mp3'):  # noqa: E501
+    def __init__(self, operation='start', name='SorrySorry.mp3'):  # noqa: E501
         """MediaMusicOperation - a model defined in Swagger"""  # noqa: E501
 
         self._operation = None

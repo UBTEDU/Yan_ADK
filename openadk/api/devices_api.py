@@ -192,7 +192,7 @@ class DevicesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/devices/fall_managment', 'GET',
+            '/devices/fall_management', 'GET',
             path_params,
             query_params,
             header_params,
@@ -652,7 +652,7 @@ class DevicesApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/devices/fall_managment', 'PUT',
+            '/devices/fall_management', 'PUT',
             path_params,
             query_params,
             header_params,

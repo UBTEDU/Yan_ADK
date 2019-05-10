@@ -59,7 +59,7 @@ class SubscriptionsVisions(object):
     def type(self):
         """Gets the type of this SubscriptionsVisions.  # noqa: E501
 
-        消息类型。type 允许上传的值有 'face_recognition',  'gender', 'age_group', 'face_quantity', 'color_detect'   # noqa: E501
+         消息类型。type 允许上传的值有 - face_recognition - gender - age_group - face_quantity - color_detect  # noqa: E501
 
         :return: The type of this SubscriptionsVisions.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class SubscriptionsVisions(object):
     def type(self, type):
         """Sets the type of this SubscriptionsVisions.
 
-        消息类型。type 允许上传的值有 'face_recognition',  'gender', 'age_group', 'face_quantity', 'color_detect'   # noqa: E501
+         消息类型。type 允许上传的值有 - face_recognition - gender - age_group - face_quantity - color_detect  # noqa: E501
 
         :param type: The type of this SubscriptionsVisions.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class SubscriptionsVisions(object):
     def url(self):
         """Gets the url of this SubscriptionsVisions.  # noqa: E501
 
-        视觉消息推送地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :return: The url of this SubscriptionsVisions.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class SubscriptionsVisions(object):
     def url(self, url):
         """Sets the url of this SubscriptionsVisions.
 
-        视觉消息推送地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :param url: The url of this SubscriptionsVisions.  # noqa: E501
         :type: str
@@ -115,7 +115,7 @@ class SubscriptionsVisions(object):
     def timeout(self):
         """Gets the timeout of this SubscriptionsVisions.  # noqa: E501
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :return: The timeout of this SubscriptionsVisions.  # noqa: E501
         :rtype: int
@@ -126,7 +126,7 @@ class SubscriptionsVisions(object):
     def timeout(self, timeout):
         """Sets the timeout of this SubscriptionsVisions.
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :param timeout: The timeout of this SubscriptionsVisions.  # noqa: E501
         :type: int

@@ -59,6 +59,7 @@ class SensorsParameter(object):
     def type(self):
         """Gets the type of this SensorsParameter.  # noqa: E501
 
+         传感器类型，取值说明： - gyro  （陀螺仪） - infrared  （红外测距传感器） - ultrasonic  （超声测距传感器） - touch  （触摸传感器） - pressure （压力传感器）    # noqa: E501
 
         :return: The type of this SensorsParameter.  # noqa: E501
         :rtype: str
@@ -69,6 +70,7 @@ class SensorsParameter(object):
     def type(self, type):
         """Sets the type of this SensorsParameter.
 
+         传感器类型，取值说明： - gyro  （陀螺仪） - infrared  （红外测距传感器） - ultrasonic  （超声测距传感器） - touch  （触摸传感器） - pressure （压力传感器）    # noqa: E501
 
         :param type: The type of this SensorsParameter.  # noqa: E501
         :type: str
@@ -115,7 +117,7 @@ class SensorsParameter(object):
     def value(self):
         """Gets the value of this SensorsParameter.  # noqa: E501
 
-        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器地址）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器地址不允许修改!  # noqa: E501
+         当operation为 modify 时，取值说明： - 17~22 （传感器的类型为超声时） - 23~28 （传感器的类型为红外时） - 29~34 （传感器的类型为触摸时） - 35~40 （传感器的类型为压力时）  注意：其它类型的传感器不允许修改地址! 另外，当传感器的列表中存在slot字段时此功能不可用！  当operation为 calibrate 时，省略该字段；  # noqa: E501
 
         :return: The value of this SensorsParameter.  # noqa: E501
         :rtype: int
@@ -126,7 +128,7 @@ class SensorsParameter(object):
     def value(self, value):
         """Sets the value of this SensorsParameter.
 
-        （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器地址）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器地址不允许修改!  # noqa: E501
+         当operation为 modify 时，取值说明： - 17~22 （传感器的类型为超声时） - 23~28 （传感器的类型为红外时） - 29~34 （传感器的类型为触摸时） - 35~40 （传感器的类型为压力时）  注意：其它类型的传感器不允许修改地址! 另外，当传感器的列表中存在slot字段时此功能不可用！  当operation为 calibrate 时，省略该字段；  # noqa: E501
 
         :param value: The value of this SensorsParameter.  # noqa: E501
         :type: int

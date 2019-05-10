@@ -207,8 +207,103 @@ class VoiceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_voice_offline_syntax(self, body, **kwargs):  # noqa: E501
+        """删除离线语法配置  # noqa: E501
+
+        获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_voice_offline_syntax(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoiceDeleteOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_voice_offline_syntax_with_http_info(self, body, **kwargs):  # noqa: E501
+        """删除离线语法配置  # noqa: E501
+
+        获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_voice_offline_syntax_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoiceDeleteOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_voice_offline_syntax" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `delete_voice_offline_syntax`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/voice/asr/offlinesyntax', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_voice_tts(self, **kwargs):  # noqa: E501
-        """停止当前的语音合成  # noqa: E501
+        """停止所有发送的语音合成  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -229,7 +324,7 @@ class VoiceApi(object):
             return data
 
     def delete_voice_tts_with_http_info(self, **kwargs):  # noqa: E501
-        """停止当前的语音合成  # noqa: E501
+        """停止所有发送的语音合成  # noqa: E501
 
           # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -468,10 +563,192 @@ class VoiceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_voice_tts(self, **kwargs):  # noqa: E501
-        """获取当前语音合成工作状态  # noqa: E501
+    def get_voice_offline_syntax(self, body, **kwargs):  # noqa: E501
+        """获取离线语法配置  # noqa: E501
 
-          # noqa: E501
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_voice_offline_syntax(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str body: 获得离线合成语法名称 (required)
+        :return: VoiceGetOfflineSyntaxResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def get_voice_offline_syntax_with_http_info(self, body, **kwargs):  # noqa: E501
+        """获取离线语法配置  # noqa: E501
+
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_voice_offline_syntax_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str body: 获得离线合成语法名称 (required)
+        :return: VoiceGetOfflineSyntaxResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_voice_offline_syntax" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `get_voice_offline_syntax`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'body' in params:
+            query_params.append(('body', params['body']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/voice/asr/offlinesyntax', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VoiceGetOfflineSyntaxResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_voice_offline_syntax_grammars(self, **kwargs):  # noqa: E501
+        """获取离线语法名称  # noqa: E501
+
+        获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_voice_offline_syntax_grammars(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: VoiceGetOfflineSyntaxGrammarsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_voice_offline_syntax_grammars_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_voice_offline_syntax_grammars_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_voice_offline_syntax_grammars_with_http_info(self, **kwargs):  # noqa: E501
+        """获取离线语法名称  # noqa: E501
+
+        获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_voice_offline_syntax_grammars_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: VoiceGetOfflineSyntaxGrammarsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_voice_offline_syntax_grammars" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/voice/asr/offlinesyntax/grammars', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VoiceGetOfflineSyntaxGrammarsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_voice_tts(self, **kwargs):  # noqa: E501
+        """获取指定或者当前工作状态  # noqa: E501
+
+        带时间戳为指定任务工作状态，如果无时间戳则当前任务  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_voice_tts(async_req=True)
@@ -491,9 +768,9 @@ class VoiceApi(object):
             return data
 
     def get_voice_tts_with_http_info(self, **kwargs):  # noqa: E501
-        """获取当前语音合成工作状态  # noqa: E501
+        """获取指定或者当前工作状态  # noqa: E501
 
-          # noqa: E501
+        带时间戳为指定任务工作状态，如果无时间戳则当前任务  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_voice_tts_with_http_info(async_req=True)
@@ -552,6 +829,101 @@ class VoiceApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='VoiceGetResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_voice_offline_syntax(self, body, **kwargs):  # noqa: E501
+        """添加离线语法配置  # noqa: E501
+
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_voice_offline_syntax(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoicePostOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.post_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.post_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def post_voice_offline_syntax_with_http_info(self, body, **kwargs):  # noqa: E501
+        """添加离线语法配置  # noqa: E501
+
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_voice_offline_syntax_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoicePostOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_voice_offline_syntax" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `post_voice_offline_syntax`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/voice/asr/offlinesyntax', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -731,6 +1103,101 @@ class VoiceApi(object):
 
         return self.api_client.call_api(
             '/voice/iat', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CommonResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def put_voice_offline_syntax(self, body, **kwargs):  # noqa: E501
+        """更新离线语法配置  # noqa: E501
+
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.put_voice_offline_syntax(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoicePutOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.put_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.put_voice_offline_syntax_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def put_voice_offline_syntax_with_http_info(self, body, **kwargs):  # noqa: E501
+        """更新离线语法配置  # noqa: E501
+
+         获取系统所有的离线语法名称，请注意系统默认的离线语法名称为defaut, 它不可以通过API来添加，删除以及修改。  离线语法的配置有以下约束条件，当条件不満满足时语音识别可能结果不正确。 约束条件 - 字段不能重复; - 所有的slot字段不能重复; - 所有的rule字段不能为空，每个规则都必须保证其定义的唯一性，也就是规则名在同一个语义中不能够被定义两次。 在定义规则时，要注意规则名称不能是 VOID、 NULL 和 GARBAGE，这三个规则名称被作为保留关键词为后续功能扩展使用。; - 可以通过关键词!id 定义了记号所对应的语义。 语义只能支持数字，其它数字将会导致编译错诨。语义支持的数字范围为 32 位有符号整形，也就是-2^(32-1) ~ 2^(32-1) -1（其中^表示幂操作），当定义的数字操作此范围时，会导致编译错误或者被截断  语法规范使用一系列操作符及内置关键词描述语法内容  | 操作符 | 描述 | 示例 | |---|---|---| |!| 标识内置关键词的开始 | !grammar| |<>| 定义规则名称 | &lt;name&gt;| |;| 结束符 | 表示一行结束| | &Iota; |或，定义并列结构| 张三&Iota;李四| |[]|可选，表示内容可说可以说| &lt;call&gt;: [找] &lt;name&gt;| |:|定义规则| &lt;name&gt;:张三(竖线)&Iota;李四| |()|封装操作，定义隐式规则 |&lt;call&gt;:找(张三(竖线)&Iota;李四)| |/* */|块注释 |/*注释*/| |//|行注释| //注释| 详细信息请参看： https://doc.xfyun.cn/msc_windows/%E8%AF%AD%E6%B3%95%EF%BC%88%E5%91%BD%E4%BB%A4%E8%AF%8D%EF%BC%89%E8%AF%86%E5%88%AB.html   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.put_voice_offline_syntax_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param VoicePutOfflineSyntax body:  (required)
+        :return: CommonResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method put_voice_offline_syntax" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `put_voice_offline_syntax`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/voice/asr/offlinesyntax', 'PUT',
             path_params,
             query_params,
             header_params,

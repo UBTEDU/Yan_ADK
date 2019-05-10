@@ -43,6 +43,7 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsEnvironmentValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -64,12 +65,13 @@ class SensorsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsEnvironmentValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['slot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -90,6 +92,9 @@ class SensorsApi(object):
         path_params = {}
 
         query_params = []
+        if 'slot' in params:
+            query_params.append(('slot', params['slot']))  # noqa: E501
+            collection_formats['slot'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -218,6 +223,7 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -240,12 +246,13 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsInfraredValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'slot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -269,6 +276,9 @@ class SensorsApi(object):
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
             collection_formats['id'] = 'multi'  # noqa: E501
+        if 'slot' in params:
+            query_params.append(('slot', params['slot']))  # noqa: E501
+            collection_formats['slot'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -397,6 +407,7 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -419,12 +430,13 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsPressureValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'slot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -448,6 +460,9 @@ class SensorsApi(object):
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
             collection_formats['id'] = 'multi'  # noqa: E501
+        if 'slot' in params:
+            query_params.append(('slot', params['slot']))  # noqa: E501
+            collection_formats['slot'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -489,6 +504,7 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -511,12 +527,13 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsTouchValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'slot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -540,6 +557,9 @@ class SensorsApi(object):
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
             collection_formats['id'] = 'multi'  # noqa: E501
+        if 'slot' in params:
+            query_params.append(('slot', params['slot']))  # noqa: E501
+            collection_formats['slot'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -581,6 +601,7 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -603,12 +624,13 @@ class SensorsApi(object):
 
         :param async_req bool
         :param list[int] id: 传感器地址，可不填
+        :param list[int] slot: 传感器槽位号，可不填
         :return: SensorsUltrasonicValueResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'slot']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -632,6 +654,9 @@ class SensorsApi(object):
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
             collection_formats['id'] = 'multi'  # noqa: E501
+        if 'slot' in params:
+            query_params.append(('slot', params['slot']))  # noqa: E501
+            collection_formats['slot'] = 'multi'  # noqa: E501
 
         header_params = {}
 

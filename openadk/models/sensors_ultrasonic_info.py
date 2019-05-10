@@ -32,22 +32,27 @@ class SensorsUltrasonicInfo(object):
     """
     swagger_types = {
         'id': 'int',
+        'slot': 'int',
         'value': 'int'
     }
 
     attribute_map = {
         'id': 'id',
+        'slot': 'slot',
         'value': 'value'
     }
 
-    def __init__(self, id=None, value=None):  # noqa: E501
+    def __init__(self, id=None, slot=None, value=None):  # noqa: E501
         """SensorsUltrasonicInfo - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
+        self._slot = None
         self._value = None
         self.discriminator = None
 
         self.id = id
+        if slot is not None:
+            self.slot = slot
         self.value = value
 
     @property
@@ -78,6 +83,33 @@ class SensorsUltrasonicInfo(object):
             raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def slot(self):
+        """Gets the slot of this SensorsUltrasonicInfo.  # noqa: E501
+
+        传感器槽位号  # noqa: E501
+
+        :return: The slot of this SensorsUltrasonicInfo.  # noqa: E501
+        :rtype: int
+        """
+        return self._slot
+
+    @slot.setter
+    def slot(self, slot):
+        """Sets the slot of this SensorsUltrasonicInfo.
+
+        传感器槽位号  # noqa: E501
+
+        :param slot: The slot of this SensorsUltrasonicInfo.  # noqa: E501
+        :type: int
+        """
+        if slot is not None and slot > 6:  # noqa: E501
+            raise ValueError("Invalid value for `slot`, must be a value less than or equal to `6`")  # noqa: E501
+        if slot is not None and slot < 1:  # noqa: E501
+            raise ValueError("Invalid value for `slot`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._slot = slot
 
     @property
     def value(self):

@@ -65,7 +65,7 @@ class MotionsParameter(object):
     def name(self):
         """Gets the name of this MotionsParameter.  # noqa: E501
 
-        动作名称,除了内置动作还有:raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow  # noqa: E501
+         动作名称, 除了内置动作还有局部动作，局部动作的列表如下: - raise - crouch - stretch - come on - wave - bend - walk - turn around - head - bow  # noqa: E501
 
         :return: The name of this MotionsParameter.  # noqa: E501
         :rtype: str
@@ -76,7 +76,7 @@ class MotionsParameter(object):
     def name(self, name):
         """Sets the name of this MotionsParameter.
 
-        动作名称,除了内置动作还有:raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow  # noqa: E501
+         动作名称, 除了内置动作还有局部动作，局部动作的列表如下: - raise - crouch - stretch - come on - wave - bend - walk - turn around - head - bow  # noqa: E501
 
         :param name: The name of this MotionsParameter.  # noqa: E501
         :type: str
@@ -90,7 +90,7 @@ class MotionsParameter(object):
     def direction(self):
         """Gets the direction of this MotionsParameter.  # noqa: E501
 
-        部分动作有方向属性，取值说明：（1）left 只适用于name取值为raise, stretch, come on, wave, bend, turn around, walk, head；（2）right 只适用于name取值为：raise, stretch, come on, wave, bend, turn around, walk, head；（3）both  只适用于name取值为：raise, stretch, come on, wave；（4）front 只适用于name取值为：walk, head；（5）back 只适用name取值为： walk；  # noqa: E501
+         部分局部动作有方向属性, 如果有则填此字段，否则不能填此字段！  当name的值为 raise | stretch | come on | wave 时，取值范围如下： - left - right - both  当name的值为 bend | turn around 时，取值范围如下： - left - right  当name的值为 walk 时，取值范围如下： - front - back - left - right  当name的值为 head 时，取值范围如下： - front - left - right   # noqa: E501
 
         :return: The direction of this MotionsParameter.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class MotionsParameter(object):
     def direction(self, direction):
         """Sets the direction of this MotionsParameter.
 
-        部分动作有方向属性，取值说明：（1）left 只适用于name取值为raise, stretch, come on, wave, bend, turn around, walk, head；（2）right 只适用于name取值为：raise, stretch, come on, wave, bend, turn around, walk, head；（3）both  只适用于name取值为：raise, stretch, come on, wave；（4）front 只适用于name取值为：walk, head；（5）back 只适用name取值为： walk；  # noqa: E501
+         部分局部动作有方向属性, 如果有则填此字段，否则不能填此字段！  当name的值为 raise | stretch | come on | wave 时，取值范围如下： - left - right - both  当name的值为 bend | turn around 时，取值范围如下： - left - right  当name的值为 walk 时，取值范围如下： - front - back - left - right  当name的值为 head 时，取值范围如下： - front - left - right   # noqa: E501
 
         :param direction: The direction of this MotionsParameter.  # noqa: E501
         :type: str
@@ -146,7 +146,7 @@ class MotionsParameter(object):
     def speed(self):
         """Gets the speed of this MotionsParameter.  # noqa: E501
 
-        部分动作(raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow)可设置运动速度  # noqa: E501
+         所有的局部动作（见name中所列）可设置运动速度，取值范围如下： - very slow - slow - normal - fast - very fast  # noqa: E501
 
         :return: The speed of this MotionsParameter.  # noqa: E501
         :rtype: str
@@ -157,7 +157,7 @@ class MotionsParameter(object):
     def speed(self, speed):
         """Sets the speed of this MotionsParameter.
 
-        部分动作(raise/crouch/stretch/come on/wave/bend/walk/turn around/head/bow)可设置运动速度  # noqa: E501
+         所有的局部动作（见name中所列）可设置运动速度，取值范围如下： - very slow - slow - normal - fast - very fast  # noqa: E501
 
         :param speed: The speed of this MotionsParameter.  # noqa: E501
         :type: str

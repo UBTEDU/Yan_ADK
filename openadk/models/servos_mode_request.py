@@ -56,7 +56,7 @@ class ServosModeRequest(object):
     def mode(self):
         """Gets the mode of this ServosModeRequest.  # noqa: E501
 
-        模式取值：work（工作模式）和program（编程模式）  # noqa: E501
+         模式取值： - work（工作模式） - program（编程模式）   # noqa: E501
 
         :return: The mode of this ServosModeRequest.  # noqa: E501
         :rtype: str
@@ -67,7 +67,7 @@ class ServosModeRequest(object):
     def mode(self, mode):
         """Sets the mode of this ServosModeRequest.
 
-        模式取值：work（工作模式）和program（编程模式）  # noqa: E501
+         模式取值： - work（工作模式） - program（编程模式）   # noqa: E501
 
         :param mode: The mode of this ServosModeRequest.  # noqa: E501
         :type: str

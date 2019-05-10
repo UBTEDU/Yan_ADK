@@ -55,7 +55,7 @@ class SubscriptionsIatVoice(object):
     def url(self):
         """Gets the url of this SubscriptionsIatVoice.  # noqa: E501
 
-        协议与地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :return: The url of this SubscriptionsIatVoice.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class SubscriptionsIatVoice(object):
     def url(self, url):
         """Sets the url of this SubscriptionsIatVoice.
 
-        协议与地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :param url: The url of this SubscriptionsIatVoice.  # noqa: E501
         :type: str
@@ -80,7 +80,7 @@ class SubscriptionsIatVoice(object):
     def timeout(self):
         """Gets the timeout of this SubscriptionsIatVoice.  # noqa: E501
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :return: The timeout of this SubscriptionsIatVoice.  # noqa: E501
         :rtype: int
@@ -91,7 +91,7 @@ class SubscriptionsIatVoice(object):
     def timeout(self, timeout):
         """Sets the timeout of this SubscriptionsIatVoice.
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :param timeout: The timeout of this SubscriptionsIatVoice.  # noqa: E501
         :type: int

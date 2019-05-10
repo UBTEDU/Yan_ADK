@@ -43,7 +43,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsMotions body: (required)
+        :param SubscriptionsMotionsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -65,7 +65,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsMotions body: (required)
+        :param SubscriptionsMotionsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -138,7 +138,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsSensors body: (required)
+        :param SubscriptionsSensorsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -160,7 +160,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsSensors body: (required)
+        :param SubscriptionsSensorsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -233,7 +233,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVisions body: (required)
+        :param SubscriptionsVisionsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -255,7 +255,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsVisions body: (required)
+        :param SubscriptionsVisionsDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -328,7 +328,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsAsrVoice body: (required)
+        :param SubscriptionsAsrVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -350,7 +350,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsAsrVoice body: (required)
+        :param SubscriptionsAsrVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -423,7 +423,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsIatVoice body: (required)
+        :param SubscriptionsIatVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -445,7 +445,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsIatVoice body: (required)
+        :param SubscriptionsIatVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -518,7 +518,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsTtsVoice body: (required)
+        :param SubscriptionsTtsVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -540,7 +540,7 @@ class SubscriptionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionsTtsVoice body: (required)
+        :param SubscriptionsTtsVoiceDelete body: (required)
         :return: CommonResponse
                  If the method is called asynchronously,
                  returns the request thread.

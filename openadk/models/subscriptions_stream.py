@@ -60,7 +60,7 @@ class SubscriptionsStream(object):
     def url(self):
         """Gets the url of this SubscriptionsStream.  # noqa: E501
 
-        协议与地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :return: The url of this SubscriptionsStream.  # noqa: E501
         :rtype: str
@@ -71,7 +71,7 @@ class SubscriptionsStream(object):
     def url(self, url):
         """Sets the url of this SubscriptionsStream.
 
-        协议与地址  # noqa: E501
+        订阅的接收地址  # noqa: E501
 
         :param url: The url of this SubscriptionsStream.  # noqa: E501
         :type: str
@@ -108,7 +108,7 @@ class SubscriptionsStream(object):
     def timeout(self):
         """Gets the timeout of this SubscriptionsStream.  # noqa: E501
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :return: The timeout of this SubscriptionsStream.  # noqa: E501
         :rtype: int
@@ -119,7 +119,7 @@ class SubscriptionsStream(object):
     def timeout(self, timeout):
         """Sets the timeout of this SubscriptionsStream.
 
-        订阅超时的时间，单位：秒  # noqa: E501
+        订阅的最大重试时间，单位：秒  # noqa: E501
 
         :param timeout: The timeout of this SubscriptionsStream.  # noqa: E501
         :type: int

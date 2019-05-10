@@ -89,6 +89,7 @@ class DevicesLED(object):
     def color(self):
         """Gets the color of this DevicesLED.  # noqa: E501
 
+         LED灯颜色  当type为 button 时，取值范围如下： - white - red - green - blue - yellow - purple - cyan  当type为 camera 时，取值范围如下: - red - green - blue   # noqa: E501
 
         :return: The color of this DevicesLED.  # noqa: E501
         :rtype: str
@@ -99,6 +100,7 @@ class DevicesLED(object):
     def color(self, color):
         """Sets the color of this DevicesLED.
 
+         LED灯颜色  当type为 button 时，取值范围如下： - white - red - green - blue - yellow - purple - cyan  当type为 camera 时，取值范围如下: - red - green - blue   # noqa: E501
 
         :param color: The color of this DevicesLED.  # noqa: E501
         :type: str
@@ -118,7 +120,7 @@ class DevicesLED(object):
     def mode(self):
         """Gets the mode of this DevicesLED.  # noqa: E501
 
-        LED灯模式，当type为camera时不支持breath!  # noqa: E501
+         LED灯模式  当type为 button 时，取值范围如下： - on - off - blink - breath  当type为 camera 时，取值范围如下: - on - off - blink   # noqa: E501
 
         :return: The mode of this DevicesLED.  # noqa: E501
         :rtype: str
@@ -129,7 +131,7 @@ class DevicesLED(object):
     def mode(self, mode):
         """Sets the mode of this DevicesLED.
 
-        LED灯模式，当type为camera时不支持breath!  # noqa: E501
+         LED灯模式  当type为 button 时，取值范围如下： - on - off - blink - breath  当type为 camera 时，取值范围如下: - on - off - blink   # noqa: E501
 
         :param mode: The mode of this DevicesLED.  # noqa: E501
         :type: str

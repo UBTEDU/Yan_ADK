@@ -100,7 +100,7 @@ class VisionsGetResponse(object):
     def type(self):
         """Gets the type of this VisionsGetResponse.  # noqa: E501
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'recognition', 'tracking','gender', 'age_group', 'quantity', 'color_detect'  # noqa: E501
+         消息类型。 一次只返回一种类型的数据。 type 允许的值为: - recognition - tracking - gender - age_group - quantity - color_detect   # noqa: E501
 
         :return: The type of this VisionsGetResponse.  # noqa: E501
         :rtype: str
@@ -111,7 +111,7 @@ class VisionsGetResponse(object):
     def type(self, type):
         """Sets the type of this VisionsGetResponse.
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'recognition', 'tracking','gender', 'age_group', 'quantity', 'color_detect'  # noqa: E501
+         消息类型。 一次只返回一种类型的数据。 type 允许的值为: - recognition - tracking - gender - age_group - quantity - color_detect   # noqa: E501
 
         :param type: The type of this VisionsGetResponse.  # noqa: E501
         :type: str
