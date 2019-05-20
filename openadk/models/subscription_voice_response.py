@@ -66,7 +66,7 @@ class SubscriptionVoiceResponse(Model):
     def code(self):
         """Gets the code of this SubscriptionVoiceResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :return: The code of this SubscriptionVoiceResponse.
         :rtype: int
@@ -77,7 +77,7 @@ class SubscriptionVoiceResponse(Model):
     def code(self, code):
         """Sets the code of this SubscriptionVoiceResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :param code: The code of this SubscriptionVoiceResponse.
         :type code: int
@@ -91,7 +91,7 @@ class SubscriptionVoiceResponse(Model):
     def type(self):
         """Gets the type of this SubscriptionVoiceResponse.
 
-        消息类型。此处的参数有 'asr', 'iat'   # noqa: E501
+         The possible values: - asr - iat   # noqa: E501
 
         :return: The type of this SubscriptionVoiceResponse.
         :rtype: str
@@ -102,7 +102,7 @@ class SubscriptionVoiceResponse(Model):
     def type(self, type):
         """Sets the type of this SubscriptionVoiceResponse.
 
-        消息类型。此处的参数有 'asr', 'iat'   # noqa: E501
+         The possible values: - asr - iat   # noqa: E501
 
         :param type: The type of this SubscriptionVoiceResponse.
         :type type: str
@@ -120,7 +120,7 @@ class SubscriptionVoiceResponse(Model):
     def data(self):
         """Gets the data of this SubscriptionVoiceResponse.
 
-        数据  # noqa: E501
+         Automatic speech recognition or auto transform's result.   # noqa: E501
 
         :return: The data of this SubscriptionVoiceResponse.
         :rtype: object
@@ -131,7 +131,7 @@ class SubscriptionVoiceResponse(Model):
     def data(self, data):
         """Sets the data of this SubscriptionVoiceResponse.
 
-        数据  # noqa: E501
+         Automatic speech recognition or auto transform's result.   # noqa: E501
 
         :param data: The data of this SubscriptionVoiceResponse.
         :type data: object
@@ -143,7 +143,7 @@ class SubscriptionVoiceResponse(Model):
     def timestamp(self):
         """Gets the timestamp of this SubscriptionVoiceResponse.
 
-        时间戳  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionVoiceResponse.
         :rtype: int
@@ -154,7 +154,7 @@ class SubscriptionVoiceResponse(Model):
     def timestamp(self, timestamp):
         """Sets the timestamp of this SubscriptionVoiceResponse.
 
-        时间戳  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.
         :type timestamp: int
@@ -166,7 +166,7 @@ class SubscriptionVoiceResponse(Model):
     def msg(self):
         """Gets the msg of this SubscriptionVoiceResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :return: The msg of this SubscriptionVoiceResponse.
         :rtype: str
@@ -177,7 +177,7 @@ class SubscriptionVoiceResponse(Model):
     def msg(self, msg):
         """Sets the msg of this SubscriptionVoiceResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :param msg: The msg of this SubscriptionVoiceResponse.
         :type msg: str

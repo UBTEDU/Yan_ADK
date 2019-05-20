@@ -72,7 +72,7 @@ class SubscriptionVisionsGetResponse(Model):
     def code(self):
         """Gets the code of this SubscriptionVisionsGetResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :return: The code of this SubscriptionVisionsGetResponse.
         :rtype: int
@@ -83,7 +83,7 @@ class SubscriptionVisionsGetResponse(Model):
     def code(self, code):
         """Sets the code of this SubscriptionVisionsGetResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :param code: The code of this SubscriptionVisionsGetResponse.
         :type code: int
@@ -97,7 +97,7 @@ class SubscriptionVisionsGetResponse(Model):
     def type(self):
         """Gets the type of this SubscriptionVisionsGetResponse.
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'recognition', 'tracking','gender', 'age_group', 'quantity', 'color_detect'  # noqa: E501
+         The compute vision's result. The possible \"type\" values: - recognition - tracking - gender - age_group - quantity - color_detect   # noqa: E501
 
         :return: The type of this SubscriptionVisionsGetResponse.
         :rtype: str
@@ -108,7 +108,7 @@ class SubscriptionVisionsGetResponse(Model):
     def type(self, type):
         """Sets the type of this SubscriptionVisionsGetResponse.
 
-        消息类型。 一次只返回一种类型的数据。 type 允许的值为: 'recognition', 'tracking','gender', 'age_group', 'quantity', 'color_detect'  # noqa: E501
+         The compute vision's result. The possible \"type\" values: - recognition - tracking - gender - age_group - quantity - color_detect   # noqa: E501
 
         :param type: The type of this SubscriptionVisionsGetResponse.
         :type type: str
@@ -147,7 +147,7 @@ class SubscriptionVisionsGetResponse(Model):
     def timestamp(self):
         """Gets the timestamp of this SubscriptionVisionsGetResponse.
 
-        任务时间戳  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionVisionsGetResponse.
         :rtype: int
@@ -158,7 +158,7 @@ class SubscriptionVisionsGetResponse(Model):
     def timestamp(self, timestamp):
         """Sets the timestamp of this SubscriptionVisionsGetResponse.
 
-        任务时间戳  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionVisionsGetResponse.
         :type timestamp: int
@@ -170,7 +170,7 @@ class SubscriptionVisionsGetResponse(Model):
     def status(self):
         """Gets the status of this SubscriptionVisionsGetResponse.
 
-        状态  # noqa: E501
+        Compute vision's status  # noqa: E501
 
         :return: The status of this SubscriptionVisionsGetResponse.
         :rtype: str
@@ -181,7 +181,7 @@ class SubscriptionVisionsGetResponse(Model):
     def status(self, status):
         """Sets the status of this SubscriptionVisionsGetResponse.
 
-        状态  # noqa: E501
+        Compute vision's status  # noqa: E501
 
         :param status: The status of this SubscriptionVisionsGetResponse.
         :type status: str
@@ -193,7 +193,7 @@ class SubscriptionVisionsGetResponse(Model):
     def msg(self):
         """Gets the msg of this SubscriptionVisionsGetResponse.
 
-        提示信息  # noqa: E501
+        Return code details.  # noqa: E501
 
         :return: The msg of this SubscriptionVisionsGetResponse.
         :rtype: str
@@ -204,7 +204,7 @@ class SubscriptionVisionsGetResponse(Model):
     def msg(self, msg):
         """Sets the msg of this SubscriptionVisionsGetResponse.
 
-        提示信息  # noqa: E501
+        Return code details.  # noqa: E501
 
         :param msg: The msg of this SubscriptionVisionsGetResponse.
         :type msg: str

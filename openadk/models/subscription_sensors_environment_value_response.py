@@ -57,7 +57,7 @@ class SubscriptionSensorsEnvironmentValueResponse(Model):
     def code(self):
         """Gets the code of this SubscriptionSensorsEnvironmentValueResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :return: The code of this SubscriptionSensorsEnvironmentValueResponse.
         :rtype: int
@@ -68,7 +68,7 @@ class SubscriptionSensorsEnvironmentValueResponse(Model):
     def code(self, code):
         """Sets the code of this SubscriptionSensorsEnvironmentValueResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :param code: The code of this SubscriptionSensorsEnvironmentValueResponse.
         :type code: int
@@ -105,7 +105,7 @@ class SubscriptionSensorsEnvironmentValueResponse(Model):
     def msg(self):
         """Gets the msg of this SubscriptionSensorsEnvironmentValueResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :return: The msg of this SubscriptionSensorsEnvironmentValueResponse.
         :rtype: str
@@ -116,7 +116,7 @@ class SubscriptionSensorsEnvironmentValueResponse(Model):
     def msg(self, msg):
         """Sets the msg of this SubscriptionSensorsEnvironmentValueResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :param msg: The msg of this SubscriptionSensorsEnvironmentValueResponse.
         :type msg: str

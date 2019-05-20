@@ -56,7 +56,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def id(self):
         """Gets the id of this SubscriptionSensorsUltrasonicInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :return: The id of this SubscriptionSensorsUltrasonicInfo.
         :rtype: int
@@ -67,7 +67,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def id(self, id):
         """Sets the id of this SubscriptionSensorsUltrasonicInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :param id: The id of this SubscriptionSensorsUltrasonicInfo.
         :type id: int
@@ -85,7 +85,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def slot(self):
         """Gets the slot of this SubscriptionSensorsUltrasonicInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :return: The slot of this SubscriptionSensorsUltrasonicInfo.
         :rtype: int
@@ -96,7 +96,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def slot(self, slot):
         """Sets the slot of this SubscriptionSensorsUltrasonicInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :param slot: The slot of this SubscriptionSensorsUltrasonicInfo.
         :type slot: int
@@ -112,7 +112,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def value(self):
         """Gets the value of this SubscriptionSensorsUltrasonicInfo.
 
-        距离值，单位毫米  # noqa: E501
+         The ultrasonic sensor's value. (mm)   # noqa: E501
 
         :return: The value of this SubscriptionSensorsUltrasonicInfo.
         :rtype: int
@@ -123,7 +123,7 @@ class SubscriptionSensorsUltrasonicInfo(Model):
     def value(self, value):
         """Sets the value of this SubscriptionSensorsUltrasonicInfo.
 
-        距离值，单位毫米  # noqa: E501
+         The ultrasonic sensor's value. (mm)   # noqa: E501
 
         :param value: The value of this SubscriptionSensorsUltrasonicInfo.
         :type value: int

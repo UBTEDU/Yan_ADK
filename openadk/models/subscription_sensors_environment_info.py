@@ -93,7 +93,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def slot(self):
         """Gets the slot of this SubscriptionSensorsEnvironmentInfo.
 
-        传感器槽位号  # noqa: E501
+        The sensor's slot number.  # noqa: E501
 
         :return: The slot of this SubscriptionSensorsEnvironmentInfo.
         :rtype: int
@@ -104,7 +104,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def slot(self, slot):
         """Sets the slot of this SubscriptionSensorsEnvironmentInfo.
 
-        传感器槽位号  # noqa: E501
+        The sensor's slot number.  # noqa: E501
 
         :param slot: The slot of this SubscriptionSensorsEnvironmentInfo.
         :type slot: int
@@ -120,7 +120,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def temperature(self):
         """Gets the temperature of this SubscriptionSensorsEnvironmentInfo.
 
-        温度值  # noqa: E501
+        The temperature sensor's value.  # noqa: E501
 
         :return: The temperature of this SubscriptionSensorsEnvironmentInfo.
         :rtype: int
@@ -131,7 +131,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def temperature(self, temperature):
         """Sets the temperature of this SubscriptionSensorsEnvironmentInfo.
 
-        温度值  # noqa: E501
+        The temperature sensor's value.  # noqa: E501
 
         :param temperature: The temperature of this SubscriptionSensorsEnvironmentInfo.
         :type temperature: int
@@ -145,7 +145,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def humidity(self):
         """Gets the humidity of this SubscriptionSensorsEnvironmentInfo.
 
-        湿度值  # noqa: E501
+        The humidity sensor's value.  # noqa: E501
 
         :return: The humidity of this SubscriptionSensorsEnvironmentInfo.
         :rtype: int
@@ -156,7 +156,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def humidity(self, humidity):
         """Sets the humidity of this SubscriptionSensorsEnvironmentInfo.
 
-        湿度值  # noqa: E501
+        The humidity sensor's value.  # noqa: E501
 
         :param humidity: The humidity of this SubscriptionSensorsEnvironmentInfo.
         :type humidity: int
@@ -170,7 +170,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def pressure(self):
         """Gets the pressure of this SubscriptionSensorsEnvironmentInfo.
 
-        大气压力  # noqa: E501
+        The pressure sensor's value.  # noqa: E501
 
         :return: The pressure of this SubscriptionSensorsEnvironmentInfo.
         :rtype: int
@@ -181,7 +181,7 @@ class SubscriptionSensorsEnvironmentInfo(Model):
     def pressure(self, pressure):
         """Sets the pressure of this SubscriptionSensorsEnvironmentInfo.
 
-        大气压力  # noqa: E501
+        The pressure sensor's value.  # noqa: E501
 
         :param pressure: The pressure of this SubscriptionSensorsEnvironmentInfo.
         :type pressure: int

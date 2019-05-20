@@ -57,7 +57,7 @@ class SubscriptionSensorsTouchValueResponse(Model):
     def code(self):
         """Gets the code of this SubscriptionSensorsTouchValueResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :return: The code of this SubscriptionSensorsTouchValueResponse.
         :rtype: int
@@ -68,7 +68,7 @@ class SubscriptionSensorsTouchValueResponse(Model):
     def code(self, code):
         """Sets the code of this SubscriptionSensorsTouchValueResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :param code: The code of this SubscriptionSensorsTouchValueResponse.
         :type code: int
@@ -105,7 +105,7 @@ class SubscriptionSensorsTouchValueResponse(Model):
     def msg(self):
         """Gets the msg of this SubscriptionSensorsTouchValueResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :return: The msg of this SubscriptionSensorsTouchValueResponse.
         :rtype: str
@@ -116,7 +116,7 @@ class SubscriptionSensorsTouchValueResponse(Model):
     def msg(self, msg):
         """Sets the msg of this SubscriptionSensorsTouchValueResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :param msg: The msg of this SubscriptionSensorsTouchValueResponse.
         :type msg: str

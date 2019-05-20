@@ -56,7 +56,7 @@ class SubscriptionMotionsStatus(Model):
     def status(self):
         """Gets the status of this SubscriptionMotionsStatus.
 
-        运行状态  # noqa: E501
+        The motions' status.  # noqa: E501
 
         :return: The status of this SubscriptionMotionsStatus.
         :rtype: str
@@ -67,7 +67,7 @@ class SubscriptionMotionsStatus(Model):
     def status(self, status):
         """Sets the status of this SubscriptionMotionsStatus.
 
-        运行状态  # noqa: E501
+        The motions' status.  # noqa: E501
 
         :param status: The status of this SubscriptionMotionsStatus.
         :type status: str
@@ -108,7 +108,7 @@ class SubscriptionMotionsStatus(Model):
     def timestamp(self):
         """Gets the timestamp of this SubscriptionMotionsStatus.
 
-        时间戳, Unix标准时间  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionMotionsStatus.
         :rtype: int
@@ -119,7 +119,7 @@ class SubscriptionMotionsStatus(Model):
     def timestamp(self, timestamp):
         """Sets the timestamp of this SubscriptionMotionsStatus.
 
-        时间戳, Unix标准时间  # noqa: E501
+        Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionMotionsStatus.
         :type timestamp: int

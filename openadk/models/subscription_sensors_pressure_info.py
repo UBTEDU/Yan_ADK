@@ -56,7 +56,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def id(self):
         """Gets the id of this SubscriptionSensorsPressureInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :return: The id of this SubscriptionSensorsPressureInfo.
         :rtype: int
@@ -67,7 +67,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def id(self, id):
         """Sets the id of this SubscriptionSensorsPressureInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :param id: The id of this SubscriptionSensorsPressureInfo.
         :type id: int
@@ -85,7 +85,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def slot(self):
         """Gets the slot of this SubscriptionSensorsPressureInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :return: The slot of this SubscriptionSensorsPressureInfo.
         :rtype: int
@@ -96,7 +96,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def slot(self, slot):
         """Sets the slot of this SubscriptionSensorsPressureInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :param slot: The slot of this SubscriptionSensorsPressureInfo.
         :type slot: int
@@ -112,7 +112,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def value(self):
         """Gets the value of this SubscriptionSensorsPressureInfo.
 
-        压力值，单位：牛  # noqa: E501
+        The pressure sensor's value. (N)  # noqa: E501
 
         :return: The value of this SubscriptionSensorsPressureInfo.
         :rtype: int
@@ -123,7 +123,7 @@ class SubscriptionSensorsPressureInfo(Model):
     def value(self, value):
         """Sets the value of this SubscriptionSensorsPressureInfo.
 
-        压力值，单位：牛  # noqa: E501
+        The pressure sensor's value. (N)  # noqa: E501
 
         :param value: The value of this SubscriptionSensorsPressureInfo.
         :type value: int

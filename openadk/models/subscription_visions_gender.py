@@ -46,7 +46,7 @@ class SubscriptionVisionsGender(Model):
     def gender(self):
         """Gets the gender of this SubscriptionVisionsGender.
 
-        性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在  # noqa: E501
+         The compute vision's result. The possible values: - male - female - none    default value   # noqa: E501
 
         :return: The gender of this SubscriptionVisionsGender.
         :rtype: str
@@ -57,7 +57,7 @@ class SubscriptionVisionsGender(Model):
     def gender(self, gender):
         """Sets the gender of this SubscriptionVisionsGender.
 
-        性别。此处的值有 'male', 'female', 'none' 其中 'none' 为初始不存在  # noqa: E501
+         The compute vision's result. The possible values: - male - female - none    default value   # noqa: E501
 
         :param gender: The gender of this SubscriptionVisionsGender.
         :type gender: str

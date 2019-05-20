@@ -56,7 +56,7 @@ class SubscriptionCommonResponse(Model):
     def code(self):
         """Gets the code of this SubscriptionCommonResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :return: The code of this SubscriptionCommonResponse.
         :rtype: int
@@ -67,7 +67,7 @@ class SubscriptionCommonResponse(Model):
     def code(self, code):
         """Sets the code of this SubscriptionCommonResponse.
 
-        返回码，0表示正常  # noqa: E501
+        Return code. 0 means success.  # noqa: E501
 
         :param code: The code of this SubscriptionCommonResponse.
         :type code: int
@@ -104,7 +104,7 @@ class SubscriptionCommonResponse(Model):
     def msg(self):
         """Gets the msg of this SubscriptionCommonResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :return: The msg of this SubscriptionCommonResponse.
         :rtype: str
@@ -115,7 +115,7 @@ class SubscriptionCommonResponse(Model):
     def msg(self, msg):
         """Sets the msg of this SubscriptionCommonResponse.
 
-        提示信息  # noqa: E501
+        Return code's details.  # noqa: E501
 
         :param msg: The msg of this SubscriptionCommonResponse.
         :type msg: str

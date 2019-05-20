@@ -105,7 +105,7 @@ class SubscriptionVisionsResults(Model):
     def quantity(self):
         """Gets the quantity of this SubscriptionVisionsResults.
 
-        数量, 0 ~ ??? (整数)  # noqa: E501
+        Quantity.  # noqa: E501
 
         :return: The quantity of this SubscriptionVisionsResults.
         :rtype: int
@@ -116,7 +116,7 @@ class SubscriptionVisionsResults(Model):
     def quantity(self, quantity):
         """Sets the quantity of this SubscriptionVisionsResults.
 
-        数量, 0 ~ ??? (整数)  # noqa: E501
+        Quantity.  # noqa: E501
 
         :param quantity: The quantity of this SubscriptionVisionsResults.
         :type quantity: int
@@ -130,7 +130,7 @@ class SubscriptionVisionsResults(Model):
     def color(self):
         """Gets the color of this SubscriptionVisionsResults.
 
-        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+         The color results. The possible values: - none - black - gray - white - red - orange - yellow - green - cyan - blue - purple   # noqa: E501
 
         :return: The color of this SubscriptionVisionsResults.
         :rtype: List[SubscriptionName]
@@ -141,7 +141,7 @@ class SubscriptionVisionsResults(Model):
     def color(self, color):
         """Sets the color of this SubscriptionVisionsResults.
 
-        所有可返回的颜色列表, 列表值有 'none', 'black', 'gray', 'white', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple'  # noqa: E501
+         The color results. The possible values: - none - black - gray - white - red - orange - yellow - green - cyan - blue - purple   # noqa: E501
 
         :param color: The color of this SubscriptionVisionsResults.
         :type color: List[SubscriptionName]

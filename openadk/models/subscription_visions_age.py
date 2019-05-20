@@ -51,7 +51,7 @@ class SubscriptionVisionsAge(Model):
     def age(self):
         """Gets the age of this SubscriptionVisionsAge.
 
-        年龄  # noqa: E501
+        Age.  # noqa: E501
 
         :return: The age of this SubscriptionVisionsAge.
         :rtype: int
@@ -62,7 +62,7 @@ class SubscriptionVisionsAge(Model):
     def age(self, age):
         """Sets the age of this SubscriptionVisionsAge.
 
-        年龄  # noqa: E501
+        Age.  # noqa: E501
 
         :param age: The age of this SubscriptionVisionsAge.
         :type age: int
@@ -76,7 +76,7 @@ class SubscriptionVisionsAge(Model):
     def group(self):
         """Gets the group of this SubscriptionVisionsAge.
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
+         The age group value. The possible values: - baby - children - juvenile - youth - middle_age - old_age - none   # noqa: E501
 
         :return: The group of this SubscriptionVisionsAge.
         :rtype: str
@@ -87,7 +87,7 @@ class SubscriptionVisionsAge(Model):
     def group(self, group):
         """Sets the group of this SubscriptionVisionsAge.
 
-        年龄段。 返回值有: 'baby', 'children', 'juvenile', 'youth', 'middle_age', 'old_age', 'none'   # noqa: E501
+         The age group value. The possible values: - baby - children - juvenile - youth - middle_age - old_age - none   # noqa: E501
 
         :param group: The group of this SubscriptionVisionsAge.
         :type group: str

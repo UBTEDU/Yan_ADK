@@ -56,7 +56,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def id(self):
         """Gets the id of this SubscriptionSensorsTouchInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :return: The id of this SubscriptionSensorsTouchInfo.
         :rtype: int
@@ -67,7 +67,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def id(self, id):
         """Sets the id of this SubscriptionSensorsTouchInfo.
 
-        传感器地址  # noqa: E501
+        Sensor's I2C address.  # noqa: E501
 
         :param id: The id of this SubscriptionSensorsTouchInfo.
         :type id: int
@@ -85,7 +85,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def slot(self):
         """Gets the slot of this SubscriptionSensorsTouchInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :return: The slot of this SubscriptionSensorsTouchInfo.
         :rtype: int
@@ -96,7 +96,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def slot(self, slot):
         """Sets the slot of this SubscriptionSensorsTouchInfo.
 
-        传感器槽位号  # noqa: E501
+        Sensor's slot number.  # noqa: E501
 
         :param slot: The slot of this SubscriptionSensorsTouchInfo.
         :type slot: int
@@ -112,7 +112,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def value(self):
         """Gets the value of this SubscriptionSensorsTouchInfo.
 
-        值说明：0未触摸，1触摸btn1，2触摸btn2，3触摸两边  # noqa: E501
+         The touch sensor's value. The possible values: - 0   Not touched - 1   Button 1 is touched - 2   Button 2 is touched - 3   Button 1 and 2 are touched   # noqa: E501
 
         :return: The value of this SubscriptionSensorsTouchInfo.
         :rtype: int
@@ -123,7 +123,7 @@ class SubscriptionSensorsTouchInfo(Model):
     def value(self, value):
         """Sets the value of this SubscriptionSensorsTouchInfo.
 
-        值说明：0未触摸，1触摸btn1，2触摸btn2，3触摸两边  # noqa: E501
+         The touch sensor's value. The possible values: - 0   Not touched - 1   Button 1 is touched - 2   Button 2 is touched - 3   Button 1 and 2 are touched   # noqa: E501
 
         :param value: The value of this SubscriptionSensorsTouchInfo.
         :type value: int
