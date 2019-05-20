@@ -5,12 +5,12 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_devices_battery**](DevicesApi.md#get_devices_battery) | **GET** /devices/battery | 获得机器人电量信息
-[**get_devices_fall_management**](DevicesApi.md#get_devices_fall_management) | **GET** /devices/fall_managment | 获得机器人摔倒管理状态
+[**get_devices_fall_management**](DevicesApi.md#get_devices_fall_management) | **GET** /devices/fall_management | 获得机器人摔倒管理状态
 [**get_devices_languages**](DevicesApi.md#get_devices_languages) | **GET** /devices/languages | 获得机器人语言信息
 [**get_devices_led**](DevicesApi.md#get_devices_led) | **GET** /devices/led | 获取机器人灯效
 [**get_devices_versions**](DevicesApi.md#get_devices_versions) | **GET** /devices/versions | 获得机器人版本信息
 [**get_devices_volume**](DevicesApi.md#get_devices_volume) | **GET** /devices/volume | 获得机器人音量
-[**put_devices_fall_management**](DevicesApi.md#put_devices_fall_management) | **PUT** /devices/fall_managment | 设置机器人摔倒管理状态
+[**put_devices_fall_management**](DevicesApi.md#put_devices_fall_management) | **PUT** /devices/fall_management | 设置机器人摔倒管理状态
 [**put_devices_languages**](DevicesApi.md#put_devices_languages) | **PUT** /devices/languages | 设置机器人语言
 [**put_devices_led**](DevicesApi.md#put_devices_led) | **PUT** /devices/led | 设置机器人灯效
 [**put_devices_volume**](DevicesApi.md#put_devices_volume) | **PUT** /devices/volume | 设置机器人音量

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_sensors_environment**
-> SensorsEnvironmentValueResponse get_sensors_environment()
+> SensorsEnvironmentValueResponse get_sensors_environment(slot=slot)
 
 获取环境传感器值
 
@@ -31,17 +31,21 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
+slot = [56] # list[int] | 传感器槽号，可不填 (optional)
 
 try:
     # 获取环境传感器值
-    api_response = api_instance.get_sensors_environment()
+    api_response = api_instance.get_sensors_environment(slot=slot)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SensorsApi->get_sensors_environment: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
 
 ### Return type
 
@@ -103,7 +107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sensors_infrared**
-> SensorsInfraredValueResponse get_sensors_infrared(id=id)
+> SensorsInfraredValueResponse get_sensors_infrared(id=id, slot=slot)
 
 获取红外传感器值
 
@@ -120,10 +124,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
 id = [56] # list[int] | 传感器地址，可不填 (optional)
+slot = [56] # list[int] | 传感器槽号，可不填 (optional)
 
 try:
     # 获取红外传感器值
-    api_response = api_instance.get_sensors_infrared(id=id)
+    api_response = api_instance.get_sensors_infrared(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SensorsApi->get_sensors_infrared: %s\n" % e)
@@ -134,6 +139,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
+ **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
 
 ### Return type
 
@@ -195,7 +201,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sensors_pressure**
-> SensorsPressureValueResponse get_sensors_pressure(id=id)
+> SensorsPressureValueResponse get_sensors_pressure(id=id, slot=slot)
 
 获取压力传感器值
 
@@ -212,10 +218,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
 id = [56] # list[int] | 传感器地址，可不填 (optional)
+slot = [56] # list[int] | 传感器槽号，可不填 (optional)
 
 try:
     # 获取压力传感器值
-    api_response = api_instance.get_sensors_pressure(id=id)
+    api_response = api_instance.get_sensors_pressure(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SensorsApi->get_sensors_pressure: %s\n" % e)
@@ -226,6 +233,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
+ **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
 
 ### Return type
 
@@ -243,7 +251,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sensors_touch**
-> SensorsTouchValueResponse get_sensors_touch(id=id)
+> SensorsTouchValueResponse get_sensors_touch(id=id, slot=slot)
 
 获取触摸传感器值
 
@@ -260,10 +268,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
 id = [56] # list[int] | 传感器地址，可不填 (optional)
+slot = [56] # list[int] | 传感器槽号，可不填 (optional)
 
 try:
     # 获取触摸传感器值
-    api_response = api_instance.get_sensors_touch(id=id)
+    api_response = api_instance.get_sensors_touch(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SensorsApi->get_sensors_touch: %s\n" % e)
@@ -274,6 +283,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
+ **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
 
 ### Return type
 
@@ -291,7 +301,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sensors_ultrasonic**
-> SensorsUltrasonicValueResponse get_sensors_ultrasonic(id=id)
+> SensorsUltrasonicValueResponse get_sensors_ultrasonic(id=id, slot=slot)
 
 获取超声传感器值
 
@@ -308,10 +318,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
 id = [56] # list[int] | 传感器地址，可不填 (optional)
+slot = [56] # list[int] | 传感器槽号，可不填 (optional)
 
 try:
     # 获取超声传感器值
-    api_response = api_instance.get_sensors_ultrasonic(id=id)
+    api_response = api_instance.get_sensors_ultrasonic(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SensorsApi->get_sensors_ultrasonic: %s\n" % e)
@@ -322,6 +333,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
+ **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
 
 ### Return type
 

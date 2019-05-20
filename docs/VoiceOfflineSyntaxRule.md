@@ -1,11 +1,10 @@
-# SensorsPressureInfo
+# VoiceOfflineSyntaxRule
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | 传感器地址 | 
-**slot** | **int** | 传感器槽位号 | [optional] 
-**value** | **int** | 压力值，单位：牛 | 
+**name** | **str** | 表示规则名称 | 
+**value** | **str** | 表示规则内容 | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
