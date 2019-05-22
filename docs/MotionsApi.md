@@ -4,19 +4,19 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_motions_music**](MotionsApi.md#delete_motions_music) | **DELETE** /motions | 删除动作文件（只能删除用户上传的文件）
-[**get_motions**](MotionsApi.md#get_motions) | **GET** /motions | 获取当前的运动状态
-[**get_motions_list**](MotionsApi.md#get_motions_list) | **GET** /motions/list | 获取动作列表
-[**post_motions**](MotionsApi.md#post_motions) | **POST** /motions | 上传动作文件
-[**put_motions**](MotionsApi.md#put_motions) | **PUT** /motions | 运动控制
+[**delete_motions_music**](MotionsApi.md#delete_motions_music) | **DELETE** /motions | Delete motion files
+[**get_motions**](MotionsApi.md#get_motions) | **GET** /motions | Get the current motions&#39; status
+[**get_motions_list**](MotionsApi.md#get_motions_list) | **GET** /motions/list | Get all the motions&#39; name
+[**post_motions**](MotionsApi.md#post_motions) | **POST** /motions | Upload motion files
+[**put_motions**](MotionsApi.md#put_motions) | **PUT** /motions | Update the motions
 
 
 # **delete_motions_music**
 > CommonResponse delete_motions_music(body)
 
-删除动作文件（只能删除用户上传的文件）
+Delete motion files
 
-
+ Please note, the user only can delete the user uploaded files. 
 
 ### Example
 ```python
@@ -28,10 +28,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.MotionsApi()
-body = openadk.Name() # Name | 动作文件名
+body = openadk.Name() # Name | Motion file name
 
 try:
-    # 删除动作文件（只能删除用户上传的文件）
+    # Delete motion files
     api_response = api_instance.delete_motions_music(body)
     pprint(api_response)
 except ApiException as e:
@@ -42,7 +42,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Name**](Name.md)| 动作文件名 | 
+ **body** | [**Name**](Name.md)| Motion file name | 
 
 ### Return type
 
@@ -62,7 +62,7 @@ No authorization required
 # **get_motions**
 > MotionsStatusResponse get_motions()
 
-获取当前的运动状态
+Get the current motions' status
 
 
 
@@ -78,7 +78,7 @@ from pprint import pprint
 api_instance = openadk.MotionsApi()
 
 try:
-    # 获取当前的运动状态
+    # Get the current motions' status
     api_response = api_instance.get_motions()
     pprint(api_response)
 except ApiException as e:
@@ -106,9 +106,9 @@ No authorization required
 # **get_motions_list**
 > MotionsListResponse get_motions_list()
 
-获取动作列表
+Get all the motions' name
 
-可以获得所有内置和用户上传的动作列表
+Get all the default and the user uploaded motions' name
 
 ### Example
 ```python
@@ -122,7 +122,7 @@ from pprint import pprint
 api_instance = openadk.MotionsApi()
 
 try:
-    # 获取动作列表
+    # Get all the motions' name
     api_response = api_instance.get_motions_list()
     pprint(api_response)
 except ApiException as e:
@@ -150,9 +150,9 @@ No authorization required
 # **post_motions**
 > CommonResponse post_motions(file)
 
-上传动作文件
+Upload motion files
 
-文件格式目前仅支持hts或者zip
+ Supported file format: - hts - zip 
 
 ### Example
 ```python
@@ -164,10 +164,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.MotionsApi()
-file = '/path/to/file.txt' # file | 上传文件
+file = '/path/to/file.txt' # file | Uploaded file.
 
 try:
-    # 上传动作文件
+    # Upload motion files
     api_response = api_instance.post_motions(file)
     pprint(api_response)
 except ApiException as e:
@@ -178,7 +178,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **file**| 上传文件 | 
+ **file** | **file**| Uploaded file. | 
 
 ### Return type
 
@@ -198,9 +198,9 @@ No authorization required
 # **put_motions**
 > RuntimeResponse put_motions(body)
 
-运动控制
+Update the motions
 
-可以执行指定动作、暂停、继续和停止运动
+ Supported parameters: - start - pause - continue - stop 
 
 ### Example
 ```python
@@ -212,10 +212,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.MotionsApi()
-body = openadk.MotionsOperation() # MotionsOperation | 运动控制的参数
+body = openadk.MotionsOperation() # MotionsOperation | Motion control parameters
 
 try:
-    # 运动控制
+    # Update the motions
     api_response = api_instance.put_motions(body)
     pprint(api_response)
 except ApiException as e:
@@ -226,7 +226,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**MotionsOperation**](MotionsOperation.md)| 运动控制的参数 | 
+ **body** | [**MotionsOperation**](MotionsOperation.md)| Motion control parameters | 
 
 ### Return type
 

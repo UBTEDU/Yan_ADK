@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | 传感器地址 | 
-**slot** | **int** | 传感器槽位号 | [optional] 
-**value** | **int** | 值说明：0未触摸，1触摸btn1，2触摸btn2，3触摸两边 | 
+**id** | **int** | Sensor&#39;s I2C address | 
+**slot** | **int** | Sensor&#39;s slot number | [optional] 
+**value** | **int** |  Touch sensor has two buttons. - 0 Not touched - 1 Button1 touched - 2 Button2 touched - 3 Button1 and Button2 touched  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

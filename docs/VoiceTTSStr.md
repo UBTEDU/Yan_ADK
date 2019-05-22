@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tts** | **str** | 待合成的文字 | 
-**interrupt** | **bool** | 是否可以被打断，默认为True | [optional] [default to True]
-**timestamp** | **int** | 时间戳, Unix标准时间 | [optional] 
+**tts** | **str** | Text to speech string | 
+**interrupt** | **bool** |  The playing status can be interrupted. The default value is \&quot;true\&quot;  | [optional] [default to True]
+**timestamp** | **int** | Timestamp, Unix standard time. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

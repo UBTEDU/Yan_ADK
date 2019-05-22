@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | 表示规则名称 | 
-**value** | **str** | 表示规则内容 | 
+**name** | **str** | Rule&#39;s name | 
+**value** | **str** | Rule&#39;s value | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

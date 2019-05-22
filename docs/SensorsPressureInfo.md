@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | 传感器地址 | 
-**slot** | **int** | 传感器槽位号 | [optional] 
-**value** | **int** | 压力值，单位：牛 | 
+**id** | **int** | Sensor&#39;s I2C address | 
+**slot** | **int** | Sensor&#39;s slot number | [optional] 
+**value** | **int** | Pressure value (N) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

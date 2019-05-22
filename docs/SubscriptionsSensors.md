@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** | 传感器类型 - gyro - ultrasonic - environment - infrared - touch - pressure | 
-**id** | **int** | 传感器地址，可不填 | [optional] 
-**slot** | **int** | 传感器槽位号 | [optional] 
-**url** | **str** | 接口信息 | 
-**timeout** | **int** | 订阅超时的时间，单位：秒 | [optional] [default to 10]
-**timeval** | **int** | 上报的最短时间间隔，单位ms（豪秒） | [optional] 
+**type** | **str** |  Sensor&#39;s type - gyro - ultrasonic - environment - infrared - touch - pressure  | 
+**id** | **int** | Sensors&#39; I2C address (optional) | [optional] 
+**slot** | **int** | Sensor&#39;s slot number | [optional] 
+**url** | **str** | The receiving address of subscription. | 
+**timeout** | **int** | The max subscription retry time (s). | [optional] [default to 10]
+**timeval** | **int** | The interval push data time (ms). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

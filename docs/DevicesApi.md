@@ -4,22 +4,22 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_devices_battery**](DevicesApi.md#get_devices_battery) | **GET** /devices/battery | 获得机器人电量信息
-[**get_devices_fall_management**](DevicesApi.md#get_devices_fall_management) | **GET** /devices/fall_management | 获得机器人摔倒管理状态
-[**get_devices_languages**](DevicesApi.md#get_devices_languages) | **GET** /devices/languages | 获得机器人语言信息
-[**get_devices_led**](DevicesApi.md#get_devices_led) | **GET** /devices/led | 获取机器人灯效
-[**get_devices_versions**](DevicesApi.md#get_devices_versions) | **GET** /devices/versions | 获得机器人版本信息
-[**get_devices_volume**](DevicesApi.md#get_devices_volume) | **GET** /devices/volume | 获得机器人音量
-[**put_devices_fall_management**](DevicesApi.md#put_devices_fall_management) | **PUT** /devices/fall_management | 设置机器人摔倒管理状态
-[**put_devices_languages**](DevicesApi.md#put_devices_languages) | **PUT** /devices/languages | 设置机器人语言
-[**put_devices_led**](DevicesApi.md#put_devices_led) | **PUT** /devices/led | 设置机器人灯效
-[**put_devices_volume**](DevicesApi.md#put_devices_volume) | **PUT** /devices/volume | 设置机器人音量
+[**get_devices_battery**](DevicesApi.md#get_devices_battery) | **GET** /devices/battery | Get the battery information
+[**get_devices_fall_management**](DevicesApi.md#get_devices_fall_management) | **GET** /devices/fall_management | Get fall management configuration
+[**get_devices_languages**](DevicesApi.md#get_devices_languages) | **GET** /devices/languages | Get language settings
+[**get_devices_led**](DevicesApi.md#get_devices_led) | **GET** /devices/led | Get the light effects
+[**get_devices_versions**](DevicesApi.md#get_devices_versions) | **GET** /devices/versions | Get the system versions
+[**get_devices_volume**](DevicesApi.md#get_devices_volume) | **GET** /devices/volume | Get the volume
+[**put_devices_fall_management**](DevicesApi.md#put_devices_fall_management) | **PUT** /devices/fall_management | Set fall management configuration
+[**put_devices_languages**](DevicesApi.md#put_devices_languages) | **PUT** /devices/languages | Set language settings
+[**put_devices_led**](DevicesApi.md#put_devices_led) | **PUT** /devices/led | Set the light effects
+[**put_devices_volume**](DevicesApi.md#put_devices_volume) | **PUT** /devices/volume | Set the volume
 
 
 # **get_devices_battery**
 > DevicesBatteryResponse get_devices_battery()
 
-获得机器人电量信息
+Get the battery information
 
 
 
@@ -35,7 +35,7 @@ from pprint import pprint
 api_instance = openadk.DevicesApi()
 
 try:
-    # 获得机器人电量信息
+    # Get the battery information
     api_response = api_instance.get_devices_battery()
     pprint(api_response)
 except ApiException as e:
@@ -63,7 +63,7 @@ No authorization required
 # **get_devices_fall_management**
 > DevicesFallManagementResponse get_devices_fall_management()
 
-获得机器人摔倒管理状态
+Get fall management configuration
 
 
 
@@ -79,7 +79,7 @@ from pprint import pprint
 api_instance = openadk.DevicesApi()
 
 try:
-    # 获得机器人摔倒管理状态
+    # Get fall management configuration
     api_response = api_instance.get_devices_fall_management()
     pprint(api_response)
 except ApiException as e:
@@ -107,7 +107,7 @@ No authorization required
 # **get_devices_languages**
 > DevicesLanguageResponse get_devices_languages()
 
-获得机器人语言信息
+Get language settings
 
 
 
@@ -123,7 +123,7 @@ from pprint import pprint
 api_instance = openadk.DevicesApi()
 
 try:
-    # 获得机器人语言信息
+    # Get language settings
     api_response = api_instance.get_devices_languages()
     pprint(api_response)
 except ApiException as e:
@@ -151,7 +151,7 @@ No authorization required
 # **get_devices_led**
 > DevicesLEDResponse get_devices_led()
 
-获取机器人灯效
+Get the light effects
 
 
 
@@ -167,7 +167,7 @@ from pprint import pprint
 api_instance = openadk.DevicesApi()
 
 try:
-    # 获取机器人灯效
+    # Get the light effects
     api_response = api_instance.get_devices_led()
     pprint(api_response)
 except ApiException as e:
@@ -195,7 +195,7 @@ No authorization required
 # **get_devices_versions**
 > DevicesVersionsResponse get_devices_versions(type)
 
-获得机器人版本信息
+Get the system versions
 
 
 
@@ -209,10 +209,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.DevicesApi()
-type = ['type_example'] # list[str] | 版本信息的类型
+type = ['type_example'] # list[str] | Version type
 
 try:
-    # 获得机器人版本信息
+    # Get the system versions
     api_response = api_instance.get_devices_versions(type)
     pprint(api_response)
 except ApiException as e:
@@ -223,7 +223,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**list[str]**](str.md)| 版本信息的类型 | 
+ **type** | [**list[str]**](str.md)| Version type | 
 
 ### Return type
 
@@ -243,7 +243,7 @@ No authorization required
 # **get_devices_volume**
 > DevicesVolumeResponse get_devices_volume()
 
-获得机器人音量
+Get the volume
 
 
 
@@ -259,7 +259,7 @@ from pprint import pprint
 api_instance = openadk.DevicesApi()
 
 try:
-    # 获得机器人音量
+    # Get the volume
     api_response = api_instance.get_devices_volume()
     pprint(api_response)
 except ApiException as e:
@@ -287,7 +287,7 @@ No authorization required
 # **put_devices_fall_management**
 > CommonResponse put_devices_fall_management(body)
 
-设置机器人摔倒管理状态
+Set fall management configuration
 
 
 
@@ -304,7 +304,7 @@ api_instance = openadk.DevicesApi()
 body = openadk.DevicesFallManagement() # DevicesFallManagement | 
 
 try:
-    # 设置机器人摔倒管理状态
+    # Set fall management configuration
     api_response = api_instance.put_devices_fall_management(body)
     pprint(api_response)
 except ApiException as e:
@@ -335,7 +335,7 @@ No authorization required
 # **put_devices_languages**
 > CommonResponse put_devices_languages(body)
 
-设置机器人语言
+Set language settings
 
 
 
@@ -349,10 +349,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.DevicesApi()
-body = openadk.DevicesLanguage() # DevicesLanguage | 语言信息
+body = openadk.DevicesLanguage() # DevicesLanguage | Language information
 
 try:
-    # 设置机器人语言
+    # Set language settings
     api_response = api_instance.put_devices_languages(body)
     pprint(api_response)
 except ApiException as e:
@@ -363,7 +363,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DevicesLanguage**](DevicesLanguage.md)| 语言信息 | 
+ **body** | [**DevicesLanguage**](DevicesLanguage.md)| Language information | 
 
 ### Return type
 
@@ -383,7 +383,7 @@ No authorization required
 # **put_devices_led**
 > CommonResponse put_devices_led(body)
 
-设置机器人灯效
+Set the light effects
 
 
 
@@ -400,7 +400,7 @@ api_instance = openadk.DevicesApi()
 body = openadk.DevicesLED() # DevicesLED | 
 
 try:
-    # 设置机器人灯效
+    # Set the light effects
     api_response = api_instance.put_devices_led(body)
     pprint(api_response)
 except ApiException as e:
@@ -431,7 +431,7 @@ No authorization required
 # **put_devices_volume**
 > CommonResponse put_devices_volume(body)
 
-设置机器人音量
+Set the volume
 
 
 
@@ -448,7 +448,7 @@ api_instance = openadk.DevicesApi()
 body = openadk.DevicesVolume() # DevicesVolume | 
 
 try:
-    # 设置机器人音量
+    # Set the volume
     api_response = api_instance.put_devices_volume(body)
     pprint(api_response)
 except ApiException as e:

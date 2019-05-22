@@ -4,26 +4,26 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_vision_photo**](VisionsApi.md#delete_vision_photo) | **DELETE** /visions/photos | 删除指定照片
-[**delete_vision_photo_samples**](VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | 删除上传的样本
-[**delete_visions_streams**](VisionsApi.md#delete_visions_streams) | **DELETE** /visions/streams | 关闭摄像头的视频流
-[**delete_visions_tags**](VisionsApi.md#delete_visions_tags) | **DELETE** /visions/tags | 删除指定样本标签
-[**get_photo_samples**](VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | 获取上传样本列表
-[**get_vision**](VisionsApi.md#get_vision) | **GET** /visions | 获取任务結果
-[**get_visions_photos**](VisionsApi.md#get_visions_photos) | **GET** /visions/photos | 获取指定照片
-[**get_visions_photos_lists**](VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | 获取拍照列表
-[**get_visions_tags**](VisionsApi.md#get_visions_tags) | **GET** /visions/tags | 获取已设置标签列表
-[**post_vision_photo**](VisionsApi.md#post_vision_photo) | **POST** /visions/photos | 拍一张照片
-[**post_visions_photo_samples**](VisionsApi.md#post_visions_photo_samples) | **POST** /visions/photosamples | 上传样本
-[**post_visions_streams**](VisionsApi.md#post_visions_streams) | **POST** /visions/streams | 打开摄像头的视频流
-[**put_visions**](VisionsApi.md#put_visions) | **PUT** /visions | 指定视觉任务停止或开始
-[**put_visions_tags**](VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | 设置样本标签
+[**delete_vision_photo**](VisionsApi.md#delete_vision_photo) | **DELETE** /visions/photos | Delete a photo based the name
+[**delete_vision_photo_samples**](VisionsApi.md#delete_vision_photo_samples) | **DELETE** /visions/photosamples | Delete the uploaded sample
+[**delete_visions_streams**](VisionsApi.md#delete_visions_streams) | **DELETE** /visions/streams | Turn off the web stream for the camera
+[**delete_visions_tags**](VisionsApi.md#delete_visions_tags) | **DELETE** /visions/tags | Delete a sample&#39;s tag based the tag name
+[**get_photo_samples**](VisionsApi.md#get_photo_samples) | **GET** /visions/photosamples | Get all the uploaded photo samples
+[**get_vision**](VisionsApi.md#get_vision) | **GET** /visions | Get compute vision result
+[**get_visions_photos**](VisionsApi.md#get_visions_photos) | **GET** /visions/photos | Get a specific photo based the name
+[**get_visions_photos_lists**](VisionsApi.md#get_visions_photos_lists) | **GET** /visions/photos/list | Get the photo&#39;s list
+[**get_visions_tags**](VisionsApi.md#get_visions_tags) | **GET** /visions/tags | Get all the tag list
+[**post_vision_photo**](VisionsApi.md#post_vision_photo) | **POST** /visions/photos | Take a photo
+[**post_visions_photo_samples**](VisionsApi.md#post_visions_photo_samples) | **POST** /visions/photosamples | Upload photo sample
+[**post_visions_streams**](VisionsApi.md#post_visions_streams) | **POST** /visions/streams | Turn on the web stream for the camera
+[**put_visions**](VisionsApi.md#put_visions) | **PUT** /visions | Start or stop a compute vision task
+[**put_visions_tags**](VisionsApi.md#put_visions_tags) | **PUT** /visions/tags | Set the sample&#39;s tag
 
 
 # **delete_vision_photo**
 > CommonResponse delete_vision_photo(body)
 
-删除指定照片
+Delete a photo based the name
 
 
 
@@ -40,7 +40,7 @@ api_instance = openadk.VisionsApi()
 body = openadk.Name() # Name | 
 
 try:
-    # 删除指定照片
+    # Delete a photo based the name
     api_response = api_instance.delete_vision_photo(body)
     pprint(api_response)
 except ApiException as e:
@@ -71,7 +71,7 @@ No authorization required
 # **delete_vision_photo_samples**
 > CommonResponse delete_vision_photo_samples(body=body)
 
-删除上传的样本
+Delete the uploaded sample
 
 
 
@@ -85,10 +85,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.Name() # Name | 样本名称 (optional)
+body = openadk.Name() # Name | Sample name (optional)
 
 try:
-    # 删除上传的样本
+    # Delete the uploaded sample
     api_response = api_instance.delete_vision_photo_samples(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -99,7 +99,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Name**](Name.md)| 样本名称 | [optional] 
+ **body** | [**Name**](Name.md)| Sample name | [optional] 
 
 ### Return type
 
@@ -119,7 +119,7 @@ No authorization required
 # **delete_visions_streams**
 > CommonResponse delete_visions_streams()
 
-关闭摄像头的视频流
+Turn off the web stream for the camera
 
 
 
@@ -135,7 +135,7 @@ from pprint import pprint
 api_instance = openadk.VisionsApi()
 
 try:
-    # 关闭摄像头的视频流
+    # Turn off the web stream for the camera
     api_response = api_instance.delete_visions_streams()
     pprint(api_response)
 except ApiException as e:
@@ -163,7 +163,7 @@ No authorization required
 # **delete_visions_tags**
 > CommonResponse delete_visions_tags(body=body)
 
-删除指定样本标签
+Delete a sample's tag based the tag name
 
 
 
@@ -177,10 +177,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsDeleteTags() # VisionsDeleteTags | 样本名称 (optional)
+body = openadk.VisionsDeleteTags() # VisionsDeleteTags | Sample's name (optional)
 
 try:
-    # 删除指定样本标签
+    # Delete a sample's tag based the tag name
     api_response = api_instance.delete_visions_tags(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -191,7 +191,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VisionsDeleteTags**](VisionsDeleteTags.md)| 样本名称 | [optional] 
+ **body** | [**VisionsDeleteTags**](VisionsDeleteTags.md)| Sample&#39;s name | [optional] 
 
 ### Return type
 
@@ -211,7 +211,7 @@ No authorization required
 # **get_photo_samples**
 > VisionsPhotoListResponse get_photo_samples()
 
-获取上传样本列表
+Get all the uploaded photo samples
 
 
 
@@ -227,7 +227,7 @@ from pprint import pprint
 api_instance = openadk.VisionsApi()
 
 try:
-    # 获取上传样本列表
+    # Get all the uploaded photo samples
     api_response = api_instance.get_photo_samples()
     pprint(api_response)
 except ApiException as e:
@@ -255,9 +255,9 @@ No authorization required
 # **get_vision**
 > VisionsGetResponse get_vision(option=option, type=type)
 
-获取任务結果
+Get compute vision result
 
-
+ Combination constraint  face - age - gender - age_group - quantity - expression - recognition  object - recognition  color - color_detect 
 
 ### Example
 ```python
@@ -269,11 +269,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-option = 'option_example' # str | 模型名 (optional)
-type = 'type_example' # str | 任务名称 (optional)
+option = 'option_example' # str | Module name (optional)
+type = 'type_example' # str | Compute vision task name (optional)
 
 try:
-    # 获取任务結果
+    # Get compute vision result
     api_response = api_instance.get_vision(option=option, type=type)
     pprint(api_response)
 except ApiException as e:
@@ -284,8 +284,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **option** | **str**| 模型名 | [optional] 
- **type** | **str**| 任务名称 | [optional] 
+ **option** | **str**| Module name | [optional] 
+ **type** | **str**| Compute vision task name | [optional] 
 
 ### Return type
 
@@ -305,7 +305,7 @@ No authorization required
 # **get_visions_photos**
 > get_visions_photos(body)
 
-获取指定照片
+Get a specific photo based the name
 
 
 
@@ -319,10 +319,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = 'body_example' # str | 照片名
+body = 'body_example' # str | Photo name
 
 try:
-    # 获取指定照片
+    # Get a specific photo based the name
     api_instance.get_visions_photos(body)
 except ApiException as e:
     print("Exception when calling VisionsApi->get_visions_photos: %s\n" % e)
@@ -332,7 +332,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**| 照片名 | 
+ **body** | **str**| Photo name | 
 
 ### Return type
 
@@ -352,7 +352,7 @@ No authorization required
 # **get_visions_photos_lists**
 > VisionsPhotoListResponse get_visions_photos_lists()
 
-获取拍照列表
+Get the photo's list
 
 
 
@@ -368,7 +368,7 @@ from pprint import pprint
 api_instance = openadk.VisionsApi()
 
 try:
-    # 获取拍照列表
+    # Get the photo's list
     api_response = api_instance.get_visions_photos_lists()
     pprint(api_response)
 except ApiException as e:
@@ -396,7 +396,7 @@ No authorization required
 # **get_visions_tags**
 > VisionsTagsResponse get_visions_tags()
 
-获取已设置标签列表
+Get all the tag list
 
 
 
@@ -412,7 +412,7 @@ from pprint import pprint
 api_instance = openadk.VisionsApi()
 
 try:
-    # 获取已设置标签列表
+    # Get all the tag list
     api_response = api_instance.get_visions_tags()
     pprint(api_response)
 except ApiException as e:
@@ -440,7 +440,7 @@ No authorization required
 # **post_vision_photo**
 > VisionsPhotoResponse post_vision_photo(body=body)
 
-拍一张照片
+Take a photo
 
 
 
@@ -454,10 +454,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsPhoto() # VisionsPhoto | 照片分辨率 (optional)
+body = openadk.VisionsPhoto() # VisionsPhoto | Photo resolution (optional)
 
 try:
-    # 拍一张照片
+    # Take a photo
     api_response = api_instance.post_vision_photo(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -468,7 +468,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VisionsPhoto**](VisionsPhoto.md)| 照片分辨率 | [optional] 
+ **body** | [**VisionsPhoto**](VisionsPhoto.md)| Photo resolution | [optional] 
 
 ### Return type
 
@@ -488,9 +488,9 @@ No authorization required
 # **post_visions_photo_samples**
 > CommonResponse post_visions_photo_samples(file)
 
-上传样本
+Upload photo sample
 
-请先上传样本数据再设置样本标签, 只支持样本格式为jpg与png
+ Please upload the sample before set the sample tag. Supported format: - jpg - png 
 
 ### Example
 ```python
@@ -502,10 +502,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-file = '/path/to/file.txt' # file | 上传文件
+file = '/path/to/file.txt' # file | The file to be uploaded
 
 try:
-    # 上传样本
+    # Upload photo sample
     api_response = api_instance.post_visions_photo_samples(file)
     pprint(api_response)
 except ApiException as e:
@@ -516,7 +516,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **file**| 上传文件 | 
+ **file** | **file**| The file to be uploaded | 
 
 ### Return type
 
@@ -536,9 +536,9 @@ No authorization required
 # **post_visions_streams**
 > CommonResponse post_visions_streams(body=body)
 
-打开摄像头的视频流
+Turn on the web stream for the camera
 
-打开摄像头视频流．用户可以通信浏览器直接接收视频．视频将以mjpg格式通过http的形式发布．url: http://机器人ip地址:8000 当视频流已经打开时，不会响应新的分辨率请求．返回｛'code':20001, 'data':{}, 'msg':''Resource is not availble.｝
+ Turn on the web stream for the camera. The user can get the web stream via web browser. For example: http://192.168.1.100:8000 Please note, when the steam is turned on, new resolution cannot be applied. The API will return {'code':20001, 'data':{}, 'msg':''Resource is not availble.｝ 
 
 ### Example
 ```python
@@ -553,7 +553,7 @@ api_instance = openadk.VisionsApi()
 body = openadk.VisionsStream() # VisionsStream |  (optional)
 
 try:
-    # 打开摄像头的视频流
+    # Turn on the web stream for the camera
     api_response = api_instance.post_visions_streams(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -584,9 +584,9 @@ No authorization required
 # **put_visions**
 > VisionsPutResponse put_visions(body)
 
-指定视觉任务停止或开始
+Start or stop a compute vision task
 
-某一类视觉任务，机器人只能成功发起一次。 如果当前有正在执行的某一类任务，必须先停止当前的某一类任务, 再发起新的某一类任务。 例如，当前正在执行人脸数量分析， 下一次人脸数量分析必须要等待当前人脸数量分析任务停止或者手动停止。 但是，再发起年龄段分析任务则不受影响。
+ Please note that the system is designed to run a specific compute vision task one by one. If a task is already started, please stop it before start a new vision task. If the vision tasks are using different module, the vision task can be supported running at the same time. 
 
 ### Example
 ```python
@@ -601,7 +601,7 @@ api_instance = openadk.VisionsApi()
 body = openadk.VisionsTask() # VisionsTask | 
 
 try:
-    # 指定视觉任务停止或开始
+    # Start or stop a compute vision task
     api_response = api_instance.put_visions(body)
     pprint(api_response)
 except ApiException as e:
@@ -632,9 +632,9 @@ No authorization required
 # **put_visions_tags**
 > CommonResponse put_visions_tags(body=body)
 
-设置样本标签
+Set the sample's tag
 
-请先上传样本数据再设置样本标签
+ Please upload the sample before set the sample tag. 
 
 ### Example
 ```python
@@ -646,10 +646,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.VisionsApi()
-body = openadk.VisionsPutTags() # VisionsPutTags | 样本名 (optional)
+body = openadk.VisionsPutTags() # VisionsPutTags | Sample's tag name (optional)
 
 try:
-    # 设置样本标签
+    # Set the sample's tag
     api_response = api_instance.put_visions_tags(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -660,7 +660,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**VisionsPutTags**](VisionsPutTags.md)| 样本名 | [optional] 
+ **body** | [**VisionsPutTags**](VisionsPutTags.md)| Sample&#39;s tag name | [optional] 
 
 ### Return type
 

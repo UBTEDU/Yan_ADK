@@ -4,22 +4,22 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_sensors_environment**](SensorsApi.md#get_sensors_environment) | **GET** /sensors/environment | 获取环境传感器值
-[**get_sensors_gyro**](SensorsApi.md#get_sensors_gyro) | **GET** /sensors/gyro | 获取运动传感器值
-[**get_sensors_infrared**](SensorsApi.md#get_sensors_infrared) | **GET** /sensors/infrared | 获取红外传感器值
-[**get_sensors_list**](SensorsApi.md#get_sensors_list) | **GET** /sensors/list | 获取所有传感器的列表。
-[**get_sensors_pressure**](SensorsApi.md#get_sensors_pressure) | **GET** /sensors/pressure | 获取压力传感器值
-[**get_sensors_touch**](SensorsApi.md#get_sensors_touch) | **GET** /sensors/touch | 获取触摸传感器值
-[**get_sensors_ultrasonic**](SensorsApi.md#get_sensors_ultrasonic) | **GET** /sensors/ultrasonic | 获取超声传感器值
-[**put_sensors**](SensorsApi.md#put_sensors) | **PUT** /sensors | 传感器设置（校准或修改地址）
+[**get_sensors_environment**](SensorsApi.md#get_sensors_environment) | **GET** /sensors/environment | Get enviornment sensor&#39;s value
+[**get_sensors_gyro**](SensorsApi.md#get_sensors_gyro) | **GET** /sensors/gyro | Get gyroscope sensor&#39;s value
+[**get_sensors_infrared**](SensorsApi.md#get_sensors_infrared) | **GET** /sensors/infrared | Get infrared sensor&#39;s value
+[**get_sensors_list**](SensorsApi.md#get_sensors_list) | **GET** /sensors/list | Get all sensors&#39; list
+[**get_sensors_pressure**](SensorsApi.md#get_sensors_pressure) | **GET** /sensors/pressure | Get pressure sensor&#39;s value
+[**get_sensors_touch**](SensorsApi.md#get_sensors_touch) | **GET** /sensors/touch | Get touch sensor&#39;s value
+[**get_sensors_ultrasonic**](SensorsApi.md#get_sensors_ultrasonic) | **GET** /sensors/ultrasonic | Get ultrasonic sensor&#39;s value
+[**put_sensors**](SensorsApi.md#put_sensors) | **PUT** /sensors | Calibrate sensor or change sensor&#39;s I2C address
 
 
 # **get_sensors_environment**
 > SensorsEnvironmentValueResponse get_sensors_environment(slot=slot)
 
-获取环境传感器值
+Get enviornment sensor's value
 
-使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。
+ Before calling this API, please make sure the sensor is detected. If the sensor is not detected, please call GET /sensors/list. 
 
 ### Example
 ```python
@@ -31,10 +31,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
-slot = [56] # list[int] | 传感器槽号，可不填 (optional)
+slot = [56] # list[int] | Sensors' slot number (optional) (optional)
 
 try:
-    # 获取环境传感器值
+    # Get enviornment sensor's value
     api_response = api_instance.get_sensors_environment(slot=slot)
     pprint(api_response)
 except ApiException as e:
@@ -45,7 +45,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
+ **slot** | [**list[int]**](int.md)| Sensors&#39; slot number (optional) | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ No authorization required
 # **get_sensors_gyro**
 > SensorsGyroValueResponse get_sensors_gyro()
 
-获取运动传感器值
+Get gyroscope sensor's value
 
 
 
@@ -81,7 +81,7 @@ from pprint import pprint
 api_instance = openadk.SensorsApi()
 
 try:
-    # 获取运动传感器值
+    # Get gyroscope sensor's value
     api_response = api_instance.get_sensors_gyro()
     pprint(api_response)
 except ApiException as e:
@@ -109,9 +109,9 @@ No authorization required
 # **get_sensors_infrared**
 > SensorsInfraredValueResponse get_sensors_infrared(id=id, slot=slot)
 
-获取红外传感器值
+Get infrared sensor's value
 
-使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。
+ Before calling this API, please make sure the sensor is detected. If the sensor is not detected, please call GET /sensors/list. 
 
 ### Example
 ```python
@@ -123,11 +123,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
-id = [56] # list[int] | 传感器地址，可不填 (optional)
-slot = [56] # list[int] | 传感器槽号，可不填 (optional)
+id = [56] # list[int] | Sensors' I2C address (optional) (optional)
+slot = [56] # list[int] | Sensors' slot number (optional) (optional)
 
 try:
-    # 获取红外传感器值
+    # Get infrared sensor's value
     api_response = api_instance.get_sensors_infrared(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
@@ -138,8 +138,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
- **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
+ **id** | [**list[int]**](int.md)| Sensors&#39; I2C address (optional) | [optional] 
+ **slot** | [**list[int]**](int.md)| Sensors&#39; slot number (optional) | [optional] 
 
 ### Return type
 
@@ -159,9 +159,9 @@ No authorization required
 # **get_sensors_list**
 > SensorsListResponse get_sensors_list()
 
-获取所有传感器的列表。
+Get all sensors' list
 
-当外接传感器发生变化时，需要首先调用此接口。备注：在V1.0版本上，此接口还具有刷新传感器列表的功能。
+ The usage scenario of this API is as follows: - A new sensor is installed - Sensor is not detected - Get all the sensor list 
 
 ### Example
 ```python
@@ -175,7 +175,7 @@ from pprint import pprint
 api_instance = openadk.SensorsApi()
 
 try:
-    # 获取所有传感器的列表。
+    # Get all sensors' list
     api_response = api_instance.get_sensors_list()
     pprint(api_response)
 except ApiException as e:
@@ -203,9 +203,9 @@ No authorization required
 # **get_sensors_pressure**
 > SensorsPressureValueResponse get_sensors_pressure(id=id, slot=slot)
 
-获取压力传感器值
+Get pressure sensor's value
 
-使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。
+ Before calling this API, please make sure the sensor is detected. If the sensor is not detected, please call GET /sensors/list. 
 
 ### Example
 ```python
@@ -217,11 +217,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
-id = [56] # list[int] | 传感器地址，可不填 (optional)
-slot = [56] # list[int] | 传感器槽号，可不填 (optional)
+id = [56] # list[int] | Sensors' I2C address (optional) (optional)
+slot = [56] # list[int] | Sensors' slot number (optional) (optional)
 
 try:
-    # 获取压力传感器值
+    # Get pressure sensor's value
     api_response = api_instance.get_sensors_pressure(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
@@ -232,8 +232,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
- **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
+ **id** | [**list[int]**](int.md)| Sensors&#39; I2C address (optional) | [optional] 
+ **slot** | [**list[int]**](int.md)| Sensors&#39; slot number (optional) | [optional] 
 
 ### Return type
 
@@ -253,9 +253,9 @@ No authorization required
 # **get_sensors_touch**
 > SensorsTouchValueResponse get_sensors_touch(id=id, slot=slot)
 
-获取触摸传感器值
+Get touch sensor's value
 
-使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。
+ Before calling this API, please make sure the sensor is detected. If the sensor is not detected, please call GET /sensors/list. 
 
 ### Example
 ```python
@@ -267,11 +267,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
-id = [56] # list[int] | 传感器地址，可不填 (optional)
-slot = [56] # list[int] | 传感器槽号，可不填 (optional)
+id = [56] # list[int] | Sensors' I2C address (optional) (optional)
+slot = [56] # list[int] | Sensors' slot number (optional) (optional)
 
 try:
-    # 获取触摸传感器值
+    # Get touch sensor's value
     api_response = api_instance.get_sensors_touch(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
@@ -282,8 +282,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
- **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
+ **id** | [**list[int]**](int.md)| Sensors&#39; I2C address (optional) | [optional] 
+ **slot** | [**list[int]**](int.md)| Sensors&#39; slot number (optional) | [optional] 
 
 ### Return type
 
@@ -303,9 +303,9 @@ No authorization required
 # **get_sensors_ultrasonic**
 > SensorsUltrasonicValueResponse get_sensors_ultrasonic(id=id, slot=slot)
 
-获取超声传感器值
+Get ultrasonic sensor's value
 
-使用此接口前，请先调用sensors/list接口来查看相应的传感器是否被检测到。
+ Before calling this API, please make sure the sensor is detected. If the sensor is not detected, please call GET /sensors/list. 
 
 ### Example
 ```python
@@ -317,11 +317,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.SensorsApi()
-id = [56] # list[int] | 传感器地址，可不填 (optional)
-slot = [56] # list[int] | 传感器槽号，可不填 (optional)
+id = [56] # list[int] | Sensors' I2C address (optional) (optional)
+slot = [56] # list[int] | Sensors' slot number (optional) (optional)
 
 try:
-    # 获取超声传感器值
+    # Get ultrasonic sensor's value
     api_response = api_instance.get_sensors_ultrasonic(id=id, slot=slot)
     pprint(api_response)
 except ApiException as e:
@@ -332,8 +332,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**list[int]**](int.md)| 传感器地址，可不填 | [optional] 
- **slot** | [**list[int]**](int.md)| 传感器槽号，可不填 | [optional] 
+ **id** | [**list[int]**](int.md)| Sensors&#39; I2C address (optional) | [optional] 
+ **slot** | [**list[int]**](int.md)| Sensors&#39; slot number (optional) | [optional] 
 
 ### Return type
 
@@ -353,9 +353,9 @@ No authorization required
 # **put_sensors**
 > CommonResponse put_sensors(body)
 
-传感器设置（校准或修改地址）
+Calibrate sensor or change sensor's I2C address
 
-目前只支持运动传感器（gyro）校准，以及修改部分传感器的地址
+ The calibration only support gyroscope sensor. If your device has slot number, the sensor I2C address cannot be changed. 
 
 ### Example
 ```python
@@ -370,7 +370,7 @@ api_instance = openadk.SensorsApi()
 body = openadk.SensorsOperationRequest() # SensorsOperationRequest | 
 
 try:
-    # 传感器设置（校准或修改地址）
+    # Calibrate sensor or change sensor's I2C address
     api_response = api_instance.put_sensors(body)
     pprint(api_response)
 except ApiException as e:

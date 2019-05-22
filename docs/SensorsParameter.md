@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [default to 'gyro']
+**type** | **str** |  All sensors&#39; type: - gyro    gyroscope sensor - infrared    infrared sensor - ultrasonic    ultrasonic sensor - touch   touch sensor - pressure  pressure sensor  | [default to 'gyro']
 **id** | **int** |  | 
-**value** | **int** | （1）当operation为calibrate时，省略该字段；（2）当operation为modify（即修改传感器地址，注意：当列表中slot值存在时此功能不可用）时，value的取值说明：超声传感器为17~22；红外传感器为23~28；触摸传感器为29~34；压力传感器为35~40，其它传感器地址不允许修改! | [optional] 
+**value** | **int** |  When \&quot;operation\&quot; is \&quot;calibrate\&quot;, ignore this field. When \&quot;operation\&quot; is \&quot;modify\&quot;, it means setting the sensor&#39;s I2C address. Please note, when the slot value is exist, \&quot;modify\&quot; is not available.  All the sensor I2C address range as below: - Ultrasonic sensor   17~22; - Infrared sensor     23~28; - Touch sensor        29~34; - Pressure Sensor     35~40;  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

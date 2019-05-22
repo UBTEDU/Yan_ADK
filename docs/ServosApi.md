@@ -4,18 +4,18 @@ All URIs are relative to *http://127.0.0.1:9090/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_servos_angles**](ServosApi.md#get_servos_angles) | **GET** /servos/angles | 查询舵机角度值
-[**get_servos_mode**](ServosApi.md#get_servos_mode) | **GET** /servos/mode | 查询舵机工作模式
-[**put_servos_angles**](ServosApi.md#put_servos_angles) | **PUT** /servos/angles | 设置舵机角度值
-[**put_servos_mode**](ServosApi.md#put_servos_mode) | **PUT** /servos/mode | 设置舵机工作模式
+[**get_servos_angles**](ServosApi.md#get_servos_angles) | **GET** /servos/angles | Get servos&#39; angle
+[**get_servos_mode**](ServosApi.md#get_servos_mode) | **GET** /servos/mode | Get servos working mode
+[**put_servos_angles**](ServosApi.md#put_servos_angles) | **PUT** /servos/angles | Set servos&#39; angle
+[**put_servos_mode**](ServosApi.md#put_servos_mode) | **PUT** /servos/mode | Set the servos working mode
 
 
 # **get_servos_angles**
 > ServosAnglesResponse get_servos_angles(names)
 
-查询舵机角度值
+Get servos' angle
 
-一次可以查询一个或者多个舵机角度值
+ Please note, one API calling can get multiple servos' angle value. 
 
 ### Example
 ```python
@@ -27,10 +27,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.ServosApi()
-names = ['names_example'] # list[str] | 机器人舵机名称
+names = ['names_example'] # list[str] | Servos' name
 
 try:
-    # 查询舵机角度值
+    # Get servos' angle
     api_response = api_instance.get_servos_angles(names)
     pprint(api_response)
 except ApiException as e:
@@ -41,7 +41,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **names** | [**list[str]**](str.md)| 机器人舵机名称 | 
+ **names** | [**list[str]**](str.md)| Servos&#39; name | 
 
 ### Return type
 
@@ -61,9 +61,9 @@ No authorization required
 # **get_servos_mode**
 > ServosModeResponse get_servos_mode(names)
 
-查询舵机工作模式
+Get servos working mode
 
-一次可以查询一个或者多个舵机的模式
+ Please note, one API calling can get multiple servos' working mode. 
 
 ### Example
 ```python
@@ -75,10 +75,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.ServosApi()
-names = ['names_example'] # list[str] | 舵机名称列表
+names = ['names_example'] # list[str] | All servo's name.
 
 try:
-    # 查询舵机工作模式
+    # Get servos working mode
     api_response = api_instance.get_servos_mode(names)
     pprint(api_response)
 except ApiException as e:
@@ -89,7 +89,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **names** | [**list[str]**](str.md)| 舵机名称列表 | 
+ **names** | [**list[str]**](str.md)| All servo&#39;s name. | 
 
 ### Return type
 
@@ -109,9 +109,9 @@ No authorization required
 # **put_servos_angles**
 > ServosResultResponse put_servos_angles(body)
 
-设置舵机角度值
+Set servos' angle
 
-一次可以设置一个或者多个舵机角度值
+ Please note, one API calling can set multiple servos' angle value. 
 
 ### Example
 ```python
@@ -123,10 +123,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.ServosApi()
-body = openadk.ServosAnglesRequest() # ServosAnglesRequest | 舵机角度信息
+body = openadk.ServosAnglesRequest() # ServosAnglesRequest | Servo' angle
 
 try:
-    # 设置舵机角度值
+    # Set servos' angle
     api_response = api_instance.put_servos_angles(body)
     pprint(api_response)
 except ApiException as e:
@@ -137,7 +137,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ServosAnglesRequest**](ServosAnglesRequest.md)| 舵机角度信息 | 
+ **body** | [**ServosAnglesRequest**](ServosAnglesRequest.md)| Servo&#39; angle | 
 
 ### Return type
 
@@ -157,9 +157,9 @@ No authorization required
 # **put_servos_mode**
 > ServosResultResponse put_servos_mode(body)
 
-设置舵机工作模式
+Set the servos working mode
 
-一次可以设置单个或者舵机的模式
+ Please note, one API calling can set multiple servos' working mode. 
 
 ### Example
 ```python
@@ -171,10 +171,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = openadk.ServosApi()
-body = openadk.ServosModeRequest() # ServosModeRequest | 舵机模式信息
+body = openadk.ServosModeRequest() # ServosModeRequest | Servos' working mode
 
 try:
-    # 设置舵机工作模式
+    # Set the servos working mode
     api_response = api_instance.put_servos_mode(body)
     pprint(api_response)
 except ApiException as e:
@@ -185,7 +185,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ServosModeRequest**](ServosModeRequest.md)| 舵机模式信息 | 
+ **body** | [**ServosModeRequest**](ServosModeRequest.md)| Servos&#39; working mode | 
 
 ### Return type
 

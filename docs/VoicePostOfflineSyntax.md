@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**grammar** | **str** | 定义语法名称, 请输入纯字母 | 
-**slot** | [**list[VoiceOfflineSlot]**](VoiceOfflineSlot.md) | 声明槽, 内容为字母不数字。所有的操作符及关键词均为半角字符，而丌支持全角字符。 | 
-**start** | **str** | 定义开始规则, 内容为字母不数字。所有的操作符及关键词均为半角字符，而丌支持全角字符。 | 
-**startinfo** | **str** | 定义开始规则详细内容 | 
-**rule** | [**list[VoiceOfflineSyntaxRule]**](VoiceOfflineSyntaxRule.md) | 所有的离线语法规则 | 
+**grammar** | **str** |  Define offline grammar. Only support alphabets.  | 
+**slot** | [**list[VoiceOfflineSlot]**](VoiceOfflineSlot.md) |  Declare the slot, the content can support alphabets and numbers. All operators and keywords are half-width characters. The full-width characters cannot supported.  | 
+**start** | **str** |  Declare the slot, the content can support alphabets and numbers. All operators and keywords are half-width characters. The full-width characters cannot supported.  | 
+**startinfo** | **str** |  Define start rule details.  | 
+**rule** | [**list[VoiceOfflineSyntaxRule]**](VoiceOfflineSyntaxRule.md) |  Define all offline rules&#39; name and value. The rule&#39;s value should not be NULL.  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
