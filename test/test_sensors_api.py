@@ -39,7 +39,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get enviornment sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_environment()   # 返回SensorsEnvironmentValueResponse对象
+        ret = self.api_instance.get_sensors_environment()   # return  SensorsEnvironmentValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.environment), 0, ret)
 
@@ -48,7 +48,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get gyroscope sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_gyro()  # 返回SensorsGyroValueResponse对象
+        ret = self.api_instance.get_sensors_gyro()  # return  SensorsGyroValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.gyro), 1, ret)
 
@@ -57,7 +57,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get infrared sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_infrared()  # 返回SensorsInfraredValueResponse对象
+        ret = self.api_instance.get_sensors_infrared()  # return  SensorsInfraredValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.infrared), 0, ret)
 
@@ -66,7 +66,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get all sensors' list  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_list()  # 返回SensorsListResponse对象
+        ret = self.api_instance.get_sensors_list()  # return  SensorsListResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.sensors), 1, ret)
 
@@ -75,7 +75,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get pressure sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_pressure()  # 返回SensorsPressureValueResponse对象
+        ret = self.api_instance.get_sensors_pressure()  # return  SensorsPressureValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.pressure), 0, ret)
 
@@ -84,7 +84,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get touch sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_touch()  # 返回SensorsTouchValueResponse对象
+        ret = self.api_instance.get_sensors_touch()  # return  SensorsTouchValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.touch), 0, ret)
 
@@ -93,7 +93,7 @@ class TestSensorsApi(unittest.TestCase):
 
         Get ultrasonic sensor's value  # noqa: E501
         """
-        ret = self.api_instance.get_sensors_ultrasonic()    # 返回SensorsUltrasonicValueResponse对象
+        ret = self.api_instance.get_sensors_ultrasonic()    # return  SensorsUltrasonicValueResponse instance  
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data.ultrasonic), 0, ret)
 

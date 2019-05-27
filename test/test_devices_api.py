@@ -43,7 +43,7 @@ class TestDevicesApi(unittest.TestCase):
 
         Get the battery information  # noqa: E501
         """
-        ret = self.api_instance.get_devices_battery()   # 返回DevicesBatteryResponse对象
+        ret = self.api_instance.get_devices_battery()   # return DevicesBatteryResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertIn(ret.data.charging, [0, 1], ret)
         self.assertIn(ret.data.percent, range(1, 101), ret)
@@ -53,7 +53,7 @@ class TestDevicesApi(unittest.TestCase):
 
         Get fall management configuration  # noqa: E501
         """
-        ret = self.api_instance.get_devices_fall_management()   # 返回DevicesFallManagementResponse对象
+        ret = self.api_instance.get_devices_fall_management()   # return DevicesFallManagementResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertIn(ret.data.enable, [True, False], ret)
 
@@ -62,7 +62,7 @@ class TestDevicesApi(unittest.TestCase):
 
         Get language settings  # noqa: E501
         """
-        ret = self.api_instance.get_devices_languages()  # 返回DevicesLanguageResponse对象
+        ret = self.api_instance.get_devices_languages()  # return DevicesLanguageResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertIn(ret.data.language, ['en', 'zh'], ret)
 
@@ -71,7 +71,7 @@ class TestDevicesApi(unittest.TestCase):
 
         Get the light effects  # noqa: E501
         """
-        ret = self.api_instance.get_devices_led()   # 返回DevicesLEDResponse对象
+        ret = self.api_instance.get_devices_led()   # return DevicesLEDResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data), 2, ret)
         self.assertIn(ret.data[0].type, ['button', 'camera'], ret)
@@ -83,7 +83,7 @@ class TestDevicesApi(unittest.TestCase):
         Get the system versions  # noqa: E501
         """
         type = DevicesVersions(core='core', servo='servo')
-        ret = self.api_instance.get_devices_versions(type)  # 返回DevicesVersionsResponse对象
+        ret = self.api_instance.get_devices_versions(type)  # return DevicesVersionsResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertNotEqual(ret.data.core, '', ret)
         self.assertNotEqual(ret.data.servo, '', ret)
@@ -93,7 +93,7 @@ class TestDevicesApi(unittest.TestCase):
 
         Get the volume  # noqa: E501
         """
-        ret = self.api_instance.get_devices_volume()    # 返回DevicesVolumeResponse对象
+        ret = self.api_instance.get_devices_volume()    # return DevicesVolumeResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertIn(ret.data.volume, range(0, 101), ret)
 
@@ -107,7 +107,7 @@ class TestDevicesApi(unittest.TestCase):
         ret = self.api_instance.put_devices_fall_management(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        ret = self.api_instance.get_devices_fall_management()  # 返回DevicesFallManagementResponse对象
+        ret = self.api_instance.get_devices_fall_management()  # return DevicesFallManagementResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.enable, enable, ret)
 
@@ -121,7 +121,7 @@ class TestDevicesApi(unittest.TestCase):
         ret = self.api_instance.put_devices_languages(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        ret = self.api_instance.get_devices_languages()  # 返回DevicesLanguageResponse对象
+        ret = self.api_instance.get_devices_languages()  # return DevicesLanguageResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.language, language, ret)
 
@@ -137,7 +137,7 @@ class TestDevicesApi(unittest.TestCase):
         ret = self.api_instance.put_devices_led(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        ret = self.api_instance.get_devices_led()  # 返回DevicesLEDResponse对象
+        ret = self.api_instance.get_devices_led()  # return DevicesLEDResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(len(ret.data), 2, ret)
         for data in ret.data:
@@ -155,7 +155,7 @@ class TestDevicesApi(unittest.TestCase):
         ret = self.api_instance.put_devices_volume(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        ret = self.api_instance.get_devices_volume()  # 返回DevicesVolumeResponse对象
+        ret = self.api_instance.get_devices_volume()  # return DevicesVolumeResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.volume, volume, ret)
 

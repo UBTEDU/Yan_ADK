@@ -61,7 +61,7 @@ class TestServosApi(unittest.TestCase):
                  "RightKneeFlex",
                  "RightShoulderFlex",
                  "RightShoulderRoll"]
-        ret = self.api_instance.get_servos_angles(names=names)  # 返回ServosAnglesResponse对象
+        ret = self.api_instance.get_servos_angles(names=names)  # return ServosAnglesResponse instance
         self.assertEqual(ret.code, 0, ret)
         for k, v in ret.data.to_dict().items():
             if k != 'NeckLR':
@@ -92,7 +92,7 @@ class TestServosApi(unittest.TestCase):
                  "RightKneeFlex",
                  "RightShoulderFlex",
                  "RightShoulderRoll"]
-        ret = self.api_instance.get_servos_mode(names=names)    # 返回ServosModeResponse对象
+        ret = self.api_instance.get_servos_mode(names=names)    # return ServosModeResponse instance
         self.assertEqual(ret.code, 0, ret)
         for value in ret.data.to_dict().values():
             self.assertIn(value, modes, ret)
@@ -119,13 +119,13 @@ class TestServosApi(unittest.TestCase):
                  "RightKneeFlex",
                  "RightShoulderFlex",
                  "RightShoulderRoll"]
-        ret = self.api_instance.get_servos_angles(names=names)  # 返回ServosAnglesResponse对象
+        ret = self.api_instance.get_servos_angles(names=names)  # return ServosAnglesResponse instance
         self.assertEqual(ret.code, 0, ret)
         angles = ServosAngles()
         for k, v in ret.data.to_dict().items():
             angles.__setattr__(k, v)
             body = ServosAnglesRequest(runtime=1000, angles=angles)
-            ret = self.api_instance.put_servos_angles(body=body)  # 返回ServosResultResponse对象
+            ret = self.api_instance.put_servos_angles(body=body)  # return ServosResultResponse instance
             self.assertEqual(ret.code, 0, ret)
             self.assertEqual(ret.data.to_dict()[k], True, ret)
 
@@ -159,7 +159,7 @@ class TestServosApi(unittest.TestCase):
         modes = ['program', 'work']
         for mode in modes:
             body = ServosModeRequest(mode=mode, servos=servos)
-            ret = self.api_instance.put_servos_mode(body=body)  # 返回ServosResultResponse对象
+            ret = self.api_instance.put_servos_mode(body=body)  # return ServosResultResponse instance
             self.assertEqual(ret.code, 0, ret)
             for k, v in ret.data.to_dict().items():
                 self.assertEqual(v, True, ret)

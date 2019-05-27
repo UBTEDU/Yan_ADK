@@ -221,7 +221,6 @@ class TestSubscriptionsController(BaseTestCase):
                       "timestamp": int(time.time()),
                       "msg": "Success"
                     }
-        # 此处疑似生成的tts推送消息数据结构用错了，应该是SubscriptionVoiceResponse
         body = SubscriptionVoiceResponse.from_dict(tts_data)
 
         response = self.client.open(

@@ -143,6 +143,7 @@ def put_tts_subscriptions_voice_tts(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    # response with request body
     response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501
@@ -160,7 +161,7 @@ def put_vision_subscription_visions(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
-    # 将接收到的推送消息原样返回
+    # response with request body
     response = SubscriptionVisionsGetResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVisionsGetResponse.from_dict(connexion.request.get_json())  # noqa: E501
@@ -178,7 +179,7 @@ def put_voice_asr_subscriptions_voice_asr(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
-    # 将接收到的推送消息原样返回
+    # response with request body
     response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501
@@ -196,7 +197,7 @@ def put_voice_iat_subscription_voice_iat(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
-    # 将接收到的推送消息原样返回
+    # response with request body
     response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501

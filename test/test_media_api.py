@@ -39,13 +39,13 @@ class TestMediaApi(unittest.TestCase):
 
         Delete uploaded music  # noqa: E501
         """
-        # 删除不存在的音乐文件
+        # delete nonexistent music
         name = 'unknown_music'
         body = Name(name=name)
         ret = self.api_instance.delete_media_music(body=body)
         self.assertEqual(ret.code, 120, ret)
 
-        # 删除存在的音乐文件
+        # delete existent music
         name = 'little_frog.mp3'
         file = 'files/' + name
         ret = self.api_instance.post_media_music(file)
@@ -59,25 +59,25 @@ class TestMediaApi(unittest.TestCase):
 
         Get the music playing status  # noqa: E501
         """
-        # 播放音乐时获取播放状态
+        # get status while playing
         data = {'operation': 'start', 'name': 'Little_Apple.mp3'}
         body = MediaMusicOperation(operation=data['operation'], name=data['name'])
         ret = self.api_instance.put_media_music(body)
         self.assertEqual(ret.code, 0, ret)
         self.assertNotEqual(ret.data, None, ret)
 
-        ret = self.api_instance.get_media_music()  # 返回MediaMusicStatusResponse对象
+        ret = self.api_instance.get_media_music()  # return MediaMusicStatusResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name, data['name'], ret)
         self.assertEqual(ret.data.status, 'run', ret)
 
-        # 停止播放音乐时获取播放状态
+        # get status after stop
         data['operation'] = 'stop'
         body = MediaMusicOperation(operation=data['operation'], name=data['name'])
         ret = self.api_instance.put_media_music(body)
         self.assertEqual(ret.code, 0, ret)
 
-        ret = self.api_instance.get_media_music()   # 返回MediaMusicStatusResponse对象
+        ret = self.api_instance.get_media_music()   # return MediaMusicStatusResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name, '', ret)
         self.assertEqual(ret.data.status, 'idle', ret)
@@ -87,7 +87,7 @@ class TestMediaApi(unittest.TestCase):
 
         Get the music list  # noqa: E501
         """
-        ret = self.api_instance.get_media_music_list()  # 返回MediaMusicListResponse对象
+        ret = self.api_instance.get_media_music_list()  # return MediaMusicListResponse instance 
         some_music = Name(name='Little_Apple.mp3')
         self.assertEqual(ret.code, 0, ret)
         self.assertNotEqual(len(ret.data.music), 0, ret)
@@ -104,12 +104,12 @@ class TestMediaApi(unittest.TestCase):
             ret = self.api_instance.post_media_music(file)
             if file.endswith('mp3') or file.endswith('wav'):
                 self.assertEqual(ret.code, 0, ret)
-                # 存在于音乐列表
-                ret = self.api_instance.get_media_music_list()  # 返回MediaMusicListResponse对象
+                # check if in list or not
+                ret = self.api_instance.get_media_music_list()  # return MediaMusicListResponse instance 
                 some_music = Name(name=name)
                 self.assertEqual(ret.code, 0, ret)
                 self.assertEqual(some_music in ret.data.music, True, ret)
-                # 可播放
+                # check if can be played or not
                 body = MediaMusicOperation(operation='start', name=name)
                 ret = self.api_instance.put_media_music(body)
                 self.assertEqual(ret.code, 0, ret)

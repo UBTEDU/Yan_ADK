@@ -42,13 +42,13 @@ class TestMotionsApi(unittest.TestCase):
 
         Delete motion files  # noqa: E501
         """
-        # 删除不存在的动作文件
+        # delete nonexistent motion
         name = 'unknown_motion'
         body = Name(name=name)
         ret = self.api_instance.delete_motions_music(body=body)
         self.assertEqual(ret.code, 103, ret)
 
-        # 删除存在的动作文件
+        # delete existent motion
         name = 'my_waka.hts'
         file = 'files/' + name
         ret = self.api_instance.post_motions(file)
@@ -62,32 +62,32 @@ class TestMotionsApi(unittest.TestCase):
 
         Get the current motions' status  # noqa: E501
         """
-        # 运动的时候获取运动状态
+        # get status while playing motion
         timestamp = int(time.time())
         name = 'wave'
         motion = MotionsParameter(name=name, direction='both', speed='fast', repeat=5)
         body = MotionsOperation(motion=motion, operation='start', timestamp=timestamp)
-        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        ret = self.api_instance.put_motions(body)  # return RuntimeResponse instance 
         self.assertEqual(ret.code, 0, ret)
-        ret = self.api_instance.get_motions()  # 返回MotionsStatusResponse对象
+        ret = self.api_instance.get_motions()  # return MotionsStatusResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name.startswith(name), True, ret)
         self.assertEqual(ret.data.status, 'run', ret)
 
-        # 暂停运动的时候获取运动状态
+        # get status while pause motion
         body = MotionsOperation(motion=motion, operation='pause', timestamp=timestamp)
-        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        ret = self.api_instance.put_motions(body)  # return RuntimeResponse instance 
         self.assertEqual(ret.code, 0, ret)
-        ret = self.api_instance.get_motions()  # 返回MotionsStatusResponse对象
+        ret = self.api_instance.get_motions()  # return MotionsStatusResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name.startswith(name), True, ret)
         self.assertEqual(ret.data.status, 'pause', ret)
 
-        # 停止运动的时候获取运动状态
+        # get status after playing motion
         body = MotionsOperation(motion=motion, operation='stop', timestamp=timestamp)
-        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        ret = self.api_instance.put_motions(body)  # return RuntimeResponse instance 
         self.assertEqual(ret.code, 0, ret)
-        ret = self.api_instance.get_motions()   # 返回MotionsStatusResponse对象
+        ret = self.api_instance.get_motions()   # return MotionsStatusResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name, '', ret)
         self.assertEqual(ret.data.status, 'idle', ret)
@@ -98,7 +98,7 @@ class TestMotionsApi(unittest.TestCase):
         Get all the motions' name  # noqa: E501
         """
         same_motion = MotionsInfo(name='Little_Apple', music=True)
-        ret = self.api_instance.get_motions_list()  # 返回MotionsListResponse对象
+        ret = self.api_instance.get_motions_list()  # return MotionsListResponse instance 
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(same_motion in ret.data.motions, True, ret)
 
@@ -112,20 +112,20 @@ class TestMotionsApi(unittest.TestCase):
             ret = self.api_instance.post_motions(file)
             if file.endswith('hts') or file.endswith('zip'):
                 self.assertEqual(ret.code, 0, ret)
-                # 存在于动作列表
+                # check if in list or not
                 some_motion = MotionsInfo(name=name[0:-4], music=True if file.endswith('zip') else False)
-                ret = self.api_instance.get_motions_list()  # 返回MotionsListResponse对象
+                ret = self.api_instance.get_motions_list()  # return MotionsListResponse instance 
                 self.assertEqual(ret.code, 0, ret)
                 self.assertEqual(some_motion in ret.data.motions, True, ret)
-                # 可执行
+                # check if can be executed or not
                 motion = MotionsParameter(name=name[0:-4])
                 timestamp = int(time.time())
                 body = MotionsOperation(motion=motion, operation='start', timestamp=timestamp)
-                ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+                ret = self.api_instance.put_motions(body)  # return RuntimeResponse instance 
                 self.assertEqual(ret.code, 0, ret)
                 time.sleep(3.0)
                 body = MotionsOperation(motion=motion, operation='stop', timestamp=timestamp)
-                ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+                ret = self.api_instance.put_motions(body)  # return RuntimeResponse instance 
                 self.assertEqual(ret.code, 0, ret)
             else:
                 self.assertEqual(ret.code, 104, ret)
@@ -138,7 +138,7 @@ class TestMotionsApi(unittest.TestCase):
         motion = MotionsParameter(name='wave', direction='both', speed='fast', repeat=5)
         for operation in ['start', 'pause', 'resume', 'stop']:
             body = MotionsOperation(motion=motion, operation=operation, timestamp=int(time.time()))
-            ret = self.api_instance.put_motions(body)   # 返回RuntimeResponse对象
+            ret = self.api_instance.put_motions(body)   # return RuntimeResponse instance 
             self.assertEqual(ret.code, 0, ret)
             if operation in ['start', 'stop']:
                 self.assertNotEqual(ret.data.total_time, 0, ret)

@@ -43,16 +43,16 @@ class TestVisionsApi(unittest.TestCase):
 
         Delete a photo based the name  # noqa: E501
         """
-        # 删除存在的照片
+        # delete existent photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         name = ret.data.name
         body = Name(name=name)
         ret = self.api_instance.delete_vision_photo(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        # 删除不存在（已删除）的照片
+        # delete deleted photo
         body = Name(name=name)
         ret = self.api_instance.delete_vision_photo(body=body)
         self.assertEqual(ret.code, 0, ret)
@@ -62,10 +62,10 @@ class TestVisionsApi(unittest.TestCase):
 
         Delete the uploaded sample  # noqa: E501
         """
-        # 删除存在的样本
+        # delete existent sample
         photo_dir = 'files/'
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
@@ -73,7 +73,7 @@ class TestVisionsApi(unittest.TestCase):
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
@@ -82,7 +82,7 @@ class TestVisionsApi(unittest.TestCase):
         ret = self.api_instance.delete_vision_photo_samples(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        # 删除不存在（已删除）的样本
+        # delete deleted sample
         body = Name(name=photo_name)
         ret = self.api_instance.delete_vision_photo_samples(body=body)
         self.assertEqual(ret.code, 0, ret)
@@ -100,10 +100,10 @@ class TestVisionsApi(unittest.TestCase):
 
         Delete a sample's tag based the tag name  # noqa: E501
         """
-        # 删除存在的样本标签
+        # delete existent sample tag
         photo_dir = 'files/'
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
@@ -111,7 +111,7 @@ class TestVisionsApi(unittest.TestCase):
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
@@ -125,7 +125,7 @@ class TestVisionsApi(unittest.TestCase):
         ret = self.api_instance.delete_visions_tags(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        # 删除不存在（已删除）的样本标签
+        # delete deleted sample tag
         body = VisionsDeleteTags(tags=tags)
         ret = self.api_instance.delete_visions_tags(body=body)
         self.assertEqual(ret.code, 0, ret)
@@ -136,25 +136,25 @@ class TestVisionsApi(unittest.TestCase):
         Get all the uploaded photo samples  # noqa: E501
         """
         photo_dir = 'files/'
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)    # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)    # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
 
-        # 获取指定照片
+        # get specific photo
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
-        # 上传样本
+        # upload photo sample 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
 
-        # 获取上传样本列表
-        ret = self.api_instance.get_photo_samples()  # 返回VisionsPhotoListResponse对象
+        # get uploaded photo samples  
+        ret = self.api_instance.get_photo_samples()  # return VisionsPhotoListResponse instance
         self.assertEqual(ret.code, 0, ret)
         found = False
         for name in ret.data:
@@ -171,7 +171,7 @@ class TestVisionsApi(unittest.TestCase):
         type_list = ['tracking', 'recognition', 'gender', 'age_group', 'quantity']
 
         for type in type_list:
-            ret = self.api_instance.get_vision(option='face', type=type)  # 返回VisionsGetResponse对象
+            ret = self.api_instance.get_vision(option='face', type=type)  # return VisionsGetResponse instance
             self.assertEqual(ret.code, 0, ret)
             self.assertEqual(ret.type, type, ret)
             self.assertEqual(ret.status, 'idle', ret)
@@ -187,18 +187,18 @@ class TestVisionsApi(unittest.TestCase):
         Get a specific photo based the name  # noqa: E501
         """
         photo_dir = 'files/'
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
 
-        # 获取指定照片
+        # get specific photo
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
         with open(photo_path, 'rb') as fread:
             self.assertNotEqual(fread.read(), b'', ret)
 
@@ -207,14 +207,14 @@ class TestVisionsApi(unittest.TestCase):
 
         Get the photo's list  # noqa: E501
         """
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
 
-        # 获取拍照列表
-        ret = self.api_instance.get_visions_photos_lists()  # 返回VisionsPhotoListResponse对象
+        # get photo list
+        ret = self.api_instance.get_visions_photos_lists()  # return VisionsPhotoListResponse instance
         self.assertEqual(ret.code, 0, ret)
         found = False
         for name in ret.data:
@@ -229,30 +229,30 @@ class TestVisionsApi(unittest.TestCase):
         Get all the tag list  # noqa: E501
         """
         photo_dir = 'files/'
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
 
-        # 获取指定照片
+        # get specific photo
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
-        # 上传样本
+        # upload photo sample 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
 
-        # 设置样本标签
+        # set sample tag
         body = VisionsPutTags(tags=str(int(time.time())), resources=[photo_name])
         ret = self.api_instance.put_visions_tags(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        # 获取已设置标签列表
-        ret = self.api_instance.get_visions_tags()  # 返回VisionsTagsResponse对象
+        # get all tag list
+        ret = self.api_instance.get_visions_tags()  # return VisionsTagsResponse instance
         self.assertEqual(ret.code, 0, ret)
         found = False
         for tag in ret.data:
@@ -267,7 +267,7 @@ class TestVisionsApi(unittest.TestCase):
         Take a photo  # noqa: E501
         """
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.data.name.endswith('jpg'), True, ret)
 
@@ -277,20 +277,20 @@ class TestVisionsApi(unittest.TestCase):
         Upload photo sample  # noqa: E501
         """
         photo_dir = 'files/'
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
 
-        # 获取指定照片
+        # get specific photo
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
-        # 上传样本
+        # upload photo sample 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
 
@@ -332,24 +332,24 @@ class TestVisionsApi(unittest.TestCase):
         Set the sample's tag  # noqa: E501
         """
         photo_dir = 'files/'
-        # 拍一张照片
+        # take a photo
         body = VisionsPhoto(resolution="1280x800")
-        ret = self.api_instance.post_vision_photo(body=body)  # 返回VisionsPhotoResponse对象
+        ret = self.api_instance.post_vision_photo(body=body)  # return VisionsPhotoResponse instance
         self.assertEqual(ret.code, 0, ret)
         photo_name = ret.data.name
         photo_path = photo_dir + photo_name
 
-        # 获取指定照片
+        # get specific photo
         ret = self.api_instance.get_visions_photos(body=photo_name, _preload_content=False)
         self.assertEqual(ret.status, 200, ret)
         with open(photo_path, 'wb') as fwrite:
-            fwrite.write(ret.data)  # 照片的二进制数据在response的data域里
+            fwrite.write(ret.data)  # ret.data is binary data of photo
 
-        # 上传样本
+        # upload photo sample 
         ret = self.api_instance.post_visions_photo_samples(file=photo_path)
         self.assertEqual(ret.code, 0, ret)
 
-        # 设置样本标签
+        # set sample tag
         body = VisionsPutTags(tags=str(int(time.time())), resources=[photo_name])
         ret = self.api_instance.put_visions_tags(body=body)
         self.assertEqual(ret.code, 0, ret)

@@ -80,20 +80,20 @@ class TestVoiceApi(unittest.TestCase):
 
         Get automatic speech recognition working status  # noqa: E501
         """
-        # 开始语义理解
+        # start asr task
         timestamp = int(time.time())
         body = VoiceAsrOption(continues=True, timestamp=timestamp)
         self.api_instance.put_voice_asr(body=body)
-        # 获取语义理解工作状态
+        # get asr status
         ret = self.api_instance.get_voice_asr()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'run', ret)
         time.sleep(1.0)
 
-        # 停止语义理解
+        # stop asr task
         ret = self.api_instance.delete_voice_asr()
         self.assertEqual(ret.code, 0, ret)
-        # 获取语义理解工作状态
+        # get asr status
         ret = self.api_instance.get_voice_asr()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
@@ -103,21 +103,21 @@ class TestVoiceApi(unittest.TestCase):
 
         Get auto transform(iat) result  # noqa: E501
         """
-        # 开始语音听写
+        # start iat task
         timestamp = int(time.time())
         body = VoiceIatRequest(timestamp=timestamp)
         ret = self.api_instance.put_voice_iat(body=body)
         self.assertEqual(ret.code, 0, ret)
-        # 获取语音听写结果
+        # get iat status
         ret = self.api_instance.get_voice_iat()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'run', ret)
         time.sleep(1.0)
 
-        # 停止语音听写
+        # stop iat task
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
-        # 获取语音听写结果
+        # get iat status
         ret = self.api_instance.get_voice_iat()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
@@ -127,24 +127,24 @@ class TestVoiceApi(unittest.TestCase):
 
         Get specified or current working status  # noqa: E501
         """
-        # 开始语音合成任务
+        # start tts task
         tts = '江山如此多娇，引无数英雄竞折腰'
         timestamp = int(time.time())
         body = VoiceTTSStr(tts=tts, interrupt=True, timestamp=timestamp)
         ret = self.api_instance.put_voice_tts(body)
         self.assertEqual(ret.code, 0, ret)
-        # 获取当前语音合成工作状态
+        # get current tts status
         ret = self.api_instance.get_voice_tts(timestamp=timestamp)
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'build', ret)
-        # 合成所需时长与tts文本长度有关
+        # duration depends on the length of tts text
         time.sleep(0.5)
-        # 获取当前语音合成工作状态
+        # get current tts status
         ret = self.api_instance.get_voice_tts(timestamp=timestamp)
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'run', ret)
         time.sleep(3.0)
-        # 获取当前语音合成工作状态
+        # get current tts status
         ret = self.api_instance.get_voice_tts(timestamp=timestamp)
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
@@ -154,12 +154,12 @@ class TestVoiceApi(unittest.TestCase):
 
         Start automatic speech recognition  # noqa: E501
         """
-        # 开始语义理解
+        # start asr task
         timestamp = int(time.time())
         body = VoiceAsrOption(continues=True, timestamp=timestamp)
         self.api_instance.put_voice_asr(body=body)
 
-        # 停止语义理解
+        # stop asr task
         ret = self.api_instance.delete_voice_asr()
         self.assertEqual(ret.code, 0, ret)
 
@@ -168,13 +168,13 @@ class TestVoiceApi(unittest.TestCase):
 
         Start auto transform  # noqa: E501
         """
-        # 开始语音听写
+        # start iat task
         timestamp = int(time.time())
         body = VoiceIatRequest(timestamp=timestamp)
         ret = self.api_instance.put_voice_iat(body=body)
         self.assertEqual(ret.code, 0, ret)
 
-        # 停止语音听写
+        # stop iat task
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
 
@@ -183,7 +183,7 @@ class TestVoiceApi(unittest.TestCase):
 
         Start text to speech  # noqa: E501
         """
-        # 开始语音合成任务
+        # start tts task
         tts = '江山如此多娇，引无数英雄竞折腰'
         timestamp = int(time.time())
         body = VoiceTTSStr(tts=tts, interrupt=True, timestamp=timestamp)
