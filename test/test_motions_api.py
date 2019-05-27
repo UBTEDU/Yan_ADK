@@ -21,13 +21,19 @@ from openadk.rest import ApiException
 from openadk.models.motions_parameter import MotionsParameter  # noqa: F401,E501
 import time
 
+from openadk.models.name import Name
+from openadk.models.motions_info import MotionsInfo
+from openadk.models.motions_operation import MotionsOperation
+
+
 class TestMotionsApi(unittest.TestCase):
     """MotionsApi unit test stubs"""
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.69.146:9090/v1'
-        self.api_instance = openadk.api.motions_api.MotionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
+        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.api_instance = MotionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
+
     def tearDown(self):
         pass
 
@@ -36,76 +42,108 @@ class TestMotionsApi(unittest.TestCase):
 
         Delete motion files  # noqa: E501
         """
-        body = openadk.Name('test_motion')  # Name | 动作文件名
-        try:
-            # 删除动作文件（只能删除用户上传的文件）
-            api_response = self.api_instance.delete_motions_music(body)
-            print(api_response)
-            self.assertIn(api_response.code, (0, 103))
-        except ApiException as e:
-            print("Exception when calling MotionsApi->delete_motions_music: %s\n" % e)
+        # 删除不存在的动作文件
+        name = 'unknown_motion'
+        body = Name(name=name)
+        ret = self.api_instance.delete_motions_music(body=body)
+        self.assertEqual(ret.code, 103, ret)
+
+        # 删除存在的动作文件
+        name = 'my_waka.hts'
+        file = 'files/' + name
+        ret = self.api_instance.post_motions(file)
+        self.assertEqual(ret.code, 0, ret)
+        body = Name(name=name[0:-4])
+        ret = self.api_instance.delete_motions_music(body=body)
+        self.assertEqual(ret.code, 0, ret)
 
     def test_get_motions(self):
         """Test case for get_motions
 
         Get the current motions' status  # noqa: E501
         """
-        try:
-            # 获取当前的运动状态
-            api_response = self.api_instance.get_motions()
-            print(api_response)
-            self.assertEqual(0, api_response.code)
-        except ApiException as e:
-            print("Exception when calling MotionsApi->get_motions: %s\n" % e)
+        # 运动的时候获取运动状态
+        timestamp = int(time.time())
+        name = 'wave'
+        motion = MotionsParameter(name=name, direction='both', speed='fast', repeat=5)
+        body = MotionsOperation(motion=motion, operation='start', timestamp=timestamp)
+        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        ret = self.api_instance.get_motions()  # 返回MotionsStatusResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.name.startswith(name), True, ret)
+        self.assertEqual(ret.data.status, 'run', ret)
+
+        # 暂停运动的时候获取运动状态
+        body = MotionsOperation(motion=motion, operation='pause', timestamp=timestamp)
+        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        ret = self.api_instance.get_motions()  # 返回MotionsStatusResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.name.startswith(name), True, ret)
+        self.assertEqual(ret.data.status, 'pause', ret)
+
+        # 停止运动的时候获取运动状态
+        body = MotionsOperation(motion=motion, operation='stop', timestamp=timestamp)
+        ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        ret = self.api_instance.get_motions()   # 返回MotionsStatusResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.name, '', ret)
+        self.assertEqual(ret.data.status, 'idle', ret)
 
     def test_get_motions_list(self):
         """Test case for get_motions_list
 
         Get all the motions' name  # noqa: E501
         """
-        try:
-            # 获取动作列表
-            api_response = self.api_instance.get_motions_list()
-            print(api_response)
-            self.assertEqual(0, api_response.code)
-            self.assertNotEqual(None, api_response.data)
-        except ApiException as e:
-            print("Exception when calling MotionsApi->get_motions_list: %s\n" % e)
+        same_motion = MotionsInfo(name='Little_Apple', music=True)
+        ret = self.api_instance.get_motions_list()  # 返回MotionsListResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(same_motion in ret.data.motions, True, ret)
 
     def test_post_motions(self):
         """Test case for post_motions
 
         Upload motion files  # noqa: E501
         """
-        for name in ['test_motion.hts', 'test_motion.mp3', 'test_motion.zip']:
-            file = 'res_motions/'+name  # file | 上传文件
-            try:
-                # 上传动作文件
-                api_response = self.api_instance.post_motions(file)
-                print(api_response)
-                if file.endswith('hts') or file.endswith('zip'):
-                    self.assertEqual(0, api_response.code)
-                else:
-                    self.assertEqual(104, api_response.code)
-            except ApiException as e:
-                print("Exception when calling MotionsApi->post_motions: %s\n" % e)
+        for name in ['my_waka.hts', 'little_frog.mp3', 'my_waka.zip']:
+            file = 'files/' + name
+            ret = self.api_instance.post_motions(file)
+            if file.endswith('hts') or file.endswith('zip'):
+                self.assertEqual(ret.code, 0, ret)
+                # 存在于动作列表
+                some_motion = MotionsInfo(name=name[0:-4], music=True if file.endswith('zip') else False)
+                ret = self.api_instance.get_motions_list()  # 返回MotionsListResponse对象
+                self.assertEqual(ret.code, 0, ret)
+                self.assertEqual(some_motion in ret.data.motions, True, ret)
+                # 可执行
+                motion = MotionsParameter(name=name[0:-4])
+                timestamp = int(time.time())
+                body = MotionsOperation(motion=motion, operation='start', timestamp=timestamp)
+                ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+                self.assertEqual(ret.code, 0, ret)
+                time.sleep(3.0)
+                body = MotionsOperation(motion=motion, operation='stop', timestamp=timestamp)
+                ret = self.api_instance.put_motions(body)  # 返回RuntimeResponse对象
+                self.assertEqual(ret.code, 0, ret)
+            else:
+                self.assertEqual(ret.code, 104, ret)
 
     def test_put_motions(self):
         """Test case for put_motions
 
         Update the motions  # noqa: E501
         """
-        motion = MotionsParameter(name='wave', direction='both', speed='fast', repeat=2)
+        motion = MotionsParameter(name='wave', direction='both', speed='fast', repeat=5)
         for operation in ['start', 'pause', 'resume', 'stop']:
-            body = openadk.MotionsOperation(motion=motion, operation=operation, timestamp=int(time.time()))  # MotionsOperation | 运动控制的参数
-            try:
-                # 运动控制
-                api_response = self.api_instance.put_motions(body)
-                print(api_response)
-                self.assertEqual(0, api_response.code)
-                self.assertNotEqual(None, api_response.data)
-            except ApiException as e:
-                print("Exception when calling MotionsApi->put_motions: %s\n" % e)
+            body = MotionsOperation(motion=motion, operation=operation, timestamp=int(time.time()))
+            ret = self.api_instance.put_motions(body)   # 返回RuntimeResponse对象
+            self.assertEqual(ret.code, 0, ret)
+            if operation in ['start', 'stop']:
+                self.assertNotEqual(ret.data.total_time, 0, ret)
+            if operation in ['start', 'pause', 'resume']:
+                time.sleep(3.0)
 
 
 if __name__ == '__main__':

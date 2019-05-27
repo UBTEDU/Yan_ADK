@@ -14,17 +14,24 @@
 from __future__ import absolute_import
 
 import unittest
+from pprint import pprint
 
 import openadk
 from openadk.api.voice_api import VoiceApi  # noqa: E501
+from openadk.models.voice_asr_option import VoiceAsrOption
 from openadk.rest import ApiException
+import time
+from openadk.models.voice_iat_request import VoiceIatRequest
+from openadk.models.voice_tts_str import VoiceTTSStr
 
 
 class TestVoiceApi(unittest.TestCase):
     """VoiceApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.voice_api.VoiceApi()  # noqa: E501
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.api_instance = VoiceApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -34,98 +41,155 @@ class TestVoiceApi(unittest.TestCase):
 
         Stop automatic speech recognition  # noqa: E501
         """
-        pass
+        timestamp = int(time.time())
+        body = VoiceAsrOption(continues=True, timestamp=timestamp)
+        self.api_instance.put_voice_asr(body=body)
+
+        ret = self.api_instance.delete_voice_asr()
+        self.assertEqual(ret.code, 0, ret)
 
     def test_delete_voice_iat(self):
         """Test case for delete_voice_iat
 
         Stop auto transform  # noqa: E501
         """
-        pass
+        timestamp = int(time.time())
+        body = VoiceIatRequest(timestamp=timestamp)
+        ret = self.api_instance.put_voice_iat(body=body)
+        self.assertEqual(ret.code, 0, ret)
 
-    def test_delete_voice_offline_syntax(self):
-        """Test case for delete_voice_offline_syntax
-
-        Delete a offline grammar based offline grammar's name  # noqa: E501
-        """
-        pass
+        ret = self.api_instance.delete_voice_iat()
+        self.assertEqual(ret.code, 0, ret)
 
     def test_delete_voice_tts(self):
         """Test case for delete_voice_tts
 
         Stop all text to speech  # noqa: E501
         """
-        pass
+        tts = '江山如此多娇，引无数英雄竞折腰'
+        timestamp = int(time.time())
+        body = VoiceTTSStr(tts=tts, interrupt=True, timestamp=timestamp)
+        ret = self.api_instance.put_voice_tts(body)
+        self.assertEqual(ret.code, 0, ret)
+
+        ret = self.api_instance.delete_voice_tts()
+        self.assertEqual(ret.code, 0, ret)
 
     def test_get_voice_asr(self):
         """Test case for get_voice_asr
 
         Get automatic speech recognition working status  # noqa: E501
         """
-        pass
+        # 开始语义理解
+        timestamp = int(time.time())
+        body = VoiceAsrOption(continues=True, timestamp=timestamp)
+        self.api_instance.put_voice_asr(body=body)
+        # 获取语义理解工作状态
+        ret = self.api_instance.get_voice_asr()
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'run', ret)
+        time.sleep(1.0)
+
+        # 停止语义理解
+        ret = self.api_instance.delete_voice_asr()
+        self.assertEqual(ret.code, 0, ret)
+        # 获取语义理解工作状态
+        ret = self.api_instance.get_voice_asr()
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'idle', ret)
 
     def test_get_voice_iat(self):
         """Test case for get_voice_iat
 
         Get auto transform(iat) result  # noqa: E501
         """
-        pass
+        # 开始语音听写
+        timestamp = int(time.time())
+        body = VoiceIatRequest(timestamp=timestamp)
+        ret = self.api_instance.put_voice_iat(body=body)
+        self.assertEqual(ret.code, 0, ret)
+        # 获取语音听写结果
+        ret = self.api_instance.get_voice_iat()
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'run', ret)
+        time.sleep(1.0)
 
-    def test_get_voice_offline_syntax(self):
-        """Test case for get_voice_offline_syntax
-
-        Get offline grammar configuration  # noqa: E501
-        """
-        pass
-
-    def test_get_voice_offline_syntax_grammars(self):
-        """Test case for get_voice_offline_syntax_grammars
-
-        Get offline grammars' name  # noqa: E501
-        """
-        pass
+        # 停止语音听写
+        ret = self.api_instance.delete_voice_iat()
+        self.assertEqual(ret.code, 0, ret)
+        # 获取语音听写结果
+        ret = self.api_instance.get_voice_iat()
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'idle', ret)
 
     def test_get_voice_tts(self):
         """Test case for get_voice_tts
 
         Get specified or current working status  # noqa: E501
         """
-        pass
-
-    def test_post_voice_offline_syntax(self):
-        """Test case for post_voice_offline_syntax
-
-        Add a new offline grammar  # noqa: E501
-        """
-        pass
+        # 开始语音合成任务
+        tts = '江山如此多娇，引无数英雄竞折腰'
+        timestamp = int(time.time())
+        body = VoiceTTSStr(tts=tts, interrupt=True, timestamp=timestamp)
+        ret = self.api_instance.put_voice_tts(body)
+        self.assertEqual(ret.code, 0, ret)
+        # 获取当前语音合成工作状态
+        ret = self.api_instance.get_voice_tts(timestamp=timestamp)
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'build', ret)
+        # 合成所需时长与tts文本长度有关
+        time.sleep(0.5)
+        # 获取当前语音合成工作状态
+        ret = self.api_instance.get_voice_tts(timestamp=timestamp)
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'run', ret)
+        time.sleep(3.0)
+        # 获取当前语音合成工作状态
+        ret = self.api_instance.get_voice_tts(timestamp=timestamp)
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.status, 'idle', ret)
 
     def test_put_voice_asr(self):
         """Test case for put_voice_asr
 
         Start automatic speech recognition  # noqa: E501
         """
-        pass
+        # 开始语义理解
+        timestamp = int(time.time())
+        body = VoiceAsrOption(continues=True, timestamp=timestamp)
+        self.api_instance.put_voice_asr(body=body)
+
+        # 停止语义理解
+        ret = self.api_instance.delete_voice_asr()
+        self.assertEqual(ret.code, 0, ret)
 
     def test_put_voice_iat(self):
         """Test case for put_voice_iat
 
         Start auto transform  # noqa: E501
         """
-        pass
+        # 开始语音听写
+        timestamp = int(time.time())
+        body = VoiceIatRequest(timestamp=timestamp)
+        ret = self.api_instance.put_voice_iat(body=body)
+        self.assertEqual(ret.code, 0, ret)
 
-    def test_put_voice_offline_syntax(self):
-        """Test case for put_voice_offline_syntax
-
-        Update offline grammar based grammar's name  # noqa: E501
-        """
-        pass
+        # 停止语音听写
+        ret = self.api_instance.delete_voice_iat()
+        self.assertEqual(ret.code, 0, ret)
 
     def test_put_voice_tts(self):
         """Test case for put_voice_tts
 
         Start text to speech  # noqa: E501
         """
-        pass
+        # 开始语音合成任务
+        tts = '江山如此多娇，引无数英雄竞折腰'
+        timestamp = int(time.time())
+        body = VoiceTTSStr(tts=tts, interrupt=True, timestamp=timestamp)
+        ret = self.api_instance.put_voice_tts(body)
+        self.assertEqual(ret.code, 0, ret)
+        time.sleep(3.0)
 
 
 if __name__ == '__main__':

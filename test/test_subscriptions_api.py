@@ -19,12 +19,27 @@ import openadk
 from openadk.api.subscriptions_api import SubscriptionsApi  # noqa: E501
 from openadk.rest import ApiException
 
+from openadk.models.subscriptions_motions_delete import SubscriptionsMotionsDelete
+from openadk.models.subscriptions_sensors_delete import SubscriptionsSensorsDelete
+from openadk.models.subscriptions_visions_delete import SubscriptionsVisionsDelete
+from openadk.models.subscriptions_asr_voice_delete import SubscriptionsAsrVoiceDelete
+from openadk.models.subscriptions_iat_voice_delete import SubscriptionsIatVoiceDelete
+from openadk.models.subscriptions_tts_voice_delete import SubscriptionsTtsVoiceDelete
+from openadk.models.subscriptions_motions import SubscriptionsMotions
+from openadk.models.subscriptions_sensors import SubscriptionsSensors
+from openadk.models.subscriptions_visions import SubscriptionsVisions
+from openadk.models.subscriptions_asr_voice import SubscriptionsAsrVoice
+from openadk.models.subscriptions_iat_voice import SubscriptionsIatVoice
+from openadk.models.subscriptions_tts_voice import SubscriptionsTtsVoice
+
 
 class TestSubscriptionsApi(unittest.TestCase):
     """SubscriptionsApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.subscriptions_api.SubscriptionsApi()  # noqa: E501
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.api_instance = SubscriptionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -34,84 +49,112 @@ class TestSubscriptionsApi(unittest.TestCase):
 
         Unsubscribe the motion status  # noqa: E501
         """
-        pass
+        body = SubscriptionsMotionsDelete(url="http://10.10.67.98:8080/subscriptions/motions")
+        ret = self.api_instance.delete_motions_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_delete_sensors_subscription(self):
         """Test case for delete_sensors_subscription
 
         Unsubscribe the sensor's value  # noqa: E501
         """
-        pass
+        url = "http://10.10.67.98:8080/subscriptions/sensors"
+        body = SubscriptionsSensorsDelete(type='infrared', id=27, slot=1, url=url, timeval=1000)
+        ret = self.api_instance.delete_sensors_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_delete_visions_subscription(self):
         """Test case for delete_visions_subscription
 
         Unsubscribe compute vision result  # noqa: E501
         """
-        pass
+        url = "http://10.10.67.98:8080/subscriptions/visions"
+        body = SubscriptionsVisionsDelete(type='face_recognition', url=url)
+        ret = self.api_instance.delete_visions_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_delete_voice_asr_subscription(self):
         """Test case for delete_voice_asr_subscription
 
         Unsubscribe auto speech recognition result  # noqa: E501
         """
-        pass
+        body = SubscriptionsAsrVoiceDelete(url="http://10.10.67.98:8080/subscriptions/voice/asr")
+        ret = self.api_instance.delete_voice_asr_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_delete_voice_iat_subscription(self):
         """Test case for delete_voice_iat_subscription
 
         Unsubscribe auto transform result  # noqa: E501
         """
-        pass
+        body = SubscriptionsIatVoiceDelete(url="http://10.10.67.98:8080/subscriptions/voice/iat")
+        ret = self.api_instance.delete_voice_iat_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_delete_voice_tts_subscription(self):
         """Test case for delete_voice_tts_subscription
 
         Unsubscribe text to speech result  # noqa: E501
         """
-        pass
+        body = SubscriptionsTtsVoiceDelete(url="http://10.10.67.98:8080/subscriptions/voice/tts")
+        ret = self.api_instance.delete_voice_tts_subscription(body=body)
+        self.assertEqual(ret.code, 147, ret)
 
     def test_post_motions_subscription(self):
         """Test case for post_motions_subscription
 
         Subscribe the motion status  # noqa: E501
         """
-        pass
+        body = SubscriptionsMotions(url="http://10.10.67.98:8080/subscriptions/motions", timeout=1)
+        ret = self.api_instance.post_motions_subscription(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
     def test_post_sensors_subscription(self):
         """Test case for post_sensors_subscription
 
         Subscribe the sensor's value  # noqa: E501
         """
-        pass
+        url = "http://10.10.67.98:8080/subscriptions/sensors"
+        body = SubscriptionsSensors(type='infrared', id=27, slot=1, url=url, timeout=1, timeval=1000)
+        ret = self.api_instance.post_sensors_subscription(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
     def test_post_visions_subscription(self):
         """Test case for post_visions_subscription
 
         Subscribe compute vision result  # noqa: E501
         """
-        pass
+        url = "http://10.10.67.98:8080/subscriptions/visions"
+        body = SubscriptionsVisions(type='face_recognition', url=url, timeout=1)
+        ret = self.api_instance.post_visions_subscription(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
     def test_post_voice_asr_subscriptions(self):
         """Test case for post_voice_asr_subscriptions
 
         Subscribe auto speech recognition result  # noqa: E501
         """
-        pass
+        body = SubscriptionsAsrVoice(url="http://10.10.67.98:8080/subscriptions/voice/asr", timeout=1)
+        ret = self.api_instance.post_voice_asr_subscriptions(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
     def test_post_voice_iat_subscription(self):
         """Test case for post_voice_iat_subscription
 
         Subscribe auto transform result  # noqa: E501
         """
-        pass
+        body = SubscriptionsIatVoice(url="http://10.10.67.98:8080/subscriptions/voice/iat", timeout=1)
+        ret = self.api_instance.post_voice_iat_subscription(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
     def test_post_voice_tts_subscriptions(self):
         """Test case for post_voice_tts_subscriptions
 
         Subscribe text to speech result  # noqa: E501
         """
-        pass
+        body = SubscriptionsTtsVoice(url="http://10.10.67.98:8080/subscriptions/voice/tts", timeout=1)
+        ret = self.api_instance.post_voice_tts_subscriptions(body=body)
+        self.assertEqual(ret.code, 142, ret)
 
 
 if __name__ == '__main__':

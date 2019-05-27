@@ -19,12 +19,21 @@ import openadk
 from openadk.api.devices_api import DevicesApi  # noqa: E501
 from openadk.rest import ApiException
 
+import sys
+from openadk.models.devices_versions import DevicesVersions
+from openadk.models.devices_fall_management import DevicesFallManagement
+from openadk.models.devices_language import DevicesLanguage
+from openadk.models.devices_led import DevicesLED
+from openadk.models.devices_volume import DevicesVolume
+
 
 class TestDevicesApi(unittest.TestCase):
     """DevicesApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.devices_api.DevicesApi()  # noqa: E501
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.api_instance = DevicesApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -34,70 +43,121 @@ class TestDevicesApi(unittest.TestCase):
 
         Get the battery information  # noqa: E501
         """
-        pass
+        ret = self.api_instance.get_devices_battery()   # 返回DevicesBatteryResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertIn(ret.data.charging, [0, 1], ret)
+        self.assertIn(ret.data.percent, range(1, 101), ret)
 
     def test_get_devices_fall_management(self):
         """Test case for get_devices_fall_management
 
         Get fall management configuration  # noqa: E501
         """
-        pass
+        ret = self.api_instance.get_devices_fall_management()   # 返回DevicesFallManagementResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertIn(ret.data.enable, [True, False], ret)
 
     def test_get_devices_languages(self):
         """Test case for get_devices_languages
 
         Get language settings  # noqa: E501
         """
-        pass
+        ret = self.api_instance.get_devices_languages()  # 返回DevicesLanguageResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertIn(ret.data.language, ['en', 'zh'], ret)
 
     def test_get_devices_led(self):
         """Test case for get_devices_led
 
         Get the light effects  # noqa: E501
         """
-        pass
+        ret = self.api_instance.get_devices_led()   # 返回DevicesLEDResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(len(ret.data), 2, ret)
+        self.assertIn(ret.data[0].type, ['button', 'camera'], ret)
+        self.assertIn(ret.data[1].type, ['button', 'camera'], ret)
 
     def test_get_devices_versions(self):
         """Test case for get_devices_versions
 
         Get the system versions  # noqa: E501
         """
-        pass
+        type = DevicesVersions(core='core', servo='servo')
+        ret = self.api_instance.get_devices_versions(type)  # 返回DevicesVersionsResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertNotEqual(ret.data.core, '', ret)
+        self.assertNotEqual(ret.data.servo, '', ret)
 
     def test_get_devices_volume(self):
         """Test case for get_devices_volume
 
         Get the volume  # noqa: E501
         """
-        pass
+        ret = self.api_instance.get_devices_volume()    # 返回DevicesVolumeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertIn(ret.data.volume, range(0, 101), ret)
 
     def test_put_devices_fall_management(self):
         """Test case for put_devices_fall_management
 
         Set fall management configuration  # noqa: E501
         """
-        pass
+        enable = False
+        body = DevicesFallManagement(enable=enable)
+        ret = self.api_instance.put_devices_fall_management(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        ret = self.api_instance.get_devices_fall_management()  # 返回DevicesFallManagementResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.enable, enable, ret)
 
     def test_put_devices_languages(self):
         """Test case for put_devices_languages
 
         Set language settings  # noqa: E501
         """
-        pass
+        language = 'zh'
+        body = DevicesLanguage(language=language)
+        ret = self.api_instance.put_devices_languages(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        ret = self.api_instance.get_devices_languages()  # 返回DevicesLanguageResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.language, language, ret)
 
     def test_put_devices_led(self):
         """Test case for put_devices_led
 
         Set the light effects  # noqa: E501
         """
-        pass
+        type = 'button'
+        color = 'blue'
+        mode = 'breath'
+        body = DevicesLED(type=type, color=color, mode=mode)
+        ret = self.api_instance.put_devices_led(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        ret = self.api_instance.get_devices_led()  # 返回DevicesLEDResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(len(ret.data), 2, ret)
+        for data in ret.data:
+            if data.type == type:
+                self.assertEqual(data.color, color, ret)
+                self.assertEqual(data.mode, mode, ret)
 
     def test_put_devices_volume(self):
         """Test case for put_devices_volume
 
         Set the volume  # noqa: E501
         """
-        pass
+        volume = 70
+        body = DevicesVolume(volume=volume)
+        ret = self.api_instance.put_devices_volume(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        ret = self.api_instance.get_devices_volume()  # 返回DevicesVolumeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        self.assertEqual(ret.data.volume, volume, ret)
 
 
 if __name__ == '__main__':

@@ -24,9 +24,11 @@ def put_motions(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive motions status msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionMotionsStatusResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription(body):  # noqa: E501
@@ -39,9 +41,11 @@ def put_sensors_subscription(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive gyro sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsGyroValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription_sensors_environment(body):  # noqa: E501
@@ -54,9 +58,11 @@ def put_sensors_subscription_sensors_environment(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive environment sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsEnvironmentValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription_sensors_infrared(body):  # noqa: E501
@@ -69,9 +75,11 @@ def put_sensors_subscription_sensors_infrared(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive infrared sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsInfraredValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription_sensors_pressure(body):  # noqa: E501
@@ -84,9 +92,11 @@ def put_sensors_subscription_sensors_pressure(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive pressure sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsPressureValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription_sensors_touch(body):  # noqa: E501
@@ -99,9 +109,11 @@ def put_sensors_subscription_sensors_touch(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive touch sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsTouchValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_sensors_subscription_sensors_ultrasonic(body):  # noqa: E501
@@ -114,9 +126,11 @@ def put_sensors_subscription_sensors_ultrasonic(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionCommonResponse(code=0, data=body['data'], msg='Receive ultrasonic sensor msg successfully!')
     if connexion.request.is_json:
         body = SubscriptionSensorsUltrasonicValueResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_tts_subscriptions_voice_tts(body):  # noqa: E501
@@ -129,9 +143,11 @@ def put_tts_subscriptions_voice_tts(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_vision_subscription_visions(body):  # noqa: E501
@@ -144,9 +160,12 @@ def put_vision_subscription_visions(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    # 将接收到的推送消息原样返回
+    response = SubscriptionVisionsGetResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVisionsGetResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_voice_asr_subscriptions_voice_asr(body):  # noqa: E501
@@ -159,9 +178,12 @@ def put_voice_asr_subscriptions_voice_asr(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    # 将接收到的推送消息原样返回
+    response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response
 
 
 def put_voice_iat_subscription_voice_iat(body):  # noqa: E501
@@ -174,6 +196,9 @@ def put_voice_iat_subscription_voice_iat(body):  # noqa: E501
 
     :rtype: SubscriptionCommonResponse
     """
+    # 将接收到的推送消息原样返回
+    response = SubscriptionVoiceResponse.from_dict(body)
     if connexion.request.is_json:
         body = SubscriptionVoiceResponse.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    print('\n ********************* Receive msg ********************* \n', body)
+    return response

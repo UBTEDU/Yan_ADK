@@ -19,12 +19,20 @@ import openadk
 from openadk.api.servos_api import ServosApi  # noqa: E501
 from openadk.rest import ApiException
 
+import time
+from openadk.models.servos_angles_request import ServosAnglesRequest
+from openadk.models.servos_mode_request import ServosModeRequest
+from openadk.models.servos_angles import ServosAngles
+from openadk.models.servos_list import ServosList
+
 
 class TestServosApi(unittest.TestCase):
     """ServosApi unit test stubs"""
 
     def setUp(self):
-        self.api = openadk.api.servos_api.ServosApi()  # noqa: E501
+        self.configuration = openadk.Configuration()
+        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.api_instance = ServosApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
         pass
@@ -34,28 +42,128 @@ class TestServosApi(unittest.TestCase):
 
         Get servos' angle  # noqa: E501
         """
-        pass
+        common_range = range(180+1)
+        neck_range = range(45, 135+1)
+        names = ["LeftAnkleFB",
+                 "LeftAnkleUD",
+                 "LeftElbowFlex",
+                 "LeftHipFB",
+                 "LeftHipLR",
+                 "LeftKneeFlex",
+                 "LeftShoulderFlex",
+                 "LeftShoulderRoll",
+                 "NeckLR",
+                 "RightAnkleFB",
+                 "RightAnkleUD",
+                 "RightElbowFlex",
+                 "RightHipFB",
+                 "RightHipLR",
+                 "RightKneeFlex",
+                 "RightShoulderFlex",
+                 "RightShoulderRoll"]
+        ret = self.api_instance.get_servos_angles(names=names)  # 返回ServosAnglesResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        for k, v in ret.data.to_dict().items():
+            if k != 'NeckLR':
+                self.assertIn(v, common_range, ret)
+            else:
+                self.assertIn(v, neck_range, ret)
 
     def test_get_servos_mode(self):
         """Test case for get_servos_mode
 
         Get servos working mode  # noqa: E501
         """
-        pass
+        modes = ['work', 'program', 'unknown', 'nonsupport']
+        names = ["LeftAnkleFB",
+                 "LeftAnkleUD",
+                 "LeftElbowFlex",
+                 "LeftHipFB",
+                 "LeftHipLR",
+                 "LeftKneeFlex",
+                 "LeftShoulderFlex",
+                 "LeftShoulderRoll",
+                 "NeckLR",
+                 "RightAnkleFB",
+                 "RightAnkleUD",
+                 "RightElbowFlex",
+                 "RightHipFB",
+                 "RightHipLR",
+                 "RightKneeFlex",
+                 "RightShoulderFlex",
+                 "RightShoulderRoll"]
+        ret = self.api_instance.get_servos_mode(names=names)    # 返回ServosModeResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        for value in ret.data.to_dict().values():
+            self.assertIn(value, modes, ret)
 
     def test_put_servos_angles(self):
         """Test case for put_servos_angles
 
         Set servos' angle  # noqa: E501
         """
-        pass
+        names = ["LeftAnkleFB",
+                 "LeftAnkleUD",
+                 "LeftElbowFlex",
+                 "LeftHipFB",
+                 "LeftHipLR",
+                 "LeftKneeFlex",
+                 "LeftShoulderFlex",
+                 "LeftShoulderRoll",
+                 "NeckLR",
+                 "RightAnkleFB",
+                 "RightAnkleUD",
+                 "RightElbowFlex",
+                 "RightHipFB",
+                 "RightHipLR",
+                 "RightKneeFlex",
+                 "RightShoulderFlex",
+                 "RightShoulderRoll"]
+        ret = self.api_instance.get_servos_angles(names=names)  # 返回ServosAnglesResponse对象
+        self.assertEqual(ret.code, 0, ret)
+        angles = ServosAngles()
+        for k, v in ret.data.to_dict().items():
+            angles.__setattr__(k, v)
+            body = ServosAnglesRequest(runtime=1000, angles=angles)
+            ret = self.api_instance.put_servos_angles(body=body)  # 返回ServosResultResponse对象
+            self.assertEqual(ret.code, 0, ret)
+            self.assertEqual(ret.data.to_dict()[k], True, ret)
 
     def test_put_servos_mode(self):
         """Test case for put_servos_mode
 
         Set the servos working mode  # noqa: E501
         """
-        pass
+        names = ["LeftAnkleFB",
+                 "LeftAnkleUD",
+                 "LeftElbowFlex",
+                 "LeftHipFB",
+                 "LeftHipLR",
+                 "LeftKneeFlex",
+                 "LeftShoulderFlex",
+                 "LeftShoulderRoll",
+                 "NeckLR",
+                 "RightAnkleFB",
+                 "RightAnkleUD",
+                 "RightElbowFlex",
+                 "RightHipFB",
+                 "RightHipLR",
+                 "RightKneeFlex",
+                 "RightShoulderFlex",
+                 "RightShoulderRoll"]
+        servos = []
+        for name in names:
+            servo = ServosList(name=name)
+            servos.append(servo)
+
+        modes = ['program', 'work']
+        for mode in modes:
+            body = ServosModeRequest(mode=mode, servos=servos)
+            ret = self.api_instance.put_servos_mode(body=body)  # 返回ServosResultResponse对象
+            self.assertEqual(ret.code, 0, ret)
+            for k, v in ret.data.to_dict().items():
+                self.assertEqual(v, True, ret)
+            time.sleep(5.0)
 
 
 if __name__ == '__main__':
