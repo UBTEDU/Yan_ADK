@@ -25,7 +25,7 @@ class SubscriptionVoiceResponse(Model):
         :param data: The data of this SubscriptionVoiceResponse.  # noqa: E501
         :type data: object
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.  # noqa: E501
-        :type timestamp: long
+        :type timestamp: int
         :param msg: The msg of this SubscriptionVoiceResponse.  # noqa: E501
         :type msg: str
         """
@@ -33,7 +33,7 @@ class SubscriptionVoiceResponse(Model):
             'code': int,
             'type': str,
             'data': object,
-            'timestamp': long,
+            'timestamp': int,
             'msg': str
         }
 
@@ -146,7 +146,7 @@ class SubscriptionVoiceResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionVoiceResponse.
-        :rtype: long
+        :rtype: int
         """
         return self._timestamp
 
@@ -157,7 +157,7 @@ class SubscriptionVoiceResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.
-        :type timestamp: long
+        :type timestamp: int
         """
 
         self._timestamp = timestamp
