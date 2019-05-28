@@ -1,8 +1,10 @@
 swagger: "2.0"
 info:
-  description: "Yanshee RESTful APIs是一套专门为编程爱好者提供二次开发的接口．它通过http/https的方式向外界提供机器人控制，传感器读取，机器人视觉等功能．用户还可以通过编程的方式训练自己的模型，学习一些机器学习的内容．"
+  description: "
+  Yanshee RESTful APIs是一套专门为编程爱好者提供二次开发的接口．它通过http/https的方式向外界提供机器人控制，传感器读取，机器人视觉等功能．用户还可以通过编程的方式训练自己的模型，学习一些机器学习的内容．
+  "
   version: "1.0.0"
-  title: "Yanshee RESTful API"
+  title: "Yanshee Open ADK"
   termsOfService: "https://account.ubtrobot.com/gdpr/ukit/v1.0.3/TermsOfUse_en.html"
   contact:
     email: "swenggroup@ubtrobot.com"
