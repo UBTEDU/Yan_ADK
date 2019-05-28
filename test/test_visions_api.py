@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openadk
-from openadk import Name, VisionsDeleteTags, VisionsGetRequest, VisionsPhoto
+from openadk import Name, VisionsDeleteTags, VisionsPhoto
 from openadk.api.visions_api import VisionsApi  # noqa: E501
 from openadk.rest import ApiException
 from pprint import pprint
