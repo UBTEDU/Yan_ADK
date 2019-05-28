@@ -60,6 +60,13 @@ class TestVoiceApi(unittest.TestCase):
 
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
+		
+    def test_delete_voice_offline_syntax(self):
+        """Test case for delete_voice_offline_syntax
+
+        Delete a offline grammar based offline grammar's name  # noqa: E501
+        """
+        pass
 
     def test_delete_voice_tts(self):
         """Test case for delete_voice_tts
@@ -121,6 +128,19 @@ class TestVoiceApi(unittest.TestCase):
         ret = self.api_instance.get_voice_iat()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
+    def test_get_voice_offline_syntax(self):
+        """Test case for get_voice_offline_syntax
+
+        Get offline grammar configuration  # noqa: E501
+        """
+        pass
+
+    def test_get_voice_offline_syntax_grammars(self):
+        """Test case for get_voice_offline_syntax_grammars
+
+        Get offline grammars' name  # noqa: E501
+        """
+        pass
 
     def test_get_voice_tts(self):
         """Test case for get_voice_tts
@@ -148,6 +168,13 @@ class TestVoiceApi(unittest.TestCase):
         ret = self.api_instance.get_voice_tts(timestamp=timestamp)
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
+
+    def test_post_voice_offline_syntax(self):
+        """Test case for post_voice_offline_syntax
+
+        Add a new offline grammar  # noqa: E501
+        """
+        pass
 
     def test_put_voice_asr(self):
         """Test case for put_voice_asr
@@ -177,6 +204,13 @@ class TestVoiceApi(unittest.TestCase):
         # stop iat task
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
+		
+    def test_put_voice_offline_syntax(self):
+        """Test case for put_voice_offline_syntax
+
+        Update offline grammar based grammar's name  # noqa: E501
+        """
+        pass
 
     def test_put_voice_tts(self):
         """Test case for put_voice_tts

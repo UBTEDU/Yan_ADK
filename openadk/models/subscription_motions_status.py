@@ -23,12 +23,12 @@ class SubscriptionMotionsStatus(Model):
         :param name: The name of this SubscriptionMotionsStatus.  # noqa: E501
         :type name: str
         :param timestamp: The timestamp of this SubscriptionMotionsStatus.  # noqa: E501
-        :type timestamp: int
+        :type timestamp: long
         """
         self.swagger_types = {
             'status': str,
             'name': str,
-            'timestamp': int
+            'timestamp': long
         }
 
         self.attribute_map = {
@@ -111,7 +111,7 @@ class SubscriptionMotionsStatus(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionMotionsStatus.
-        :rtype: int
+        :rtype: long
         """
         return self._timestamp
 
@@ -122,7 +122,7 @@ class SubscriptionMotionsStatus(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionMotionsStatus.
-        :type timestamp: int
+        :type timestamp: long
         """
 
         self._timestamp = timestamp

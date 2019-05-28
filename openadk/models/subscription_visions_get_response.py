@@ -26,7 +26,7 @@ class SubscriptionVisionsGetResponse(Model):
         :param data: The data of this SubscriptionVisionsGetResponse.  # noqa: E501
         :type data: SubscriptionVisionsResults
         :param timestamp: The timestamp of this SubscriptionVisionsGetResponse.  # noqa: E501
-        :type timestamp: int
+        :type timestamp: long
         :param status: The status of this SubscriptionVisionsGetResponse.  # noqa: E501
         :type status: str
         :param msg: The msg of this SubscriptionVisionsGetResponse.  # noqa: E501
@@ -36,7 +36,7 @@ class SubscriptionVisionsGetResponse(Model):
             'code': int,
             'type': str,
             'data': SubscriptionVisionsResults,
-            'timestamp': int,
+            'timestamp': long,
             'status': str,
             'msg': str
         }
@@ -150,7 +150,7 @@ class SubscriptionVisionsGetResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionVisionsGetResponse.
-        :rtype: int
+        :rtype: long
         """
         return self._timestamp
 
@@ -161,7 +161,7 @@ class SubscriptionVisionsGetResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionVisionsGetResponse.
-        :type timestamp: int
+        :type timestamp: long
         """
 
         self._timestamp = timestamp

@@ -51,7 +51,7 @@ class VisionsPhoto(object):
     def resolution(self):
         """Gets the resolution of this VisionsPhoto.  # noqa: E501
 
-         The photo's resolution. The default resolution is 1024x768, the max resolution is 1280x800.   # noqa: E501
+         The photo's resolution. The default resolution is 1024x768, the max resolution is 640x480.   # noqa: E501
 
         :return: The resolution of this VisionsPhoto.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class VisionsPhoto(object):
     def resolution(self, resolution):
         """Sets the resolution of this VisionsPhoto.
 
-         The photo's resolution. The default resolution is 1024x768, the max resolution is 1280x800.   # noqa: E501
+         The photo's resolution. The default resolution is 1024x768, the max resolution is 640x480.   # noqa: E501
 
         :param resolution: The resolution of this VisionsPhoto.  # noqa: E501
         :type: str

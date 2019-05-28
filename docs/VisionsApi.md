@@ -257,7 +257,7 @@ No authorization required
 
 Get compute vision result
 
- Combination constraint  face - age - gender - age_group - quantity - expression - recognition  object - recognition  color - color_detect 
+ Combination constraint  face - age - gender - age_group - quantity - expression - recognition - tracking  object - recognition  color - color_detect 
 
 ### Example
 ```python
@@ -586,7 +586,7 @@ No authorization required
 
 Start or stop a compute vision task
 
- Please note that the system is designed to run a specific compute vision task one by one. If a task is already started, please stop it before start a new vision task. If the vision tasks are using different module, the vision task can be supported running at the same time. 
+ Rules: - rule 1: When camera stream task is on, no vision task can be on - rule 2: When other vision tasks are on, camera stream task can not be on - rule 3: Same task or treated as same task can not start twice, including task starting by voice command - rule 4: Camera stream task do not follow rule 3 
 
 ### Example
 ```python

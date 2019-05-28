@@ -101,7 +101,7 @@ class VisionsGetResponse(object):
     def type(self):
         """Gets the type of this VisionsGetResponse.  # noqa: E501
 
-         The possible \"type\" value as below: - recognition - tracking - gender - age_group - quantity - color_detect - age - expression   # noqa: E501
+         The possible \"type\" value as below: - recognition - tracking - gender - age_group - quantity - color_detect - age - expression - tracking   # noqa: E501
 
         :return: The type of this VisionsGetResponse.  # noqa: E501
         :rtype: str
@@ -112,7 +112,7 @@ class VisionsGetResponse(object):
     def type(self, type):
         """Sets the type of this VisionsGetResponse.
 
-         The possible \"type\" value as below: - recognition - tracking - gender - age_group - quantity - color_detect - age - expression   # noqa: E501
+         The possible \"type\" value as below: - recognition - tracking - gender - age_group - quantity - color_detect - age - expression - tracking   # noqa: E501
 
         :param type: The type of this VisionsGetResponse.  # noqa: E501
         :type: str

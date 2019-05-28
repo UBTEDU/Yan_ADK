@@ -369,7 +369,16 @@ definitions:
         enum:
           - "asr"
           - "iat"
-        description: "消息类型。此处的参数有 'asr', 'iat' "
+          - "tts"
+        description: "
+        消息类型。可接受的参数有：
+
+        - asr
+
+        - iat
+
+        - tts
+        "
         example: "asr"
       data:
         description: "数据"

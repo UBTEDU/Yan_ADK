@@ -51,7 +51,7 @@ class VisionsStream(object):
     def resolution(self):
         """Gets the resolution of this VisionsStream.  # noqa: E501
 
-         The stream's resolution. The default resolution is 640x480, the max resolution is 1280x800.   # noqa: E501
+         The stream's resolution. The default resolution is 640x480, the max resolution is 640x480.   # noqa: E501
 
         :return: The resolution of this VisionsStream.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class VisionsStream(object):
     def resolution(self, resolution):
         """Sets the resolution of this VisionsStream.
 
-         The stream's resolution. The default resolution is 640x480, the max resolution is 1280x800.   # noqa: E501
+         The stream's resolution. The default resolution is 640x480, the max resolution is 640x480.   # noqa: E501
 
         :param resolution: The resolution of this VisionsStream.  # noqa: E501
         :type: str

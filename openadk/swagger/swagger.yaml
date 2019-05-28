@@ -417,10 +417,11 @@ definitions:
       type:
         type: "string"
         example: "asr"
-        description: " The possible values:\n- asr\n- iat "
+        description: " The possible values:\n- asr\n- iat\n- tts "
         enum:
         - "asr"
         - "iat"
+        - "tts"
       data:
         type: "object"
         example: {}

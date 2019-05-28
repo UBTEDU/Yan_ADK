@@ -25,7 +25,7 @@ class SubscriptionVoiceResponse(Model):
         :param data: The data of this SubscriptionVoiceResponse.  # noqa: E501
         :type data: object
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.  # noqa: E501
-        :type timestamp: int
+        :type timestamp: long
         :param msg: The msg of this SubscriptionVoiceResponse.  # noqa: E501
         :type msg: str
         """
@@ -33,7 +33,7 @@ class SubscriptionVoiceResponse(Model):
             'code': int,
             'type': str,
             'data': object,
-            'timestamp': int,
+            'timestamp': long,
             'msg': str
         }
 
@@ -91,7 +91,7 @@ class SubscriptionVoiceResponse(Model):
     def type(self):
         """Gets the type of this SubscriptionVoiceResponse.
 
-         The possible values: - asr - iat   # noqa: E501
+         The possible values: - asr - iat - tts   # noqa: E501
 
         :return: The type of this SubscriptionVoiceResponse.
         :rtype: str
@@ -102,12 +102,12 @@ class SubscriptionVoiceResponse(Model):
     def type(self, type):
         """Sets the type of this SubscriptionVoiceResponse.
 
-         The possible values: - asr - iat   # noqa: E501
+         The possible values: - asr - iat - tts   # noqa: E501
 
         :param type: The type of this SubscriptionVoiceResponse.
         :type type: str
         """
-        allowed_values = ["asr", "iat"]  # noqa: E501
+        allowed_values = ["asr", "iat", "tts"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"
@@ -146,7 +146,7 @@ class SubscriptionVoiceResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :return: The timestamp of this SubscriptionVoiceResponse.
-        :rtype: int
+        :rtype: long
         """
         return self._timestamp
 
@@ -157,7 +157,7 @@ class SubscriptionVoiceResponse(Model):
         Timestamp, Unix standard time.  # noqa: E501
 
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.
-        :type timestamp: int
+        :type timestamp: long
         """
 
         self._timestamp = timestamp

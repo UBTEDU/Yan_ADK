@@ -450,7 +450,7 @@ class DevicesApi(object):
         query_params = []
         if 'type' in params:
             query_params.append(('type', params['type']))  # noqa: E501
-            collection_formats['type'] = 'multi'  # noqa: E501
+            collection_formats['type'] = 'csv'  # noqa: E501
 
         header_params = {}
 

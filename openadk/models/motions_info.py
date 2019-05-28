@@ -79,7 +79,7 @@ class MotionsInfo(object):
     def music(self):
         """Gets the music of this MotionsInfo.  # noqa: E501
 
-         - True  The motion has a music - False The motion has no music   # noqa: E501
+         - True The motion has a music - False The motion has no music   # noqa: E501
 
         :return: The music of this MotionsInfo.  # noqa: E501
         :rtype: bool
@@ -90,7 +90,7 @@ class MotionsInfo(object):
     def music(self, music):
         """Sets the music of this MotionsInfo.
 
-         - True  The motion has a music - False The motion has no music   # noqa: E501
+         - True The motion has a music - False The motion has no music   # noqa: E501
 
         :param music: The music of this MotionsInfo.  # noqa: E501
         :type: bool

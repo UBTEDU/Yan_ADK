@@ -404,7 +404,7 @@ class MotionsApi(object):
     def put_motions(self, body, **kwargs):  # noqa: E501
         """Update the motions  # noqa: E501
 
-         Supported parameters: - start - pause - continue - stop   # noqa: E501
+         Supported parameters: - start - pause - resume - stop   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_motions(body, async_req=True)
@@ -426,7 +426,7 @@ class MotionsApi(object):
     def put_motions_with_http_info(self, body, **kwargs):  # noqa: E501
         """Update the motions  # noqa: E501
 
-         Supported parameters: - start - pause - continue - stop   # noqa: E501
+         Supported parameters: - start - pause - resume - stop   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_motions_with_http_info(body, async_req=True)

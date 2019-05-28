@@ -94,7 +94,7 @@ class SensorsApi(object):
         query_params = []
         if 'slot' in params:
             query_params.append(('slot', params['slot']))  # noqa: E501
-            collection_formats['slot'] = 'multi'  # noqa: E501
+            collection_formats['slot'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -275,10 +275,10 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
-            collection_formats['id'] = 'multi'  # noqa: E501
+            collection_formats['id'] = 'csv'  # noqa: E501
         if 'slot' in params:
             query_params.append(('slot', params['slot']))  # noqa: E501
-            collection_formats['slot'] = 'multi'  # noqa: E501
+            collection_formats['slot'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -459,10 +459,10 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
-            collection_formats['id'] = 'multi'  # noqa: E501
+            collection_formats['id'] = 'csv'  # noqa: E501
         if 'slot' in params:
             query_params.append(('slot', params['slot']))  # noqa: E501
-            collection_formats['slot'] = 'multi'  # noqa: E501
+            collection_formats['slot'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -556,10 +556,10 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
-            collection_formats['id'] = 'multi'  # noqa: E501
+            collection_formats['id'] = 'csv'  # noqa: E501
         if 'slot' in params:
             query_params.append(('slot', params['slot']))  # noqa: E501
-            collection_formats['slot'] = 'multi'  # noqa: E501
+            collection_formats['slot'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -653,10 +653,10 @@ class SensorsApi(object):
         query_params = []
         if 'id' in params:
             query_params.append(('id', params['id']))  # noqa: E501
-            collection_formats['id'] = 'multi'  # noqa: E501
+            collection_formats['id'] = 'csv'  # noqa: E501
         if 'slot' in params:
             query_params.append(('slot', params['slot']))  # noqa: E501
-            collection_formats['slot'] = 'multi'  # noqa: E501
+            collection_formats['slot'] = 'csv'  # noqa: E501
 
         header_params = {}
 

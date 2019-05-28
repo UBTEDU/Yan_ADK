@@ -495,7 +495,7 @@ class VisionsApi(object):
     def get_vision(self, **kwargs):  # noqa: E501
         """Get compute vision result  # noqa: E501
 
-         Combination constraint  face - age - gender - age_group - quantity - expression - recognition  object - recognition  color - color_detect   # noqa: E501
+         Combination constraint  face - age - gender - age_group - quantity - expression - recognition - tracking  object - recognition  color - color_detect   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vision(async_req=True)
@@ -518,7 +518,7 @@ class VisionsApi(object):
     def get_vision_with_http_info(self, **kwargs):  # noqa: E501
         """Get compute vision result  # noqa: E501
 
-         Combination constraint  face - age - gender - age_group - quantity - expression - recognition  object - recognition  color - color_detect   # noqa: E501
+         Combination constraint  face - age - gender - age_group - quantity - expression - recognition - tracking  object - recognition  color - color_detect   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vision_with_http_info(async_req=True)
@@ -1144,7 +1144,7 @@ class VisionsApi(object):
     def put_visions(self, body, **kwargs):  # noqa: E501
         """Start or stop a compute vision task  # noqa: E501
 
-         Please note that the system is designed to run a specific compute vision task one by one. If a task is already started, please stop it before start a new vision task. If the vision tasks are using different module, the vision task can be supported running at the same time.   # noqa: E501
+         Rules: - rule 1: When camera stream task is on, no vision task can be on - rule 2: When other vision tasks are on, camera stream task can not be on - rule 3: Same task or treated as same task can not start twice, including task starting by voice command - rule 4: Camera stream task do not follow rule 3   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions(body, async_req=True)
@@ -1166,7 +1166,7 @@ class VisionsApi(object):
     def put_visions_with_http_info(self, body, **kwargs):  # noqa: E501
         """Start or stop a compute vision task  # noqa: E501
 
-         Please note that the system is designed to run a specific compute vision task one by one. If a task is already started, please stop it before start a new vision task. If the vision tasks are using different module, the vision task can be supported running at the same time.   # noqa: E501
+         Rules: - rule 1: When camera stream task is on, no vision task can be on - rule 2: When other vision tasks are on, camera stream task can not be on - rule 3: Same task or treated as same task can not start twice, including task starting by voice command - rule 4: Camera stream task do not follow rule 3   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.put_visions_with_http_info(body, async_req=True)

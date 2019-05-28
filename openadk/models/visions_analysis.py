@@ -143,7 +143,7 @@ class VisionsAnalysis(object):
     def expression(self):
         """Gets the expression of this VisionsAnalysis.  # noqa: E501
 
-         Expression, all possible values: - anger - disgust - fear - happy - sad - surprised - normal   # noqa: E501
+         Expression, all possible values: - anger - disgust - fear - happy - sad - surprised - normal - none   # noqa: E501
 
         :return: The expression of this VisionsAnalysis.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class VisionsAnalysis(object):
     def expression(self, expression):
         """Sets the expression of this VisionsAnalysis.
 
-         Expression, all possible values: - anger - disgust - fear - happy - sad - surprised - normal   # noqa: E501
+         Expression, all possible values: - anger - disgust - fear - happy - sad - surprised - normal - none   # noqa: E501
 
         :param expression: The expression of this VisionsAnalysis.  # noqa: E501
         :type: str

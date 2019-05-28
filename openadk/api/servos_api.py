@@ -98,7 +98,7 @@ class ServosApi(object):
         query_params = []
         if 'names' in params:
             query_params.append(('names', params['names']))  # noqa: E501
-            collection_formats['names'] = 'multi'  # noqa: E501
+            collection_formats['names'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -194,7 +194,7 @@ class ServosApi(object):
         query_params = []
         if 'names' in params:
             query_params.append(('names', params['names']))  # noqa: E501
-            collection_formats['names'] = 'multi'  # noqa: E501
+            collection_formats['names'] = 'csv'  # noqa: E501
 
         header_params = {}
 

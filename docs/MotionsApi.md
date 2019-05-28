@@ -200,7 +200,7 @@ No authorization required
 
 Update the motions
 
- Supported parameters: - start - pause - continue - stop 
+ Supported parameters: - start - pause - resume - stop 
 
 ### Example
 ```python

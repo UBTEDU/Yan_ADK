@@ -509,12 +509,15 @@ definitions:
         enum:
           - "asr"
           - "iat"
+          - "tts"
         description: "
         The possible values:
 
         - asr
 
         - iat
+
+        - tts
         "
         example: "asr"
       data:
