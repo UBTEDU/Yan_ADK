@@ -1,7 +1,95 @@
 swagger: "2.0"
 info:
   description: "
-  Yanshee RESTful APIs是一套专门为编程爱好者提供二次开发的接口．它通过http/https的方式向外界提供机器人控制，传感器读取，机器人视觉等功能．用户还可以通过编程的方式训练自己的模型，学习一些机器学习的内容．
+  ## 概要说明
+
+  Open ADK 是提供给用户快速开发的工具包。它提供了如类的RESTful接口的封装。用户可以直接调用Open ADK中对应的接口，而不需要编写http/https通信的代码。
+  它主要提供如下两项功能。
+
+  - 各类编程接口的调用
+
+  - 接收订阅接口的推送消息
+
+  ## 依赖
+
+  Python 2.7 or 3.4+
+
+  ## 安装及使用
+
+  从github上获取源码
+
+  ```
+  pip install git+https://github.com/UBTEDU/Yanshee_OpenADK.git
+
+  ```
+  (可能需要使用root用户来安装： sudo pip install git+https://github.com/UBTEDU/Yanshee_OpenADK.git)
+
+  导入Open ADK的包:
+
+  ```
+
+  import openadk
+
+  ```
+
+  ## Setuptools
+
+  通过[Setuptools](https://pypi.org/project/setuptools/)安装:
+
+  ```
+  python setup.py install --user
+
+  ```
+  (或者使用sudo给所有用户安装)
+
+  导入Open ADK包：
+
+  ```
+
+  import openadk
+
+  ```
+
+  ## 快速开始
+
+  下面是一个快速开始的例子，请参考：
+
+  ```
+
+  from __future__ import print_function
+
+  import time
+
+  import openadk
+
+  from openadk.rest import ApiException
+
+  from pprint import pprint
+
+
+  # create an instance of the API class
+
+  configuration = openadk.Configuration()
+
+  configuration.host = 'http://<ip>:9090/v1'
+
+  api_instance = openadk.DevicesApi(openadk.ApiClient(configuration))
+
+
+  try:
+
+      \t# Get system's battery information
+
+      \tapi_response = api_instance.get_devices_battery()
+
+      \tpprint(api_response)
+
+  except ApiException as e:
+
+      \tprint(\"Exception when calling DevicesApi->get_devices_battery: %s\" % e)
+
+  ```
+
   "
   version: "1.0.0"
   title: "Yanshee Open ADK"

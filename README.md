@@ -15,7 +15,7 @@ Python 2.7 or 3.4+
  
  ``` pip install git+https://github.com/UBTEDU/Yanshee_OpenADK.git ``` 
  
-(you may need to run pip with root permission: sudo pip install git+https://github.com//.git) 
+(you may need to run pip with root permission: sudo pip install git+https://github.com/UBTEDU/Yanshee_OpenADK.git) 
 
 Then import the package: 
 
