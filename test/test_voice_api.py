@@ -23,6 +23,10 @@ from openadk.rest import ApiException
 import time
 from openadk.models.voice_iat_request import VoiceIatRequest
 from openadk.models.voice_tts_str import VoiceTTSStr
+from openadk.models.voice_post_offline_syntax import VoicePostOfflineSyntax
+from openadk.models.voice_offline_slot import VoiceOfflineSlot
+from openadk.models.voice_offline_syntax_rule import VoiceOfflineSyntaxRule
+from openadk.models.voice_delete_offline_syntax import VoiceDeleteOfflineSyntax
 
 
 class TestVoiceApi(unittest.TestCase):
@@ -30,7 +34,7 @@ class TestVoiceApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.configuration.host = 'http://10.10.60.131:9090/v1'
         self.api_instance = VoiceApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
@@ -60,13 +64,60 @@ class TestVoiceApi(unittest.TestCase):
 
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
-		
+
     def test_delete_voice_offline_syntax(self):
         """Test case for delete_voice_offline_syntax
 
         Delete a offline grammar based offline grammar's name  # noqa: E501
         """
-        pass
+        # create offline_syntax
+        rules = [
+                    {
+                        "name": "want",
+                        "value": "我想|我要|请|帮我|我想要|请帮我"
+                    },
+                    {
+                        "name": "dialpre",
+                        "value": "打电话给!id(10001)|打给!id(10001)|拨打!id(10001)|拨打电话给!id(10001)|呼叫!id(10001)| 打一个电话给!id(10001)|打个电话给!id(10001)|给|拨通!id(10001)| 接通!id(10001)|呼叫!id(10001)|呼叫给!id(10001)|打!id(10001)"
+                    },
+                    {
+                        "name": "contact",
+                        "value": "丁伟"
+                    },
+                    {
+                        "name": "dialsuf",
+                        "value": "打电话!id(10001)|打个电话!id(10001)|打一个电话!id(10001)| 拨打电话!id(10001)|拨电话!id(10001)|拨个电话!id(10001)|呼个电话!id(10001)| 的电话!id(10001)|的号码!id(10001)|的手机!id(10001)| 的办公电话!id(10001)|的移动号码!id(10001)|的联通号码!id(10001)| 的电信号码!id(10001)|客服电话!id(10001)"
+                    }
+                ]
+        grammar = str(int(time.time()))
+        slot = []
+        for rule in rules:
+            slot.append(VoiceOfflineSlot(name=rule['name']))
+        start = grammar + 'Start'
+        startinfo = ''
+        for r in rules:
+            if r == rules[0] or r == rules[-1]:
+                startinfo += '[<' + r['name'] + '>]'
+            else:
+                startinfo += '<' + r['name'] + '>'
+            startinfo += '|' if r != rules[-1] else ''
+        rule = []
+        for r in rules:
+            temp = VoiceOfflineSyntaxRule(name=r['name'], value=r['value'])
+            rule.append(temp)
+        body = VoicePostOfflineSyntax(grammar=grammar, slot=slot, start=start, startinfo=startinfo, rule=rule)
+        ret = self.api_instance.post_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # delete offline_syntax
+        body = VoiceDeleteOfflineSyntax(grammar=grammar)
+        ret = self.api_instance.delete_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # delete deleted(nonexistent) offline_syntax
+        body = VoiceDeleteOfflineSyntax(grammar=grammar)
+        ret = self.api_instance.delete_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 1, ret)
 
     def test_delete_voice_tts(self):
         """Test case for delete_voice_tts
@@ -128,19 +179,73 @@ class TestVoiceApi(unittest.TestCase):
         ret = self.api_instance.get_voice_iat()
         self.assertEqual(ret.code, 0, ret)
         self.assertEqual(ret.status, 'idle', ret)
+
     def test_get_voice_offline_syntax(self):
         """Test case for get_voice_offline_syntax
 
         Get offline grammar configuration  # noqa: E501
         """
-        pass
+        # create offline_syntax
+        rules = [
+            {
+                "name": "want",
+                "value": "我想|我要|请|帮我|我想要|请帮我"
+            },
+            {
+                "name": "dialpre",
+                "value": "打电话给!id(10001)|打给!id(10001)|拨打!id(10001)|拨打电话给!id(10001)|呼叫!id(10001)| 打一个电话给!id(10001)|打个电话给!id(10001)|给|拨通!id(10001)| 接通!id(10001)|呼叫!id(10001)|呼叫给!id(10001)|打!id(10001)"
+            },
+            {
+                "name": "contact",
+                "value": "丁伟"
+            },
+            {
+                "name": "dialsuf",
+                "value": "打电话!id(10001)|打个电话!id(10001)|打一个电话!id(10001)| 拨打电话!id(10001)|拨电话!id(10001)|拨个电话!id(10001)|呼个电话!id(10001)| 的电话!id(10001)|的号码!id(10001)|的手机!id(10001)| 的办公电话!id(10001)|的移动号码!id(10001)|的联通号码!id(10001)| 的电信号码!id(10001)|客服电话!id(10001)"
+            }
+        ]
+        grammar = str(int(time.time()))
+        slot = []
+        for rule in rules:
+            slot.append(VoiceOfflineSlot(name=rule['name']))
+        start = grammar + 'Start'
+        startinfo = ''
+        for r in rules:
+            if r == rules[0] or r == rules[-1]:
+                startinfo += '[<' + r['name'] + '>]'
+            else:
+                startinfo += '<' + r['name'] + '>'
+            startinfo += '|' if r != rules[-1] else ''
+        rule = []
+        for r in rules:
+            temp = VoiceOfflineSyntaxRule(name=r['name'], value=r['value'])
+            rule.append(temp)
+        body = VoicePostOfflineSyntax(grammar=grammar, slot=slot, start=start, startinfo=startinfo, rule=rule)
+        ret = self.api_instance.post_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # get offline_syntax
+        ret = self.api_instance.get_voice_offline_syntax(body=grammar)  # return VoiceGetOfflineSyntaxResponse instance
+        self.assertEqual(ret.to_str(), body.to_str(), ret)
+
+        # delete offline_syntax
+        body = VoiceDeleteOfflineSyntax(grammar=grammar)
+        ret = self.api_instance.delete_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
 
     def test_get_voice_offline_syntax_grammars(self):
         """Test case for get_voice_offline_syntax_grammars
 
         Get offline grammars' name  # noqa: E501
         """
-        pass
+        # get offline_syntax grammars
+        ret = self.api_instance.get_voice_offline_syntax_grammars()  # return VoiceGetOfflineSyntaxGrammarsResponse instance
+        found = False
+        for name in ret.grammar:
+            if name.name == 'default':
+                found = True
+                break
+        self.assertEqual(found, True, ret)
 
     def test_get_voice_tts(self):
         """Test case for get_voice_tts
@@ -174,7 +279,67 @@ class TestVoiceApi(unittest.TestCase):
 
         Add a new offline grammar  # noqa: E501
         """
-        pass
+        # create offline_syntax
+        rules = [
+            {
+                "name": "want",
+                "value": "我想|我要|请|帮我|我想要|请帮我"
+            },
+            {
+                "name": "dialpre",
+                "value": "打电话给!id(10001)|打给!id(10001)|拨打!id(10001)|拨打电话给!id(10001)|呼叫!id(10001)| 打一个电话给!id(10001)|打个电话给!id(10001)|给|拨通!id(10001)| 接通!id(10001)|呼叫!id(10001)|呼叫给!id(10001)|打!id(10001)"
+            },
+            {
+                "name": "contact",
+                "value": "丁伟"
+            },
+            {
+                "name": "dialsuf",
+                "value": "打电话!id(10001)|打个电话!id(10001)|打一个电话!id(10001)| 拨打电话!id(10001)|拨电话!id(10001)|拨个电话!id(10001)|呼个电话!id(10001)| 的电话!id(10001)|的号码!id(10001)|的手机!id(10001)| 的办公电话!id(10001)|的移动号码!id(10001)|的联通号码!id(10001)| 的电信号码!id(10001)|客服电话!id(10001)"
+            }
+        ]
+        grammar = str(int(time.time()))
+        slot = []
+        for rule in rules:
+            slot.append(VoiceOfflineSlot(name=rule['name']))
+        start = grammar + 'Start'
+        startinfo = ''
+        for r in rules:
+            if r == rules[0] or r == rules[-1]:
+                startinfo += '[<' + r['name'] + '>]'
+            else:
+                startinfo += '<' + r['name'] + '>'
+            startinfo += '|' if r != rules[-1] else ''
+        rule = []
+        for r in rules:
+            temp = VoiceOfflineSyntaxRule(name=r['name'], value=r['value'])
+            rule.append(temp)
+        body = VoicePostOfflineSyntax(grammar=grammar, slot=slot, start=start, startinfo=startinfo, rule=rule)
+        ret = self.api_instance.post_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # get offline_syntax grammars
+        ret = self.api_instance.get_voice_offline_syntax_grammars()  # return VoiceGetOfflineSyntaxGrammarsResponse instance
+        found = False
+        for name in ret.grammar:
+            if name.name == grammar:
+                found = True
+                break
+        self.assertEqual(found, True, ret)
+
+        # delete offline_syntax
+        body = VoiceDeleteOfflineSyntax(grammar=grammar)
+        ret = self.api_instance.delete_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # get offline_syntax grammars
+        ret = self.api_instance.get_voice_offline_syntax_grammars()  # return VoiceGetOfflineSyntaxGrammarsResponse instance
+        found = False
+        for name in ret.grammar:
+            if name.name == grammar:
+                found = True
+                break
+        self.assertEqual(found, False, ret)
 
     def test_put_voice_asr(self):
         """Test case for put_voice_asr
@@ -204,13 +369,70 @@ class TestVoiceApi(unittest.TestCase):
         # stop iat task
         ret = self.api_instance.delete_voice_iat()
         self.assertEqual(ret.code, 0, ret)
-		
+
     def test_put_voice_offline_syntax(self):
         """Test case for put_voice_offline_syntax
 
         Update offline grammar based grammar's name  # noqa: E501
         """
-        pass
+        # create offline_syntax
+        rules = [
+            {
+                "name": "want",
+                "value": "我想|我要|请|帮我|我想要|请帮我"
+            },
+            {
+                "name": "dialpre",
+                "value": "打电话给!id(10001)|打给!id(10001)|拨打!id(10001)|拨打电话给!id(10001)|呼叫!id(10001)| 打一个电话给!id(10001)|打个电话给!id(10001)|给|拨通!id(10001)| 接通!id(10001)|呼叫!id(10001)|呼叫给!id(10001)|打!id(10001)"
+            },
+            {
+                "name": "contact",
+                "value": "丁伟"
+            },
+            {
+                "name": "dialsuf",
+                "value": "打电话!id(10001)|打个电话!id(10001)|打一个电话!id(10001)| 拨打电话!id(10001)|拨电话!id(10001)|拨个电话!id(10001)|呼个电话!id(10001)| 的电话!id(10001)|的号码!id(10001)|的手机!id(10001)| 的办公电话!id(10001)|的移动号码!id(10001)|的联通号码!id(10001)| 的电信号码!id(10001)|客服电话!id(10001)"
+            }
+        ]
+        grammar = str(int(time.time()))
+        slot = []
+        for rule in rules:
+            slot.append(VoiceOfflineSlot(name=rule['name']))
+        start = grammar + 'Start'
+        startinfo = ''
+        for r in rules:
+            if r == rules[0] or r == rules[-1]:
+                startinfo += '[<' + r['name'] + '>]'
+            else:
+                startinfo += '<' + r['name'] + '>'
+            startinfo += '|' if r != rules[-1] else ''
+        rule = []
+        for r in rules:
+            temp = VoiceOfflineSyntaxRule(name=r['name'], value=r['value'])
+            rule.append(temp)
+        body = VoicePostOfflineSyntax(grammar=grammar, slot=slot, start=start, startinfo=startinfo, rule=rule)
+        ret = self.api_instance.post_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # set offline_syntax
+        index = body.rule.index(VoiceOfflineSyntaxRule(name='contact', value='丁伟'))
+        body.rule[index].value = '俊文'
+        ret = self.api_instance.put_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
+
+        # get offline_syntax
+        ret = self.api_instance.get_voice_offline_syntax(body=grammar)  # return VoiceGetOfflineSyntaxResponse instance
+        found = False
+        for r in ret.rule:
+            if r.name == 'contact' and r.value == '俊文':
+                found = True
+                break
+        self.assertEqual(found, True, ret)
+
+        # delete offline_syntax
+        body = VoiceDeleteOfflineSyntax(grammar=grammar)
+        ret = self.api_instance.delete_voice_offline_syntax(body=body)
+        self.assertEqual(ret.code, 0, ret)
 
     def test_put_voice_tts(self):
         """Test case for put_voice_tts

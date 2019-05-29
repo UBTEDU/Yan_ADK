@@ -31,7 +31,7 @@ class TestMotionsApi(unittest.TestCase):
 
     def setUp(self):
         self.configuration = openadk.Configuration()
-        self.configuration.host = 'http://10.10.63.105:9090/v1'
+        self.configuration.host = 'http://10.10.60.131:9090/v1'
         self.api_instance = MotionsApi(openadk.ApiClient(self.configuration))  # noqa: E501
 
     def tearDown(self):
