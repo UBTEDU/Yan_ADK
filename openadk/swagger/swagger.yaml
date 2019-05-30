@@ -428,6 +428,10 @@ definitions:
         example: {}
         description: " Automatic speech recognition or auto transform's result. "
         properties: {}
+      status:
+        type: "string"
+        example: "idle"
+        description: " Status value\n- build\n- run\n- idle\n"
       timestamp:
         type: "integer"
         format: "int64"
@@ -444,6 +448,7 @@ definitions:
       code: 0
       data: {}
       type: "asr"
+      status: "idle"
       timestamp: 1000789666
   SubscriptionCommonResponse:
     type: "object"

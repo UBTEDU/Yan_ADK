@@ -352,7 +352,7 @@ paths:
         name: "body"
         required: true
         schema:
-          $ref: "#/definitions/SubscriptionCommonResponse"
+          $ref: "#/definitions/SubscriptionVoiceResponse"
       responses:
         200:
           description: "发送成功"
@@ -474,6 +474,19 @@ definitions:
         description: "数据"
         type: "object"
         example: {}
+      status:
+        type: "string"
+        description: "
+        状态值 
+  
+        - build
+        
+        - idle
+        
+        - run 
+        
+        "
+        example: "idle"
       timestamp:
         description: "时间戳"
         type: "integer"

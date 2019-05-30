@@ -15,7 +15,7 @@ class SubscriptionVoiceResponse(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, code=None, type=None, data=None, timestamp=None, msg=None):  # noqa: E501
+    def __init__(self, code=None, type=None, data=None, status=None, timestamp=None, msg=None):  # noqa: E501
         """SubscriptionVoiceResponse - a model defined in Swagger
 
         :param code: The code of this SubscriptionVoiceResponse.  # noqa: E501
@@ -24,6 +24,8 @@ class SubscriptionVoiceResponse(Model):
         :type type: str
         :param data: The data of this SubscriptionVoiceResponse.  # noqa: E501
         :type data: object
+        :param status: The status of this SubscriptionVoiceResponse.  # noqa: E501
+        :type status: str
         :param timestamp: The timestamp of this SubscriptionVoiceResponse.  # noqa: E501
         :type timestamp: int
         :param msg: The msg of this SubscriptionVoiceResponse.  # noqa: E501
@@ -33,6 +35,7 @@ class SubscriptionVoiceResponse(Model):
             'code': int,
             'type': str,
             'data': object,
+            'status': str,
             'timestamp': int,
             'msg': str
         }
@@ -41,6 +44,7 @@ class SubscriptionVoiceResponse(Model):
             'code': 'code',
             'type': 'type',
             'data': 'data',
+            'status': 'status',
             'timestamp': 'timestamp',
             'msg': 'msg'
         }
@@ -48,6 +52,7 @@ class SubscriptionVoiceResponse(Model):
         self._code = code
         self._type = type
         self._data = data
+        self._status = status
         self._timestamp = timestamp
         self._msg = msg
 
@@ -138,6 +143,29 @@ class SubscriptionVoiceResponse(Model):
         """
 
         self._data = data
+
+    @property
+    def status(self):
+        """Gets the status of this SubscriptionVoiceResponse.
+
+         Status value - build - run - idle   # noqa: E501
+
+        :return: The status of this SubscriptionVoiceResponse.
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this SubscriptionVoiceResponse.
+
+         Status value - build - run - idle   # noqa: E501
+
+        :param status: The status of this SubscriptionVoiceResponse.
+        :type status: str
+        """
+
+        self._status = status
 
     @property
     def timestamp(self):

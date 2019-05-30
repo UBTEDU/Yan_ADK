@@ -533,6 +533,19 @@ definitions:
         "
         type: "object"
         example: {}
+      status:
+        type: "string"
+        description: "
+        Status value
+        
+        - build
+        
+        - run
+        
+        - idle
+    
+        "
+        example: "idle"
       timestamp:
         description: "Timestamp, Unix standard time."
         type: "integer"
