@@ -217,7 +217,8 @@ class TestSubscriptionsController(BaseTestCase):
         tts_data = {
                       "code": 0,
                       "type": "tts",
-                      "data": {'status': 'build'},
+                      "data": {},
+                      "status": "build",
                       "timestamp": int(time.time()),
                       "msg": "Success"
                     }
@@ -273,6 +274,7 @@ class TestSubscriptionsController(BaseTestCase):
                         'code': 0,
                         'type': 'asr',
                         'data': {'text': '好啊好啊，很高兴遇到你。', 'question': '你好'},
+                        'status': 'idle',
                         'timestamp': int(time.time()),
                         'msg': 'Success'
                     }
@@ -296,6 +298,7 @@ class TestSubscriptionsController(BaseTestCase):
             'code': 0,
             'type': 'iat',
             'data': {'text': '江山如此多娇'},
+            'status': 'idle',
             'timestamp': int(time.time()),
             'msg': 'Success'
         }
