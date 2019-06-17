@@ -90,7 +90,7 @@ class MotionsParameter(object):
     def direction(self):
         """Gets the direction of this MotionsParameter.  # noqa: E501
 
-         When the \"name\" is \"raise | stretch | come on | wave\", \"direction\" value as below: - left - right - both  When the \"name\" is \"bend | turn around\", \"direction\" value as below: - left - right  When the \"name\" is \"walk\", \"direction\" value as below: - front - back - left - right  When the \"name\" is \"head\", \"direction\" value as below: - front - left - right   # noqa: E501
+         When the \"name\" is \"raise | stretch | come on | wave\", \"direction\" value as below: - left - right - both  When the \"name\" is \"bend | turn around\", \"direction\" value as below: - left - right  When the \"name\" is \"walk\", \"direction\" value as below: - forward - backward - left - right  When the \"name\" is \"head\", \"direction\" value as below: - forward - left - right   # noqa: E501
 
         :return: The direction of this MotionsParameter.  # noqa: E501
         :rtype: str
@@ -101,12 +101,12 @@ class MotionsParameter(object):
     def direction(self, direction):
         """Sets the direction of this MotionsParameter.
 
-         When the \"name\" is \"raise | stretch | come on | wave\", \"direction\" value as below: - left - right - both  When the \"name\" is \"bend | turn around\", \"direction\" value as below: - left - right  When the \"name\" is \"walk\", \"direction\" value as below: - front - back - left - right  When the \"name\" is \"head\", \"direction\" value as below: - front - left - right   # noqa: E501
+         When the \"name\" is \"raise | stretch | come on | wave\", \"direction\" value as below: - left - right - both  When the \"name\" is \"bend | turn around\", \"direction\" value as below: - left - right  When the \"name\" is \"walk\", \"direction\" value as below: - forward - backward - left - right  When the \"name\" is \"head\", \"direction\" value as below: - forward - left - right   # noqa: E501
 
         :param direction: The direction of this MotionsParameter.  # noqa: E501
         :type: str
         """
-        allowed_values = ["left", "right", "both", "front", "back"]  # noqa: E501
+        allowed_values = ["left", "right", "both", "forward", "backward"]  # noqa: E501
         if direction not in allowed_values:
             raise ValueError(
                 "Invalid value for `direction` ({0}), must be one of {1}"  # noqa: E501

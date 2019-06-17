@@ -33,6 +33,7 @@ class VoiceResponse(object):
     swagger_types = {
         'code': 'int',
         'type': 'str',
+        'status': 'str',
         'data': 'object',
         'timestamp': 'int',
         'msg': 'str'
@@ -41,16 +42,18 @@ class VoiceResponse(object):
     attribute_map = {
         'code': 'code',
         'type': 'type',
+        'status': 'status',
         'data': 'data',
         'timestamp': 'timestamp',
         'msg': 'msg'
     }
 
-    def __init__(self, code=None, type=None, data=None, timestamp=None, msg=None):  # noqa: E501
+    def __init__(self, code=None, type=None, status=None, data=None, timestamp=None, msg=None):  # noqa: E501
         """VoiceResponse - a model defined in Swagger"""  # noqa: E501
 
         self._code = None
         self._type = None
+        self._status = None
         self._data = None
         self._timestamp = None
         self._msg = None
@@ -58,6 +61,8 @@ class VoiceResponse(object):
 
         self.code = code
         self.type = type
+        if status is not None:
+            self.status = status
         if data is not None:
             self.data = data
         if timestamp is not None:
@@ -93,7 +98,7 @@ class VoiceResponse(object):
     def type(self):
         """Gets the type of this VoiceResponse.  # noqa: E501
 
-         Speech recognition result type. The possible value: - asr - iat   # noqa: E501
+         Speech recognition result type. The possible value: - asr - iat - tts   # noqa: E501
 
         :return: The type of this VoiceResponse.  # noqa: E501
         :rtype: str
@@ -104,27 +109,44 @@ class VoiceResponse(object):
     def type(self, type):
         """Sets the type of this VoiceResponse.
 
-         Speech recognition result type. The possible value: - asr - iat   # noqa: E501
+         Speech recognition result type. The possible value: - asr - iat - tts   # noqa: E501
 
         :param type: The type of this VoiceResponse.  # noqa: E501
         :type: str
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["asr", "iat"]  # noqa: E501
-        if type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
+
+    @property
+    def status(self):
+        """Gets the status of this VoiceResponse.  # noqa: E501
+
+         status - build - idle - run   # noqa: E501
+
+        :return: The status of this VoiceResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this VoiceResponse.
+
+         status - build - idle - run   # noqa: E501
+
+        :param status: The status of this VoiceResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
 
     @property
     def data(self):
         """Gets the data of this VoiceResponse.  # noqa: E501
 
-         Speech recognition result data.   # noqa: E501
+        Speech recognition result data.  # noqa: E501
 
         :return: The data of this VoiceResponse.  # noqa: E501
         :rtype: object
@@ -135,7 +157,7 @@ class VoiceResponse(object):
     def data(self, data):
         """Sets the data of this VoiceResponse.
 
-         Speech recognition result data.   # noqa: E501
+        Speech recognition result data.  # noqa: E501
 
         :param data: The data of this VoiceResponse.  # noqa: E501
         :type: object

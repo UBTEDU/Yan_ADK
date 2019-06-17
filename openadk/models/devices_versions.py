@@ -32,25 +32,30 @@ class DevicesVersions(object):
     """
     swagger_types = {
         'core': 'str',
-        'servo': 'str'
+        'servo': 'str',
+        'sn': 'str'
     }
 
     attribute_map = {
         'core': 'core',
-        'servo': 'servo'
+        'servo': 'servo',
+        'sn': 'sn'
     }
 
-    def __init__(self, core=None, servo=None):  # noqa: E501
+    def __init__(self, core=None, servo=None, sn=None):  # noqa: E501
         """DevicesVersions - a model defined in Swagger"""  # noqa: E501
 
         self._core = None
         self._servo = None
+        self._sn = None
         self.discriminator = None
 
         if core is not None:
             self.core = core
         if servo is not None:
             self.servo = servo
+        if sn is not None:
+            self.sn = sn
 
     @property
     def core(self):
@@ -93,6 +98,27 @@ class DevicesVersions(object):
         """
 
         self._servo = servo
+
+    @property
+    def sn(self):
+        """Gets the sn of this DevicesVersions.  # noqa: E501
+
+
+        :return: The sn of this DevicesVersions.  # noqa: E501
+        :rtype: str
+        """
+        return self._sn
+
+    @sn.setter
+    def sn(self, sn):
+        """Sets the sn of this DevicesVersions.
+
+
+        :param sn: The sn of this DevicesVersions.  # noqa: E501
+        :type: str
+        """
+
+        self._sn = sn
 
     def to_dict(self):
         """Returns the model properties as a dict"""
