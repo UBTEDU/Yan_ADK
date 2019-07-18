@@ -13,9 +13,9 @@ Python 2.7 or 3.4+
 ## Installation & Usage
  You can install Yan ADK from github. 
  
- ``` pip install git+https://github.com/UBTEDU/Yanshee_YanADK.git ``` 
+ ``` pip install https://github.com/UBTEDU/Yan_ADK.git ``` 
  
-(you may need to run pip with root permission: sudo pip install git+https://github.com/UBTEDU/Yanshee_YanADK.git) 
+(you may need to run pip with root permission: sudo pip install https://github.com/UBTEDU/Yan_ADK.git ) 
 
 Then import the package: 
 
