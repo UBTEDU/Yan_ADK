@@ -38,8 +38,7 @@ Then import the package:
 Please follow the installation procedure and then run the following: 
 
 ``` 
-from __future__ 
-import print_function 
+from __future__ import print_function 
 import time 
 import openadk from openadk.rest 
 import ApiException from pprint 
