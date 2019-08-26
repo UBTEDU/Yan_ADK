@@ -22,7 +22,7 @@ For example:
  pip install https://github.com/UBTEDU/Yan_ADK/archive/v1.0.0-1.tar.gz 
 ```
  
-(you may need to run pip with root permission: sudo pip install https://github.com/UBTEDU/Yan_ADK/archive/\<versions\>.tar.gz ) 
+(you may need to run pip with root permission: sudo pip install https://github.com/UBTEDU/Yan_ADK/archive/\<versions>.tar.gz ) 
 
 Then import the package: 
 
