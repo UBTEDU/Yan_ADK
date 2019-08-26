@@ -19,7 +19,7 @@ Python 2.7 or 3.4+
 
 For example:
 ```
- pip install https://github.com/UBTEDU/Yan_ADK/archive/v1.0.0-1.tar.gz 
+ pip install https://github.com/UBTEDU/Yan_ADK/archive/latest.tar.gz 
 ```
  
 You may need to run pip with root permission: 
