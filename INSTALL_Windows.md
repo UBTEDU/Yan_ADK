@@ -77,7 +77,7 @@ The user can install Yan_ADK on windows by a very simple command.
 pip install https://github.com/UBTEDU/Yan_ADK/archive/latest.tar.gz
 ```
 
-If you cannot install Yan-ADK because of the python package dependences. Please install setup your local venv.
+If you cannot install Yan-ADK because of the python package dependences, please install your local venv.
 ## Creating virtual environments
 On Windows, invoke the venv command as follows:
 ```
