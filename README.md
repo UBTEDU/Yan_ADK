@@ -1,3 +1,15 @@
+<!-- TOC -->
+
+- [yanshee_openadk](#yansheeopenadk)
+  - [Overview](#overview)
+  - [Requirements.](#requirements)
+  - [Installation & Usage](#installation--usage)
+- [create an instance of the API class](#create-an-instance-of-the-api-class)
+- [Get system's battery information](#get-systems-battery-information)
+- [building the image](#building-the-image)
+- [starting up a container](#starting-up-a-container)
+
+<!-- /TOC -->
 # yanshee_openadk
 ## Overview 
  
@@ -19,7 +31,7 @@ Python 2.7 or 3.4+
 
 For example:
 ```
- pip install https://github.com/UBTEDU/Yan_ADK/archive/v1.0.0-1.tar.gz 
+ pip install https://github.com/UBTEDU/Yan_ADK/archive/latest.tar.gz 
 ```
  
 You may need to run pip with root permission: 
