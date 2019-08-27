@@ -14,6 +14,7 @@
   - [Creating virtual environments](#creating-virtual-environments)
   - [Activate virtual environments](#activate-virtual-environments)
   - [Install packages in virtual environments](#install-packages-in-virtual-environments)
+  - [Verify the package's installation](#verify-the-packages-installation)
 - [Install packages to system envonments](#install-packages-to-system-envonments)
 
 <!-- /TOC -->
@@ -33,22 +34,27 @@ If you want to change the installation path, please click "Customize installatio
 
 ### Step 2
 Here is an example.
+
 ![Install python](./docs/INSTALL_Windows/python_install_2.png)
 
 ### Step 3
 Please choose the items your want. If you don't know what the difference between them, please install them all.
+
 ![Install python](./docs/INSTALL_Windows/python_install_3.png)
 
 ### Step 4
 Please click "Yes" in this step, the installation application is trying to ask the privilege for python.
+
 ![Install python](./docs/INSTALL_Windows/python_install_5.png)
 
 ### Step 5
 Please wait for a while.
+
 ![Install python](./docs/INSTALL_Windows/python_install_6.png)
 
 ### Step 6
 This is the final step for installation.
+
 ![Install python](./docs/INSTALL_Windows/python_install_7.png)
 
 ## Verify your python environment
@@ -150,6 +156,23 @@ Finished processing dependencies for yanshee-openadk==1.0.0
 (venv) C:\Users\TEMP.DESKTOP-25LPNUR.005\Desktop\test\Yan_ADK>
 ```
 
+## Verify the package's installation
+
+```
+(venv) C:\Users\TEMP.DESKTOP-25LPNUR.005\Desktop\test\Yan_ADK>python
+Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 22:22:05) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import openadk
+>>> configuration = openadk.Configuration()
+>>> configuration.host = 'http://10.10.68.86:9090/v1'
+>>> api_instance = openadk.DevicesApi(openadk.ApiClient(configuration))
+>>> api_response = api_instance.get_devices_battery()
+>>> print (api_response)
+{'code': 0,
+ 'data': {'charging': 0, 'percent': 95, 'voltage': 4202},
+ 'msg': 'success'}
+>>>
+```
 
 # Install packages to system envonments
 
