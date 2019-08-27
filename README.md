@@ -1,3 +1,15 @@
+<!-- TOC -->
+
+- [yanshee_openadk](#yansheeopenadk)
+  - [Overview](#overview)
+  - [Requirements.](#requirements)
+  - [Installation & Usage](#installation--usage)
+- [create an instance of the API class](#create-an-instance-of-the-api-class)
+- [Get system's battery information](#get-systems-battery-information)
+- [building the image](#building-the-image)
+- [starting up a container](#starting-up-a-container)
+
+<!-- /TOC -->
 # yanshee_openadk
 ## Overview 
  
