@@ -68,7 +68,7 @@ from pprint import pprint
 
 # create an instance of the API class 
 configuration = openadk.Configuration() 
-configuration.host = 'http://192.168.31.109:9090/v1' 
+configuration.host = 'http://<ip>:9090/v1' 
 api_instance = openadk.DevicesApi(openadk.ApiClient(configuration))  
 try:  
 # Get system's battery information  
