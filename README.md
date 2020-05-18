@@ -62,13 +62,13 @@ Please follow the installation procedure and then run the following:
 ```python
 from __future__ import print_function 
 import time 
-import openadk from openadk.rest 
-import ApiException from pprint 
-import pprint  
+import openadk
+from openadk.rest import ApiException
+from pprint import pprint
 
 # create an instance of the API class 
 configuration = openadk.Configuration() 
-configuration.host = 'http://<ip>:9090/v1' 
+configuration.host = 'http://192.168.31.109:9090/v1' 
 api_instance = openadk.DevicesApi(openadk.ApiClient(configuration))  
 try:  
 # Get system's battery information  
